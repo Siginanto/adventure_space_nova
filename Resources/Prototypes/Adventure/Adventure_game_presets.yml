@@ -1,0 +1,26 @@
+- type: gamePreset
+  id: Calm
+  alias:
+  - spokoini
+  name: Спокойный
+  showInVote: true #RaidGocalmgamemode
+  description: Режим игры без агрессивных событий.
+  rules:
+  - SpaceTrafficControlFriendlyEventScheduler 
+  - BasicRoundstartVariation
+
+- type: gamePreset
+  id: Night #For Admin Use: Runs Greenshift but shows "Secret" in lobby.
+  alias:
+  - secretgreenshift
+  name: Судная ночь
+  showInVote: false #Admin Use
+  description: Останьтесь последним выжившим.
+
+- type: gamePreset
+  id: Middleages #For Admin Use: Runs Greenshift but shows "Secret" in lobby.
+  alias:
+  - secretgreenshift
+  name: Средневековье
+  showInVote: false #Admin Use
+  description: Ивент проводимый гейм-мастером. Слушайте его указания.
