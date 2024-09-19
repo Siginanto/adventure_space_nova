@@ -102,7 +102,7 @@
   description: Быстрое лечение на поле боя!
   components:
   - type: Sprite
-    sprite: Adventure/Entities/Objects/Weapons/syringegun.rsi
+    sprite: Adventure/Objects/Weapons/syringegun.rsi
     state: syringegun
   - type: Gun
     fireRate: 4
