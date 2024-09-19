@@ -1,5 +1,5 @@
-﻿defaultWindowTitle: Space Station 14
-windowIconSet: /Textures/Logo/icon
-splashLogo: /Textures/Logo/logo.png
+﻿defaultWindowTitle: Space Station 14 - Adventure Space [RU]
+windowIconSet: /Textures/Logo/icon-adv # Adv-Theme
+splashLogo: /Textures/Logo/adv_logo.png
 
 # PJB PLEASE
