@@ -38,6 +38,6 @@
     distance: 0.1
   - type: Item
     size: Normal
-#  - type: Blend хз откуда он
+  - type: Blend
     sound:
       collection: shufflerRustle
