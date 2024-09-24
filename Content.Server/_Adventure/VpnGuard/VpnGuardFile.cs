@@ -1,13 +1,12 @@
 using Content.Shared.CCVar;
 using Robust.Shared.Configuration;
-using Content.Corvax.Interfaces.Server;
 using System.Threading.Tasks;
 using System.Net;
 using System.IO;
 
 namespace Content.Server._c4llv07e.VpnGuard;
 
-public sealed class VpnGuardFile : IServerVPNGuardManager
+public sealed class VpnGuardFile : IVPNGuardManager
 {
     [Dependency] private readonly IConfigurationManager _cfg = default!;
 

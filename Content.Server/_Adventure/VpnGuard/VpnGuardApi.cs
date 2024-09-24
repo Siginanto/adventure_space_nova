@@ -1,6 +1,5 @@
 using Content.Shared.CCVar;
 using Robust.Shared.Configuration;
-using Content.Corvax.Interfaces.Server;
 using System.Net.Http;
 using System.Net;
 using System.Text.Json;
@@ -9,7 +8,7 @@ using Content.Server.Database;
 
 namespace Content.Server._c4llv07e.VpnGuard;
 
-public sealed class VpnGuardApi : IServerVPNGuardManager
+public sealed class VpnGuardApi : IVPNGuardManager
 {
     [Dependency] private readonly IConfigurationManager _cfg = default!;
 

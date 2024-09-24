@@ -1,4 +1,4 @@
-﻿using System.Linq;
+using System.Linq;
 using System.Threading.Tasks;
 using Content.Server.Connection.Whitelist;
 using Content.Server.Connection.Whitelist.Conditions;
@@ -86,6 +86,12 @@ public sealed partial class ConnectionManager
                     matched = CheckConditionNotesPlaytimeRange(conditionNotesPlaytimeRange, cacheRemarks, cachePlaytime);
                     denyMessage = Loc.GetString("whitelist-notes");
                     break;
+                // c4llv07e vpn guard begin
+                case ConditionVpnGuard conditionVpnGuard:
+                    matched = IoCManager.Resolve<conditionVpnGuard.GuardType>().Check();
+                    denyMessage = Loc.GetString("whitelist-vpn-guard-denied");
+                    break;
+                // c4llv07e vpn guard end
                 default:
                     throw new NotImplementedException($"Whitelist condition {condition.GetType().Name} not implemented");
             }
