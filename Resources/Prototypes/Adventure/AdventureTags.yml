@@ -1,5 +1,22 @@
+# Fun
 - type: Tag
   id: Card
 
 - type: Tag
   id: PockerChips
+
+# Botany - Flowers
+- type: Tag
+  id: RoseRed
+
+- type: Tag
+  id: RoseWhite
+
+- type: Tag
+  id: Tulip
+
+- type: Tag
+  id: Orchid
+
+- type: Tag
+  id: Carnation
