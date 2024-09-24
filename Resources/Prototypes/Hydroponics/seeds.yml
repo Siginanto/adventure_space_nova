@@ -297,6 +297,7 @@
     - extradimensionalOrange
     - lemon
     - lime
+    - clockworkorange
   harvestRepeat: Repeat
   lifespan: 55
   maturation: 6
@@ -480,6 +481,7 @@
     - Log
   mutationPrototypes:
     - steelcap
+    - glasscap
   lifespan: 80
   maturation: 15
   ligneous: true
@@ -1186,6 +1188,8 @@
   packetPrototype: AloeSeeds
   productPrototypes:
     - FoodAloe
+  mutationPrototypes:
+    - blueagava
   lifespan: 25
   maturation: 10
   production: 3
