@@ -5,7 +5,6 @@
   description: job-description-station-ai
   playTimeTracker: JobStationAi
   requirements:
-  requirements:
   - !type:RoleTimeRequirement
     role: JobBorg
     time: 3600 #1 hr # Adventure
