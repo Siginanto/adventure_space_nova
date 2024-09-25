@@ -231,3 +231,6 @@ ghost-role-information-artifact-name = Разумный артефакт
 ghost-role-information-artifact-description = Осуществляйте свои инопланетные прихоти. Принудительно активируйте свои узлы во благо или во зло.
 ghost-role-information-tomatokiller-name = Tomato killer
 ghost-role-information-tomatokiller-description = This little tomato will serve the botanist for the rest of his life... that is, a couple of minutes
+ghost-role-information-Gingerbread-name = Пряничный человечек
+ghost-role-information-Gingerbread-description = Вы любимый ребенок шеф-повара. Вы живой пряничный человечек.
+ghost-role-information-Gingerbread-rules = Вы съедобный человечек из печенья. Ваша задача найти свое место в этом мире, где всё хочет вас съесть.
