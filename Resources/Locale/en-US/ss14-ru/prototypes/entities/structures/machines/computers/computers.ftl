@@ -1,5 +1,5 @@
-ent-ComputerAlert = alerts computer
-    .desc = Used to access the station's automated alert system.
+ent-ComputerAlert = atmospheric alerts computer
+    .desc = Used to access the station's atmospheric automated alert system.
 ent-ComputerEmergencyShuttle = emergency shuttle console
     .desc = Handles authorization to early launch the shuttle.
 ent-BaseComputerShuttle = shuttle console
@@ -56,7 +56,7 @@ ent-ComputerSurveillanceCameraMonitor = camera monitor
 ent-ComputerSurveillanceWirelessCameraMonitor = wireless camera monitor
     .desc = A wireless surveillance camera monitor. You're watching them. Maybe.
 ent-ComputerPalletConsole = cargo sale computer
-    .desc = Used to sell goods loaded onto cargo pallets
+    .desc = Used to sell goods loaded onto cargo pallets.
 ent-ComputerMassMedia = news manager console
     .desc = Write your message to the world!
 ent-ComputerSensorMonitoring = sensor monitoring computer
