@@ -4,20 +4,31 @@
   description: job-description-captain
   playTimeTracker: JobCaptain
   requirements:
+    - !type:OverallPlaytimeRequirement
+      time: 72000 #20 hrs # Adventure
+    - !type:DepartmentTimeRequirement
+      department: Cargo
+      time: 36000 #10 hours # Adventure
+    - !type:DepartmentTimeRequirement
+      department: Civilian
+      time: 36000 #10 hours # Adventure
     - !type:DepartmentTimeRequirement
       department: Engineering
-      time: 54000 # 15 hours
+      time: 36000 #10 hours # Adventure
     - !type:DepartmentTimeRequirement
       department: Medical
-      time: 54000 # 15 hours
+      time: 36000 #10 hours # Adventure
+    - !type:DepartmentTimeRequirement
+      department: Science
+      time: 36000 #10 hours # Adventure
     - !type:DepartmentTimeRequirement
       department: Security
-      time: 54000 # 15 hours
+      time: 54000 #15 hours # Adventure
     - !type:DepartmentTimeRequirement
       department: Command
-      time: 54000 # 15 hours
+      time: 36000 #10 hours # Adventure
     - !type:AgeRequirement
-      requiredAge: 21
+      requiredAge: 30 # Adventure
   weight: 20
   startingGear: CaptainGear
   icon: "JobIconCaptain"

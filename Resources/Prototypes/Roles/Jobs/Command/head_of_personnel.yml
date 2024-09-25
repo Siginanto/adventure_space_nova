@@ -4,20 +4,31 @@
   description: job-description-hop
   playTimeTracker: JobHeadOfPersonnel
   requirements:
+    - !type:OverallPlaytimeRequirement
+      time: 54000 #15 hrs # Adventure
+    - !type:DepartmentTimeRequirement
+      department: Cargo
+      time: 18000 #5 hours # Adventure
+    - !type:DepartmentTimeRequirement
+      department: Civilian
+      time: 18000 #5 hours # Adventure
     - !type:DepartmentTimeRequirement
       department: Engineering
-      time: 36000 # 10 hours
+      time: 18000 #5 hours # Adventure
     - !type:DepartmentTimeRequirement
       department: Medical
-      time: 36000 # 10 hours
+      time: 18000 #5 hours # Adventure
+    - !type:DepartmentTimeRequirement
+      department: Science
+      time: 18000 #5 hours # Adventure
     - !type:DepartmentTimeRequirement
       department: Security
-      time: 36000 # 10 hrs
+      time: 18000 #5 hours # Adventure
     - !type:DepartmentTimeRequirement
       department: Command
-      time: 36000 # 10 hours
+      time: 18000 #5 hours # Adventure
     - !type:AgeRequirement
-      requiredAge: 21
+      requiredAge: 30 # Adventure
   weight: 20
   startingGear: HoPGear
   icon: "JobIconHeadOfPersonnel"

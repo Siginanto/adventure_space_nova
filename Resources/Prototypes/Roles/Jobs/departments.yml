@@ -58,12 +58,14 @@
   color: "#334E6D"
   roles:
   - Captain
+  - IAA # Corvax-IAA
   - ChiefEngineer
   - ChiefMedicalOfficer
   - HeadOfPersonnel
   - HeadOfSecurity
   - ResearchDirector
   - Quartermaster
+  - Blueshield #Adventure
   - CentralCommandOfficial
   - CBURN
   - ERTLeader
@@ -110,8 +112,10 @@
   - HeadOfSecurity
   - SecurityCadet
   - SecurityOfficer
+  - Pilot # Corvax-Pilot
   - Detective
   - Warden
+  - Brigmedic #Adventure
 
 - type: department
   id: Science
@@ -129,6 +133,11 @@
   description: department-Silicon-description
   color: "#D381C9"
   roles:
+  - CargoBorg #Adventure
+  - EngineerBorg #Adventure
+  - JanitorBorg #Adventure
+  - MedicalBorg #Adventure
+  - ServiceBorg #Adventure
   - Borg
   - StationAi
 
@@ -143,4 +152,12 @@
   - Reporter
   - Zookeeper
   - Psychologist
+  - Pilot # Corvax-Pilot
+  - Blueshield #Adventure
+  - Brigmedic #Adventure
+  - CargoBorg #Adventure
+  - EngineerBorg #Adventure
+  - JanitorBorg #Adventure
+  - MedicalBorg #Adventure
+  - ServiceBorg #Adventure
   primary: false
