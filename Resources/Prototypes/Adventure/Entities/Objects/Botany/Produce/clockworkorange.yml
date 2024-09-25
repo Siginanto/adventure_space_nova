@@ -1,6 +1,6 @@
 - type: entity
   parent: SeedBase
-  name: пакет семян заводного апельсина
+  name: пакет семян (заводной апельсин)
   id: ClockworkOrangeSeeds
   components:
     - type: Seed

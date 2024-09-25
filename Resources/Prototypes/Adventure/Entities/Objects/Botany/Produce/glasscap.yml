@@ -1,6 +1,6 @@
 - type: entity
   parent: SeedBase
-  name: пакет спор стеклошляпника
+  name: пакет спор (стеклошляпник)
   id: GlasscapSeeds
   components:
     - type: Seed

@@ -1,6 +1,6 @@
 - type: entity
   parent: SeedBase
-  name: пакет семян голубой агавы
+  name: пакет семян (голубая агава)
   description: "Бодрящее"
   id: BlueAgavaSeeds
   components:
