@@ -39,6 +39,16 @@
     - id: PlushieMoth
     - id: PlushieArachind
     - id: PlushiePenguin
+# Adventure_plushie_start
+    - id: PlushieIAA
+    - id: PlushieERT
+    - id: PlushieMaid
+    - id: PlushieBartender
+    - id: PlushieHOS
+    - id: PlushieCBURN
+    - id: PlushieCMO
+    - id: PlushieRD
+# Adventure_plushie_end
 
 - type: entity
   id: CrateFunPlushie
