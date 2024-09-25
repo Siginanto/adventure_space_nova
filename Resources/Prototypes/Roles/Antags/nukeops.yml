@@ -7,9 +7,9 @@
   requirements:
   - !type:OverallPlaytimeRequirement
     time: 36000 # 10 hrs # Adventure
-    - !type:DepartmentTimeRequirement
-      department: Security
-      time: 18000 #5 hrs # Adventure
+  - !type:DepartmentTimeRequirement
+    department: Security
+    time: 18000 #5 hrs # Adventure
   guides: [ NuclearOperatives ]
 
 - type: antag
@@ -21,9 +21,9 @@
   requirements:
   - !type:OverallPlaytimeRequirement
     time: 54000 #15 hrs # Adventure
-    - !type:DepartmentTimeRequirement
-      department: Security
-      time: 36000 #10 hrs # Adventure
+  - !type:DepartmentTimeRequirement
+    department: Security
+    time: 36000 #10 hrs # Adventure
   - !type:RoleTimeRequirement
     role: JobChemist
     time: 36000 # 3hrs
