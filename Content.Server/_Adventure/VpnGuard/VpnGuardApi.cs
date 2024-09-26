@@ -1,4 +1,4 @@
-using Content.Shared.CCVar;
+using Content.Shared._Adventure.ACVar;
 using Robust.Shared.Configuration;
 using System.Net.Http;
 using System.Net;
@@ -31,9 +31,9 @@ public sealed class VpnGuardApi : IVPNGuardManager
     public void Initialize()
     {
         _sawmill = Logger.GetSawmill("c4_VpnGuardApi");
-        _cfg.OnValueChanged(CCVars.VpnGuardApiUrl, UpdateUri, true);
-        _cfg.OnValueChanged(CCVars.VpnGuardApiUserId, s => _userId = s, true);
-        _cfg.OnValueChanged(CCVars.VpnGuardApiKey, s => _apiKey = s, true);
+        _cfg.OnValueChanged(ACVars.VpnGuardApiUrl, UpdateUri, true);
+        _cfg.OnValueChanged(ACVars.VpnGuardApiUserId, s => _userId = s, true);
+        _cfg.OnValueChanged(ACVars.VpnGuardApiKey, s => _apiKey = s, true);
     }
 
     public async Task<bool> IsConnectionVpn(IPAddress ip)

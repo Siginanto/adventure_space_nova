@@ -1,4 +1,4 @@
-using Content.Shared.CCVar;
+using Content.Shared._Adventure.ACVar;
 using Robust.Shared.Configuration;
 using System.Threading.Tasks;
 using System.Net;
@@ -24,7 +24,7 @@ public sealed class VpnGuardFile : IVPNGuardManager
         int line_number;
         string? content;
         string path;
-        path = _cfg.GetCVar(CCVars.VpnGuardFilePath);
+        path = _cfg.GetCVar(ACVars.VpnGuardFilePath);
         if (path == string.Empty)
             return;
         try {
