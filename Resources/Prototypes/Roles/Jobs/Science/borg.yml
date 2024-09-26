@@ -12,13 +12,13 @@
     role: JobCargoBorg
     time: 3600 #1 hr # Adventure
   - !type:RoleTimeRequirement
-    role: JobEngenerBorg
+    role: JobEngineerBorg
     time: 3600 #1 hr # Adventure
   - !type:RoleTimeRequirement
     role: JobJanitorBorg
     time: 3600 #1 hr # Adventure
   - !type:RoleTimeRequirement
-    role: JobMedIcalBorg
+    role: JobMedicalBorg
     time: 3600 #1 hr # Adventure
   - !type:RoleTimeRequirement
     role: JobServiceBorg
