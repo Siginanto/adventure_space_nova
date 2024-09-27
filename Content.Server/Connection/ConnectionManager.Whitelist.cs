@@ -1,3 +1,4 @@
+using Content.Server._Adventure.VpnGuard.Connection; // c4llv07e vpn guard
 using System.Linq;
 using System.Threading.Tasks;
 using Content.Server.Connection.Whitelist;
@@ -88,7 +89,8 @@ public sealed partial class ConnectionManager
                     break;
                 // c4llv07e vpn guard begin
                 case ConditionVpnGuard conditionVpnGuard:
-                    matched = IoCManager.Resolve<conditionVpnGuard.GuardType>().Check();
+                    matched = true;
+                    // matched = IoCManager.Resolve<conditionVpnGuard.GuardType>().Check();
                     denyMessage = Loc.GetString("whitelist-vpn-guard-denied");
                     break;
                 // c4llv07e vpn guard end

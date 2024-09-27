@@ -6,9 +6,9 @@ using System.Text.Json;
 using System.Threading.Tasks;
 using Content.Server.Database;
 
-namespace Content.Server._c4llv07e.VpnGuard;
+namespace Content.Server._Adventure.VpnGuard;
 
-public sealed class VpnGuardApi : IVPNGuardManager
+public sealed class VpnGuardApi : IVpnGuardManager
 {
     [Dependency] private readonly IConfigurationManager _cfg = default!;
 
@@ -36,7 +36,7 @@ public sealed class VpnGuardApi : IVPNGuardManager
         _cfg.OnValueChanged(ACVars.VpnGuardApiKey, s => _apiKey = s, true);
     }
 
-    public async Task<bool> IsConnectionVpn(IPAddress ip)
+    public async Task<bool> Check(IPAddress ip)
     {
         if (_apiUri == null || _userId == string.Empty || _apiKey == string.Empty)
             return false;

@@ -4,9 +4,9 @@ using System.Threading.Tasks;
 using System.Net;
 using System.IO;
 
-namespace Content.Server._c4llv07e.VpnGuard;
+namespace Content.Server._Adventure.VpnGuard;
 
-public sealed class VpnGuardFile : IVPNGuardManager
+public sealed class VpnGuardFile : IVpnGuardManager
 {
     [Dependency] private readonly IConfigurationManager _cfg = default!;
 
@@ -48,7 +48,7 @@ public sealed class VpnGuardFile : IVPNGuardManager
         }
     }
 
-    public async Task<bool> IsConnectionVpn(IPAddress ip)
+    public async Task<bool> Check(IPAddress ip)
     {
         foreach (var network in networks)
         {
