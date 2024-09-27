@@ -823,10 +823,10 @@
       - WeaponLaserCannon
       - WeaponLaserCarbine
       - WeaponXrayCannon
-      - WeaponPlasmaSniperPrint
-      - PlasmaSniperMagazinePrint
-      - WeaponPlasmaGunPrint
-      - PlasmaMagazinePrint
+      - WeaponPlasmaSniperPrint # Adventure
+      - PlasmaSniperMagazinePrint # Adventure
+      - WeaponPlasmaGunPrint # Adventure
+      - PlasmaMagazinePrint # Adventure
   - type: MaterialStorage
     whitelist:
       tags:
