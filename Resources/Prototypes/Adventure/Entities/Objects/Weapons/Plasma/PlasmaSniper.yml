@@ -1,8 +1,8 @@
 #Плазменная батарея снайперки
 - type: entity
-  id: PlasmaSniperMagazin
+  id: PlasmaSniperMagazine
   name: Плазменная батарея "Виверны"
-  description: Батарея, для заряда плазменной винтовки "Виверна"
+  description: Батарея для заряда плазменной винтовки "Виверна"
   suffix: BORK
   parent: BaseItem
   components:
@@ -44,10 +44,10 @@
     fireCost: 333.33
 
 - type: entity
-  id: PlasmaSniperMagazinPrint
+  id: PlasmaSniperMagazinePrint
   name: Плазменная батарея "Виверны"
   suffix: BORK(Print)
-  parent: PlasmaSniperMagazin
+  parent: PlasmaSniperMagazine
   components:
   - type: Battery
     maxCharge: 1000
@@ -124,7 +124,7 @@
     slots:
       gun_magazine:
         name: Magazine
-        startingItem: PlasmaSniperMagazin
+        startingItem: PlasmaSniperMagazine
         insertSound: /Audio/Weapons/Guns/MagIn/kinetic_reload.ogg
         ejectSound: /Audio/Weapons/Guns/MagOut/sfrifle_magout.ogg
         whitelist:
@@ -156,7 +156,7 @@
     slots:
       gun_magazine:
         name: Magazine
-        startingItem: PlasmaSniperMagazinPrint
+        startingItem: PlasmaSniperMagazinePrint
         insertSound: /Audio/Weapons/Guns/MagIn/kinetic_reload.ogg
         ejectSound: /Audio/Weapons/Guns/MagOut/sfrifle_magout.ogg
         whitelist:
@@ -173,7 +173,7 @@
     contents:
     - id: WeaponPlasmaSniper
       amount: 1
-    - id: PlasmaSniperMagazin
+    - id: PlasmaSniperMagazine
       amount: 2
 
 - type: Tag
@@ -192,11 +192,13 @@
      Plastic: 750
 
 - type: latheRecipe
-  id: PlasmaSniperMagazinPrint
-  result: PlasmaSniperMagazinPrint
+  id: PlasmaSniperMagazinePrint
+  result: PlasmaSniperMagazinePrint
   category: Ammo
   completetime: 3
   materials:
      Steel: 750
      Uranium: 750
      Glass: 500
+
+# Изучение в прототипе PlasmaGun

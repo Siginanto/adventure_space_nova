@@ -1,8 +1,8 @@
 #Плазменная батарея
 - type: entity
-  id: PlasmaMagazin
+  id: PlasmaMagazine
   name: Плазменная батарея
-  description: Батарея, для заряда плазменного оружия
+  description: Батарея для заряда плазменного оружия
   suffix: BORK
   parent: BaseItem
   components:
@@ -44,10 +44,10 @@
     fireCost: 40
 
 - type: entity
-  id: PlasmaMagazinPrint
+  id: PlasmaMagazinePrint
   name: Плазменная батарея
   suffix: BORK(Print)
-  parent: PlasmaMagazin
+  parent: PlasmaMagazine
   components:
   - type: Battery
     maxCharge: 1000
@@ -80,7 +80,7 @@
 - type: entity
   id: WeaponPlasmaGun
   name: Плазменная винтовка
-  description: Для наибольшей точности, держите в двух руках!
+  description: Для наибольшей точности держите в двух руках!
   suffix: BORK
   parent: BaseItem
   components:
@@ -124,7 +124,7 @@
     slots:
       gun_magazine:
         name: Magazine
-        startingItem: PlasmaMagazin
+        startingItem: PlasmaMagazine
         insertSound: /Audio/Weapons/Guns/MagIn/kinetic_reload.ogg
         ejectSound: /Audio/Weapons/Guns/MagOut/sfrifle_magout.ogg
         whitelist:
@@ -152,7 +152,7 @@
     slots:
       gun_magazine:
         name: Magazine
-        startingItem: PlasmaMagazinPrint
+        startingItem: PlasmaMagazinePrint
         insertSound: /Audio/Weapons/Guns/MagIn/kinetic_reload.ogg
         ejectSound: /Audio/Weapons/Guns/MagOut/sfrifle_magout.ogg
         whitelist:
@@ -169,7 +169,7 @@
     contents:
     - id: WeaponPlasmaGun
       amount: 2
-    - id: PlasmaMagazin
+    - id: PlasmaMagazine
       amount: 4
 
 # рецепты
@@ -185,11 +185,27 @@
      Plastic: 500
 
 - type: latheRecipe
-  id: PlasmaMagazinPrint
-  result: PlasmaMagazinPrint
+  id: PlasmaMagazinePrint
+  result: PlasmaMagazinePrint
   category: Ammo
   completetime: 3
   materials:
      Steel: 500
      Uranium: 500
      Glass: 250
+
+# Изучение
+- type: technology
+  id: PlasmaWeapons
+  name: Плазменное оружие
+  icon:
+    sprite: Adventure/Objects/Weapons/Plasma/PlasmaRiffle/PlasmaRiffle/PlasmaRiffle_icon.rsi
+    state: icon
+  discipline: Arsenal
+  tier: 2
+  cost: 15000
+  recipeUnlocks:
+  - WeaponPlasmaGunPrint
+  - PlasmaMagazinePrint
+  - PlasmaSniperMagazinePrint
+  - WeaponPlasmaSniperPrint

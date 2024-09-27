@@ -439,6 +439,7 @@
     - ChemMasterMachineCircuitboard
     - CondenserMachineCircuitBoard
     - HotplateMachineCircuitboard
+    - PrinterMachineCircuitboard # Adventure printer
     - UniformPrinterMachineCircuitboard
     - FloorGreenCircuit
     - FloorBlueCircuit
@@ -822,6 +823,10 @@
       - WeaponLaserCannon
       - WeaponLaserCarbine
       - WeaponXrayCannon
+      - WeaponPlasmaSniperPrint
+      - PlasmaSniperMagazinePrint
+      - WeaponPlasmaGunPrint
+      - PlasmaMagazinePrint
   - type: MaterialStorage
     whitelist:
       tags:
