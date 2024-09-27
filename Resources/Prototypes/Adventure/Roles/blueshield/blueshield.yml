@@ -1,7 +1,7 @@
 #Роль
 - type: job
   id: Blueshield
-  name: офицер синий щит
+  name: офицер синий щит.
   description: Защищайте командный состав и ВИП персон Центрального Командования
   playTimeTracker: JobBlueshield
   requirements:
