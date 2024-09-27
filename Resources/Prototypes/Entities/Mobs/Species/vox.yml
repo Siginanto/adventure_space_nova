@@ -27,7 +27,7 @@
   - type: Butcherable
     butcheringType: Spike
     spawned:
-    - id: FoodMeatChicken
+    - id: FoodMeatVox # Adventure
       amount: 5
   - type: Damageable
     damageContainer: Biological
@@ -130,6 +130,21 @@
           32:
             sprite: Mobs/Species/Vox/displacement.rsi
             state: shoes
+      belt:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Vox/displacement.rsi # Adventure
+            state: belt
+      neck:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Vox/displacement.rsi # Adventure
+            state: neck
+      outerClothing:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Vox/displacement.rsi # Adventure
+            state: outerClothing
 
 - type: entity
   parent: BaseSpeciesDummy
@@ -178,3 +193,18 @@
           32:
             sprite: Mobs/Species/Vox/displacement.rsi
             state: shoes
+      belt:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Vox/displacement.rsi # Adventure
+            state: belt
+      neck:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Vox/displacement.rsi # Adventure
+            state: neck
+      outerClothing:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Vox/displacement.rsi # Adventure
+            state: outerClothing
