@@ -1,12 +1,14 @@
 name: RSI Validator
 
-on:
-  push:
-    branches: [ staging, trying ]
-  merge_group:
-  pull_request:
-    paths:
-      - '**.rsi/**'
+# c4llv07e disable automatic workflows begin
+# on:
+#   push:
+#     branches: [ staging, trying ]
+#   merge_group:
+#   pull_request:
+#     paths:
+#       - '**.rsi/**'
+# c4llv07e disable automatic workflows end
 
 jobs:
   validate_rsis:
