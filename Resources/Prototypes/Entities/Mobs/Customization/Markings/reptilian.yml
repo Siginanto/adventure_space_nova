@@ -133,7 +133,9 @@
   speciesRestriction: [Reptilian]
   sprites:
   - sprite: Mobs/Customization/reptilian_parts.rsi
-    state: tail_smooth
+    state: tail_smooth_primary
+  - sprite: Mobs/Customization/reptilian_parts.rsi
+    state: tail_smooth_secondary
 
 - type: marking
   id: LizardTailLarge
