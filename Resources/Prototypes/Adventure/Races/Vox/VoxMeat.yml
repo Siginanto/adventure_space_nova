@@ -11,7 +11,7 @@
   - type: Sprite
     layers:
     - state: Vox_Meat
-      sprite: Adventure/Objects/Food/VoxMeat.rsi
+      sprite: Adventure/Races/Vox/VoxMeat.rsi
   - type: SolutionContainerManager
     solutions:
       food:
