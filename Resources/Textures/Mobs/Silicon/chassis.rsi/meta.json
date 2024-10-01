@@ -5,24 +5,8 @@
     "y": 32
   },
   "license": "CC-BY-SA-3.0",
-  "copyright": "Taken from tgstation at https://github.com/tgstation/tgstation/commit/faf6db214927874c19b8fa8585d26b5d40de1acc",
+  "copyright": "made by borkroman",
   "states": [
-    {
-      "name": "clown",
-      "directions": 4
-    },
-    {
-      "name": "clown_e",
-      "directions": 4
-    },
-    {
-      "name": "clown_e_r",
-      "directions": 4
-    },
-    {
-      "name": "clown_l",
-      "directions": 4
-    },
     {
       "name": "engineer",
       "directions": 4
@@ -49,25 +33,17 @@
       "delays": [
         [
           0.1,
-          0.1,
+          0.1
+        ],
+        [
           0.1,
           0.1
         ],
         [
           0.1,
-          0.1,
-          0.1,
           0.1
         ],
         [
-          0.1,
-          0.1,
-          0.1,
-          0.1
-        ],
-        [
-          0.1,
-          0.1,
           0.1,
           0.1
         ]
@@ -204,24 +180,30 @@
       "directions": 4
     },
     {
-      "name": "peace",
-      "directions": 4
-    },
-    {
-      "name": "peace_e",
-      "directions": 4
-    },
-    {
-      "name": "peace_e_r",
-      "directions": 4
-    },
-    {
-      "name": "peace_l",
-      "directions": 4
-    },
-    {
       "name": "service",
       "directions": 4
+    },
+    {
+      "name": "service_moving",
+      "directions": 4,
+      "delays": [
+        [
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1
+        ]
+      ]
     },
     {
       "name": "service_e",

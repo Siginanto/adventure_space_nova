@@ -2,6 +2,8 @@
   id: BorgChassisGeneric
   parent: BaseBorgChassisNT
   components:
+  - type: PointLight # Adventure
+    color: "#97fcef"
   - type: Sprite
     layers:
     - state: robot
@@ -40,6 +42,8 @@
   parent: BaseBorgChassisNT
   name: salvage cyborg
   components:
+  - type: PointLight # Adventure
+    color: "#a4fef4"
   - type: Sprite
     layers:
     - state: miner
@@ -101,6 +105,8 @@
   parent: BaseBorgChassisNT
   name: engineer cyborg
   components:
+  - type: PointLight # Adventure
+    color: "#97fcef"
   - type: Sprite
     layers:
     - state: engineer
@@ -154,6 +160,8 @@
   parent: BaseBorgChassisNT
   name: janitor cyborg
   components:
+  - type: PointLight # Adventure
+    color: "#72fbbe"
   - type: Sprite
     layers:
     - state: janitor
@@ -215,6 +223,8 @@
   parent: [BaseBorgChassisNT, ShowMedicalIcons]
   name: medical cyborg
   components:
+  - type: PointLight # Adventure
+    color: "#adf1ff"
   - type: Sprite
     layers:
     - state: medical
@@ -280,9 +290,12 @@
   parent: BaseBorgChassisNT
   name: service cyborg
   components:
+  - type: PointLight # Adventure
+    color: "#97fcef"
   - type: Sprite
     layers:
     - state: service
+      map: ["movement"] # Adventure
     - state: service_e_r
       map: ["enum.BorgVisualLayers.Light"]
       shader: unshaded
@@ -291,6 +304,13 @@
       shader: unshaded
       map: ["light"]
       visible: false
+  - type: SpriteMovement # Adventure
+    movementLayers:
+      movement:
+        state: service_moving
+    noMovementLayers:
+      movement:
+        state: service
   - type: BorgChassis
     maxModules: 4
     moduleWhitelist:
