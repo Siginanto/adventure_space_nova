@@ -1,3 +1,4 @@
+using Content.Shared._Adventure.TTS;
 using System.Collections.Immutable;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
@@ -200,6 +201,12 @@ namespace Content.Server.Database
             if (Enum.TryParse<Gender>(profile.Gender, true, out var genderVal))
                 gender = genderVal;
 
+            // c4llv07e tts
+            var voice = profile.Voice;
+            if (voice == String.Empty)
+                voice = TTSConfig.DefaultSexVoice[sex];
+            // c4llv07e tts
+
             // ReSharper disable once ConditionalAccessQualifierIsNonNullableAccordingToAPIContract
             var markingsRaw = profile.Markings?.Deserialize<List<string>>();
 
@@ -261,7 +268,8 @@ namespace Content.Server.Database
                 (PreferenceUnavailableMode) profile.PreferenceUnavailable,
                 antags.ToHashSet(),
                 traits.ToHashSet(),
-                loadouts
+                loadouts,
+                voice // c4llv07e tts
             );
         }
 
@@ -276,6 +284,7 @@ namespace Content.Server.Database
             }
             var markings = JsonSerializer.SerializeToDocument(markingStrings);
 
+            profile.Voice = humanoid.Voice; // c4llv07e tts
             profile.CharacterName = humanoid.Name;
             profile.FlavorText = humanoid.FlavorText;
             profile.Species = humanoid.Species;
