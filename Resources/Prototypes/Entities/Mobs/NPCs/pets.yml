@@ -781,6 +781,8 @@
     attributes:
       proper: true
       gender: female
+  - type: TTS # c4llv07e tts
+    voice: Dryad # TODO(c4): fix voices.
 
 - type: entity
   name: Pun Pun

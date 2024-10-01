@@ -240,6 +240,8 @@
     damageProtection:
       flatReductions:
         Heat: 10 # capable of touching light bulbs and stoves without feeling pain!
+  - type: TTS # c4llv07e tts
+    voice: glados # TODO(c4): fix voice
 
 - type: entity
   abstract: true
