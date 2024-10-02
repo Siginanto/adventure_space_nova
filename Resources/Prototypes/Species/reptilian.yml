@@ -11,6 +11,9 @@
   maleFirstNames: names_reptilian_male
   femaleFirstNames: names_reptilian_female
   naming: FirstDashFirst
+  youngAge: 40 # Adventure
+  oldAge: 90 # Adventure
+  maxAge: 150 # Adventure
 
 - type: speciesBaseSprites
   id: MobReptilianSprites
