@@ -74,7 +74,7 @@
     requiredLegs: 2
   - type: Hunger
   - type: Icon 
-    sprite: Adventure/Mobs/Species/Skrell/parts.rsi
+    sprite: Adventure/Races/Skrell/Species/parts.rsi
     state: full
   - type: Thirst
   - type: Butcherable

@@ -8,27 +8,27 @@
   },
   "states": [
     {
-      "name": "Teils_Big",
+      "name": "Tails_Big",
       "directions": 4
     },
     {
-      "name": "Teils_Double",
+      "name": "Tails_Double",
       "directions": 4
     },
     {
-      "name": "Teils_Dreds",
+      "name": "Tails_Dreds",
       "directions": 4
     },
     {
-      "name": "Teils_Fisto",
+      "name": "Tails_Fisto",
       "directions": 4
     },
     {
-      "name": "Teils_Long",
+      "name": "Tails_Long",
       "directions": 4
     },
     {
-      "name": "Teils_Tvileck",
+      "name": "Tails_Tvileck",
       "directions": 4
     }
   ]
