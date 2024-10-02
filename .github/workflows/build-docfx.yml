@@ -1,8 +1,10 @@
 name: Build & Publish Docfx
 
-on:
-  schedule:
-    - cron: "0 0 * * 0"
+# c4llv07e disable automatic workflows begin
+# on:
+#   schedule:
+#     - cron: "0 0 * * 0"
+# c4llv07e disable automatic workflows end
 
 jobs:
   docfx:

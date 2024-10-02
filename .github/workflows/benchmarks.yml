@@ -1,8 +1,10 @@
 ﻿name: Benchmarks
 on:
   workflow_dispatch:
-  schedule:
-    - cron: '0 8 * * *'
+# c4llv07e disable automatic workflows begin
+#  schedule:
+#    - cron: '0 8 * * *'
+# c4llv07e disable automatic workflows end
 
 concurrency: benchmarks
 

@@ -1,9 +1,11 @@
 name: Diff RSIs
 
-on:
-  pull_request_target:
-    paths:
-      - '**.rsi/**.png'
+# c4llv07e disable automatic workflows begin
+# on:
+#   pull_request_target:
+#     paths:
+#       - '**.rsi/**.png'
+# c4llv07e disable automatic workflows end
 
 jobs:
   diff:
