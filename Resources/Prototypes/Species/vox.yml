@@ -12,8 +12,11 @@
   femaleFirstNames: names_vox
   naming: First
   sexes:
-  - Unsexed
-
+  - Unsexed 
+  youngAge: 20 # Adventure
+  oldAge: 40 # Adventure
+  maxAge: 65 # Adventure
+ 
 - type: speciesBaseSprites
   id: MobVoxSprites
   sprites:

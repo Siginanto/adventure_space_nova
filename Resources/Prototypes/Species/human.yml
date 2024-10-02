@@ -7,6 +7,9 @@
   markingLimits: MobHumanMarkingLimits
   dollPrototype: MobHumanDummy
   skinColoration: HumanToned
+  youngAge: 30 # Adventure
+  oldAge: 60 # Adventure
+  maxAge: 100 # Adventure
 
 # The lack of a layer means that
 # this person cannot have round-start anything

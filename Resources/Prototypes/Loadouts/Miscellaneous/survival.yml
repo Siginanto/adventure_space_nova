@@ -19,6 +19,8 @@
     - Moth
     - Reptilian
     - Vulpkanin # Corvax-MRP
+    - Skrell # Adventure
+    - PigMan # Adventure
 
 - type: loadoutEffectGroup
   id: EffectSpeciesVox
