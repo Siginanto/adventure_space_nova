@@ -1,7 +1,9 @@
 ﻿name: "Labels: PR"
 
-on:
-- pull_request_target
+# c4llv07e disable automatic workflows begin
+# on:
+# - pull_request_target
+# c4llv07e disable automatic workflows end
 
 jobs:
   labeler:
