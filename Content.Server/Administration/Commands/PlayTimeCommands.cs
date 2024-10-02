@@ -3,6 +3,7 @@ using Content.Shared.Administration;
 using Content.Shared.Players.PlayTimeTracking;
 using Robust.Server.Player;
 using Robust.Shared.Console;
+using System.Linq;
 
 namespace Content.Server.Administration.Commands;
 
@@ -336,6 +337,10 @@ public sealed class PlayTimeFlushCommand : IConsoleCommand
 	}
 }
 
+// adventure space start
+/// <summary>
+/// Adds time to every role
+/// </summary>
 [AdminCommand(AdminFlags.Moderator)]
 public sealed class PlayTimeAddEveryCommand : IConsoleCommand
 {
@@ -407,3 +412,4 @@ public sealed class PlayTimeAddEveryCommand : IConsoleCommand
         return CompletionResult.Empty;
     }
 }
+// adventure space end
