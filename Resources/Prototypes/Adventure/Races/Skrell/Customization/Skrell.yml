@@ -1,68 +1,68 @@
 #Teils
 - type: marking
-  id: SkrellTeilsBig
+  id: SkrellTailsBig
   bodyPart: Tail
   markingCategory: Tail
   followSkinColor: true
   forcedColoring: true
   speciesRestriction: [Skrell]
   sprites:
-  - sprite: Adventure/Mobs/Customization/Skrell/Teils.rsi
-    state: Teils_Big
+  - sprite: Adventure/Races/Skrell/Customization/Tails.rsi
+    state: Tails_Big
 
 - type: marking
-  id: SkrellTeilsDouble
+  id: SkrellTailsDouble
   bodyPart: Tail
   markingCategory: Tail
   followSkinColor: true
   forcedColoring: true
   speciesRestriction: [Skrell]
   sprites:
-  - sprite: Adventure/Mobs/Customization/Skrell/Teils.rsi
-    state: Teils_Double
+  - sprite: Adventure/Races/Skrell/Customization/Tails.rsi
+    state: Tails_Double
 
 - type: marking
-  id: SkrellTeilsDreds
+  id: SkrellTailsDreds
   bodyPart: Tail
   markingCategory: Tail
   followSkinColor: true
   forcedColoring: true
   speciesRestriction: [Skrell]
   sprites:
-  - sprite: Adventure/Mobs/Customization/Skrell/Teils.rsi
-    state: Teils_Dreds
+  - sprite: Adventure/Races/Skrell/Customization/Tails.rsi
+    state: Tails_Dreds
 
 - type: marking
-  id: SkrellTeilsFisto
+  id: SkrellTailsFisto
   bodyPart: Tail
   markingCategory: Tail
   followSkinColor: true
   forcedColoring: true
   speciesRestriction: [Skrell]
   sprites:
-  - sprite: Adventure/Mobs/Customization/Skrell/Teils.rsi
-    state: Teils_Fisto
+  - sprite: Adventure/Races/Skrell/Customization/Tails.rsi
+    state: Tails_Fisto
 
 - type: marking
-  id: SkrellTeilsLong
+  id: SkrellTailsLong
   bodyPart: Tail
   markingCategory: Tail
   followSkinColor: true
   forcedColoring: true
   speciesRestriction: [Skrell]
   sprites:
-  - sprite: Adventure/Mobs/Customization/Skrell/Teils.rsi
-    state: Teils_Long
+  - sprite: Adventure/Races/Skrell/Customization/Tails.rsi
+    state: Tails_Long
 
 - type: marking
-  id: SkrellTeilsTvileck
+  id: SkrellTailsTvileck
   bodyPart: Tail
   markingCategory: Tail
   followSkinColor: true
   forcedColoring: true
   speciesRestriction: [Skrell]
   sprites:
-  - sprite: Adventure/Mobs/Customization/Skrell/Teils.rsi
-    state: Teils_Tvileck
+  - sprite: Adventure/Races/Skrell/Customization/Tails.rsi
+    state: Tails_Tvileck
 
 

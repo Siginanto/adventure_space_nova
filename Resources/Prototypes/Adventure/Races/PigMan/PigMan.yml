@@ -76,7 +76,7 @@
   - type: Thirst
     baseDecayRate: 0.0333
   - type: Icon 
-    sprite: Adventure/Mobs/Species/PigMan/parts.rsi
+    sprite: Adventure/Races/PigMan/Species/parts.rsi
     state: full
   - type: Butcherable
     butcheringType: Spike
