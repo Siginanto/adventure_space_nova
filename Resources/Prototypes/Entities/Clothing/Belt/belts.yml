@@ -622,6 +622,18 @@
   - type: Storage
     grid:
     - 0,0,3,1
+    whitelist:
+      tags:
+        - CigPack
+        - Taser
+      components:
+        - Stunbaton
+        - FlashOnTrigger
+        - SmokeOnTrigger
+        - Flash
+        - Handcuff
+        - BallisticAmmoProvider
+        - Ammo
 
 - type: entity
   parent: [ ClothingBeltStorageBase, BaseSecurityCargoContraband ]
@@ -633,9 +645,6 @@
     sprite: Clothing/Belt/mercwebbing.rsi
   - type: Clothing
     sprite: Clothing/Belt/mercwebbing.rsi
-  - type: Storage
-    grid:
-    - 0,0,3,1
 
 - type: entity
   parent: ClothingBeltStorageBase
@@ -647,9 +656,6 @@
     sprite: Clothing/Belt/salvagewebbing.rsi
   - type: Clothing
     sprite: Clothing/Belt/salvagewebbing.rsi
-  - type: Storage
-    grid:
-    - 0,0,3,1
 
 - type: entity
   parent: [ClothingBeltStorageBase, ContentsExplosionResistanceBase, BaseSyndicateContraband]
@@ -666,6 +672,18 @@
   - type: Storage
     grid:
     - 0,0,3,1
+    whitelist:
+      tags:
+        - CigPack
+        - Taser
+      components:
+        - Stunbaton
+        - FlashOnTrigger
+        - SmokeOnTrigger
+        - Flash
+        - Handcuff
+        - BallisticAmmoProvider
+        - Ammo
 
 - type: entity
   parent: ClothingBeltMilitaryWebbing
@@ -681,9 +699,6 @@
     size: Huge
   - type: ExplosionResistance
     damageCoefficient: 0.1
-  - type: Storage
-    grid:
-    - 0,0,3,1
 
 - type: entity
   parent: ClothingBeltBase
