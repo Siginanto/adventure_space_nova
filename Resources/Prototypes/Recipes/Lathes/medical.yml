@@ -241,3 +241,12 @@
   materials:
     Steel: 100
     Plastic: 100
+
+- type: latheRecipe
+  id: ReusableMedipen
+  result: ReusableMedipen
+  completetime: 4
+  materials:
+    Steel: 400
+    Plastic: 100
+    Glass: 200
