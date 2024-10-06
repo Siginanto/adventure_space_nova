@@ -6,6 +6,8 @@
     species:
     - SlimePerson
     - Vox
+    - Zerah # Adventure
+    
 
 - type: loadoutEffectGroup
   id: OxygenBreather
