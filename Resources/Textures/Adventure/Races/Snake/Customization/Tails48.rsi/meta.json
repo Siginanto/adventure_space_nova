@@ -8,7 +8,7 @@
   },
   "states": [
     {
-      "name": "Snake_teile_big",
+      "name": "Snake_tail_big",
       "directions": 4
     }
   ]

@@ -1,5 +1,5 @@
-﻿marking-SnakeTeilsBig-Snake_teile_big = Зерах, хвост (Длинный)
-marking-SnakeTeilsBig = Зерах, хвост (Длинный) 
+﻿marking-SnakeTailsBig-Snake_Tail_big = Зерах, хвост (Длинный)
+marking-SnakeTailsBig = Зерах, хвост (Длинный) 
 marking-SnakeCollarCobra-base = Зерах, воротник (Кобра)
 marking-SnakeCollarCobra = Зерах, воротник (Кобра)
 marking-SnakeCollarCobraSpike-base_spike = Зерах, воротник (Шипастая кобра)
@@ -16,8 +16,8 @@ marking-SnakeBodyM-body_m = Зерах, тело (Мужское подбрюш�
 marking-SnakeBodyM = Зерах, тело (Мужское подбрюшье)
 marking-SnakeHeadBase-Head = Зерах, воротник (Змеиная голова)
 marking-SnakeHeadBase= Зерах, воротник (Змеиная голова)
-marking-SnakeTeilBase-Teil_base = Зерах, хвост (Свёрнутый)
-marking-SnakeTeilBase = Зерах, хвост (Свёрнутый)
+marking-SnakeTailBase-Tail_base = Зерах, хвост (Свёрнутый)
+marking-SnakeTailBase = Зерах, хвост (Свёрнутый)
 
  
  

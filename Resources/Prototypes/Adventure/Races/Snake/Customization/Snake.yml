@@ -1,13 +1,13 @@
 - type: marking
-  id: SnakeTeilsBig
+  id: SnakeTailsBig
   bodyPart: Tail
   markingCategory: Tail
   followSkinColor: true
   forcedColoring: true
   speciesRestriction: [Zerah]
   sprites:
-  - sprite: Adventure/Races/Snake/Customization/Teils48.rsi
-    state: Snake_teile_big
+  - sprite: Adventure/Races/Snake/Customization/Tails48.rsi
+    state: Snake_tail_big
 
 - type: marking
   id: SnakeCollarCobra
