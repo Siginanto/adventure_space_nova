@@ -13,9 +13,10 @@
   naming: First
   sexes:
   - Unsexed 
-  youngAge: 20 # Adventure
-  oldAge: 40 # Adventure
-  maxAge: 65 # Adventure
+  minAge: 11 # Adventure
+  youngAge: 18 # Adventure
+  oldAge: 36 # Adventure
+  maxAge: 60 # Adventure
  
 - type: speciesBaseSprites
   id: MobVoxSprites

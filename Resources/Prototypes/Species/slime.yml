@@ -7,10 +7,11 @@
   defaultSkinTone: "#b8b8b8"
   markingLimits: MobSlimeMarkingLimits
   dollPrototype: MobSlimePersonDummy
-  skinColoration: Hues  
-  youngAge: 15 # Adventure
-  oldAge: 30 # Adventure
-  maxAge: 60 # Adventure
+  skinColoration: Hues 
+  minAge: 23 # Adventure 
+  youngAge: 39 # Adventure
+  oldAge: 78 # Adventure
+  maxAge: 130 # Adventure
 
 - type: speciesBaseSprites
   id: MobSlimeSprites
