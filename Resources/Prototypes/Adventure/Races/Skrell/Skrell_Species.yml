@@ -1,11 +1,11 @@
 - type: marking
-  id: SkrellTeilsBase
+  id: SkrellTailsBase
   bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Skrell]
   sprites:
   - sprite: Adventure/Races/Skrell/Species/parts.rsi
-    state: teils_base
+    state: tails_base
 
 - type: species
   id: Skrell
@@ -43,7 +43,7 @@
     Tail:
       points: 1
       required: true
-      defaultMarkings: [ SkrellTeilsBase ]
+      defaultMarkings: [ SkrellTailsBase ]
 
 - type: speciesBaseSprites
   id: MobSkrellSprites
