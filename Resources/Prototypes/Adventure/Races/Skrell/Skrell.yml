@@ -77,6 +77,7 @@
     sprite: Adventure/Races/Skrell/Species/parts.rsi
     state: full
   - type: Thirst
+    baseDecayRate: 0.3
   - type: Butcherable
     butcheringType: Spike
     spawned:

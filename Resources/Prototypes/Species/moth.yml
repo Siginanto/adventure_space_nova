@@ -12,8 +12,9 @@
   femaleFirstNames: names_moth_first_female
   maleLastNames: names_moth_last # Corvax-LastnameGender
   femaleLastNames: names_moth_last # Corvax-LastnameGender
-  youngAge: 10 # Adventure
-  oldAge: 40 # Adventure
+  minAge: 13 # Adventure
+  youngAge: 21 # Adventure
+  oldAge: 42 # Adventure
   maxAge: 70 # Adventure
 
 - type: speciesBaseSprites
