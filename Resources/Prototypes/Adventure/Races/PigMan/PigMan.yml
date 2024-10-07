@@ -66,15 +66,7 @@
     prototype: PigMan
     requiredLegs: 2
   - type: Hunger
-    baseDecayRate: 0.0333
-    thresholds:
-      Overfed: 100
-      Okay: 75
-      Peckish: 50
-      Starving: 25
-      Dead: 0
-  - type: Thirst
-    baseDecayRate: 0.0333
+    baseDecayRate: 0.0664
   - type: Icon 
     sprite: Adventure/Races/PigMan/Species/parts.rsi
     state: full

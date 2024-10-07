@@ -14,9 +14,10 @@
   femaleLastNames: names_arachnid_last # Corvax-LastnameGender
   sexes:
   - Unsexed
-  youngAge: 30 # Adventure
-  oldAge: 60 # Adventure
-  maxAge: 100 # Adventure
+  minAge: 16 # Adventure
+  youngAge: 27 # Adventure
+  oldAge: 54 # Adventure
+  maxAge: 90 # Adventure
 
 - type: speciesBaseSprites
   id: MobArachnidSprites

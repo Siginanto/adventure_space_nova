@@ -106,24 +106,12 @@
   - type: Body
     prototype: ZerahSnake
   - type: Hunger
-    baseDecayRate: 0.0333
-    thresholds:
-      Overfed: 150
-      Okay: 75
-      Peckish: 20
-      Starving: 10
-      Dead: 0
+    baseDecayRate: 0.033
   - type: Icon 
     sprite: Adventure/Races/Snake/Species/parts.rsi
     state: full
   - type: Thirst
-    thresholds:
-      OverHydrated: 600
-      Okay: 300
-      Thirsty: 200
-      Parched: 100
-      Dead: 0
-    baseDecayRate: 0.04
+    baseDecayRate: 0.025
   - type: Butcherable
     butcheringType: Spike
     spawned:
