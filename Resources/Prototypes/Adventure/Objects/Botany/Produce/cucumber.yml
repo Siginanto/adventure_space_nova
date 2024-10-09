@@ -74,8 +74,17 @@
   - type: Tag
     tags:
     - Vegetable
-#  - type: FoodSequenceElement
-#    entries:
-#      Skewer: TomatoSkewer
-#      Burger: Tomato
-#      Taco: Tomato
+  - type: FoodSequenceElement
+    entries:
+      Burger: Cucumber
+      Taco: Cucumber
+
+- type: foodSequenceElement
+  id: Cucumber
+  name: огуречно
+  sprites:
+  - sprite: Adventure/Objects/Botany/Produce/cucumber.rsi
+    state: produce
+  tags:
+  - Fruit
+  - Vegetable
