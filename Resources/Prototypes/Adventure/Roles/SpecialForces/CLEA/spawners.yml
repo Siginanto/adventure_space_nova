@@ -3,7 +3,7 @@
   parent: JobIcon
   id: JobIconCLEA
   icon:
-    sprite: /Textures/Adventure/Roles/CLEA/other/CLEA_icon.rsi
+    sprite: /Textures/Adventure/Roles/SpecialForces/CLEA/other/CLEA_icon.rsi
     state: CLEA
   jobName: ЦСС
 
@@ -57,8 +57,8 @@
       prototypes: [ CLEAGearBase ]
     - type: RandomMetadata
       nameSegments:
-      - NamesFirstCLEABase
-      - NamesLastCLEABase
+      - FirstNamesSoldiers
+      - LastNamesSoldiers
     - type: AntagImmune
     - type: TTS
       voice: officer_enclave
@@ -69,37 +69,15 @@
   suffix: BASE
   components:
     - type: Sprite
-      sprite: Adventure/Roles/CLEA/other/CLEA_roles.rsi
+      sprite: Adventure/Roles/SpecialForces/CLEA/other/CLEA_roles.rsi
       state: Solder
     - type: RandomMetadata
       nameSegments:
-      - NamesFirstCLEABase
-      - NamesLastCLEABase
+      - FirstNamesSoldiers
+      - LastNamesSoldiers
     - type: RandomHumanoidSpawner
       settings: CLEABase
     - type: AntagImmune
-
-- type: dataset
-  id: NamesFirstCLEABase
-  values:
-  - Рядовой
-  - Ефрейтор
-
-- type: dataset
-  id: NamesLastCLEABase
-  values:
-  - Ястреб
-  - Ворон
-  - Бугор
-  - Браво
-  - Фокс
-  - Хикс
-  - Гроза
-  - Каир
-  - Геварра
-  - Рекс
-  - Вольф
-  - Бизон
 # /госторолька солдат
 
 # госторолька офицер
@@ -116,8 +94,8 @@
       prototypes: [ CLEAGearOfficerBase ]
     - type: RandomMetadata
       nameSegments:
-      - NamesFirstCLEAOfficer
-      - NamesLastCLEAOfficer
+      - FirstNamesOfficers
+      - LastNamesOfficers
     - type: AntagImmune
     - type: TTS
       voice: officer_enclave
@@ -128,38 +106,15 @@
   suffix: BASE
   components:
     - type: Sprite
-      sprite: Adventure/Roles/CLEA/other/CLEA_roles.rsi
+      sprite: Adventure/Roles/SpecialForces/CLEA/other/CLEA_roles.rsi
       state: Officer
     - type: RandomMetadata
       nameSegments:
-      - NamesFirstCLEAOfficer
-      - NamesLastCLEAOfficer
+      - FirstNamesOfficers
+      - LastNamesOfficers
     - type: RandomHumanoidSpawner
       settings: CLEAOfficer
     - type: AntagImmune
-
-- type: dataset
-  id: NamesFirstCLEAOfficer
-  values:
-  - Лейтенант
-  - Капитан
-  - Майор
-
-- type: dataset
-  id: NamesLastCLEAOfficer
-  values:
-  - Ястреб
-  - Ворон
-  - Бугор
-  - Браво
-  - Фокс
-  - Хикс
-  - Гроза
-  - Каир
-  - Геварра
-  - Рекс
-  - Вольф
-  - Бизон
 # /госторолька офицер
 
 # Стартовый гир FullEVA
@@ -209,8 +164,8 @@
       prototypes: [ CLEAGearOfficerFullEVA ]
     - type: RandomMetadata
       nameSegments:
-      - NamesFirstCLEAOfficer
-      - NamesLastCLEAOfficer
+      - FirstNamesOfficers
+      - LastNamesOfficers
     - type: AntagImmune
 
 - type: entity
@@ -219,12 +174,12 @@
   suffix: EVA
   components:
     - type: Sprite
-      sprite: Adventure/Roles/CLEA/other/CLEA_roles.rsi
+      sprite: Adventure/Roles/SpecialForces/CLEA/other/CLEA_roles.rsi
       state: Officer
     - type: RandomMetadata
       nameSegments:
-      - NamesFirstCLEAOfficer
-      - NamesLastCLEAOfficer
+      - FirstNamesOfficers
+      - LastNamesOfficers
     - type: RandomHumanoidSpawner
       settings: CLEAOfficerEVA
     - type: AntagImmune
@@ -242,8 +197,8 @@
       prototypes: [ CLEAGearFullEVA ]
     - type: RandomMetadata
       nameSegments:
-      - NamesFirstCLEABase
-      - NamesLastCLEABase
+      - FirstNamesSoldiers
+      - LastNamesSoldiers
     - type: AntagImmune
 
 - type: entity
@@ -252,12 +207,12 @@
   suffix: EVA
   components:
     - type: Sprite
-      sprite: Adventure/Roles/CLEA/other/CLEA_roles.rsi
+      sprite: Adventure/Roles/SpecialForces/CLEA/other/CLEA_roles.rsi
       state: Solder
     - type: RandomMetadata
       nameSegments:
-      - NamesFirstCLEABase
-      - NamesLastCLEABase
+      - FirstNamesSoldiers
+      - LastNamesSoldiers
     - type: RandomHumanoidSpawner
       settings: CLEABaseEVA
     - type: AntagImmune

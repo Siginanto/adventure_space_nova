@@ -1,6 +1,6 @@
 #Created: raidgo Transferred:  depresh
 - type: reagent
-  id: fullnanit's
+  id: fullnanits
   name: reagent-name-Сильные-наниты
   group: Medicine
   desc: reagent-desc-наниты
@@ -38,7 +38,7 @@
         type: Remove
 
 - type: reagent
-  id: Mediumnanit's
+  id: Mediumnanits
   name: reagent-name-Сердние-наниты
   group: Medicine
   desc: reagent-desc-наниты
@@ -71,7 +71,7 @@
         type: Remove
 
 - type: reagent
-  id: weaknanit's
+  id: weaknanits
   name: reagent-name-Слабые-наниты
   group: Medicine
   desc: reagent-desc-наниты

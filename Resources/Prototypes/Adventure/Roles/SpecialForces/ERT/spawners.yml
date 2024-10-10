@@ -23,8 +23,8 @@
   components:
   - type: RandomMetadata
     nameSegments:
-    - ERTfirstnameADV
-    - ERTendnameADV
+    - FirstNamesSoldiers
+    - LastNamesSoldiers
   - type: MindShield
   - type: RandomHumanoidAppearance
     randomizeName: false
@@ -39,31 +39,6 @@
     raffle:
       settings: short
   - type: GhostTakeoverAvailable
-
-- type: dataset
-  id: ERTfirstnameADV
-  values:
-  - Сержант
-  - Капрал
-  - Младший сержант
-  - Рядовой
-  - Старший сержант
-  - Офицер
-
-- type: dataset
-  id: ERTendnameADV
-  values:
-  - Евсеенко
-  - Фрапченко
-  - Ференце
-  - Фишер
-  - Марков
-  - Райт
-  - Кац
-  - Лайт
-  - Сайт
-  - Найт
-  - Янченко
 
 - type: startingGear
   id: ERTmedicADV
@@ -89,8 +64,8 @@
   components:
   - type: RandomMetadata
     nameSegments:
-    - ERTfirstnameADV
-    - ERTendnameADV
+    - FirstNamesSoldiers
+    - LastNamesSoldiers
   - type: MindShield
   - type: RandomHumanoidAppearance
     randomizeName: false
@@ -130,8 +105,8 @@
   components:
   - type: RandomMetadata
     nameSegments:
-    - ERTfirstnameADV
-    - ERTendnameADV
+    - FirstNamesSoldiers
+    - LastNamesSoldiers
   - type: MindShield
   - type: RandomHumanoidAppearance
     randomizeName: false
@@ -170,8 +145,8 @@
   components:
   - type: RandomMetadata
     nameSegments:
-    - ERTfirstnameADV
-    - ERTendnameADV
+    - FirstNamesSoldiers
+    - LastNamesSoldiers
   - type: MindShield
   - type: RandomHumanoidAppearance
     randomizeName: false
@@ -211,8 +186,8 @@
   components:
   - type: RandomMetadata
     nameSegments:
-    - ERTfirstnameADV
-    - ERTendnameADV
+    - FirstNamesSoldiers
+    - LastNamesSoldiers
   - type: MindShield
   - type: BibleUser
   - type: RandomHumanoidAppearance
@@ -228,24 +203,6 @@
     raffle:
       settings: short
   - type: GhostTakeoverAvailable
-
-- type: dataset
-  id: ERTleaderfirstnameADV
-  values:
-  - Коммандир
-  - Капитан
-  - Лейтинант
-  - Старший лейтинант
-
-- type: dataset
-  id: ERTleaderendnameADV
-  values:
-  - Сергеев
-  - Скрайт
-  - Дефолт
-  - Фраск
-  - Морозов
-  - Райт
 
 - type: startingGear
   id: ERTleaderADVgear
@@ -271,8 +228,8 @@
   components:
   - type: RandomMetadata
     nameSegments:
-    - ERTleaderfirstnameADV
-    - ERTleaderendnameADV
+    - FirstNamesOfficers
+    - LastNamesOfficers
   - type: MindShield
   - type: BibleUser
   - type: RandomHumanoidAppearance
@@ -285,90 +242,6 @@
     allowMovement: true
     name: Лидер ОБР
     description: Выполняйте приказы ЦК и руководите отрядом.
-    raffle:
-      settings: short
-  - type: GhostTakeoverAvailable
-
-- type: startingGear
-  id: ERTcburngear
-  equipment:
-    jumpsuit: ClothingUniformJumpsuitColorBrown
-    shoes: ClothingShoesBootsCombatFilled
-    mask: ClothingMaskGasERT
-    gloves: ClothingHandsGlovesCombat
-    outerClothing: ClothingOuterHardsuitCBURN
-    eyes: ClothingEyesGlassesSecurity
-    id: CBURNPDA
-    belt: ClothingBeltBandolier
-    pocket1: Cburnuplink
-    suitstorage: DoubleEmergencyOxygenTankFilled
-    ears: ClothingHeadsetAltCentCom
-    back: ClothingBackpackDuffelCBURN
-
-- type: entity
-  parent: MobHuman
-  id: CburnoperativeADV
-  name: Оперативник РХБЗЗ
-  suffix: Adventure
-  components:
-  - type: RandomMetadata
-    nameSegments:
-    - ERTfirstnameADV
-    - ERTendnameADV
-  - type: MindShield
-  - type: BibleUser
-  - type: RandomHumanoidAppearance
-    randomizeName: false
-  - type: Loadout
-    prototypes: [ERTcburngear]
-  - type: GhostRole
-    makeSentient: true
-    allowSpeech: true
-    allowMovement: true
-    name: Оперативник РХБЗЗ
-    description: Выполняйте приказы своего лидера, и ЦК.
-    raffle:
-      settings: short
-  - type: GhostTakeoverAvailable
-
-- type: startingGear
-  id: ERTcburnleadergear
-  equipment:
-    jumpsuit: ClothingUniformJumpsuitColorBrown
-    shoes: ClothingShoesBootsCombatFilled
-    mask: ClothingMaskGasERT
-    gloves: ClothingHandsGlovesCombat
-    outerClothing: ClothingOuterHardsuitCBURNLeader
-    eyes: ClothingEyesGlassesSecurity
-    id: CBURNPDA
-    belt: ClothingBeltBandolier
-    pocket1: Cburnuplinkleader
-    suitstorage: DoubleEmergencyOxygenTankFilled
-    ears: ClothingHeadsetAltCentCom
-    back: ClothingBackpackDuffelCBURN
-
-- type: entity
-  parent: MobHuman
-  id: CburnoperativeleaderADV
-  name: Лидер РХБЗЗ
-  suffix: Adventure
-  components:
-  - type: RandomMetadata
-    nameSegments:
-    - ERTleaderfirstnameADV
-    - ERTleaderendnameADV
-  - type: MindShield
-  - type: BibleUser
-  - type: RandomHumanoidAppearance
-    randomizeName: false
-  - type: Loadout
-    prototypes: [ERTcburnleadergear]
-  - type: GhostRole
-    makeSentient: true
-    allowSpeech: true
-    allowMovement: true
-    name: Лидер РХБЗЗ
-    description: Выполняйте приказы ЦК и выполните зачистку станции от инородной фауны.
     raffle:
       settings: short
   - type: GhostTakeoverAvailable

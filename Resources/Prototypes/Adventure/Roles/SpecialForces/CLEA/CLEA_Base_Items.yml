@@ -6,9 +6,9 @@
   description: теперь в новой цветовой гамме!
   components:
   - type: Sprite
-    sprite: Adventure/Roles/CLEA/CLEA_uniform.rsi
+    sprite: Adventure/Roles/SpecialForces/CLEA/CLEA_uniform.rsi
   - type: Clothing
-    sprite: Adventure/Roles/CLEA/CLEA_uniform.rsi
+    sprite: Adventure/Roles/SpecialForces/CLEA/CLEA_uniform.rsi
 
 #Шлем ЦСС
 - type: entity
@@ -18,9 +18,9 @@
   description: им можно колоть орехи
   components:
   - type: Sprite
-    sprite: Adventure/Roles/CLEA/CLEA_Helmet.rsi
+    sprite: Adventure/Roles/SpecialForces/CLEA/CLEA_Helmet.rsi
   - type: Clothing
-    sprite: Adventure/Roles/CLEA/CLEA_Helmet.rsi
+    sprite: Adventure/Roles/SpecialForces/CLEA/CLEA_Helmet.rsi
   - type: Armor
     modifiers:
       coefficients:
@@ -40,9 +40,9 @@
   description: Повседневный головной убор ЦСС.
   components:
   - type: Sprite
-    sprite: Adventure/Roles/CLEA/CLEA_cap.rsi
+    sprite: Adventure/Roles/SpecialForces/CLEA/CLEA_cap.rsi
   - type: Clothing
-    sprite: Adventure/Roles/CLEA/CLEA_cap.rsi
+    sprite: Adventure/Roles/SpecialForces/CLEA/CLEA_cap.rsi
 
 #Гарнитура-наушники ЦСС
 - type: entity
@@ -52,9 +52,9 @@
   description: Гарнитура, оснащенная подавляющими наушниками.
   components:
   - type: Sprite
-    sprite: Adventure/Roles/CLEA/CLEA_Headset.rsi
+    sprite: Adventure/Roles/SpecialForces/CLEA/CLEA_Headset.rsi
   - type: Clothing
-    sprite: Adventure/Roles/CLEA/CLEA_Headset.rsi
+    sprite: Adventure/Roles/SpecialForces/CLEA/CLEA_Headset.rsi
 
 #Защитные очки ЦСС
 - type: entity
@@ -64,9 +64,9 @@
   name: Защитные очки ЦСС
   components:
   - type: Sprite
-    sprite: Adventure/Roles/CLEA/CLEA_glasses.rsi
+    sprite: Adventure/Roles/SpecialForces/CLEA/CLEA_glasses.rsi
   - type: Clothing
-    sprite: Adventure/Roles/CLEA/CLEA_glasses.rsi
+    sprite: Adventure/Roles/SpecialForces/CLEA/CLEA_glasses.rsi
   - type: FlashImmunity
   - type: EyeProtection
     protectionTime: 5
@@ -79,9 +79,9 @@
   description: Тактический перчатки элитных солдат.
   components:
   - type: Sprite
-    sprite: Adventure/Roles/CLEA/CLEA_Gloves.rsi
+    sprite: Adventure/Roles/SpecialForces/CLEA/CLEA_Gloves.rsi
   - type: Clothing
-    sprite: Adventure/Roles/CLEA/CLEA_Gloves.rsi
+    sprite: Adventure/Roles/SpecialForces/CLEA/CLEA_Gloves.rsi
   - type: Insulated
   - type: Fiber
     fiberMaterial: fibers-insulative
@@ -96,9 +96,9 @@
   - type: Item
     size: Tiny
   - type: Sprite
-    sprite: Adventure/Roles/CLEA/CLEA_mask.rsi
+    sprite: Adventure/Roles/SpecialForces/CLEA/CLEA_mask.rsi
   - type: Clothing
-    sprite: Adventure/Roles/CLEA/CLEA_mask.rsi
+    sprite: Adventure/Roles/SpecialForces/CLEA/CLEA_mask.rsi
   - type: Armor
     modifiers:
       coefficients:
@@ -123,9 +123,9 @@
   description: не сковывает движений!
   components:
   - type: Sprite
-    sprite: Adventure/Roles/CLEA/CLEA_Webbing.rsi
+    sprite: Adventure/Roles/SpecialForces/CLEA/CLEA_Webbing.rsi
   - type: Clothing
-    sprite: Adventure/Roles/CLEA/CLEA_Webbing.rsi
+    sprite: Adventure/Roles/SpecialForces/CLEA/CLEA_Webbing.rsi
   - type: ExplosionResistance
     damageCoefficient: 0.5
   - type: StorageFill
@@ -143,9 +143,9 @@
   description: Стандартный армейский бронежилет.
   components:
   - type: Sprite
-    sprite: Adventure/Roles/CLEA/CLEA_armor.rsi
+    sprite: Adventure/Roles/SpecialForces/CLEA/CLEA_armor.rsi
   - type: Clothing
-    sprite: Adventure/Roles/CLEA/CLEA_armor.rsi
+    sprite: Adventure/Roles/SpecialForces/CLEA/CLEA_armor.rsi
   - type: Armor
     modifiers:
       coefficients:
@@ -164,9 +164,9 @@
   name: Рюкзак ЦСС
   components:
   - type: Sprite
-    sprite: Adventure/Roles/CLEA/CLEA_BackPack.rsi
+    sprite: Adventure/Roles/SpecialForces/CLEA/CLEA_BackPack.rsi
   - type: Clothing
-    sprite: Adventure/Roles/CLEA/CLEA_BackPack.rsi
+    sprite: Adventure/Roles/SpecialForces/CLEA/CLEA_BackPack.rsi
   - type: StorageFill
     contents:
     - id: BoxZiptie
@@ -180,7 +180,7 @@
   name: ID карта Солдата ЦСС
   components:
   - type: Sprite
-    sprite: Adventure/Roles/CLEA/other/CLEA_IDcard.rsi
+    sprite: Adventure/Roles/SpecialForces/CLEA/other/CLEA_IDcard.rsi
     layers:
     - state: silver
     - state: idCLEA
@@ -202,7 +202,7 @@
   name: ID карта Офицера ЦСС
   components:
   - type: Sprite
-    sprite: Adventure/Roles/CLEA/other/CLEA_IDcard.rsi
+    sprite: Adventure/Roles/SpecialForces/CLEA/other/CLEA_IDcard.rsi
     layers:
     - state: silver
     - state: idCLEA
@@ -225,7 +225,7 @@
   description: не такой робастный, как у отряда быстрого реагирования
   components:
   - type: Sprite
-    sprite: Adventure/Roles/CLEA/other/CLEA_PDA.rsi
+    sprite: Adventure/Roles/SpecialForces/CLEA/other/CLEA_PDA.rsi
     layers:
     - map: [ "enum.PdaVisualLayers.Base" ]
     - state: "light_overlay"
@@ -242,7 +242,7 @@
   - type: PdaBorderColor
     borderColor: "#4e4e56"
   - type: Icon
-    sprite: Adventure/Roles/CLEA/other/CLEA_PDA.rsi
+    sprite: Adventure/Roles/SpecialForces/CLEA/other/CLEA_PDA.rsi
     state: pda-CLEA
 
 #КПК офицера ЦСС
@@ -253,7 +253,7 @@
   description: не такой робастный, как у отряда быстрого реагирования
   components:
   - type: Sprite
-    sprite: Adventure/Roles/CLEA/other/CLEA_PDA.rsi
+    sprite: Adventure/Roles/SpecialForces/CLEA/other/CLEA_PDA.rsi
     layers:
     - map: [ "enum.PdaVisualLayers.Base" ]
     - state: "light_overlay"
@@ -270,7 +270,7 @@
   - type: PdaBorderColor
     borderColor: "#4e4e56"
   - type: Icon
-    sprite: Adventure/Roles/CLEA/other/CLEA_PDA.rsi
+    sprite: Adventure/Roles/SpecialForces/CLEA/other/CLEA_PDA.rsi
     state: pda-CLEAOfficer
 
 #Скафандр ЦСС
@@ -281,9 +281,9 @@
   description: базовый боевой скафандр центральных силовых структур
   components:
   - type: Sprite
-    sprite: Adventure/Roles/CLEA/CLEA_hardhuit/CLEA_hardhuit.rsi
+    sprite: Adventure/Roles/SpecialForces/CLEA/CLEA_hardhuit/CLEA_hardhuit.rsi
   - type: Clothing
-    sprite: Adventure/Roles/CLEA/CLEA_hardhuit/CLEA_hardhuit.rsi
+    sprite: Adventure/Roles/SpecialForces/CLEA/CLEA_hardhuit/CLEA_hardhuit.rsi
   - type: PressureProtection
     highPressureMultiplier: 0.5
     lowPressureMultiplier: 1000
@@ -311,9 +311,9 @@
   components:
   - type: BreathMask
   - type: Sprite
-    sprite: Adventure/Roles/CLEA/CLEA_hardhuit/CLEA_hardhuit_helmet.rsi
+    sprite: Adventure/Roles/SpecialForces/CLEA/CLEA_hardhuit/CLEA_hardhuit_helmet.rsi
   - type: Clothing
-    sprite: Adventure/Roles/CLEA/CLEA_hardhuit/CLEA_hardhuit_helmet.rsi
+    sprite: Adventure/Roles/SpecialForces/CLEA/CLEA_hardhuit/CLEA_hardhuit_helmet.rsi
   - type: PressureProtection
     highPressureMultiplier: 0.3
     lowPressureMultiplier: 1000
@@ -326,9 +326,9 @@
   description: базовый боевой скафандр центральных силовых структур
   components:
   - type: Sprite
-    sprite: Adventure/Roles/CLEA/CLEA_hardhuit/CLEA_hardhuit_Officer.rsi
+    sprite: Adventure/Roles/SpecialForces/CLEA/CLEA_hardhuit/CLEA_hardhuit_Officer.rsi
   - type: Clothing
-    sprite: Adventure/Roles/CLEA/CLEA_hardhuit/CLEA_hardhuit_Officer.rsi
+    sprite: Adventure/Roles/SpecialForces/CLEA/CLEA_hardhuit/CLEA_hardhuit_Officer.rsi
   - type: PressureProtection
     highPressureMultiplier: 0.5
     lowPressureMultiplier: 1000
@@ -356,9 +356,9 @@
   components:
   - type: BreathMask
   - type: Sprite
-    sprite: Adventure/Roles/CLEA/CLEA_hardhuit/CLEA_hardhuit_helmet_Officer.rsi
+    sprite: Adventure/Roles/SpecialForces/CLEA/CLEA_hardhuit/CLEA_hardhuit_helmet_Officer.rsi
   - type: Clothing
-    sprite: Adventure/Roles/CLEA/CLEA_hardhuit/CLEA_hardhuit_helmet_Officer.rsi
+    sprite: Adventure/Roles/SpecialForces/CLEA/CLEA_hardhuit/CLEA_hardhuit_helmet_Officer.rsi
   - type: PressureProtection
     highPressureMultiplier: 0.3
     lowPressureMultiplier: 1000

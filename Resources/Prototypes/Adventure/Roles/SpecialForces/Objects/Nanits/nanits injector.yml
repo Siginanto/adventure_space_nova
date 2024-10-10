@@ -3,18 +3,18 @@
   name: Инъектор сильных нанитов
   parent: BaseItem
   description: Стерильный инъектор самых сильных нанитов. Это передовая разработка НТ, предназначенная только для самых элитных отрядов, таких как Эскадрон Смерти. Он способен вылечить практически все, однако не способен восстановить тело из отдельных органов. Также он сильно стимулирует организм, улучшая реакцию и обеспечивая огромные дозы адреналина в кровь, который, к удивлению, не наносит вреда.
-  id: InjectorFullNanit's
+  id: InjectorFullNanits
   components:
   - type: Sprite
-    sprite: Adventure/Objects/Specific/ERTuplink/nanit.rsi
+    sprite: Adventure/Roles/SpecialForces/Objects/nanit.rsi
     state: combat_hypo
   - type: Item
-    sprite: Adventure/Objects/Specific/ERTuplink/nanit.rsi
+    sprite: Adventure/Roles/SpecialForces/Objects/nanit.rsi
   - type: SolutionContainerManager
     solutions:
       hypospray:
         reagents:
-        - ReagentId: fullnanit's
+        - ReagentId: fullnanits
           Quantity: 100
         maxVol: 100
   - type: Hypospray
@@ -29,18 +29,18 @@
   name: Инъектор средних нанитов
   parent: BaseItem
   description: Стерильный инъектор нанитов. Это передовая разработка НТ, предназначенная для элитных отрядов, например, таких как ОБР или РХБЗЗ. Способен излечить многие недуги, однако не восстановит тело из органов. Также стимулирует организм, улучшая реакцию и обеспечивая адреналин в кровь.
-  id: InjectorMediumNanit's
+  id: InjectorMediumNanits
   components:
   - type: Sprite
-    sprite: Adventure/Objects/Specific/ERTuplink/nanit.rsi
+    sprite: Adventure/Roles/SpecialForces/Objects/nanit.rsi
     state: combat_hypo
   - type: Item
-    sprite: Adventure/Objects/Specific/ERTuplink/nanit.rsi
+    sprite: Adventure/Roles/SpecialForces/Objects/nanit.rsi
   - type: SolutionContainerManager
     solutions:
       hypospray:
         reagents:
-        - ReagentId: Mediumnanit's
+        - ReagentId: Mediumnanits
           Quantity: 30
         maxVol: 30
   - type: Hypospray
@@ -55,18 +55,18 @@
   name: Инъектор слабых нанитов
   parent: BaseItem
   description: Стерильный инъектор нанитов. Это передовая разработка НТ, предназначенная для боевых отрядов, таких как ЦСС. Способен излечить многие недуги, однако не восстановит тело из органов. Также немного стимулирует организм, улучшая реакцию и обеспечивая небольшой приток адреналина в кровь.
-  id: InjectorWeakNanit's
+  id: InjectorWeakNanits
   components:
   - type: Sprite
-    sprite: Adventure/Objects/Specific/ERTuplink/nanit.rsi
+    sprite: Adventure/Roles/SpecialForces/Objects/nanit.rsi
     state: combat_hypo
   - type: Item
-    sprite: Adventure/Objects/Specific/ERTuplink/nanit.rsi
+    sprite: Adventure/Roles/SpecialForces/Objects/nanit.rsi
   - type: SolutionContainerManager
     solutions:
       hypospray:
         reagents:
-        - ReagentId: weaknanit's
+        - ReagentId: weaknanits
           Quantity: 30
         maxVol: 30
   - type: Hypospray
