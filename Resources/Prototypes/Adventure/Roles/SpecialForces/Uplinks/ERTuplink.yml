@@ -46,7 +46,7 @@
   components:
   - type: Item
     size: Small
-    sprite: Adventure/Roles/SpecialForces/Uplinks/communicationleader.rsi
+    sprite: Adventure/Roles/SpecialForces/Uplinks/communication.rsi
   - type: UserInterface
     interfaces:
       enum.StoreUiKey.Key:
@@ -54,7 +54,7 @@
   - type: ActivatableUI
     key: enum.StoreUiKey.Key
   - type: Sprite
-    sprite: Adventure/Roles/SpecialForces/Uplinks/communicationleader.rsi
+    sprite: Adventure/Roles/SpecialForces/Uplinks/communication.rsi
     layers:
     - state: ERT_L
   - type: Appearance
