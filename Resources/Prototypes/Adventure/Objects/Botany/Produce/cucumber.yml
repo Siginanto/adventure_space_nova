@@ -27,7 +27,6 @@
   nutrientConsumption: 0.40
   idealLight: 8
   idealHeat: 298
-  growthStages: 4
   chemicals:
     Nutriment:
       Min: 1
