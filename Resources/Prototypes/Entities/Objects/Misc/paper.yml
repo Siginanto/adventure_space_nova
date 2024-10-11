@@ -28,7 +28,6 @@
   - type: Tag
     tags:
     - Document
-    - Trash
     - Paper
   - type: Appearance
   - type: FaxableObject
