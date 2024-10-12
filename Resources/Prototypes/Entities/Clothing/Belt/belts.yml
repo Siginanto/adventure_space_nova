@@ -620,6 +620,8 @@
   - type: Clothing
     sprite: Clothing/Belt/securitywebbing.rsi
   - type: Storage
+    grid:
+    - 0,0,7,3
     whitelist:
       tags:
         - CigPack
@@ -636,6 +638,7 @@
         - FlashOnTrigger
         - SmokeOnTrigger
         - Flash
+        - Ammo
         - Handcuff
         - BallisticAmmoProvider
         - CartridgeAmmo
@@ -679,6 +682,8 @@
   - type: ExplosionResistance
     damageCoefficient: 0.5
   - type: Storage
+    grid:
+    - 0,0,7,3
     whitelist:
       tags:
         - CigPack
@@ -695,13 +700,14 @@
         - FlashOnTrigger
         - SmokeOnTrigger
         - Flash
+        - Ammo
         - Handcuff
         - BallisticAmmoProvider
         - CartridgeAmmo
         - DoorRemote
         - Whistle
         - HolosignProjector
-        - BalloonPopper
+        - BalloonPopper 
 
 - type: entity
   parent: ClothingBeltMilitaryWebbing
