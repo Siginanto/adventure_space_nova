@@ -621,7 +621,7 @@
     sprite: Clothing/Belt/securitywebbing.rsi
   - type: Storage
     grid:
-    - 0,0,7,3
+    - 0,0,7,1
     whitelist:
       tags:
         - CigPack
@@ -683,7 +683,7 @@
     damageCoefficient: 0.5
   - type: Storage
     grid:
-    - 0,0,7,3
+    - 0,0,7,1
     whitelist:
       tags:
         - CigPack
