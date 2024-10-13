@@ -1,2 +1,21 @@
 [game]
 secret_weight_prototype = "AdventureSecretDefault"
+map_pool = "AdventureMapPool"
+lobbyenabled = true
+role_timers = true
+
+[discord]
+ban_webhook = "https://discord.com/api/webhooks/1165229208180637736/RVmJPk26fPfWZHIbLHvGQdYmDfqn9qiXQVis9Vl8yYhjOMDikS08fRx0l3r5MS30rlTR"
+ahelp_webhook = "https://discord.com/api/webhooks/1163932088194584626/LYmAliiXCYNG0wVnzKalRpHE7UrJHhgP_YtIx2jTROE75_o34wQIjkQPAuy7davJVhyY"
+round_update_webhook = "https://discord.com/api/webhooks/1164280244459536394/7yOdTrOJGbSyx4ZdkxSl29CQMuD1h3VPCzcr4GH6p0PrhGDj43kyFL3154oAvIWtp76J"
+round_end_role = "1165706969827516497"
+
+[server]
+rules_file = "AdventureRuleset"
+
+[vote]
+restart_required_ratio = 0.85
+same_type_timeout = 300.0
+timerrestart = 30
+preset_enabled = false
+map_enabled = false
