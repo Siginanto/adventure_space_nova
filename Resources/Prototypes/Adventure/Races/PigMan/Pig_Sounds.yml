@@ -5,6 +5,13 @@
   - /Audio/Adventure/Voice/PigMan/PigScream2.ogg
   - /Audio/Adventure/Voice/PigMan/PigScream3.ogg
 
+- type: soundCollection
+  id: PigManHruCollection
+  files:
+  - /Audio/Adventure/Voice/PigMan/PigTalk3.ogg
+  - /Audio/Adventure/Voice/PigMan/PigTalk2.ogg
+  - /Audio/Adventure/Voice/PigMan/PigTalk1.ogg
+
 - type: speechSounds
   id: PigManSpeach
   saySound:
@@ -13,6 +20,23 @@
     path: /Audio/Adventure/Voice/PigMan/PigTalk2.ogg
   exclaimSound:
     path: /Audio/Adventure/Voice/PigMan/PigTalk1.ogg
+
+- type: emote
+  id: Hru
+  name: Хрюкать
+  icon: Interface/Emotes/scream.png
+  category: Vocal
+  available: false
+  whitelist:
+    components:
+    - Vocal
+  blacklist:
+    components:
+    - BorgChassis
+  chatMessages: ["Хрюкает"]
+  chatTriggers:
+    - хрюкает
+    - хрюкнул
 
 - type: emoteSounds
   id: MalePigMan
@@ -45,6 +69,8 @@
       collection: MaleGasp
     DefaultDeathgasp:
       path: /Audio/Adventure/Voice/PigMan/PigTalk2.ogg
+    Hru:
+      collection: PigManHruCollection
 
 - type: emoteSounds
   id: FemalePigMan
@@ -75,3 +101,5 @@
       collection: FemaleGasp
     DefaultDeathgasp:
       path: /Audio/Adventure/Voice/PigMan/PigTalk2.ogg
+    Hru:
+      collection: PigManHruCollection

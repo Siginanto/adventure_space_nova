@@ -14,6 +14,24 @@
   icon: Interface/Emotes/deathgasp.png
   chatMessages: ["Замирает, его сенсоры отключаются, а модули перестают работать"]
 
+- type: emote
+  id: Crash
+  name: Сбой
+  icon: Interface/Emotes/scream.png
+  category: Vocal
+  available: false
+  whitelist:
+    components:
+    - Vocal
+    - BorgChassis
+  chatMessages: ["Сбой"]
+  chatTriggers:
+    - сбоит
+    - в шоке
+    - в ахуе
+    - завис
+    - зависает
+
 - type: entity
   save: false
   name: Урист макКПБ
@@ -154,6 +172,7 @@
       80: 0.7
   - type: Speech
     speechSounds: SyndieBorg
+    allowedEmotes: ['Crash']
   - type: ZombieImmune
   - type: Vocal
     sounds:
