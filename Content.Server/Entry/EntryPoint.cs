@@ -33,6 +33,7 @@ using Robust.Shared.ContentPack;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
+using Content.Server._Adventure; // AdvSpace Config
 
 namespace Content.Server.Entry
 {
@@ -106,6 +107,8 @@ namespace Content.Server.Entry
                 IoCManager.Resolve<GhostKickManager>().Initialize();
                 IoCManager.Resolve<ServerInfoManager>().Initialize();
                 IoCManager.Resolve<ServerApi>().Initialize();
+
+                IoCManager.Resolve<AdventureConfigManager>().Initialize(); // AdvSpace Config
 
                 _voteManager.Initialize();
                 _updateManager.Initialize();
