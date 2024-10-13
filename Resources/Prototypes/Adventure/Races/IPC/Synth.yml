@@ -26,7 +26,7 @@
     - BorgChassis
   chatMessages: ["Сбой"]
   chatTriggers:
-    - сбой
+    - сбоит
     - в шоке
     - в ахуе
     - завис

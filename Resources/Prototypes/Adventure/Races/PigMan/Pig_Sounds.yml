@@ -35,11 +35,8 @@
     - BorgChassis
   chatMessages: ["Хрюкает"]
   chatTriggers:
-    - хрю
     - хрюкает
     - хрюкнул
-    - хрю хрю
-    - хр
 
 - type: emoteSounds
   id: MalePigMan
