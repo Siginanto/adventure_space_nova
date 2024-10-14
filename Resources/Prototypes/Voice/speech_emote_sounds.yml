@@ -406,6 +406,8 @@
 - type: emoteSounds
   id: GeneralBodyEmotes
   sounds:
+    Fart:
+      collection: FartCollection # Adventure
     Crunch:
       collection: CrunchCollection # Adventure
     Clap:

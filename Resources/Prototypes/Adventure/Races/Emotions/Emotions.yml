@@ -53,3 +53,25 @@
     - хрустит шеей
     - хрустит пальцами
     - хрустит спиной
+
+- type: soundCollection
+  id: FartCollection
+  files:
+  - /Audio/Adventure/Voice/Emotions/fart1.ogg
+  - /Audio/Adventure/Voice/Emotions/fart2.ogg
+  - /Audio/Adventure/Voice/Emotions/fart3.ogg
+  - /Audio/Adventure/Voice/Emotions/fart4.ogg
+  - /Audio/Adventure/Voice/Emotions/fart5.ogg
+  
+- type: emote
+  id: Fart
+  name: пустить газы
+  whitelist:
+    components:
+    - Respirator
+  blacklist:
+    components:
+    - BorgChassis
+  chatMessages: ["Пердит"]
+  chatTriggers:
+    - ЧтОбЫнИкТоНеМоГэТоВыВеСтИ
