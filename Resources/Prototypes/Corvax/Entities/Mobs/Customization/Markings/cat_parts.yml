@@ -86,7 +86,7 @@
           category: FacialHair
         - !type:SkinColoring
   sprites:
-    - sprite: Corvax/Mobs/Customization/cat_parts.rsi
-      state: tail_cat_wag_stripes_prime
-    - sprite: Corvax/Mobs/Customization/cat_parts.rsi
-      state: tail_cat_wag_stripes_second
+  - sprite: Corvax/Mobs/Customization/cat_parts.rsi
+    state: tail_cat_wag_stripes_prime
+  - sprite: Corvax/Mobs/Customization/cat_parts.rsi
+    state: tail_cat_wag_stripes_second
