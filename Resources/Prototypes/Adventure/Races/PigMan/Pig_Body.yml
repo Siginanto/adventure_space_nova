@@ -157,6 +157,9 @@
   - type: Sprite
     sprite: Adventure/Races/PigMan/Species/parts.rsi
     state: "l_leg"
+  - type: MovementBodyPart
+    walkSpeed : 2
+    sprintSpeed : 3.6
 
 - type: entity
   id: RightLegPigMan
@@ -166,6 +169,9 @@
   - type: Sprite
     sprite: Adventure/Races/PigMan/Species/parts.rsi
     state: "r_leg"
+  - type: MovementBodyPart
+    walkSpeed : 2
+    sprintSpeed : 3.6
 
 - type: entity
   id: LeftFootPigMan

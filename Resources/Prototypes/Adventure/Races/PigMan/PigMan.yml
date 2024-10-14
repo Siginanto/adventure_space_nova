@@ -49,15 +49,12 @@
           - MobMask
         layer:
           - MobLayer
-  - type: MovementSpeedModifier
-    baseSprintSpeed: 3.5
-    baseWalkSpeed: 1.5
   - type: Damageable
     damageContainer: Biological
     damageModifierSet: PigArmIMBA
   - type: Speech
     speechSounds: PigManSpeach
-    allowedEmotes: ['Hru']
+    allowedEmotes: ['Hru', 'Crunch', 'Bruh']
   - type: Vocal
     sounds:
       Male: MalePigMan

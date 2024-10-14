@@ -24,7 +24,7 @@
 - type: emote
   id: Hru
   name: Хрюкать
-  icon: Interface/Emotes/scream.png
+  icon: Adventure/Interface/Emotes/hru.png
   category: Vocal
   available: false
   whitelist:
@@ -43,6 +43,8 @@
   params:
     variation: 0.125
   sounds:
+    Bruh:
+      collection: BruhCollection
     Yawn:
       collection: MaleYawn
     Sneeze:
@@ -77,6 +79,8 @@
   params:
     variation: 0.125
   sounds:
+    Bruh:
+      collection: BruhCollection
     Sneeze:
       collection: FemaleSneezes
     Cough:
