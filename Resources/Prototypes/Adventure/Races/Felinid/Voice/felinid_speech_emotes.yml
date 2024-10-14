@@ -1,7 +1,15 @@
 - type: emote
-  name: Визг
+  name: Шипеть
   id: Hissing
+  icon: Adventure/Interface/Emotes/hiss.png
   category: Vocal
+  available: false
+  whitelist:
+    components:
+    - Vocal
+  blacklist:
+    components:
+    - BorgChassis
   chatMessages: [Шипит!]
   chatTriggers:
     - шипит

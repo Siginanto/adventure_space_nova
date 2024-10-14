@@ -55,6 +55,7 @@
   - type: OwOAccent
   - type: Speech
     speechSounds: Cat
+    allowedEmotes: ['Crunch']
   - type: Vocal
     sounds:
       Male: MaleFelinid
