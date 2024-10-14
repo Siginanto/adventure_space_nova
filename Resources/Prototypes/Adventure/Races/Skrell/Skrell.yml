@@ -50,7 +50,6 @@
       Unsexed: MaleSkrell
   - type: Speech
     speechSounds: SkrellSpeach
-    allowedEmotes: ['Crunch']
   - type: Temperature
     heatDamageThreshold: 343.15
     coldDamageThreshold: 303.15

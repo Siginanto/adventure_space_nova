@@ -39,13 +39,15 @@
   name: Хрустеть костями
   icon: Adventure/Interface/Emotes/crunch.png
   category: Hands
-  available: false
   whitelist:
     components:
     - Vocal
   blacklist:
     components:
     - BorgChassis
+    - IgnoreKudzu
+    - Storage
+    - Repairable
   chatMessages: ["Хрустит костями"]
   chatTriggers:
     - хрустит костями
