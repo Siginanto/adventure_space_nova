@@ -30,7 +30,6 @@
   - type: Speech
     speechSounds: Lizard
     speechVerb: Reptilian
-    allowedEmotes: ['Crunch'] # Adventure
   - type: TypingIndicator
     proto: lizard
   - type: Vocal
