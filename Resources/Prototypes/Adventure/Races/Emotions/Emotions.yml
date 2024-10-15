@@ -1,4 +1,5 @@
-﻿- type: soundCollection
+﻿# Рыгать
+- type: soundCollection
   id: BruhCollection
   files:
   - /Audio/Adventure/Voice/Emotions/bruh1.ogg
@@ -25,6 +26,7 @@
     - рыгнул
     - рыгнул!
 
+# Хрустеть    
 - type: soundCollection
   id: CrunchCollection
   files:
@@ -56,6 +58,7 @@
     - хрустит пальцами
     - хрустит спиной
 
+# Пердеть    
 - type: soundCollection
   id: FartCollection
   files:
@@ -77,3 +80,44 @@
   chatMessages: ["Пердит"]
   chatTriggers:
     - ЧтОбЫнИкТоНеМоГэТоВыВеСтИ
+
+# Чесаться
+- type: soundCollection
+  id: ScratchCollection
+  files:
+  - /Audio/Adventure/Voice/Emotions/scratching1.ogg
+  - /Audio/Adventure/Voice/Emotions/scratching2.ogg
+  - /Audio/Adventure/Voice/Emotions/scratching3.ogg
+  - /Audio/Adventure/Voice/Emotions/scratching4.ogg
+  
+- type: emote
+  id: Scratch
+  name: Чесаться
+  icon: Adventure/Interface/Emotes/scratching.png
+  category: Hands
+  whitelist:
+    components:
+    - Vocal
+  blacklist:
+    components:
+    - BorgChassis
+    - IgnoreKudzu
+    - Storage
+    - Repairable
+  chatMessages: ["Чешется"]
+  chatTriggers:
+    - чешется
+    - чешет волосы
+    - чешет голову
+    - чешет затылок
+    - чешет руку
+    - чешет руки
+    - чешет ногу
+    - чешет ноги
+    - чешет яйца
+    - чешет зад
+    - чешет жопу
+    - чешет спину
+    - чешет лицо
+    - чешет блох
+    - сильно чешется
