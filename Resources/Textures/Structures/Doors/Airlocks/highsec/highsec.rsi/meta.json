@@ -14,9 +14,6 @@
       "name": "bolted_unlit"
     },
     {
-      "name": "bolted_open_unlit"
-    },
-    {
       "name": "closed"
     },
     {
@@ -91,9 +88,6 @@
           0.1
         ]
       ]
-    },
-    {
-      "name": "panel_closed"
     },
     {
       "name": "panel_closing",
@@ -188,9 +182,6 @@
           1.2
         ]
       ]
-    },
-    {
-      "name": "emergency_open_unlit"
     }
   ]
 }
