@@ -29,7 +29,7 @@
       tags:
         - Document
     storage:
-      SheetPrinter: 0
+      Paper: 0
   - type: Machine
     board: PrinterMachineCircuitboard
   - type: Lathe

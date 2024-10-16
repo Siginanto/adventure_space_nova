@@ -84,6 +84,7 @@
   - type: Speech
     speechSounds: SnakeSpeach
     speechVerb: Reptilian
+    allowedEmotes: ['Hissing']
   - type: Temperature
     heatDamageThreshold: 423.15
     coldDamageThreshold: 303.15

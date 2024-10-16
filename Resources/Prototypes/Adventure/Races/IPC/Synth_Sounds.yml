@@ -30,7 +30,9 @@
   sounds:
     Scream:
       collection: DroidScreamCollection
-    DefaultDeathgasp:
+    SynthDeathgasp:
       collection: SynthDeadCollection
     Whistle:
       path: /Audio/Machines/twobeep.ogg
+    Crash:
+      path: /Audio/Adventure/Voice/IPC/SynthWindows.ogg

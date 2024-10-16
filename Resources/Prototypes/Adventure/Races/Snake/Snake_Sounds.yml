@@ -19,6 +19,13 @@
   - /Audio/Adventure/Voice/Snake/ZerahHaha1.ogg
   - /Audio/Adventure/Voice/Snake/ZerahHaha1.ogg
 
+- type: soundCollection
+  id: SnakeHissCollection
+  files:
+  - /Audio/Adventure/Voice/Snake/ZerahSpeach1.ogg
+  - /Audio/Adventure/Voice/Snake/ZerahSpeach2.ogg
+  - /Audio/Adventure/Voice/Snake/ZerahSpeach3.ogg
+
 - type: speechSounds
   id: SnakeSpeach
   saySound:
@@ -51,6 +58,8 @@
       collection: BikeHorn
     Whistle:
       collection: Whistles
+    Hissing:
+      collection: SnakeHissCollection
     Crying:
       collection: MaleCry
     Weh:
@@ -83,6 +92,8 @@
       collection: BikeHorn
     Whistle:
       collection: Whistles
+    Hissing:
+      collection: SnakeHissCollection
     Crying:
       collection: FemaleCry
     Weh:

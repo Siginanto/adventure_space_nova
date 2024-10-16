@@ -5,6 +5,13 @@
   - /Audio/Adventure/Voice/PigMan/PigScream2.ogg
   - /Audio/Adventure/Voice/PigMan/PigScream3.ogg
 
+- type: soundCollection
+  id: PigManHruCollection
+  files:
+  - /Audio/Adventure/Voice/PigMan/PigTalk3.ogg
+  - /Audio/Adventure/Voice/PigMan/PigTalk2.ogg
+  - /Audio/Adventure/Voice/PigMan/PigTalk1.ogg
+
 - type: speechSounds
   id: PigManSpeach
   saySound:
@@ -14,11 +21,30 @@
   exclaimSound:
     path: /Audio/Adventure/Voice/PigMan/PigTalk1.ogg
 
+- type: emote
+  id: Hru
+  name: Хрюкать
+  icon: Adventure/Interface/Emotes/hru.png
+  category: Vocal
+  available: false
+  whitelist:
+    components:
+    - Vocal
+  blacklist:
+    components:
+    - BorgChassis
+  chatMessages: ["Хрюкает"]
+  chatTriggers:
+    - хрюкает
+    - хрюкнул
+
 - type: emoteSounds
   id: MalePigMan
   params:
     variation: 0.125
   sounds:
+    Bruh:
+      collection: BruhCollection
     Yawn:
       collection: MaleYawn
     Sneeze:
@@ -45,12 +71,16 @@
       collection: MaleGasp
     DefaultDeathgasp:
       path: /Audio/Adventure/Voice/PigMan/PigTalk2.ogg
+    Hru:
+      collection: PigManHruCollection
 
 - type: emoteSounds
   id: FemalePigMan
   params:
     variation: 0.125
   sounds:
+    Bruh:
+      collection: BruhCollection
     Sneeze:
       collection: FemaleSneezes
     Cough:
@@ -75,3 +105,5 @@
       collection: FemaleGasp
     DefaultDeathgasp:
       path: /Audio/Adventure/Voice/PigMan/PigTalk2.ogg
+    Hru:
+      collection: PigManHruCollection
