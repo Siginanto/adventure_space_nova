@@ -17,7 +17,7 @@
 - type: emote
   id: Crash
   name: Сбой
-  icon: Interface/Emotes/scream.png
+  icon: Adventure/Interface/Emotes/crash.png
   category: Vocal
   available: false
   whitelist:
