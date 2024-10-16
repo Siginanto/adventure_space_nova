@@ -11,80 +11,75 @@ using Robust.Shared.IoC;
 using Robust.Shared.Localization;
 using System;
 
-namespace Content.Client.Administration.UI.Tabs.AdminTab
+namespace Content.Client.Administration.UI.Tabs.AdminTab;
+
+[GenerateTypedNameReferences]
+public sealed partial class PlaytimeEditWindow : DefaultWindow
 {
-    [GenerateTypedNameReferences]
-    public sealed partial class PlaytimeEditWindow : DefaultWindow
+    [Dependency] private readonly IPrototypeManager _prototype = default!;
+
+    private readonly List<ProtoId<JobPrototype>> _jobPrototypeIds = new();
+    private ProtoId<JobPrototype>? _currentJob = null;
+    private string _timeAdding = string.Empty;
+    private string _playerCKey = string.Empty;
+
+    public PlaytimeEditWindow()
     {
-        [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+        RobustXamlLoader.Load(this);
+        IoCManager.InjectDependencies(this);
 
-        private readonly List<string> _jobPrototypeIds = new();
-        private ProtoId<JobPrototype> _currentJob = "";
-        private string? _timeAdding = null;
-        private string? _playerCKey = null;
-        public PlaytimeEditWindow()
+        var jobs = _prototype.EnumeratePrototypes<JobPrototype>().ToList();
+        jobs.Sort((x, y) => string.Compare(x.LocalizedName, y.LocalizedName, StringComparison.CurrentCulture));
+
+        foreach (var job in jobs)
         {
-            RobustXamlLoader.Load(this);
-            IoCManager.InjectDependencies(this);
+            if (!job.OverrideConsoleVisibility.GetValueOrDefault(job.SetPreference))
+                continue;
 
-            var jobs = _prototypeManager.EnumeratePrototypes<JobPrototype>().ToList();
-            jobs.Sort((x, y) => string.Compare(x.LocalizedName, y.LocalizedName, StringComparison.CurrentCulture));
-
-            foreach (var job in jobs)
-            {
-                if (!job.OverrideConsoleVisibility.GetValueOrDefault(job.SetPreference))
-                {
-                    continue;
-                }
-
-                _jobPrototypeIds.Add(job.ID);
-                _rolesTypeButton.AddItem(Loc.GetString(job.Name), _jobPrototypeIds.Count - 1);
-            }
-
-            _rolesTypeButton.OnItemSelected += SelectJobPreset;
-            _timeLineEdit.OnTextChanged += SelectTime;
-            PlayerList.OnSelectionChanged += OnPlayerSelectionChanged;
-
-            _playtime_add.Disabled = _timeAdding == null || _playerCKey == null || _currentJob == "";
-
-            _playtime_addoverall.Disabled = _timeAdding == null || _playerCKey == null || _currentJob == "";
-
-            _playtime_adddepartment.Disabled = _timeAdding == null || _playerCKey == null || _currentJob == "";
-
-            _playtime_add.Command = $"playtime_addrole {_playerCKey} {_currentJob} {_timeAdding}";
-
-            _playtime_addoverall.Command = $"playtime_addoverall {_playerCKey} {_timeAdding}";
-
-            if (_currentJob != ""){
-                _prototypeManager.TryIndex<JobPrototype>(_currentJob, out var _job);
-                if (_job != null && _job.Guides != null)
-                {
-                    foreach (var dep in _job.Guides)
-                    {
-                        _playtime_adddepartment.Command = $"playtime_adddepartment {_playerCKey} {dep} {_timeAdding}";
-                    }
-                } 
-            }
-            
+            _jobPrototypeIds.Add(job.ID);
+            RolesTypeButton.AddItem(Loc.GetString(job.Name), _jobPrototypeIds.Count - 1);
         }
 
-        private void SelectJobPreset(OptionButton.ItemSelectedEventArgs args)
-        {
-            if (!_prototypeManager.TryIndex(_jobPrototypeIds[args.Id], out JobPrototype? job))
-            {
-                return;
-            }
+        RolesTypeButton.OnItemSelected += SelectJobPreset;
+        TimeLineEdit.OnTextChanged += SelectTime;
+        PlayerList.OnSelectionChanged += OnPlayerSelectionChanged;
+        UpdateCommands();
+    }
+
+    private void SelectJobPreset(OptionButton.ItemSelectedEventArgs args)
+    {
+        _currentJob = null;
+        if (_prototype.TryIndex<JobPrototype>(_jobPrototypeIds[args.Id], out var job))
             _currentJob = job.ID;
-        }
+        args.Button.SelectId(args.Id);
+        UpdateCommands();
+    }
 
-        private void SelectTime(LineEdit.LineEditEventArgs obj)
-        {
-            _timeAdding += obj.Text;
-        }
+    private void SelectTime(LineEdit.LineEditEventArgs obj)
+    {
+        _timeAdding = obj.Text;
+        UpdateCommands();
+    }
 
-        private void OnPlayerSelectionChanged(PlayerInfo? player)
+    private void OnPlayerSelectionChanged(PlayerInfo? player)
+    {
+        _playerCKey = player?.Username ?? string.Empty;
+        UpdateCommands();
+    }
+
+    private void UpdateCommands()
+    {
+        PlaytimeAdd.Command = $"playtime_addrole {_playerCKey} {_currentJob} {_timeAdding}";
+        PlaytimeAddOverall.Command = $"playtime_addoverall {_playerCKey} {_timeAdding}";
+        if (_prototype.TryIndex<JobPrototype>(_currentJob, out var job)
+            && job.Guides != null && job.Guides.Count > 0)
         {
-            _playerCKey = player?.Username ?? string.Empty;
+            var dep = job.Guides[0];
+            PlaytimeAddDepartment.Command = $"playtime_adddepartment {_playerCKey} {dep} {_timeAdding}";
         }
+        var disabled = _timeAdding == string.Empty || _playerCKey == string.Empty || _currentJob == null;
+        PlaytimeAdd.Disabled = disabled;
+        PlaytimeAddOverall.Disabled = disabled;
+        PlaytimeAddDepartment.Disabled = disabled;
     }
 }
