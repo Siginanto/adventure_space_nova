@@ -5,15 +5,15 @@
     <BoxContainer Orientation="Vertical" SeparationOverride="4" MinWidth="150">
         <BoxContainer Orientation="Horizontal" SeparationOverride="4" MinWidth="150">
             <Label Name="_playername" Text="Игрок"/>
-            <cc:PlayerListControl Name="PlayerList" VerticalExpand="True" HorizontalExpand="True" />
+            <cc:PlayerListControl Name="PlayerList" VerticalExpand="True" HorizontalExpand="True" MinHeight="200" />
         </BoxContainer>
         <BoxContainer Orientation="Horizontal" SeparationOverride="4" MinWidth="150">
             <Label Name="_roleName" Text="Роль:"/>
             <OptionButton Name="_rolesTypeButton" HorizontalAlignment="Left" MinWidth="100" HorizontalExpand="True" />
         </BoxContainer>
         <BoxContainer Orientation="Horizontal" SeparationOverride="4" MinWidth="150">
-            <Label Name="_timeAdd" Text="Добавить времени(в мин):"/>
-            <LineEdit Name="_timeLineEdit" />
+            <Label Name="_timeAdd" Text="Добавить времени(в мин): "/>
+            <LineEdit Name="_timeLineEdit" MinWidth="100"/>
         </BoxContainer>
         <cc:CommandButton Name="_playtime_add" Text="Добавить на роль" HorizontalExpand="True" SizeFlagsStretchRatio="2" />
         <cc:CommandButton Name="_playtime_addoverall" Text="Добавить общего" HorizontalExpand="True" SizeFlagsStretchRatio="2" />

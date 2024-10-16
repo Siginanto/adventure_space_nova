@@ -19,7 +19,7 @@ namespace Content.Client.Administration.UI.Tabs.AdminTab
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
 
         private readonly List<string> _jobPrototypeIds = new();
-        private ProtoId<JobPrototype>? _currentJob = null;
+        private ProtoId<JobPrototype> _currentJob = "";
         private string? _timeAdding = null;
         private string? _playerCKey = null;
         public PlaytimeEditWindow()
@@ -45,17 +45,17 @@ namespace Content.Client.Administration.UI.Tabs.AdminTab
             _timeLineEdit.OnTextChanged += SelectTime;
             PlayerList.OnSelectionChanged += OnPlayerSelectionChanged;
 
-            _playtime_add.Disabled = _timeAdding == null || _playerCKey == null;
+            _playtime_add.Disabled = _timeAdding == null || _playerCKey == null || _currentJob == "";
 
-            _playtime_addoverall.Disabled = _timeAdding == null || _playerCKey == null;
+            _playtime_addoverall.Disabled = _timeAdding == null || _playerCKey == null || _currentJob == "";
 
-            _playtime_adddepartment.Disabled = _timeAdding == null || _playerCKey == null;
+            _playtime_adddepartment.Disabled = _timeAdding == null || _playerCKey == null || _currentJob == "";
 
             _playtime_add.Command = $"playtime_addrole {_playerCKey} {_currentJob} {_timeAdding}";
 
             _playtime_addoverall.Command = $"playtime_addoverall {_playerCKey} {_timeAdding}";
 
-            if (_currentJob != null){
+            if (_currentJob != ""){
                 _prototypeManager.TryIndex<JobPrototype>(_currentJob, out var _job);
                 if (_job != null && _job.Guides != null)
                 {
