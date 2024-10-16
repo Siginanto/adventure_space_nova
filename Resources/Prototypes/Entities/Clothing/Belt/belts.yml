@@ -621,19 +621,31 @@
     sprite: Clothing/Belt/securitywebbing.rsi
   - type: Storage
     grid:
-    - 0,0,3,1
+    - 0,0,7,1
     whitelist:
       tags:
         - CigPack
         - Taser
+        - SecBeltEquip
+        - Radio
+        - Sidearm
+        - MagazinePistol
+        - MagazineMagnum
+        - CombatKnife
+        - Truncheon
       components:
         - Stunbaton
         - FlashOnTrigger
         - SmokeOnTrigger
         - Flash
+        - Ammo
         - Handcuff
         - BallisticAmmoProvider
-        - Ammo
+        - CartridgeAmmo
+        - DoorRemote
+        - Whistle
+        - HolosignProjector
+        - BalloonPopper
 
 - type: entity
   parent: [ ClothingBeltStorageBase, BaseSecurityCargoContraband ]
@@ -671,19 +683,31 @@
     damageCoefficient: 0.5
   - type: Storage
     grid:
-    - 0,0,3,1
+    - 0,0,7,1
     whitelist:
       tags:
         - CigPack
         - Taser
+        - SecBeltEquip
+        - Radio
+        - Sidearm
+        - MagazinePistol
+        - MagazineMagnum
+        - CombatKnife
+        - Truncheon
       components:
         - Stunbaton
         - FlashOnTrigger
         - SmokeOnTrigger
         - Flash
+        - Ammo
         - Handcuff
         - BallisticAmmoProvider
-        - Ammo
+        - CartridgeAmmo
+        - DoorRemote
+        - Whistle
+        - HolosignProjector
+        - BalloonPopper 
 
 - type: entity
   parent: ClothingBeltMilitaryWebbing
