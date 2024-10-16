@@ -47,6 +47,28 @@
   - BaseMobSpeciesInorganicIPC
   id: BaseMobSynth
   components:
+  - type: Reactive
+    groups:
+      Flammable: [ Touch ]
+      Extinguish: [ Touch ]
+    reactions:
+    - reagents: [ Water, SpaceCleaner ]
+      methods: [ Touch ]
+      effects:
+      - !type:WashCreamPieReaction
+    - reagents: [ SpaceLube ]
+      methods: [ Touch ]
+      effects: 
+      - !type:HealthChange
+        scaleByQuantity: true
+        damage:
+          types:
+            Cold: -2
+      - !type:PopupMessage
+        type: Local
+        visualType: Large
+        messages: [ "Обледенение отпадает от вашего корпуса" ]
+        probability: 0.25
   - type: Inventory
     templateId: Synth
   - type: ThermalRegulator
@@ -155,6 +177,7 @@
       - Piercing
       - Heat
       - Shock
+      - Cold
   - type: TransferMindOnGib
   - type: Destructible
     thresholds:
@@ -192,11 +215,8 @@
     doAfterDelay: 5
     damage:
       types:
-        Blunt: -10
         Slash: -10
         Piercing: -10
-        Heat: -10
-        Shock: -10
     allowSelfRepair: true
   - type: IntrinsicRadioReceiver
     channels:
