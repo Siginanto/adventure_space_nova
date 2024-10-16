@@ -19,7 +19,7 @@ namespace Content.Client.Administration.UI.Tabs.AdminTab
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
 
         private readonly List<string> _jobPrototypeIds = new();
-        private ProtoId<JobPrototype> _currentJob;
+        private ProtoId<JobPrototype>? _currentJob = null;
         private string? _timeAdding = null;
         private string? _playerCKey = null;
         public PlaytimeEditWindow()
@@ -55,14 +55,17 @@ namespace Content.Client.Administration.UI.Tabs.AdminTab
 
             _playtime_addoverall.Command = $"playtime_addoverall {_playerCKey} {_timeAdding}";
 
-            _prototypeManager.TryIndex<JobPrototype>(_currentJob, out var _job);
-            if (_job != null && _job.Guides != null)
-            {
-                foreach (var dep in _job.Guides)
+            if (_currentJob != null){
+                _prototypeManager.TryIndex<JobPrototype>(_currentJob, out var _job);
+                if (_job != null && _job.Guides != null)
                 {
-                    _playtime_adddepartment.Command = $"playtime_adddepartment {_playerCKey} {dep} {_timeAdding}";
-                }
+                    foreach (var dep in _job.Guides)
+                    {
+                        _playtime_adddepartment.Command = $"playtime_adddepartment {_playerCKey} {dep} {_timeAdding}";
+                    }
+                } 
             }
+            
         }
 
         private void SelectJobPreset(OptionButton.ItemSelectedEventArgs args)
