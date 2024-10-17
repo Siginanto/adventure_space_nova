@@ -22,6 +22,8 @@ public sealed partial class PlaytimeEditWindow : DefaultWindow
     private ProtoId<JobPrototype>? _currentJob = null;
     private string _timeAdding = string.Empty;
     private string _playerCKey = string.Empty;
+    private ProtoId<DepartmentPrototype>? _currentDep = null;
+    private readonly List<ProtoId<DepartmentPrototype>> _depPrototypeNames = new();
 
     public PlaytimeEditWindow()
     {
@@ -29,7 +31,9 @@ public sealed partial class PlaytimeEditWindow : DefaultWindow
         IoCManager.InjectDependencies(this);
 
         var jobs = _prototype.EnumeratePrototypes<JobPrototype>().ToList();
+        var deps = _prototype.EnumeratePrototypes<DepartmentPrototype>().ToList();
         jobs.Sort((x, y) => string.Compare(x.LocalizedName, y.LocalizedName, StringComparison.CurrentCulture));
+        deps.Sort((x, y) => string.Compare(x.Name, y.Name, StringComparison.CurrentCulture));
 
         foreach (var job in jobs)
         {
@@ -39,10 +43,16 @@ public sealed partial class PlaytimeEditWindow : DefaultWindow
             _jobPrototypeIds.Add(job.ID);
             RolesTypeButton.AddItem(Loc.GetString(job.Name), _jobPrototypeIds.Count - 1);
         }
+        foreach (var dep in deps)
+        {
+            _depPrototypeNames.Add(dep.ID);
+            RolesTypeButton.AddItem(Loc.GetString(dep.Name), _jobPrototypeIds.Count - 1);
+        }
 
         RolesTypeButton.OnItemSelected += SelectJobPreset;
         TimeLineEdit.OnTextChanged += SelectTime;
         PlayerList.OnSelectionChanged += OnPlayerSelectionChanged;
+        DepTypeButton.OnItemSelected += SelectDepPreset;
         UpdateCommands();
     }
 
@@ -51,6 +61,15 @@ public sealed partial class PlaytimeEditWindow : DefaultWindow
         _currentJob = null;
         if (_prototype.TryIndex<JobPrototype>(_jobPrototypeIds[args.Id], out var job))
             _currentJob = job.ID;
+        args.Button.SelectId(args.Id);
+        UpdateCommands();
+    }
+
+    private void SelectDepPreset(OptionButton.ItemSelectedEventArgs args)
+    {
+        _currentDep = null;
+        if (_prototype.TryIndex<DepartmentPrototype>(_depPrototypeNames[args.Id], out var dep))
+            _currentDep = dep.ID;
         args.Button.SelectId(args.Id);
         UpdateCommands();
     }
@@ -71,15 +90,12 @@ public sealed partial class PlaytimeEditWindow : DefaultWindow
     {
         PlaytimeAdd.Command = $"playtime_addrole {_playerCKey} {_currentJob} {_timeAdding}";
         PlaytimeAddOverall.Command = $"playtime_addoverall {_playerCKey} {_timeAdding}";
-        if (_prototype.TryIndex<JobPrototype>(_currentJob, out var job)
-            && job.Guides != null && job.Guides.Count > 0)
-        {
-            var dep = job.Guides[0];
-            PlaytimeAddDepartment.Command = $"playtime_adddepartment {_playerCKey} {dep} {_timeAdding}";
-        }
-        var disabled = _timeAdding == string.Empty || _playerCKey == string.Empty || _currentJob == null;
-        PlaytimeAdd.Disabled = disabled;
-        PlaytimeAddOverall.Disabled = disabled;
-        PlaytimeAddDepartment.Disabled = disabled;
+        PlaytimeAddDepartment.Command = $"playtime_addoverall {_playerCKey} {_currentDep} {_timeAdding}";
+        var disabled_all = _timeAdding == string.Empty || _playerCKey == string.Empty;
+        var disabled_role = _timeAdding == string.Empty || _playerCKey == string.Empty || _currentJob == null;
+        var disabled_dep = _timeAdding == string.Empty || _playerCKey == string.Empty || _depPrototypeNames == null;
+        PlaytimeAdd.Disabled = disabled_role;
+        PlaytimeAddOverall.Disabled = disabled_all;
+        PlaytimeAddDepartment.Disabled = disabled_dep;
     }
 }

@@ -12,6 +12,10 @@
             <OptionButton Name="RolesTypeButton" HorizontalAlignment="Left" MinWidth="100" HorizontalExpand="True" />
         </BoxContainer>
         <BoxContainer Orientation="Horizontal" SeparationOverride="4" MinWidth="150">
+            <Label Name="DepName" Text="Отдел:"/>
+            <OptionButton Name="DepTypeButton" HorizontalAlignment="Left" MinWidth="100" HorizontalExpand="True" />
+        </BoxContainer>
+        <BoxContainer Orientation="Horizontal" SeparationOverride="4" MinWidth="150">
             <Label Name="TimeAdd" Text="Добавить времени(в мин): "/>
             <LineEdit Name="TimeLineEdit" MinWidth="100"/>
         </BoxContainer>
