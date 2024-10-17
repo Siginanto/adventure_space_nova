@@ -19,10 +19,10 @@ public sealed partial class PlaytimeEditWindow : DefaultWindow
     [Dependency] private readonly IPrototypeManager _prototype = default!;
 
     private readonly List<ProtoId<JobPrototype>> _jobPrototypeIds = new();
-    private ProtoId<JobPrototype>? _currentJob = null;
+    private ProtoId<JobPrototype>? _currentJob = "IAA";
     private string _timeAdding = string.Empty;
     private string _playerCKey = string.Empty;
-    private ProtoId<DepartmentPrototype>? _currentDep = null;
+    private ProtoId<DepartmentPrototype>? _currentDep = "Cargo";
     private readonly List<ProtoId<DepartmentPrototype>> _depPrototypeNames = new();
 
     public PlaytimeEditWindow()
@@ -46,7 +46,7 @@ public sealed partial class PlaytimeEditWindow : DefaultWindow
         foreach (var dep in deps)
         {
             _depPrototypeNames.Add(dep.ID);
-            RolesTypeButton.AddItem(Loc.GetString(dep.Name), _jobPrototypeIds.Count - 1);
+            DepTypeButton.AddItem(Loc.GetString(dep.Name), _depPrototypeNames.Count - 1);
         }
 
         RolesTypeButton.OnItemSelected += SelectJobPreset;
@@ -88,9 +88,9 @@ public sealed partial class PlaytimeEditWindow : DefaultWindow
 
     private void UpdateCommands()
     {
-        PlaytimeAdd.Command = $"playtime_addrole {_playerCKey} {_currentJob} {_timeAdding}";
+        PlaytimeAdd.Command = $"playtime_addrole {_playerCKey} Job{_currentJob} {_timeAdding}";
         PlaytimeAddOverall.Command = $"playtime_addoverall {_playerCKey} {_timeAdding}";
-        PlaytimeAddDepartment.Command = $"playtime_addoverall {_playerCKey} {_currentDep} {_timeAdding}";
+        PlaytimeAddDepartment.Command = $"playtime_adddepartment {_playerCKey} {_currentDep} {_timeAdding}";
         var disabled_all = _timeAdding == string.Empty || _playerCKey == string.Empty;
         var disabled_role = _timeAdding == string.Empty || _playerCKey == string.Empty || _currentJob == null;
         var disabled_dep = _timeAdding == string.Empty || _playerCKey == string.Empty || _depPrototypeNames == null;
