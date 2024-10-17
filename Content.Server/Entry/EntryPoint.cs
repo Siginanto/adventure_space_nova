@@ -1,3 +1,4 @@
+using Content.Server._Adventure.TTS;
 using Content.Server.Acz;
 using Content.Server.Administration;
 using Content.Server.Administration.Logs;
@@ -108,6 +109,7 @@ namespace Content.Server.Entry
                 IoCManager.Resolve<ServerInfoManager>().Initialize();
                 IoCManager.Resolve<ServerApi>().Initialize();
 
+                IoCManager.Resolve<TTSManager>().Initialize(); // c4llv07e tts
                 IoCManager.Resolve<AdventureConfigManager>().Initialize(); // AdvSpace Config
 
                 _voteManager.Initialize();
