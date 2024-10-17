@@ -12,6 +12,10 @@
     - SlimePerson
     - Vulpkanin # Corvax
     - Vox
+    - IPC # Adventure
+    - PigMan # Adventure
+    - Skrell # Adventure
+    - Snake # Adventure
 
 - type: guideEntry
   id: Arachnid
