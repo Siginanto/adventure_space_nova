@@ -35,10 +35,27 @@
 - type: soundCollection
   id: RoboFacepalmCollection
   files:
-  - /Audio/Adventure/Voice/Emotions/RobotFacepalm1.ogg
-  - /Audio/Adventure/Voice/Emotions/RobotFacepalm2.ogg
-  - /Audio/Adventure/Voice/Emotions/RobotFacepalm3.ogg
-  - /Audio/Adventure/Voice/Emotions/RobotFacepalm4.ogg
+  - /Audio/Adventure/Voice/RobotEmotions/RobotFacepalm1.ogg
+  - /Audio/Adventure/Voice/RobotEmotions/RobotFacepalm2.ogg
+  - /Audio/Adventure/Voice/RobotEmotions/RobotFacepalm3.ogg
+  - /Audio/Adventure/Voice/RobotEmotions/RobotFacepalm4.ogg    
+  
+#РобоЧесотка
+- type: soundCollection
+  id: RoboScratchingCollection
+  files:
+  - /Audio/Adventure/Voice/RobotEmotions/RobotScratching1.ogg
+  - /Audio/Adventure/Voice/RobotEmotions/RobotScratching2.ogg
+  - /Audio/Adventure/Voice/RobotEmotions/RobotScratching3.ogg
+
+#РобоХруст
+- type: soundCollection
+  id: RoboCrunchCollection
+  files:
+  - /Audio/Adventure/Voice/RobotEmotions/RobotcCrunch1.ogg
+  - /Audio/Adventure/Voice/RobotEmotions/RobotcCrunch2.ogg
+  - /Audio/Adventure/Voice/RobotEmotions/RobotcCrunch3.ogg
+  - /Audio/Adventure/Voice/RobotEmotions/RobotcCrunch4.ogg 
 
 #Смерть
 - type: emote
@@ -86,6 +103,10 @@
 - type: emoteSounds
   id: SynthBodyEmotes
   sounds:
+    Scratch:
+      collection: RoboScratchingCollection
+    Crunch:
+      collection: RoboCrunchCollection
     Facepalm:
       collection: RoboFacepalmCollection 
     Clap:
