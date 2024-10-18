@@ -26,6 +26,16 @@ marking-SynthAntennas-antennas = КПБ, бок (Антенны)
 marking-SynthAntennas = КПБ, бок (Антенны) 
 marking-SynthWires-wires = КПБ, бок (Провода)
 marking-SynthWires = КПБ, бок (Провода) 
+marking-SynthScreenNo-no = КПБ, экран (Крест)
+marking-SynthScreenNo = КПБ, кран (Крест)
+marking-SynthScreenBacklight-backlight = КПБ, экран (Подсветка)
+marking-SynthScreenBacklight = КПБ, кран (Подсветка)
+marking-SynthEyesScreen-eyesScreen = КПБ, экран (Экран с глазами)
+marking-SynthEyesScreen = КПБ, кран (Экран с глазами)
+marking-SynthScreenNoise-noiseScreen = КПБ, экран (Помехи)
+marking-SynthScreenNoise = КПБ, кран (Помехи)
+marking-SynthScreenDoubleCyclops-DoubleCyclops = КПБ, экран (Двойной циклоп на экране)
+marking-SynthScreenDoubleCyclops = КПБ, кран (Двойной циклоп на экране)
 
 
 

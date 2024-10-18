@@ -99,6 +99,64 @@
   - sprite: Adventure/Races/IPC/Customization/Face.rsi
     state: Visor
 
+- type: marking
+  id: SynthScreenNo
+  name: КПБ, морда (Крест)
+  bodyPart: Snout
+  markingCategory: Snout
+  speciesRestriction: [Synth]
+  sprites:
+  - sprite: Adventure/Races/IPC/Customization/Face.rsi
+    state: screen
+  - sprite: Adventure/Races/IPC/Customization/Face.rsi
+    state: no
+
+- type: marking
+  id: SynthScreenBacklight
+  name: КПБ, морда (Подсветка)
+  bodyPart: Snout
+  markingCategory: Snout
+  speciesRestriction: [Synth]
+  sprites:
+  - sprite: Adventure/Races/IPC/Customization/Face.rsi
+    state: screen
+  - sprite: Adventure/Races/IPC/Customization/Face.rsi
+    state: backlight
+
+- type: marking
+  id: SynthEyesScreen
+  name: КПБ, морда (Экран с глазами)
+  bodyPart: Snout
+  markingCategory: Snout
+  speciesRestriction: [Synth]
+  sprites:
+  - sprite: Adventure/Races/IPC/Customization/Face.rsi
+    state: screen
+  - sprite: Adventure/Races/IPC/Customization/Face.rsi
+    state: eyesScreen
+
+- type: marking
+  id: SynthScreenNoise
+  name: КПБ, морда (Помехи)
+  bodyPart: Snout
+  markingCategory: Snout
+  speciesRestriction: [Synth]
+  sprites:
+  - sprite: Adventure/Races/IPC/Customization/Face.rsi
+    state: noiseScreen
+
+- type: marking
+  id: SynthScreenDoubleCyclops
+  name: КПБ, морда (Двойной циклоп на экране)
+  bodyPart: Snout
+  markingCategory: Snout
+  speciesRestriction: [Synth]
+  sprites:
+  - sprite: Adventure/Races/IPC/Customization/Face.rsi
+    state: screen
+  - sprite: Adventure/Races/IPC/Customization/Face.rsi
+    state: DoubleCyclops
+
 #Head
 - type: marking
   id: SynthAntennaCurves

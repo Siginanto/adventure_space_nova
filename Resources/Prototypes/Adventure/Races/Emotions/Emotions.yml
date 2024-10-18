@@ -49,7 +49,6 @@
     - BorgChassis
     - IgnoreKudzu
     - Storage
-    - Repairable
   chatMessages: ["Хрустит костями"]
   chatTriggers:
     - хрустит костями
@@ -103,7 +102,6 @@
     - BorgChassis
     - IgnoreKudzu
     - Storage
-    - Repairable
   chatMessages: ["Чешется"]
   chatTriggers:
     - чешется
