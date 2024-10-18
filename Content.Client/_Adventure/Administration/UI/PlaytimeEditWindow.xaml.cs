@@ -11,7 +11,7 @@ using Robust.Shared.IoC;
 using Robust.Shared.Localization;
 using System;
 
-namespace Content.Client.Administration.UI.Tabs.AdminTab;
+namespace Content.Client._Adventure.Administration.UI;
 
 [GenerateTypedNameReferences]
 public sealed partial class PlaytimeEditWindow : DefaultWindow
