@@ -43,17 +43,14 @@
 - type: startingGear
   id: BrigmedicGearADVENT
   equipment:
-    jumpsuit: ClothingUniformJumpsuitBrigmedic
-    outerClothing: ClothingOuterCoatAMG
-    back: ClothingBackpackBrigmedic
-    shoes: ClothingShoesColorRed
     gloves: ClothingHandsGlovesNitrile
     eyes: ClothingEyesHudMedical
-    head: ClothingHeadHatBeretBrigmedic
     id: BrigmedicPDA
     ears: ClothingHeadsetBrigmedic
-    mask: ClothingMaskBreathMedicalSecurity
     belt: ClothingBeltMedicalFilled
+  storage:
+    back:
+    - Flash
 
 #Карта
 - type: entity
@@ -72,38 +69,6 @@
   components:
   - type: Pda
     id: BrigmedicIDCardADV
-
-#Сумки
-- type: entity
-  noSpawn: true
-  parent: ClothingBackpackBrigmedic
-  id: ClothingBackpackBrigmedicFilledADV
-  components:
-  - type: StorageFill
-    contents:
-      - id: BoxSurvivalMedical
-      - id: Flash
-      - id: IndiMedBox
-
-- type: entity
-  noSpawn: true
-  parent: ClothingBackpackSatchelBrigmedic
-  id: ClothingBackpackSatchelBrigmedicFilledADV
-  components:
-  - type: StorageFill
-    contents:
-      - id: BoxSurvivalMedical
-      - id: Flash
-
-- type: entity
-  noSpawn: true
-  parent: ClothingBackpackDuffelBrigmedic
-  id: ClothingBackpackDuffelBrigmedicFilledADV
-  components:
-  - type: StorageFill
-    contents:
-      - id: BoxSurvivalMedical
-      - id: Flash
 
 #Спавнер
 - type: entity
