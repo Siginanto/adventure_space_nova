@@ -22,12 +22,58 @@
   - /Audio/Adventure/Voice/IPC/SynthSteep3.ogg
   - /Audio/Adventure/Voice/IPC/SynthSteep4.ogg
 
+- type: soundCollection
+  id: SynthLaughCollection
+  files:
+  - /Audio/Adventure/Voice/IPC/RobotHaha1.ogg
+  - /Audio/Adventure/Voice/IPC/RobotHaha2.ogg
+  - /Audio/Adventure/Voice/IPC/RobotHaha3.ogg
+  - /Audio/Adventure/Voice/IPC/RobotHaha4.ogg
+  - /Audio/Adventure/Voice/IPC/RobotHaha5.ogg
+
+#Робофейспалм
+- type: soundCollection
+  id: RoboFacepalmCollection
+  files:
+  - /Audio/Adventure/Voice/Emotions/RobotFacepalm1.ogg
+  - /Audio/Adventure/Voice/Emotions/RobotFacepalm2.ogg
+  - /Audio/Adventure/Voice/Emotions/RobotFacepalm3.ogg
+  - /Audio/Adventure/Voice/Emotions/RobotFacepalm4.ogg
+
+#Смерть
+- type: emote
+  id: SynthDeathgasp
+  name: chat-emote-name-deathgasp
+  icon: Interface/Emotes/deathgasp.png
+  chatMessages: ["Замирает, его сенсоры отключаются, а модули перестают работать"]
+
+#Сбой
+- type: emote
+  id: Crash
+  name: Сбой
+  icon: Adventure/Interface/Emotes/crash.png
+  category: Vocal
+  available: false
+  whitelist:
+    components:
+    - Vocal
+    - BorgChassis
+  chatMessages: ["Зависает"]
+  chatTriggers:
+    - сбоит
+    - в шоке
+    - в ахуе
+    - завис
+    - зависает
+
 #эмоции
 - type: emoteSounds
   id: SynthEmote
   params:
     variation: 0.125
   sounds:
+    Laugh:
+      collection: SynthLaughCollection
     Scream:
       collection: DroidScreamCollection
     SynthDeathgasp:
@@ -36,3 +82,17 @@
       path: /Audio/Machines/twobeep.ogg
     Crash:
       path: /Audio/Adventure/Voice/IPC/SynthWindows.ogg
+
+- type: emoteSounds
+  id: SynthBodyEmotes
+  sounds:
+    Facepalm:
+      collection: RoboFacepalmCollection 
+    Clap:
+      collection: Claps
+    Snap:
+      collection: Snaps
+      params:
+        volume: -6
+    Salute:
+      collection: Salutes

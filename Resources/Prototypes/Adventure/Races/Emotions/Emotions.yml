@@ -121,3 +121,46 @@
     - чешет лицо
     - чешет блох
     - сильно чешется
+
+# Фейспалм
+- type: soundCollection
+  id: FacepalmCollection
+  files:
+  - /Audio/Adventure/Voice/Emotions/facepalm1.ogg
+  - /Audio/Adventure/Voice/Emotions/facepalm2.ogg
+  - /Audio/Adventure/Voice/Emotions/facepalm3.ogg
+  - /Audio/Adventure/Voice/Emotions/facepalm4.ogg
+  
+- type: emote
+  id: Facepalm
+  name: Фейспалм
+  icon: Adventure/Interface/Emotes/facepalm.png
+  category: Hands
+  whitelist:
+    components:
+    - Vocal
+  blacklist:
+    components:
+    - BorgChassis
+  chatMessages: ["Делает фейспалм"]
+  chatTriggers:
+    - Делает фейспалм
+    - испанский стыд
+    - ударяет ладонью о лицо
+    - фейспалм
+    - подносит лицо к ладоням
+    - бьёт по лицу
+    - бьет по лицу
+    - бьёт себя по лицу
+    - бьет по лицу
+    - в шоке по испански
+    - в ахуе по испански
+
+#Стук хвостом
+- type: soundCollection
+  id: TailThumpCollection
+  files:
+  - /Audio/Voice/Reptilian/reptilian_tailthump.ogg
+  - /Audio/Voice/Reptilian/reptilian_tailthump2.ogg
+  - /Audio/Voice/Reptilian/reptilian_tailthump3.ogg
+  - /Audio/Voice/Reptilian/reptilian_tailthump4.ogg

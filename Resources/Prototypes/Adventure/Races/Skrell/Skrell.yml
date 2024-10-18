@@ -50,6 +50,7 @@
       Unsexed: MaleSkrell
   - type: Speech
     speechSounds: SkrellSpeach
+    speechVerb: Slime
   - type: Temperature
     heatDamageThreshold: 343.15
     coldDamageThreshold: 303.15
