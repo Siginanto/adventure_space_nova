@@ -12,6 +12,8 @@
   id: BaseMobZerah
   name: Урист макЗмий
   components:
+  - type: BodyEmotes
+    soundsId: ReptilianBodyEmotes
   - type: Devourer
     devourAction: ActionDevourZerah
     soundDevour: /Audio/Adventure/Voice/Snake/ZerahEat.ogg
@@ -84,7 +86,7 @@
   - type: Speech
     speechSounds: SnakeSpeach
     speechVerb: Reptilian
-    allowedEmotes: ['Hissing']
+    allowedEmotes: ['Hissing', 'Thump']
   - type: Temperature
     heatDamageThreshold: 423.15
     coldDamageThreshold: 303.15
