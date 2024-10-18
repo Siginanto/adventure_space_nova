@@ -8,11 +8,11 @@
   },
   "states": [
     {
-      "name": "Altron-unshaded",
+      "name": "Altron",
       "directions": 4
     },
     {
-      "name": "Bigeyes-unshaded",
+      "name": "Bigeyes",
       "directions": 4
     },
     {
@@ -20,15 +20,7 @@
       "directions": 4
     },
     {
-      "name": "Cyclops-unshaded",
-      "directions": 4
-    },
-    {
       "name": "DoubleCyclops",
-      "directions": 4
-    },
-    {
-      "name": "DoubleCyclops-unshaded",
       "directions": 4
     },
     {
@@ -36,23 +28,11 @@
       "directions": 4
     },
     {
-      "name": "eyes-unshaded",
-      "directions": 4
-    },
-    {
       "name": "lens",
       "directions": 4
     },
     {
-      "name": "lens-unshaded",
-      "directions": 4
-    },
-    {
       "name": "screen",
-      "directions": 4
-    },
-    {
-      "name": "screen-unshaded",
       "directions": 4
     },
     {
@@ -64,15 +44,7 @@
       "directions": 4
     },
     {
-      "name": "Spider-unshaded",
-      "directions": 4
-    },
-    {
       "name": "Visor",
-      "directions": 4
-    },
-    {
-      "name": "Visor-unshaded",
       "directions": 4
     }
   ]
