@@ -116,6 +116,7 @@
   packetPrototype: MimanaSeeds
   productPrototypes:
     - FoodMimana
+  mutationPrototypes:
     - BananaGunPlant #Adventure
   harvestRepeat: Repeat
   lifespan: 50
