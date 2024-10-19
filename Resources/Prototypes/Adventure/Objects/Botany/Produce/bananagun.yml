@@ -1,0 +1,108 @@
+- type: entity #Семена
+  parent: SeedBase
+  name: пакет семян (Бананаган)
+  description: "пахнет бананом.."
+  id: BananaGunSeeds
+  components:
+    - type: Seed
+      seedId: BananaGunPlant
+    - type: Sprite
+      sprite: Adventure/Objects/Botany/Produce/bananagundop.rsi
+
+- type: seed #Растение
+  id: BananaGunPlant
+  name: Семена бананагана
+  noun: seeds-noun-seeds
+  displayName: Бананаган
+  plantRsi: Adventure/Objects/Botany/Produce/bananagundop.rsi
+  packetPrototype: BananaGunSeeds
+  productPrototypes:
+    - BananaGun
+  lifespan: 65
+  maturation: 25
+  production: 25
+  yield: 1
+  potency: 10
+  growthStages: 6
+  idealLight: 6
+  chemicals:
+    Nutriment:
+      Min: 1
+      Max: 5
+      PotencyDivisor: 20
+    Sulfur:
+      Min: 1
+      Max: 5
+      PotencyDivisor: 20
+
+- type: entity  #Продукт
+  name: Странный банан
+  parent: FoodProduceBase
+  id: BananaGun
+  description: Банан или орудие убийства?
+  components:
+  - type: FlavorProfile
+    flavors:
+      - plastic
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 10
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 5
+        - ReagentId: Sulfur
+          Quantity: 5
+  - type: Sprite
+    sprite: Adventure/Objects/Botany/Produce/bananagundop.rsi
+  - type: Produce
+    seedId: BananaGunPlant
+  - type: Food
+    trash:
+    - BananaGunRev
+  - type: Tag
+    tags:
+    - Fruit
+
+- type: entity  #Оружие
+  parent: ToyGunBase
+  id: BananaGunRev
+  name: Банановый пистолет
+  description: Вкусно и грустно.
+  components:
+  - type: Sprite
+    sprite: Adventure/Objects/Botany/Produce/Weapons/bananagun-rev.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+  - type: Item
+    sprite: Adventure/Objects/Botany/Produce/Weapons/bananagun-rev.rsi
+    heldPrefix: capgun
+  - type: Tag
+    tags:
+    - Sidearm
+    - ToySidearm
+  - type: Gun
+    selectedMode: SemiAuto
+    availableModes:
+      - SemiAuto
+    fireRate: 2
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/revolver.ogg
+      params:
+        volume: 2.25
+    clumsyProof: true
+  - type: RevolverAmmoProvider
+    whitelist:
+      tags:
+        - CartridgeCap
+        - SpeedLoaderCap
+    proto: CartridgeCap
+    capacity: 3
+    chambers: [ True, True, True ]
+    ammoSlots: [ null, null, null ]
+    soundInsert:
+      path: /Audio/Weapons/Guns/MagIn/revolver_magin.ogg
+  - type: ContainerContainer
+    containers:
+      revolver-ammo: !type:Container
