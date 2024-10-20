@@ -68,12 +68,12 @@
   parent: ToyGunBase
   id: BananaGunRev
   name: Банановый пистолет
-  description: Вкусно и грустно.
+  description: Вкусно и грустно..
   components:
   - type: Sprite
     sprite: Adventure/Objects/Botany/Produce/Weapons/bananagun-rev.rsi
     layers:
-    - state: base
+    - state: bananagun
       map: ["enum.GunVisualLayers.Base"]
   - type: Item
     sprite: Adventure/Objects/Botany/Produce/Weapons/bananagun-rev.rsi
