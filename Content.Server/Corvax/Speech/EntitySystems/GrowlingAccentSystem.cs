@@ -44,30 +44,33 @@ public sealed class GrowlingAccentSystem : EntitySystem
             "Р+",
             _random.Pick(new List<string> { "РР", "РРР" })
         );
-        // в => ввв Adventure
+
+        // Adventure-Localization-Start
+        // в => ввв 
         message = Regex.Replace(
             message,
             "в+",
             _random.Pick(new List<string> { "вв", "ввв" })
         );
-        // В => ВВВ Adventure
+        // В => ВВВ 
         message = Regex.Replace(
             message,
             "В+",
             _random.Pick(new List<string> { "ВВ", "ВВВ" })
         );
-        // ф => ффф Adventure
+        // ф => ффф 
         message = Regex.Replace(
             message,
             "ф+",
             _random.Pick(new List<string> { "фф", "ффф" })
         );
-        // Ф => ФФФ Adventure
+        // Ф => ФФФ 
         message = Regex.Replace(
             message,
             "Ф+",
             _random.Pick(new List<string> { "ФФ", "ФФФ" })
         );
+        // Adventure-Localization-End
 
         args.Message = message;
     }
