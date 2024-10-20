@@ -10,7 +10,7 @@
   blacklist:
     components:
     - BorgChassis
-  chatMessages: [Шипит!]
+  chatMessages: [шипит!]
   chatTriggers:
     - шипит
     - шипит.
