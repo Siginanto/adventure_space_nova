@@ -1948,6 +1948,8 @@
   packetPrototype: CherrySeeds
   productPrototypes:
     - FoodCherry
+  mutationPrototypes:
+    - CherryBombPlant # Adventure
   harvestRepeat: Repeat
   lifespan: 55
   maturation: 6
