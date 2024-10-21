@@ -43,7 +43,7 @@
   description: Взрывной плод мутировавшей вишни.
   components:
   - type: Sprite
-    sprite: Adventure/Objects/Botany/Produce/Weapons/cherry-bomb.rsi
+    sprite: Adventure/Objects/Weapons/Botany/cherry-bomb.rsi
     layers:
     - state: base
       map: ["enum.TriggerVisualLayers.Base"]
