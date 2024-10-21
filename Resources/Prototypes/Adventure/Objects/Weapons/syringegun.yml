@@ -98,7 +98,7 @@
 
 - type: entity
   name: Шприцемёт
-  suffix: Debug, AdvWeapons
+  suffix: AdvWeapons, AdvAdmin
   parent: BaseItem
   id: WeaponSyringeGun
   description: Быстрое лечение на поле боя!
@@ -165,7 +165,7 @@
 - type: entity
   id: MagazineBattleSyringesNocturine
   parent: MagazineBattleSyringes
-  suffix: ноктурин
+  suffix: ноктурин, AdvAdmin
   components:
   - type: BallisticAmmoProvider
     proto: BattleSyringeNocturine
