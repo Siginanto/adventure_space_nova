@@ -18,7 +18,7 @@
         visible: false
   - type: Appearance
   - type: SolutionContainerVisuals
-    maxFillLevels: 9
+    maxFillLevels: 7
     fillBaseName: generictank-1- # Adventure-Resprite
   - type: ExaminableSolution
     solution: tank
@@ -63,7 +63,7 @@
         map: ["enum.SolutionContainerLayers.Fill"]
         visible: false
   - type: SolutionContainerVisuals
-    maxFillLevels: 9
+    maxFillLevels: 7
     fillBaseName: generictank-1- # Adventure-Resprite
   - type: SolutionContainerManager
     solutions:
@@ -96,7 +96,7 @@
         visible: false
   - type: Appearance
   - type: SolutionContainerVisuals
-    maxFillLevels: 9
+    maxFillLevels: 7
     fillBaseName: generictank-1- # Adventure-Resprite
   - type: ExaminableSolution
     solution: tank
@@ -180,7 +180,7 @@
         visible: false
   - type: Appearance
   - type: SolutionContainerVisuals
-    maxFillLevels: 9
+    maxFillLevels: 7
     fillBaseName: generictank-1- # Adventure-Resprite
   - type: SolutionContainerManager
     solutions:
@@ -212,7 +212,7 @@
           visible: false
     - type: Appearance
     - type: SolutionContainerVisuals
-      maxFillLevels: 9 
+      maxFillLevels: 7 
       fillBaseName: generictank-1- # Corvax-Resprite
     - type: ExaminableSolution
       solution: tank
