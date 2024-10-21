@@ -1,7 +1,7 @@
 - type: entity  #Семена
   parent: SeedBase
   name: пакет семян (бах-вишня)
-  suffix: AdventureBotany
+  suffix: AdvBotany
   description: "пахнет вишней и порохом.."
   id: CherryBombSeeds
   components:
@@ -41,7 +41,7 @@
   parent: [ GrenadeBase, BaseSyndicateContraband ]
   id: CherryBomb
   name: бах-вишня
-  suffix: AdventureBotany
+  suffix: AdvBotany
   description: Взрывной плод мутировавшей вишни.
   components:
   - type: Sprite

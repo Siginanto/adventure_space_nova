@@ -1,6 +1,7 @@
 - type: entity #Семена
   parent: SeedBase
-  name: пакет семян (Бананаган)
+  name: пакет семян (бананаган)
+  suffix: AdvBotany
   description: "пахнет бананом"
   id: BananaGunSeeds
   components:
@@ -11,9 +12,9 @@
 
 - type: seed #Растение
   id: BananaGunPlant
-  name: Семена бананагана
+  name: семена бананагана
   noun: seeds-noun-seeds
-  displayName: Бананаган
+  displayName: бананагановое дерево
   plantRsi: Adventure/Objects/Botany/Produce/bananagundop.rsi
   packetPrototype: BananaGunSeeds
   productPrototypes:
@@ -36,7 +37,8 @@
       PotencyDivisor: 20
 
 - type: entity  #Продукт
-  name: Странный банан
+  name: странный банан
+  suffix: AdvBotany
   parent: FoodProduceBase
   id: BananaGun
   description: Банан или орудие убийства?
@@ -91,7 +93,8 @@
         Blunt: 10
 
 - type: entity #Оружие
-  name: Банановый пистолет
+  name: банановый пистолет
+  suffix: AdvBotany
   parent: [BaseItem, BaseSyndicateContraband]
   id: BananaGunRev
   description: Вкусно и грустно...

@@ -1,5 +1,6 @@
 - type: entity
   name: плетёная сумка
+  suffix: AdvBotany
   id: SeedBag
   parent: BaseStorageItem
   description: Самодельная сумка ботаника. Подходит для свежего урожая
