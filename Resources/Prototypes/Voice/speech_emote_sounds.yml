@@ -406,6 +406,8 @@
 - type: emoteSounds
   id: GeneralBodyEmotes
   sounds:
+    Facepalm:
+      collection: FacepalmCollection # Adventure
     Scratch:
       collection: ScratchCollection # Adventure
     Fart:
@@ -438,8 +440,16 @@
 - type: emoteSounds
   id: ReptilianBodyEmotes
   sounds:
+    Facepalm:
+      collection: FacepalmCollection # Adventure
+    Scratch:
+      collection: ScratchCollection # Adventure
+    Fart:
+      collection: FartCollection # Adventure
+    Crunch:
+      collection: CrunchCollection # Adventure
     Thump:
-      path: /Audio/Voice/Reptilian/reptilian_tailthump.ogg
+      collection: TailThumpCollection # Adventure Collection
       params:
         variation: 0.125
     Clap:

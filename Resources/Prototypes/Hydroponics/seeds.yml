@@ -116,6 +116,8 @@
   packetPrototype: MimanaSeeds
   productPrototypes:
     - FoodMimana
+  mutationPrototypes:
+    - BananaGunPlant #Adventure
   harvestRepeat: Repeat
   lifespan: 50
   maturation: 6
@@ -1946,6 +1948,8 @@
   packetPrototype: CherrySeeds
   productPrototypes:
     - FoodCherry
+  mutationPrototypes:
+    - CherryBombPlant # Adventure
   harvestRepeat: Repeat
   lifespan: 55
   maturation: 6
