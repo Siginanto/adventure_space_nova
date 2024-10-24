@@ -148,6 +148,7 @@
 #Печать ОСЩ by raidgo
 - type: entity
   name: печать офицера синего щита
+  description: Печать из резины, для проставления печатей на важных документах.
   parent: RubberStampBase
   id: RubberStampblueshield
   suffix: Adventure
