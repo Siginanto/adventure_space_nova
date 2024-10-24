@@ -23,6 +23,7 @@
     - Vulpkanin # Corvax-MRP
     - Skrell # Adventure
     - PigMan # Adventure
+    - Resomi # Adventure
 
 - type: loadoutEffectGroup
   id: EffectSpeciesVox
