@@ -9,7 +9,7 @@
   id: Printer
   parent: [ BaseMachinePowered, ConstructibleMachine ]
   name: принтер
-    suffix: AdvPrinter, AdvMapping
+  suffix: AdvPrinter, AdvMapping
   description: Позволяет печатать документы.
   components:
   - type: Sprite
