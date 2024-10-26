@@ -101,3 +101,83 @@
   sprites:
     - sprite: Adventure/Races/Resomi/Customization/Heir.rsi
       state: ResomiSpiky
+
+- type: marking
+  id: ResomiTailBaseSpeak
+  name: Резоми, Хвост (Торчащие перья)
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Resomi]
+  sprites:
+  - sprite: Adventure/Races/Resomi/Species/parts.rsi
+    state: Tail_base
+  - sprite: Adventure/Races/Resomi/Customization/Tails.rsi
+    state: Tail_base_inner_speak
+
+- type: marking
+  id: ResomiTailDown
+  name: Резоми, Хвост (Опущенный)
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Resomi]
+  sprites:
+  - sprite: Adventure/Races/Resomi/Customization/Tails.rsi
+    state: Tail_down
+  - sprite: Adventure/Races/Resomi/Customization/Tails.rsi
+    state: Tail_down_inner
+
+- type: marking
+  id: ResomiTailDownSpeak
+  name: Резоми, Хвост (Опущенный с торчащими перьями)
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Resomi]
+  sprites:
+  - sprite: Adventure/Races/Resomi/Customization/Tails.rsi
+    state: Tail_down
+  - sprite: Adventure/Races/Resomi/Customization/Tails.rsi
+    state: Tail_down_inner_speak
+
+- type: marking
+  id: ResomiTailUp
+  name: Резоми, Хвост (Поднятый)
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Resomi]
+  sprites:
+  - sprite: Adventure/Races/Resomi/Customization/Tails.rsi
+    state: Tail_up
+  - sprite: Adventure/Races/Resomi/Customization/Tails.rsi
+    state: Tail_up_inner
+
+- type: marking
+  id: ResomiTailUpSpeak
+  name: Резоми, Хвост (Поднятый с торчащими перьями)
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Resomi]
+  sprites:
+  - sprite: Adventure/Races/Resomi/Customization/Tails.rsi
+    state: Tail_up
+  - sprite: Adventure/Races/Resomi/Customization/Tails.rsi
+    state: Tail_up_inner_speak
+
+- type: marking
+  id: PlumageFoot
+  name: Резоми, Ноги (Оперение)
+  bodyPart: RLeg
+  markingCategory: Legs
+  speciesRestriction: [Resomi]
+  sprites:
+    - sprite: Adventure/Races/Resomi/Customization/Hands-Foot.rsi
+      state: plumage_foot
+
+- type: marking
+  id: PlumageHand
+  name: Резоми, Руки (Оперение)
+  bodyPart: LArm
+  markingCategory: Arms
+  speciesRestriction: [Resomi]
+  sprites:
+    - sprite: Adventure/Races/Resomi/Customization/Hands-Foot.rsi
+      state: plumage_hand

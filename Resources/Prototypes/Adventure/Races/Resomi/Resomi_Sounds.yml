@@ -21,9 +21,9 @@
   saySound:
     path: /Audio/Adventure/Voice/Resomi/ResomiSpeech1.ogg
   askSound:
-    path: /Audio/Adventure/Voice/Resomi/ResomiSpeech2.ogg
-  exclaimSound:
     path: /Audio/Adventure/Voice/Resomi/ResomiSpeech3.ogg
+  exclaimSound:
+    path: /Audio/Adventure/Voice/Resomi/ResomiSpeech2.ogg
 
 - type: emoteSounds
   id: MaleResomi
