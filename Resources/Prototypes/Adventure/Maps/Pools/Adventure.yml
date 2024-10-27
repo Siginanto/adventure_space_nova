@@ -1,13 +1,14 @@
 - type: gameMapPool
   id: AdventureMapPool
   maps:
-  - AdventureAvrite     #min 40 max N/A
+#  - AdventureAvrite     #min 40 max N/A
   - AdventureBagel      #min 30 max 120
   - AdventureBox        #min 15 max 120 #rework(too big, original min 50)
-  - AdventureCluster    #min 10 max 35
+#  - AdventureCluster    #min 10 max 35
   - AdventureDelta      #min 30 max N/A
   - AdventureMaus       #min 0 max 40
-  - Starquest           #min 0 max 20
+#  - Starquest           #min 0 max 20
+  - AdventureMarathon
   
 # original list
 #  - Bagel          #min 35 max 70
