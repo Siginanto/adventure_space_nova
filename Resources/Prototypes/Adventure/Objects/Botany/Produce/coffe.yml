@@ -34,19 +34,50 @@
       Max: 5
       PotencyDivisor: 20
 
-- type: entity  # Продукт
+- type: entity  # Зёрна
   name: Кофейные зёрна
   parent: ProduceBase
   id: CoffeeBeans
+  description: "Стоит обжарить для готовки и употребления."
+  components:
+  - type: Sprite
+    sprite: Adventure/Objects/Botany/Produce/coffee.rsi
+  - type: produce
+    seedId: CoffeePlant
+  - type: Extractable
+    grindableSolutionName: food
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: Vitamin
+          Quantity: 2
+        - ReagentId: Water
+          Quantity: 1
+
+- type: entity  # Прожаренные зёрна
+  name: Обжаренные кофейные зёрна
+  parent: ProduceBase
+  id: HotCoffeeBeans
   description: "Если измельчить - получите коффе. Горькие на вкус.."
   components:
   - type: Sprite
     sprite: Adventure/Objects/Botany/Produce/coffee.rsi
-  - type: Produce
+  - type: dried
     seedId: CoffeePlant
+  - type: Extractable
+    grindableSolutionName: food
   - type: SolutionContainerManager
     solutions:
       food:
         reagents:
         - ReagentId: Coffee
-          Quantity: 4
+          Quantity: 6
+
+- type: microwaveMealRecipe # Рецепт Обжаренных зёрен.
+  id: CoffeeBeans
+  name: рецепт обжаренных зёрен
+  result: HotCoffeeBeans
+  time: 5 # Думаю, будет уместно. Чтобы много гемора не было.
+  solids:
+    CoffeeBeans: 1
