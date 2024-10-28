@@ -356,6 +356,8 @@
   packetPrototype: PineappleSeeds
   productPrototypes:
     - FoodPineapple
+  mutationPrototypes:
+    - coolpineapple # Adventure
   harvestRepeat: Repeat
   lifespan: 55
   maturation: 6
