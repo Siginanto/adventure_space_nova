@@ -55,8 +55,8 @@
     RHand: MobResomiRHand
     LLeg: MobResomiLLeg
     RLeg: MobResomiRLeg
-    LFoot: MobResomiLFood
-    RFoot: MobResomiRFood
+    LFoot: MobResomiLFoot
+    RFoot: MobResomiRFoot
     Eyes: MobResomiEyes
 
 - type: humanoidBaseSprite
@@ -138,13 +138,13 @@
     state: r_hand
 
 - type: humanoidBaseSprite
-  id: MobResomiRFood
+  id: MobResomiRFoot
   baseSprite:
     sprite: Adventure/Races/Resomi/Species/parts.rsi
     state: r_foot
 
 - type: humanoidBaseSprite
-  id: MobResomiLFood
+  id: MobResomiLFoot
   baseSprite:
     sprite: Adventure/Races/Resomi/Species/parts.rsi
     state: l_foot
