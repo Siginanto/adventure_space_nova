@@ -42,7 +42,7 @@
   components:
   - type: Sprite
     sprite: Adventure/Objects/Botany/Produce/coffee.rsi
-  - type: produce
+  - type: Produce
     seedId: CoffeePlant
   - type: Extractable
     grindableSolutionName: food
