@@ -33,6 +33,8 @@
   - type: Construction
     graph: AirlockDouble
     node: glassAirlockDouble
+  - type: PaintableAirlock
+    group: GlassDouble
 
 - type: entity
   id: TripleGlassAirlock
@@ -69,6 +71,8 @@
   - type: Construction
     graph: AirlockTriple
     node: glassAirlockTriple
+  - type: PaintableAirlock
+    group: GlassTriple
 
 #из-за невозможности растянуть тень по размерам шлюзов, шлюзы не являющиеся стеклянными не будут работать корректно, поэтому придётся ограниться тоглько стеклянными.
 
@@ -130,3 +134,16 @@
   - type: Construction
     graph: AirlockTriple
     node: assembly
+
+# для поскасчика шлюзов
+- type: AirlockGroup
+  id: GlassDouble
+  iconPriority: 30
+  stylePaths:
+    glass: Adventure/Structures/Doors/Glass/double_glass.rsi
+
+- type: AirlockGroup
+  id: GlassTriple
+  iconPriority: 30
+  stylePaths:
+    glass: Adventure/Structures/Doors/Glass/triple_glass.rsi
