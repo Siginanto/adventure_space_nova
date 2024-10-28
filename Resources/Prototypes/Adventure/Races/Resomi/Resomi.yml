@@ -28,6 +28,11 @@
   id: BaseMobResomi
   name: Урист макРезоми
   components:
+  - type: DamageVisuals
+    damageOverlayGroups:
+      Brute:
+        sprite: Mobs/Effects/brute_damage.rsi
+        color: "#a70195"
   - type: MeleeWeapon
     soundHit:
       collection: AlienClaw
@@ -46,7 +51,7 @@
   - type: CanEscapeInventory # надо
   - type: Bloodstream
     bloodMaxVolume: 180 # на 40% меньше
-    bloodReagent: Blood
+    bloodReagent: ResomiBlood
   - type: Vocal
     sounds:
       Male: MaleResomi
