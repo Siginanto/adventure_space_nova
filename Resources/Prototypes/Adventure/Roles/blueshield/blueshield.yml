@@ -94,6 +94,7 @@
   id: SpawnPointBlueshield
   parent: SpawnPointJobBase
   name: Офицер Синий Щит
+  suffix: AdvRoles, AdvMapping
   components:
   - type: SpawnPoint
     job_id: Blueshield
@@ -117,6 +118,7 @@
   id: LockerBlueshield
   parent: LockerBase
   name: Шкаф Офицера синего щита
+  suffix: AdvRoles, AdvMapping
   components:
   - type: Appearance
   - type: EntityStorageVisuals
@@ -146,6 +148,7 @@
 #Печать ОСЩ by raidgo
 - type: entity
   name: печать офицера синего щита
+  description: Печать из резины, для проставления печатей на важных документах.
   parent: RubberStampBase
   id: RubberStampblueshield
   suffix: Adventure
