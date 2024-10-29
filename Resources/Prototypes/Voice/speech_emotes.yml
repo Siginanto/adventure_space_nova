@@ -316,7 +316,7 @@
 
 - type: emote
   id: Thump
-  name: chat-emote-name-thump
+  name: Стучать хвостом # Adventure
   category: Hands
   available: false
   icon: Interface/Emotes/tailslap.png
@@ -326,7 +326,7 @@
   blacklist:
     components:
     - BorgChassis
-  chatMessages: ["chat-emote-msg-thump"]
+  chatMessages: ["Стучит хвостом"] # Adventure
   chatTriggers:
     - thump
     - thumps
@@ -338,6 +338,15 @@
     - thumps her tail
     - thumps his tail
     - thumps its tail
+    # Adventure-start
+    - стучит
+    - стучит хвостом
+    - стучит своим хвостом
+    - стучит хвостом от злости
+    - бьёт хвостом
+    - бьет хвостом
+    - долбит хвостом
+    # Adventure-end
 
 - type: emote
   id: Salute
