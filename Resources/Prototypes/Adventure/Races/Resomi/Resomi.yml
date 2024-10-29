@@ -58,7 +58,7 @@
   - type: Temperature
     heatDamageThreshold: 313.15
     coldDamageThreshold: 213
-    currentTemperature: 310.15
+    currentTemperature: 275.15
     coldDamage: 
       types:
         Cold : 0.1

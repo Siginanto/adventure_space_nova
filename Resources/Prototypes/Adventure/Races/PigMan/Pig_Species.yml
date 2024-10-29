@@ -79,8 +79,8 @@
     RHand: MobPigManRHand
     LLeg: MobPigManLLeg
     RLeg: MobPigManRLeg
-    LFoot: MobPigManLFood
-    RFoot: MobPigManRFood
+    LFoot: MobPigManLFoot
+    RFoot: MobPigManRFoot
     Eyes: MobPigManEyes
 
 - type: humanoidBaseSprite
@@ -162,13 +162,13 @@
     state: r_hand
 
 - type: humanoidBaseSprite
-  id: MobPigManRFood
+  id: MobPigManRFoot
   baseSprite:
     sprite: Adventure/Races/PigMan/Species/parts.rsi
     state: r_foot
 
 - type: humanoidBaseSprite
-  id: MobPigManLFood
+  id: MobPigManLFoot
   baseSprite:
     sprite: Adventure/Races/PigMan/Species/parts.rsi
     state: l_foot
