@@ -4,10 +4,7 @@ using Robust.Shared.Timing;
 using Content.Server.Atmos.EntitySystems;
 using Content.Shared.Atmos.Piping.Unary.Components;
 using Robust.Server.GameObjects;
-using Content.Shared.Verbs;
 using Content.Server.Power.Components;
-using Content.Shared.Hands.Components;
-using Robust.Shared.Utility;
 using Content.Server.Administration.Logs;
 using Robust.Server.Audio;
 using Robust.Shared.Audio;
@@ -17,13 +14,14 @@ using Content.Server.NodeContainer.Nodes;
 using Content.Server.Atmos.Piping.Components;
 using Content.Shared.Atmos;
 using Content.Server.NodeContainer.EntitySystems;
-using Robust.Shared.Containers;
 using Content.Shared.Damage;
 using Content.Shared.DoAfter;
 using Content.Shared.Gravity;
 using Content.Server.Gravity;
 using Content.Server.Shuttles.Systems;
 using Content.Server.Shuttles.Components;
+using Content.Shared.DeviceLinking.Events;
+using Content.Shared.UserInterface;
 
 
 namespace Content.Server._Adventure.EnergyCores;
@@ -43,52 +41,26 @@ public sealed partial class EnergyCoreSystem : EntitySystem
     [Dependency] private readonly SharedDoAfterSystem _doAfterSystem = default!;
     [Dependency] private readonly GravitySystem _gravitySystem = default!;
     [Dependency] private readonly ThrusterSystem _thrusterSystem = default!;
+    [Dependency] private readonly UserInterfaceSystem _ui = default!;
     private EntityQuery<PowerSupplierComponent> _recQuery;
     private TimeSpan _nextTickCore = TimeSpan.FromSeconds(1);
 
     public override void Initialize()
     {
         SubscribeLocalEvent<EnergyCoreComponent, MapInitEvent>(OnMapInit);
-        SubscribeLocalEvent<EnergyCoreComponent, GetVerbsEvent<AlternativeVerb>>(AddSwitchPowerVerb);
         _recQuery = GetEntityQuery<PowerSupplierComponent>();
         SubscribeLocalEvent<HeatFreezingCoreComponent, AtmosDeviceUpdateEvent>(OnDeviceUpdated);
-
-        SubscribeLocalEvent<EntInsertedIntoContainerMessage>(OnEntInsertedIntoContainer);
-        SubscribeLocalEvent<EntRemovedFromContainerMessage>(OnEntRemovedFromContainer);
-
         SubscribeLocalEvent<EnergyCoreComponent, TogglePowerDoAfterEvent>(TogglePowerDoAfter);
-
+        SubscribeLocalEvent<EnergyCoreConsoleComponent, NewLinkEvent>(OnNewLink);
+        SubscribeLocalEvent<EnergyCoreConsoleComponent, UserOpenActivatableUIAttemptEvent>(OnTryOpenUI);
+        SubscribeLocalEvent<EnergyCoreConsoleComponent, EnergyCoreConsoleIsOnMessage>(OnPowerToggled);
     }
     private void OnMapInit(EntityUid uid, EnergyCoreComponent component, MapInitEvent args)
     {
-        if (component.Key != component.Requested && component.Working)
+        if (component.Working)
         {
             component.ForceDisabled = true;
             TogglePower(uid);
-        }
-    }
-    private void OnEntInsertedIntoContainer(EntInsertedIntoContainerMessage msg)
-    {
-        if (!_e.TryGetComponent(msg.Entity, out EnergyCoreKeyComponent? component)) return;
-        var entity = msg.Container.Owner;
-        if (!_e.TryGetComponent(entity, out EnergyCoreComponent? core)) return;
-        core.Key = component.Key;
-        if (core.Key != core.Requested && core.Working)
-        {
-            core.ForceDisabled = true;
-            TogglePower(entity);
-        }
-    }
-    private void OnEntRemovedFromContainer(EntRemovedFromContainerMessage msg)
-    {
-        if (!_e.TryGetComponent(msg.Entity, out EnergyCoreKeyComponent? component)) return;
-        var entity = msg.Container.Owner;
-        if (!_e.TryGetComponent(entity, out EnergyCoreComponent? core)) return;
-        core.Key = EnergyCoreKeyState.None;
-        if (core.Key != core.Requested && core.Working)
-        {
-            core.ForceDisabled = true;
-            TogglePower(entity);
         }
     }
     private void OnDeviceUpdated(EntityUid uid, HeatFreezingCoreComponent component, ref AtmosDeviceUpdateEvent args)
@@ -99,7 +71,7 @@ public sealed partial class EnergyCoreSystem : EntitySystem
             return;
         if (args.Grid is not { } grid)
             return;
-
+        if (!_e.TryGetComponent(uid, out EnergyCoreComponent? core)) return;
         var position = _transformSystem.GetGridTilePositionOrDefault(uid);
         var environment = _atmosphereSystem.GetTileMixture(grid, args.Map, position, true);
         // widenet
@@ -107,6 +79,9 @@ public sealed partial class EnergyCoreSystem : EntitySystem
         while (enumerator.MoveNext(out var adjacent))
         {
             Scrub(timeDelta, portableNode, adjacent, component);
+            core.TimeOfLife += portableNode.Air.GetMoles(component.AbsorbGas) * core.SecPerMoles;
+            _atmosphereSystem.AddHeat(portableNode.Air, 1000);
+            Pump(environment, portableNode, component);
         }
     }
 
@@ -115,6 +90,11 @@ public sealed partial class EnergyCoreSystem : EntitySystem
     {
         if (tile.Temperature > target.FilterTemperature) return false;
         return _scrubberSystem.Scrub(timeDelta, target.TransferRate * _atmosphereSystem.PumpSpeedup(), ScrubberPumpDirection.Scrubbing, target.FilterGases, tile, scrubber.Air);
+    }
+    private void Pump(GasMixture? enviroment, PipeNode pipe, HeatFreezingCoreComponent target)
+    {
+        if (enviroment == null || pipe == null) return ;
+        _atmosphereSystem.Merge(enviroment, pipe.Air.Remove(target.TransferRate * _atmosphereSystem.PumpSpeedup()));
     }
 
     public override void Update(float frameTime)
@@ -125,9 +105,7 @@ public sealed partial class EnergyCoreSystem : EntitySystem
             EnergyCoreTick();
             _nextTickCore += TimeSpan.FromSeconds(1);
         }
-
     }
-
 
     private void OverHeating(EnergyCoreComponent component)
     {
@@ -141,12 +119,7 @@ public sealed partial class EnergyCoreSystem : EntitySystem
     private void Absorb(EnergyCoreComponent component, PipeNode air)
     {
         if (!_e.TryGetComponent(component.Owner, out HeatFreezingCoreComponent? heatfreeze)) return;
-        float timeDelta = 0;
-        if (component.Working)
-            timeDelta = air.Air.GetMoles(heatfreeze.AbsorbGas) * component.SecPerMoles;
-        air.Air.Clear();
-        component.TimeOfLife += timeDelta;
-        if (component.Overheat && timeDelta > 0)
+        if (component.Overheat && component.TimeOfLife > 0)
         {
             ForceTurnOff(component);
         }
@@ -163,7 +136,7 @@ public sealed partial class EnergyCoreSystem : EntitySystem
     private void Working(EnergyCoreComponent component, PipeNode air)
     {
         Absorb(component, air);
-        if (!component.ForceDisabled && component.Working)
+        if (component.Working)
         {
             if (component.TimeOfLife > component.LifeAfterOverheat)
             {
@@ -183,6 +156,14 @@ public sealed partial class EnergyCoreSystem : EntitySystem
         var query = EntityQueryEnumerator<EnergyCoreComponent>();
         while (query.MoveNext(out var ent, out var target))
         {
+            if (!_e.TryGetComponent(target.Owner, out DamageableComponent? damage)) return;
+            var energyCore = target.Owner;
+            var timeOfLife = target.TimeOfLife;
+            var isOn = target.Working;
+            var console = target.EnergyCoreConsoleEntity;
+            var curDamage = damage.TotalDamage.Float();
+            if (console is not EntityUid entity) return;
+            _ui.SetUiState(entity, EnergyCoreConsoleUiKey.Key, new EnergyCoreConsoleUpdateState(GetNetEntity(energyCore), timeOfLife, isOn, curDamage));
             if (_timing.CurTime > target.NextTick)
             {
                 if (!TryComp<NodeContainerComponent>(target.Owner, out var component))
@@ -196,28 +177,6 @@ public sealed partial class EnergyCoreSystem : EntitySystem
                 Working(target, cur);
             }
         }
-    }
-    private void AddSwitchPowerVerb(EntityUid uid, EnergyCoreComponent component, GetVerbsEvent<AlternativeVerb> args)
-    {
-        if (component.TimeOfLife <= -60 || (component.TimeOfLife <= -0 && !component.Working))
-            return;
-        if (!args.CanAccess || !args.CanInteract || component.Trantransitional)
-            return;
-        if (!HasComp<HandsComponent>(args.User) || component.Key != component.Requested)
-            return;
-
-        AlternativeVerb verb = new()
-        {
-            Act = () =>
-            {
-                TogglePower(uid, user: args.User);
-                component.ForceDisabled = !component.ForceDisabled;
-            },
-            Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/Spare/poweronoff.svg.192dpi.png")),
-            Text = Loc.GetString("power-switch-component-toggle-verb"),
-            Priority = -3
-        };
-        args.Verbs.Add(verb);
     }
 
     public void TogglePower(EntityUid uid, bool playSwitchSound = true, EnergyCoreComponent? core = null, EntityUid? user = null)
@@ -236,21 +195,20 @@ public sealed partial class EnergyCoreSystem : EntitySystem
     }
     private void TogglePowerDoAfter(EntityUid uid, EnergyCoreComponent component, TogglePowerDoAfterEvent args)
     {
-        if (!_e.TryGetComponent(uid, out PowerSupplierComponent? supplier)) return;
-        TogglePowerDiscrete(uid, supplier: supplier, user: _e.GetEntity(args.Initer));
+        TogglePowerDiscrete(uid, core: component, user: _e.GetEntity(args.Initer));
     }
-    private bool TogglePowerDiscrete(EntityUid uid, bool playSwitchSound = true, PowerSupplierComponent? supplier = null, EntityUid? user = null)
+
+    private bool TogglePowerDiscrete(EntityUid uid, bool playSwitchSound = true, EnergyCoreComponent? core = null, EntityUid? user = null)
     {
-        if (!_recQuery.Resolve(uid, ref supplier, false))
-            return true;
+        if (core == null) return true;
+        if (!_e.TryGetComponent(uid, out PowerSupplierComponent? supplier)) return true;
         if (!_e.TryGetComponent(uid, out ApcPowerReceiverComponent? receiver)) return true;
-        if (!_e.TryGetComponent(uid, out EnergyCoreComponent? core)) return true;
         if (!_e.TryGetComponent(uid, out GravityGeneratorComponent? gravityGen)) return true;
 
         supplier.Enabled = !supplier.Enabled;
 
         if (supplier.Enabled)
-            supplier.MaxSupply = 100000;
+            supplier.MaxSupply = core.BaseSupply;
         else
             supplier.MaxSupply = 0;
 
@@ -258,7 +216,7 @@ public sealed partial class EnergyCoreSystem : EntitySystem
         {
             receiver.PowerDisabled = false;
             return true;
-        } 
+        }
         receiver.PowerDisabled = !receiver.PowerDisabled;
 
         if (user != null)
@@ -294,6 +252,29 @@ public sealed partial class EnergyCoreSystem : EntitySystem
         else
             _thrusterSystem.DisableThruster(uid, thruster, xForm);
         return !supplier.Enabled && !receiver.PowerDisabled; // i.e. PowerEnabled
+
+
+
+    }
+    private void OnNewLink(EntityUid uid, EnergyCoreConsoleComponent component, NewLinkEvent args)
+    {
+        if (!TryComp<EnergyCoreComponent>(args.Sink, out var analyzer))
+            return;
+
+        component.EnergyCoreEntity = args.Sink;
+        analyzer.EnergyCoreConsoleEntity = uid;
     }
 
+    private void OnTryOpenUI(EntityUid console, EnergyCoreConsoleComponent component, UserOpenActivatableUIAttemptEvent args)
+    {
+        if (component.EnergyCoreEntity is not EntityUid entity)
+        {
+            args.Cancel();
+        }
+    }
+    private void OnPowerToggled(EntityUid uid, EnergyCoreConsoleComponent component, EnergyCoreConsoleIsOnMessage args)
+    {
+        if (!_e.TryGetComponent(component.EnergyCoreEntity, out EnergyCoreComponent? core)) return;
+        TogglePower(core.Owner);
+    }
 }

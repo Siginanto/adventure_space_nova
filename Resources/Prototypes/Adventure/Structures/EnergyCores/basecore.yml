@@ -44,22 +44,20 @@
   - type: Appearance
   - type: Pullable
   - type: Damageable
-    damageContainer: Silicon
-    damageModifierSet: Metallic
+    damageContainer: StructuralInorganic
+    damageModifierSet: Electronic
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
         damage: 200
       behaviors:
-        - !type:DoActsBehavior
-          acts: [ "Destruction" ]
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
     - trigger:
         !type:DamageTrigger
         damage: 100
       behaviors:
-      - !type:DoActsBehavior
-        acts: ["Destruction"]
       - !type:PlaySoundBehavior
         sound:
           collection: MetalBreak
@@ -118,30 +116,22 @@
   - type: AtmosDevice
   - type: ApcPowerReceiver
     powerDisabled: false
-  - type: Storage
-    grid:
-    - 0,0,0,1
-    maxItemSize: Normal
-    whitelist:
-      tags:
-        - CoreKey
-  - type: ContainerContainer
-    containers:
-      storagebase: !type:Container
-        ents: []
-  - type: UserInterface
-    interfaces:
-      enum.StorageUiKey.Key:
-        type: StorageBoundUserInterface
   - type: HeatFreezingCore
   - type: EnergyCore
     damage:
       types:
         Heat: 0.3
-    requested: Gold
+    baseSupply: 100000
   - type: Repairable
     doAfterDelay: 8
     fuelCost: 15
   - type: EnergyCoreVisuals
     onState: crutch
     offState: crutch
+  - type: DeviceNetwork
+    deviceNetId: Wired
+    receiveFrequencyId: BasicDevice
+  - type: DeviceList
+  - type: DeviceLinkSink
+    ports:
+      - EnergyCoreReceiver

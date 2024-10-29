@@ -2,6 +2,9 @@ using Robust.Shared.Serialization;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 using Content.Shared.Damage;
 using Content.Shared.DoAfter;
+using Content.Shared.DeviceLinking;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
+using Robust.Shared.GameObjects;
 
 namespace Content.Shared._Adventure.EnergyCores;
 
@@ -9,6 +12,12 @@ namespace Content.Shared._Adventure.EnergyCores;
 [AutoGenerateComponentPause]
 public sealed partial class EnergyCoreComponent : Component
 {
+
+    [ViewVariables(VVAccess.ReadOnly)]
+    public EntityUid? EnergyCoreConsoleEntity = null;
+
+    [DataField("linkingPort", customTypeSerializer: typeof(PrototypeIdSerializer<SourcePortPrototype>))]
+    public string LinkingPort = "EnergyCoreReciever";
 
     [ViewVariables(VVAccess.ReadWrite)]
     public bool Working = true;
@@ -33,13 +42,6 @@ public sealed partial class EnergyCoreComponent : Component
     [ViewVariables(VVAccess.ReadWrite)]
     public bool Overheat = false;
 
-    [DataField]
-    [ViewVariables(VVAccess.ReadOnly)]
-    public EnergyCoreKeyState Requested = EnergyCoreKeyState.None;
-
-    [ViewVariables(VVAccess.ReadOnly)]
-    public EnergyCoreKeyState Key = EnergyCoreKeyState.None;
-
     [DataField(required: true)]
     public DamageSpecifier Damage = default!;
 
@@ -53,9 +55,15 @@ public sealed partial class EnergyCoreComponent : Component
     public bool Trantransitional = false;
 
     [DataField]
+    public float CurrentPowerGeneration = 1;
+
+    [DataField]
     public float EnablingLenght = 3.6f;
     [DataField]
     public float DisablingLenght = 1.1f;
+
+    [DataField(required:true)]
+    public float BaseSupply = 100000;
 }
 
 [Serializable, NetSerializable]
@@ -74,15 +82,6 @@ public enum EnergyCoreState : byte
     Enabled,
     Disabling,
     Enabling
-}
-[Serializable, NetSerializable]
-public enum EnergyCoreKeyState : byte
-{
-    None,
-    Gold,
-    Gray,
-    Sindi,
-    RnD
 }
 
 [Serializable, NetSerializable]

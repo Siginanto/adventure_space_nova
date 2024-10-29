@@ -28,6 +28,7 @@
     timeOfLife: 480
     secPerMoles: 4
     enablingLenght: 2.6
+    baseSupply: 120000
   - type: PowerSupplier
     supplyRate: 120000
   - type: Sprite
@@ -49,6 +50,7 @@
     timeOfLife: 600
     secPerMoles: 6
     enablingLenght: 7.7
+    baseSupply: 150000
   - type: PowerSupplier
     supplyRate: 150000
   - type: Sprite
@@ -70,6 +72,7 @@
     timeOfLife: 500
     secPerMoles: 5
     enablingLenght: 1.0
+    baseSupply: 180000
   - type: PowerSupplier
     supplyRate: 180000
   - type: Sprite
@@ -90,6 +93,7 @@
     requested: Gray
     timeOfLife: 400
     secPerMoles: 3
+    baseSupply: 100000
   - type: PowerSupplier
     supplyRate: 100000
   - type: Sprite

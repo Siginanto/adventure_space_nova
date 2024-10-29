@@ -510,6 +510,7 @@
       - GasRecyclerMachineCircuitboard
       - SeedExtractorMachineCircuitboard
       - AnalysisComputerCircuitboard
+      - EnergyCoreCircuitboard
       - ExosuitFabricatorMachineCircuitboard
       - AnomalyVesselCircuitboard
       - AnomalyVesselExperimentalCircuitboard
