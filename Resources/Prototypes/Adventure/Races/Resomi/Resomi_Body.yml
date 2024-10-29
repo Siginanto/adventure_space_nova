@@ -1,4 +1,4 @@
-﻿#Тело Скрелла
+﻿#Тело Резоми
 - type: body
   name: "Резоми"
   id: Resomi
@@ -53,7 +53,7 @@
   - type: Extractable
     juiceSolution:
       reagents:
-      - ReagentId: Blood
+      - ReagentId: ResomiBlood
         Quantity: 10
 
 - type: entity
@@ -67,7 +67,7 @@
   - type: Extractable
     juiceSolution:
       reagents:
-      - ReagentId: Blood
+      - ReagentId: ResomiBlood
         Quantity: 20
 
 - type: entity
@@ -81,7 +81,7 @@
   - type: Extractable
     juiceSolution:
       reagents:
-      - ReagentId: Blood
+      - ReagentId: ResomiBlood
         Quantity: 10
 
 - type: entity
@@ -160,3 +160,12 @@
   - type: Sprite
     sprite: Adventure/Races/Resomi/Species/parts.rsi
     state: "r_foot"
+
+#Кровь резоми
+- type: reagent
+  id: ResomiBlood
+  parent: Blood
+  name: Кровь резоми
+  group: Biological
+  flavor: metallic
+  color: "#a70195"
