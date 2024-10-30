@@ -26,7 +26,7 @@
         Heat: 0.125
     requested: RnD
     timeOfLife: 480
-    secPerMoles: 4
+    secPerMoles: 7.5
     enablingLenght: 2.6
     baseSupply: 220000
   - type: PowerSupplier
@@ -48,7 +48,7 @@
         Heat: 0.1
     requested: Gold
     timeOfLife: 600
-    secPerMoles: 6
+    secPerMoles: 10
     enablingLenght: 7.7
     baseSupply: 240000
   - type: PowerSupplier

@@ -1,3 +1,6 @@
+// Данный код целиком и полностью является интеллектуальной собственностью Аристофана и Тёмного Воина. Все права защищены.
+// Копирование и использование данного кода запрещено без разрешения правообладателя. Слава яйцам!
+
 using Content.Server.Atmos.Piping.Unary.EntitySystems;
 using Content.Shared._Adventure.EnergyCores;
 using Robust.Shared.Timing;
@@ -80,8 +83,9 @@ public sealed partial class EnergyCoreSystem : EntitySystem
         {
             Scrub(timeDelta, portableNode, adjacent, component);
             core.TimeOfLife += portableNode.Air.GetMoles(component.AbsorbGas) * core.SecPerMoles;
-            _atmosphereSystem.AddHeat(portableNode.Air, 1000);
-            Pump(environment, portableNode, component);
+            if (environment != null)
+                _atmosphereSystem.AddHeat(environment, 10000);
+            //Pump(environment, portableNode, component); // попросили убрать для хардкорности ситуации
         }
     }
 
