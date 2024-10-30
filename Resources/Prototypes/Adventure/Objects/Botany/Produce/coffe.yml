@@ -2,6 +2,7 @@
   parent: SeedBase
   name: пакет семян (кофе)
   description: "пахнет кофеином.."
+  suffix: AdvBotany
   id: CoffeeSeeds
   components:
     - type: Seed
