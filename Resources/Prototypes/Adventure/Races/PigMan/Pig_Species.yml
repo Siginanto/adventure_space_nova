@@ -29,8 +29,8 @@
   markingLimits: MobPigManMarkingLimits
   dollPrototype: MobPigManDummy
   skinColoration: HumanToned
-  minAge: 13
-  youngAge: 21
+  minAge: 18
+  youngAge: 25
   oldAge: 42
   maxAge: 70
 
