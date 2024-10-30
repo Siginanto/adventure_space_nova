@@ -9,7 +9,6 @@
     - WheatBushel
   mutationPrototypes:
     - meatwheat
-    - mutatedfern # Adventure
   lifespan: 25
   maturation: 6
   production: 3
@@ -1349,6 +1348,7 @@
     - FoodGalaxythistle
   mutationPrototypes:
     - glasstle
+    - mutatedfern # Adventure
   lifespan: 25
   maturation: 10
   production: 3
