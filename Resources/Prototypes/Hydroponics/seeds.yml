@@ -356,6 +356,8 @@
   packetPrototype: PineappleSeeds
   productPrototypes:
     - FoodPineapple
+  mutationPrototypes:
+    - coolpineapple # Adventure
   harvestRepeat: Repeat
   lifespan: 55
   maturation: 6
@@ -1719,6 +1721,8 @@
   packetPrototype: BerrySeeds
   productPrototypes:
     - FoodBerries
+  mutationPrototypes:
+    - spaceberries # Adventure
   harvestRepeat: Repeat
   lifespan: 50
   maturation: 6
