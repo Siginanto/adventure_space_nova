@@ -1902,6 +1902,7 @@
     - CottonBol
   mutationPrototypes:
     - pyrotton
+    - linen
   lifespan: 25
   maturation: 8
   production: 3
