@@ -28,7 +28,7 @@
   growthStages: 6
   idealLight: 8
   chemicals:
-    Barozin:
+    Barozine:
       Min: 1
       Max: 5
       PotencyDivisor: 20
@@ -57,7 +57,7 @@
   - type: Extractable
     juiceSolution:
       reagents:
-      - ReagentId: Barozin
+      - ReagentId: Barozine
         Quantity: 5
   - type: Tag
     tags:
