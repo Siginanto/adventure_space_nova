@@ -1721,6 +1721,8 @@
   packetPrototype: BerrySeeds
   productPrototypes:
     - FoodBerries
+  mutationPrototypes:
+    - spaceberries # Adventure
   harvestRepeat: Repeat
   lifespan: 50
   maturation: 6
