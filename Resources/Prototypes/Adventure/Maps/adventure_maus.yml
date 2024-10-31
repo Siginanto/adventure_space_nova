@@ -16,7 +16,7 @@
            !type:NanotrasenNameGenerator
             prefixCreator: "Z"
         - type: StationEmergencyShuttle
-          emergencyShuttlePath: /Maps/Shuttles/emergency_maus.yml
+          emergencyShuttlePath: /Maps/Shuttles/emergency_box.yml
         - type: StationJobs
           availableJobs:
             CargoTechnician: [ 2, 2 ]
