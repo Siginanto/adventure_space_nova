@@ -262,8 +262,8 @@ internal sealed partial class ChatManager : IChatManager
         if (_sponsors.Sponsors.TryGetValue(player.UserId, out var sponsor))
         {
             string oocName = sponsor.OocName ?? "спонсор";
-            Color? oocColor = sponsor.OocColor;
-            if (oocColor != null)
+            string oocColor = sponsor.OocColor?.ToHex() ?? string.Empty;
+            if (oocColor != string.Empty)
                 wrappedMessage = $"OOC: [bold]\\[{oocName}\\][color={oocColor}]{player.Name}[/color]:[/bold] {formated_message}";
             else
                 wrappedMessage = $"OOC: [bold]\\[{oocName}\\]{player.Name}:[/bold] {formated_message}";
