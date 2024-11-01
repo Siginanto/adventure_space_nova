@@ -4,7 +4,7 @@
   mapPath: /Maps/Adventure/Adventuredelta.yml
   maxRandomOffset: 0
   randomRotation: false
-  minPlayers: 30
+  minPlayers: 0
   stations:
     advDelta:
       stationProto: StandardNanotrasenStation
@@ -15,7 +15,7 @@
             !type:NanotrasenNameGenerator
             prefixCreator: 'TG'
         - type: StationEmergencyShuttle
-          emergencyShuttlePath: /Maps/Shuttles/emergency_corvaxdelta.yml
+          emergencyShuttlePath: /Maps/Shuttles/emergency_courser.yml
         - type: StationJobs
           availableJobs:
             Borg: [ 2, 3 ]
@@ -61,6 +61,7 @@
             # remap
             Blueshield: [ 1, 1 ]
             Brigmedic: [ 1, 1 ]
+            StationAi: [ 1, 1 ]
             # Bork
             CargoBorg: [ 1, 1 ]
             EngineerBorg: [ 1, 1 ]
