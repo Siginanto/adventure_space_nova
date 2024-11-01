@@ -68,19 +68,3 @@
   icon: { sprite: /Adventure/Objects/Botany/Produce/linen.rsi, state: linen }
   spawn: MaterialLinen1
   maxCount: 30
-
-- type: constructionGraph # Крафт дюроткани
-  id: Durathread-linen
-  start: start
-  graph:
-    - node: start
-      edges:
-        - to: MaterialDurathread
-          completed:
-            - !type:SetStackCount
-              amount: 1
-          steps:
-            - material: LinenBol
-              amount: 1
-    - node: MaterialDurathread
-      entity: MaterialDurathread
