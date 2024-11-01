@@ -20,8 +20,8 @@
   productPrototypes:
     - BananaGun
   lifespan: 35
-  maturation: 25
-  production: 25
+  maturation: 10
+  production: 15
   yield: 1
   potency: 10
   growthStages: 6
