@@ -15,19 +15,3 @@
               amount: 1
     - node: MaterialDurathread
       entity: MaterialDurathread
-
-- type: constructionGraph # Adventure
-  id: Durathread-linen
-  start: start
-  graph:
-    - node: start
-      edges:
-        - to: MaterialDurathread
-          completed:
-            - !type:SetStackCount
-              amount: 1
-          steps:
-            - material: LinenBol
-              amount: 1
-    - node: MaterialDurathreadLinen
-      entity: MaterialDurathread
