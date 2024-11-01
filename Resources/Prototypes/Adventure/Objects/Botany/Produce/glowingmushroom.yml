@@ -46,6 +46,8 @@
     sprite: Adventure/Objects/Botany/Produce/glowingmushrooms.rsi
   - type: Produce
     seedId: glowingmushroom
+  - type: RadiationSource
+    intensity: 2
   - type: PointLight  # Должен же светящийся гриб светиться?)
     color: "#38f5bc"
   - type: Extractable
