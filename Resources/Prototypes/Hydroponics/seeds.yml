@@ -1352,6 +1352,7 @@
     - FoodGalaxythistle
   mutationPrototypes:
     - glasstle
+    - mutatedfern # Adventure
   lifespan: 25
   maturation: 10
   production: 3
