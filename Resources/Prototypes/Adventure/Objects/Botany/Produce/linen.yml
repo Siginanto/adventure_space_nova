@@ -61,6 +61,7 @@
     tags:
     - ClothMade
     - CottonBoll
+    - LinenBoll
 
 - type: stack # Стак льна
   id: Linen
@@ -69,8 +70,8 @@
   spawn: MaterialLinen1
   maxCount: 30
 
-- type: constructionGraph # Крафт дюроткани
-  id: Durathread-linen
+- type: constructionGraph # Крафт дюраткани
+  id: Durathreadlinen
   start: start
   graph:
     - node: start
@@ -80,7 +81,24 @@
             - !type:SetStackCount
               amount: 1
           steps:
-            - material: LinenBol
+            - material: Plastic
               amount: 1
+            - tag: LinenBoll
+              name: Шар из льна
+              icon:
+                sprite: Adventure/Objects/Botany/Produce/linen.rsi
+                state: produce
+              doAfter: 1
     - node: MaterialDurathread
       entity: MaterialDurathread
+
+- type: construction  # Adventure
+  name: durathread linen
+  id: MaterialDurathreadLinen
+  graph: Durathreadlinen
+  startNode: start
+  targetNode: MaterialDurathread
+  category: construction-category-materials
+  description: Высококачественная нить, используемая для изготовления прочной одежды.
+  icon: { sprite: Objects/Materials/materials.rsi, state: durathread }
+  objectType: Item
