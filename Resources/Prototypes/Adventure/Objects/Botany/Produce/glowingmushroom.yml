@@ -36,7 +36,7 @@
 
 - type: entity  # Продукт
   name: светящийся гриб
-  parent: FoodChanterelles
+  parent: FoodMushroom
   id: FoodGlowingMushroom
   description: Излучает из себя крупицы света.
   components:
