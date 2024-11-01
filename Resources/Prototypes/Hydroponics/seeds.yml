@@ -898,7 +898,9 @@
   plantRsi: Objects/Specific/Hydroponics/chanterelle.rsi
   packetPrototype: ChanterelleSeeds
   productPrototypes:
-    - FoodMushroom
+    - FoodMushroom  
+  mutationPrototypes:
+    - glowingmushroom  # Adventure
   lifespan: 35
   maturation: 10
   production: 7
@@ -1350,6 +1352,7 @@
     - FoodGalaxythistle
   mutationPrototypes:
     - glasstle
+    - mutatedfern # Adventure
   lifespan: 25
   maturation: 10
   production: 3
@@ -1902,6 +1905,7 @@
     - CottonBol
   mutationPrototypes:
     - pyrotton
+    - linen  # Adventure
   lifespan: 25
   maturation: 8
   production: 3

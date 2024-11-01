@@ -46,5 +46,6 @@
     RoseWhiteSeeds: 5 # Adventure
     TulipSeeds: 5 # Adventure
     NutSeeds: 5 # Adventure
+    CoffeeSeeds: 5 # Adventure
   emaggedInventory:
     FlyAmanitaSeeds: 1

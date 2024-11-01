@@ -25,7 +25,7 @@
   production: 6
   yield: 3
   potency: 10
-  growstage: 6
+  growstage: 3
   idealLight: 8
   chemicals:
     Bananadine:
@@ -63,6 +63,9 @@
       reagents:
       - ReagentId: Laughter
         Quantity: 5
+  - type: Food
+    trash:
+    - ClothingEyesGlassesSunglasses
   - type: Tag
     tags:
     - Fruit
