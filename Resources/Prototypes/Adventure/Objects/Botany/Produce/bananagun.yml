@@ -19,7 +19,7 @@
   packetPrototype: BananaGunSeeds
   productPrototypes:
     - BananaGun
-  lifespan: 65
+  lifespan: 35
   maturation: 25
   production: 25
   yield: 1

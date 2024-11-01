@@ -23,7 +23,7 @@
   maturation: 10
   production: 4
   yield: 3
-  potency: 10
+  potency: 30
   growthStages: 6
   waterConsumption: 0.60
   chemicals:
@@ -34,7 +34,7 @@
     Nutriment:
       Min: 1
       Max: 20
-      PotencyDivisor: 20
+      PotencyDivisor: 5
 
 - type: entity  # Продукт
   name: Орехи
@@ -58,3 +58,6 @@
     seedId: walnuttree
   - type: Extractable
     grindableSolutionName: food
+  - type: Tag
+    tags:
+    - Vegetable
