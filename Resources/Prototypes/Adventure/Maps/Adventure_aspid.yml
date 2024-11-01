@@ -2,8 +2,8 @@
   id: AdventureAspid
   mapName: 'NCS Aspid'
   mapPath: /Maps/Adventure/Adventureaspid.yml
-  minPlayers: 0
-  maxPlayers: 999
+  minPlayers: 20
+  maxPlayers: 55
   stations:
     advAspid:
       stationProto: StandardNanotrasenStation

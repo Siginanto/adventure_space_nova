@@ -2,7 +2,8 @@
   id: AdventureBox
   mapName: 'Box Station'
   mapPath: /Maps/Adventure/Adventurebox.yml
-  minPlayers: 0
+  minPlayers: 25
+  maxPlayers: 120
   stations:
     advBoxstation:
       stationProto: StandardNanotrasenStation

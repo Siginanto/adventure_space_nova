@@ -2,8 +2,8 @@
   id: AdventureMarathon
   mapName: 'Marathon Station'
   mapPath: /Maps/Adventure/Adventuremarathon.yml
-  minPlayers: 0
-  maxPlayers: 999
+  minPlayers: 25
+  maxPlayers: 70
   stations:
     advMarathon:
       stationProto: StandardNanotrasenStation

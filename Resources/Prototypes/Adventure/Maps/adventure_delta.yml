@@ -4,7 +4,7 @@
   mapPath: /Maps/Adventure/Adventuredelta.yml
   maxRandomOffset: 0
   randomRotation: false
-  minPlayers: 0
+  minPlayers: 30
   stations:
     advDelta:
       stationProto: StandardNanotrasenStation

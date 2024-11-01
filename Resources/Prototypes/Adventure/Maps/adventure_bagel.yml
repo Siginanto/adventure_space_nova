@@ -2,8 +2,8 @@
   id: AdventureBagel
   mapName: 'Bagel Station'
   mapPath: /Maps/Adventure/Adventurebagel.yml
-  minPlayers: 0
-  maxPlayers: 999
+  minPlayers: 30
+  maxPlayers: 120
   stations:
     advBagel:
       stationProto: StandardNanotrasenStation
