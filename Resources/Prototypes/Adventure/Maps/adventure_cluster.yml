@@ -2,7 +2,7 @@
   id: AdventureCluster
   mapName: 'Cluster'
   mapPath: /Maps/Adventure/Adventurecluster.yml
-  minPlayers: 10
+  minPlayers: 0
   maxPlayers: 35
   stations:
     advCluster:
@@ -62,6 +62,7 @@
             # remap
             Blueshield: [ 1, 1 ]
             Brigmedic: [ 1, 1 ]
+            StationAi: [ 1, 1 ]
             # Bork
             CargoBorg: [ 1, 1 ]
             EngineerBorg: [ 1, 1 ]
