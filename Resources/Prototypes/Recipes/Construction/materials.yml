@@ -76,7 +76,7 @@
   objectType: Item
 
 - type: construction
-  name: дюроткань
+  name: durathread
   id: MaterialDurathread
   graph: Durathread
   startNode: start
@@ -87,7 +87,7 @@
   objectType: Item
 
 - type: construction  # Adventure
-  name: дюроткань (альтернативно)
+  name: durathread-linen
   id: MaterialDurathreadLinen
   graph: Durathread-linen
   startNode: start
