@@ -1905,6 +1905,7 @@
     - CottonBol
   mutationPrototypes:
     - pyrotton
+    - linen  # Adventure
   lifespan: 25
   maturation: 8
   production: 3
