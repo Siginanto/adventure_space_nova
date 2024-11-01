@@ -2,7 +2,6 @@
   parent: SeedBase
   name: пакет семян (лён)
   suffix: AdvBotany
-  description: "Бодрящее"
   id: LinenSeeds
   components:
     - type: Seed
@@ -14,7 +13,7 @@
   id: linen
   name: семена льна
   noun: seeds-noun-seeds
-  displayName: Лён
+  displayName: лён
   plantRsi: Adventure/Objects/Botany/Produce/linen.rsi
   packetPrototype: LinenSeeds
   productPrototypes:
@@ -35,6 +34,7 @@
 
 - type: entity  # Продукт
   name: шар из льна
+  suffix: AdvBotany
   description: Более крепкий чем обычный хлопок.
   id: LinenBol
   parent: FoodProduceBase
@@ -61,7 +61,6 @@
     tags:
     - ClothMade
     - CottonBoll
-    - AdvBotany
 
 - type: stack # Стак льна
   id: Linen

@@ -2,7 +2,7 @@
   parent: SeedBase
   name: пакет семян (папоротник мутант)
   suffix: AdvBotany
-  description: "Пахнет пустошью.."
+  description: "Пахнет пустошью..."
   id: MutatedFernSeeds
   components:
     - type: Seed
@@ -19,11 +19,10 @@
   packetPrototype: MutatedFernSeeds
   productPrototypes:
     - FoodMutatedFern
-  harvestRepeat: Repeat
   lifespan: 55
   maturation: 6
   production: 6
-  growstage: 3
+  growthStages: 3
   yield: 3
   potency: 10
   idealLight: 8

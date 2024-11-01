@@ -1,8 +1,8 @@
 - type: entity  # Семена
   parent: SeedBase
-  name: пакет семян (орехового дерева)
+  name: пакет семян (ореховое дерево)
   suffix: AdvBotany
-  description: "Орешки полезны для здоровья!"
+  description: "Полезны для здоровья!"
   id: NutSeeds
   components:
     - type: Seed

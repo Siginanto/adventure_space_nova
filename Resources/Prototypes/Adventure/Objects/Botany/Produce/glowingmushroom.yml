@@ -2,7 +2,7 @@
   parent: SeedBase
   name: пакет спор (светящийся гриб)
   suffix: AdvBotany
-  description: "Даже этот пакетик немного светится.."
+  description: "Даже этот пакетик немного светится"
   id: GlowingMushroomSeeds
   components:
     - type: Seed
@@ -19,7 +19,6 @@
   packetPrototype: GlowingMushroomSeeds
   productPrototypes:
     - FoodGlowingMushroom
-  harvestRepeat: Repeat
   lifespan: 55
   maturation: 6
   production: 6
@@ -38,7 +37,7 @@
   name: светящийся гриб
   parent: FoodMushroom
   id: FoodGlowingMushroom
-  description: Излучает из себя крупицы света.
+  description: Излучает крупицы света.
   components:
   - type: FlavorProfile
     flavors:

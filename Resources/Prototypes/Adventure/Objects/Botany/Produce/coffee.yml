@@ -1,7 +1,7 @@
 - type: entity # Семена
   parent: SeedBase
   name: пакет семян (кофе)
-  description: "пахнет кофеином.."
+  description: "пахнет кофе"
   suffix: AdvBotany
   id: CoffeeSeeds
   components:
@@ -14,7 +14,7 @@
   id: CoffeePlant
   name: Семена кофейного дерева
   noun: seeds-noun-seeds
-  displayName: Кофейное дерево
+  displayName: кофейное дерево
   plantRsi: Adventure/Objects/Botany/Produce/coffee.rsi
   packetPrototype: CoffeeSeeds
   productPrototypes:
@@ -36,7 +36,7 @@
       PotencyDivisor: 20
 
 - type: entity  # Зёрна
-  name: Кофейные зёрна
+  name: кофейные зёрна
   parent: ProduceBase
   id: CoffeeBeans
   description: "Стоит обжарить для готовки и употребления."
@@ -57,10 +57,10 @@
           Quantity: 1
 
 - type: entity  # Прожаренные зёрна
-  name: Обжаренные кофейные зёрна
+  name: обжаренные кофейные зёрна
   parent: BaseItem
   id: HotCoffeeBeans
-  description: "Если измельчить - получите коффе. Горькие на вкус.."
+  description: "Если измельчить - получите кофе. Горькие на вкус"
   components:
   - type: Sprite
     sprite: Adventure/Objects/Botany/Produce/coffee.rsi
