@@ -86,17 +86,6 @@
   icon: { sprite: Objects/Materials/materials.rsi, state: durathread }
   objectType: Item
 
-- type: construction  # Adventure
-  name: durathread-linen
-  id: MaterialDurathreadLinen
-  graph: Durathread-linen
-  startNode: start
-  targetNode: MaterialDurathread
-  category: construction-category-materials
-  description: Высококачественная нить, используемая для изготовления прочной одежды.
-  icon: { sprite: Objects/Materials/materials.rsi, state: durathread }
-  objectType: Item
-
 - type: construction
   name: uranium glass
   description: A sheet of uranium glass.

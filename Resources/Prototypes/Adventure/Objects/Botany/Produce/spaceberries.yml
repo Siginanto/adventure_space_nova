@@ -27,6 +27,7 @@
   potency: 10
   growthStages: 6
   idealLight: 8
+  idealHeat: 280 # 6.85 ℃
   chemicals:
     Barozine:
       Min: 1
