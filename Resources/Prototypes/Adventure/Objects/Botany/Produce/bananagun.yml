@@ -19,9 +19,9 @@
   packetPrototype: BananaGunSeeds
   productPrototypes:
     - BananaGun
-  lifespan: 65
-  maturation: 25
-  production: 25
+  lifespan: 35
+  maturation: 10
+  production: 15
   yield: 1
   potency: 10
   growthStages: 6
@@ -90,7 +90,8 @@
   - type: Projectile
     damage:
       types:
-        Blunt: 10
+        Blunt: 9
+        Piercing: 1
 
 - type: entity #Оружие
   name: банановый пистолет
