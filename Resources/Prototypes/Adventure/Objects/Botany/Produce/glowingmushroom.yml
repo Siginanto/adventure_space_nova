@@ -26,7 +26,7 @@
   yield: 3
   potency: 10
   growthStages: 3
-  idealLight: 8
+  idealLight: 3 # Темнее!
   chemicals:
     Radium:
       Min: 1
