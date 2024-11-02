@@ -78,6 +78,13 @@ public sealed class SponsorsManager
         var info = await response.Content.ReadFromJsonAsync<SponsorInfo>();
         return info?.Title;
     }
+
+    public int GetAdditionalCharacterSlots(NetUserId userId)
+    {
+        if (!Sponsors.TryGetValue(userId, out var tier))
+            return 0;
+        return tier.AdditionalCharacterSlots;
+    }
 }
 
 public sealed class SponsorInfo
