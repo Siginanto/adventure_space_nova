@@ -162,3 +162,22 @@
   - /Audio/Voice/Reptilian/reptilian_tailthump2.ogg
   - /Audio/Voice/Reptilian/reptilian_tailthump3.ogg
   - /Audio/Voice/Reptilian/reptilian_tailthump4.ogg
+
+# шипеть
+- type: emote
+  name: Шипеть
+  id: Hissing
+  icon: Adventure/Interface/Emotes/hiss.png
+  category: Vocal
+  available: false
+  whitelist:
+    components:
+    - Vocal
+  blacklist:
+    components:
+    - BorgChassis
+  chatMessages: [шипит!]
+  chatTriggers:
+    - шипит
+    - шипит.
+    - шипит!
