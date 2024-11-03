@@ -25,7 +25,10 @@ public sealed class SponsorsManager
     [Dependency] private readonly IPrototypeManager _proto = default!;
 
     private ISawmill _sawmill = default!;
-    private readonly HttpClient _httpClient = new();
+    private readonly HttpClient _httpClient = new()
+    {
+        Timeout = TimeSpan.FromSeconds(5)
+    };
     private string _apiUrl = string.Empty;
 
     public readonly Dictionary<NetUserId, SponsorTierPrototype> Sponsors = new();
@@ -61,22 +64,28 @@ public sealed class SponsorsManager
             return null;
 
         var url = $"{_apiUrl}/sponsors/?user_id={userId.ToString()}&";
-        var response = await _httpClient.GetAsync(url);
-        if (response.StatusCode == HttpStatusCode.NotFound)
-            return null;
+        try {
+            var response = await _httpClient.GetAsync(url);
+            if (response.StatusCode == HttpStatusCode.NotFound)
+                return null;
 
-        if (response.StatusCode != HttpStatusCode.OK)
-        {
-            var errorText = await response.Content.ReadAsStringAsync();
+            if (response.StatusCode != HttpStatusCode.OK)
+            {
+                var errorText = await response.Content.ReadAsStringAsync();
+                _sawmill.Error(
+                    "Failed to get player sponsor info from API: [{StatusCode}] {Response}",
+                    response.StatusCode,
+                    errorText);
+                return null;
+            }
+
+            var info = await response.Content.ReadFromJsonAsync<SponsorInfo>();
+            return info?.Title;
+        } catch (TaskCanceledException e) {
             _sawmill.Error(
-                "Failed to get player sponsor info from API: [{StatusCode}] {Response}",
-                response.StatusCode,
-                errorText);
+                $"Can't access sponsor server. Is it down? {e}");
             return null;
         }
-
-        var info = await response.Content.ReadFromJsonAsync<SponsorInfo>();
-        return info?.Title;
     }
 
     public int GetAdditionalCharacterSlots(NetUserId userId)
