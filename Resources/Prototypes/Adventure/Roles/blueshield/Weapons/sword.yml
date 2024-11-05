@@ -1,12 +1,12 @@
 - type: entity
   name: офицерский клинок
-  parent: BaseSword
+  parent: [BaseSword, BaseRestrictedContraband]
   id: BlueshieldSabre
   suffix: Adventure
   description: Церемониальное оружие, принадлежащее офицеру синего щита станции.
   components:
   - type: Sprite
-    sprite: Adventure/Roles/blueshield/Sable.rsi
+    sprite: Adventure/Roles/blueshield/Weapons/Sable/Sable.rsi
   - type: MeleeWeapon
     attackRate: 1.5
     damage:
@@ -18,24 +18,24 @@
     reflectProb: .1
     spread: 90
   - type: Item
-    sprite: Adventure/Roles/blueshield/Sable.rsi
+    sprite: Adventure/Roles/blueshield/Weapons/Sable/Sable.rsi
   - type: DisarmMalus
   - type: Tag
     tags:
     - CaptainSabre
 
 - type: entity
-  parent: [ClothingBeltBase, ClothingSlotBase]
+  parent: [ClothingBeltBase, ClothingSlotBase, BaseRestrictedContraband]
   id: ClothingBeltSheathBS
   name: офицерские сабельные ножны
   suffix: Adventure
   description: Удобное хранилище для клинка офицера синего щита.
   components:
   - type: Sprite
-    sprite: Adventure/Roles/blueshield/sheath.rsi
+    sprite: Adventure/Roles/blueshield/Weapons/Sable/sheath.rsi
     state: sheath
   - type: Clothing
-    sprite: Adventure/Roles/blueshield/sheath.rsi
+    sprite: Adventure/Roles/blueshield/Weapons/Sable/sheath.rsi
   - type: Item
     size: Ginormous
   - type: ItemSlots
@@ -60,16 +60,3 @@
     containers:
       item:
       - BlueshieldSabre
-
-- type: entity
-  parent: ClothingBeltMilitaryWebbing
-  id: ClothingBeltMilitaryWebbingBlueshield
-  name: РПС офицера синего щита
-  description: Удобный и не сковывает движений.
-  components:
-  - type: Sprite
-    sprite: Adventure/Roles/SpecialForces/CLEA/CLEA_Webbing.rsi
-  - type: Clothing
-    sprite: Adventure/Roles/SpecialForces/CLEA/CLEA_Webbing.rsi
-  - type: ExplosionResistance
-    damageCoefficient: 0.5
