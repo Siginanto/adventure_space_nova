@@ -129,9 +129,8 @@
 
 - type: entity
   id: LockerBlueshieldFilledHardsuit
-  suffix: Filled, Hardsuit
+  suffix: Filled, Hardsuit, AdvRoles, AdvMapping
   parent: LockerBlueshield
-  suffix: AdvRoles, AdvMapping
   components:
   - type: StorageFill
     contents:
