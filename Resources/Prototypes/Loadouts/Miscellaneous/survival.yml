@@ -24,6 +24,7 @@
     - Skrell # Adventure
     - PigMan # Adventure
     - Resomi # Adventure
+    - Drask # Adventure
 
 - type: loadoutEffectGroup
   id: EffectSpeciesVox

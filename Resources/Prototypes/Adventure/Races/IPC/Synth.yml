@@ -214,6 +214,9 @@
     damageProtection:
       flatReductions:
         Heat: 10
+  - type: GuideHelp
+    guides:
+    - Species
 
 - type: entity
   parent: BaseSpeciesDummy
