@@ -233,11 +233,20 @@
   - BSequip
 
 - type: listing
+  id: ClothingOuterArmorBlueshieldShop
+  description: Бронежилет укреплённый керамическими пластинами. Несколько мешает движениям, но многократно увеличивает шансы на выживание.
+  productEntity: ClothingOuterArmorBlueshield
+  cost:
+    CentCommCrystal: 1
+  categories:
+  - BSequip
+
+- type: listing
   id: BlueShieldArmoredTrenchShop
   description: Тренч из самых лучших синтетических материалов и с прочными вставками из керамических пластин. Не мешает движениям, но защищает на ура.
   productEntity: BlueShieldArmoredTrench
   cost:
-    CentCommCrystal: 1
+    CentCommCrystal: 2
   categories:
   - BSequip
 
