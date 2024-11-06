@@ -37,3 +37,9 @@
   cash:
     1: CentCommCrystal1
   canWithdraw: true
+
+- type: stack
+  id: CentCommCrystal
+  name: Блюспейс Кристаллы
+  icon: Adventure/Roles/SpecialForces/Uplinks/telecrystal.rsi
+  spawn: telecrystal1

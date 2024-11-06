@@ -38,7 +38,7 @@
       PotencyDivisor: 40
 
 - type: entity  # Бомба
-  parent: [ GrenadeBase, BaseSyndicateContraband ]
+  parent: [ GrenadeBase, BaseMajorContraband ]
   id: CherryBomb
   name: бах-вишня
   suffix: AdvBotany
