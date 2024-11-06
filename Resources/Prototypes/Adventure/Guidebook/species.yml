@@ -22,3 +22,8 @@
   id: Resomi
   name: Резоми
   text: "/ServerInfo/Adventure/Guidebook/Races/Resomi.xml"  
+
+- type: guideEntry
+  id: Drask
+  name: Драск
+  text: "/ServerInfo/Adventure/Guidebook/Races/Drask.xml"  
