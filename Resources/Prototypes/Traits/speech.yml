@@ -11,9 +11,11 @@
     removes:
     - type: LizardAccent
     - type: MothAccent
-    - type: OwOAccent
+    - type: OwOAccent # Adventure
+    - type: UrUAccent # Adventure-Accent
     - type: ReplacementAccent
       accent: dwarf
+
 
 # 1 Cost
 
