@@ -240,6 +240,9 @@
     CentCommCrystal: 1
   categories:
   - BSequip
+  conditions:
+  - !type:ListingLimitedStockCondition
+   stock: 1
 
 - type: listing
   id: BlueShieldArmoredTrenchShop
@@ -249,6 +252,9 @@
     CentCommCrystal: 2
   categories:
   - BSequip
+  conditions:
+  - !type:ListingLimitedStockCondition
+   stock: 1
 
 #- type: listing
 #  id: WeaponSyringeGunShop
