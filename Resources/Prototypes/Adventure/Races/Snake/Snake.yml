@@ -24,7 +24,7 @@
     devourTime: 15
     whitelist:
       components:
-      - MobState
+      - Bloodstream
   - type: SolutionContainerManager
     solutions:
       melee:

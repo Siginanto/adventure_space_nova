@@ -35,6 +35,17 @@
         - !type:OrganType 
           type: Drask
           shouldHave: false
+    Drink: # Adventure
+      effects:
+      - !type:AdjustReagent # Adventure
+        conditions:
+        - !type:OrganType
+          type: Drask
+          shouldHave: true
+        reagent: Protein
+        amount: 0.5
+    Food: # Adventure
+      effects:
       - !type:AdjustReagent # Adventure
         conditions:
         - !type:OrganType
