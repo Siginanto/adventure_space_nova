@@ -4,7 +4,7 @@
   name: felinid heart
   components:
   - type: Metabolizer
-    metabolizerTypes: [Felinid]
+    metabolizerTypes: [Human]
     groups:
     - id: Medicine
       rateModifier: 1.25
@@ -19,7 +19,7 @@
   name: felinid liver
   components:
   - type: Metabolizer
-    metabolizerTypes: [Felinid]
+    metabolizerTypes: [Human]
     groups:
     - id: Alcohol
       rateModifier: 0.1
@@ -43,9 +43,8 @@
           Quantity: 5
   - type: Stomach
   - type: Metabolizer
-    # mm very yummy
     maxReagents: 3
-    metabolizerTypes: [Felinid]
+    metabolizerTypes: [Animal]
     groups:
         - id: Food
           rateModifier: 1.25

@@ -96,7 +96,7 @@
 - type: entity #Оружие
   name: банановый пистолет
   suffix: AdvBotany
-  parent: [BaseItem, BaseSyndicateContraband]
+  parent: [BaseItem, BaseMajorContraband]
   id: BananaGunRev
   description: Вкусно и грустно...
   components:

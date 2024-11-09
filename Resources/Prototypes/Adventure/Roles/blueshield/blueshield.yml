@@ -118,7 +118,6 @@
   id: LockerBlueshield
   parent: LockerBase
   name: Шкаф Офицера синего щита
-  suffix: AdvRoles, AdvMapping
   components:
   - type: Appearance
   - type: EntityStorageVisuals
@@ -130,7 +129,7 @@
 
 - type: entity
   id: LockerBlueshieldFilledHardsuit
-  suffix: Filled, Hardsuit
+  suffix: Filled, Hardsuit, AdvRoles, AdvMapping
   parent: LockerBlueshield
   components:
   - type: StorageFill
@@ -143,7 +142,10 @@
       - id: ClothingOuterHardsuitBlueshield
       - id: TrackingImplanter
       - id: TrackingImplanter
+      - id: TrackingImplanter
+      - id: TrackingImplanter
       - id: RubberStampblueshield
+      - id: BSuplink
 
 #Печать ОСЩ by raidgo
 - type: entity
