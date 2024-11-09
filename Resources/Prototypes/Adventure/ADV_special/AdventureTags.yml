@@ -25,6 +25,9 @@
 - type: Tag
   id: PlasmaMag
 
+- type: Tag
+  id: LinenBoll
+
 # Cores
 - type: Tag
   id: RnDCore
@@ -34,3 +37,4 @@
   id: SynCore
 - type: Tag
   id: HMCore
+

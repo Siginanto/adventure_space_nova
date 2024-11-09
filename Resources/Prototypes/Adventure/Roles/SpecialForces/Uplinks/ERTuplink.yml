@@ -315,7 +315,7 @@
   productEntity: MagazineRifle
   description: Магазин калибра 20. Винтовочный подходящий для лектера.
   cost:
-    CentCommCrystal: 6
+    CentCommCrystal: 3
   categories:
   - ERTammo
 
@@ -324,7 +324,7 @@
   productEntity: MagazineRifleIncendiary
   description: Магазин калибра 20. Винтовочный подходящий для лектера.
   cost:
-    CentCommCrystal: 6
+    CentCommCrystal: 4
   categories:
   - ERTammo
 
@@ -333,7 +333,7 @@
   productEntity: MagazineRifleUranium
   description: Магазин калибра 20. Винтовочный подходящий для лектера.
   cost:
-    CentCommCrystal: 6
+    CentCommCrystal: 4
   categories:
   - ERTammo
 
@@ -342,7 +342,7 @@
   productEntity: MagazinePistol
   description: Магазин калибра 35 авто. Подходящий для простых пистолетов.
   cost:
-    CentCommCrystal: 2
+    CentCommCrystal: 1
   categories:
   - ERTammo
 
@@ -351,7 +351,7 @@
   productEntity: MagazinePistolIncendiary
   description: Магазин калибра 35 авто. Подходящий для простых пистолетов.
   cost:
-    CentCommCrystal: 3
+    CentCommCrystal: 2
   categories:
   - ERTammo
 
@@ -360,7 +360,7 @@
   productEntity: MagazinePistolUranium
   description: Магазин калибра 35 авто. Подходящий для простых пистолетов.
   cost:
-    CentCommCrystal: 3
+    CentCommCrystal: 2
   categories:
   - ERTammo
 
