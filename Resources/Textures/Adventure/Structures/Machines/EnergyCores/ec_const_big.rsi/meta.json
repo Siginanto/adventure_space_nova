@@ -1,0 +1,29 @@
+{
+    "version": 1,
+    "license": "Собственная лицензия. Полный запрет на копирование и использование без одобрения текущих владельцев (Тёмный Воин, Aristophan_)",
+    "copyright": "Ynotka DS",
+    "size": {
+      "x": 320,
+      "y": 320
+    },
+    "states": [
+      {
+        "name": "corpus"
+      },
+      {
+        "name": "corpus_metal"
+      },
+      {
+        "name": "corpus_wires-1"
+      },
+      {
+        "name": "corpus_wires-2"
+      },
+      {
+        "name": "corpus_wires-3"
+      },
+      {
+        "name": "corpus_wires-4"
+      }
+    ]
+}
