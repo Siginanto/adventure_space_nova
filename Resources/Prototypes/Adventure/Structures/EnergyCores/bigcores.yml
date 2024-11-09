@@ -1,6 +1,7 @@
 - type: entity
   parent: BaseShuttleCore
   id: BaseBigCore
+  abstract: true
   components:
   - type: Fixtures
     fixtures:
@@ -13,9 +14,14 @@
           - FullTileMask
         layer:
           - FullTileLayer
+  - type: Construction
+    graph: EnergyCoreBig
+    node: end
+    containers:
+    - core_core
 
 - type: entity
-  parent: BaseBigCore
+  parent: [BaseBigCore, BaseRNDCore]
   id: RnDBigCore
   description: Ядро для больших шаттлов, которое могжет изготовить каждая космическая станция типа "14", при имении ресурсов.
   name: Большое ядро шаттла РнД.
@@ -24,7 +30,6 @@
     damage:
       types:
         Heat: 0.125
-    requested: RnD
     timeOfLife: 480
     secPerMoles: 7.5
     enablingLenght: 2.6
@@ -33,11 +38,9 @@
     supplyRate: 220000
   - type: Sprite
     sprite: Adventure/Structures/Machines/EnergyCores/sprnd/sprnd_big.rsi
-  - type: HeatFreezingCore
-    absorbGas: NitrousOxide
 
 - type: entity
-  parent: BaseBigCore
+  parent: [BaseBigCore, BaseNTCore]
   id: NTBigCore
   description: Ядро для больших шаттлов, создающиеся на передовых производствах НаноТрейзен. Сложнее в исполнении, чем ядра РнД, используют при работе БС энергию.
   name: Большое ядро шаттла НаноТрейзен.
@@ -46,7 +49,6 @@
     damage:
       types:
         Heat: 0.1
-    requested: Gold
     timeOfLife: 600
     secPerMoles: 10
     enablingLenght: 7.7
@@ -55,11 +57,9 @@
     supplyRate: 240000
   - type: Sprite
     sprite: Adventure/Structures/Machines/EnergyCores/spblue/spblue_big.rsi
-  - type: HeatFreezingCore
-    absorbGas: Frezon
 
 - type: entity
-  parent: BaseBigCore
+  parent: [BaseBigCore, BaseSYNCore]
   id: SyndicateBigCore
   description: Ядро для больших шаттлов, изготвливаемое на теневых производствах корпораций Синдиката. Используют в работе редспейс.
   name: Большое ядро шаттла Синдиката.
@@ -68,7 +68,6 @@
     damage:
       types:
         Heat: 0.125
-    requested: Sindi
     timeOfLife: 500
     secPerMoles: 5
     enablingLenght: 1.0
@@ -77,11 +76,9 @@
     supplyRate: 260000
   - type: Sprite
     sprite: Adventure/Structures/Machines/EnergyCores/spred/spred_big.rsi
-  - type: HeatFreezingCore
-    absorbGas: Ammonia
 
 - type: entity
-  parent: BaseBigCore
+  parent: [BaseBigCore, BaseHMCore]
   id: HandMadeBigCore
   description: Ядро для больших шаттлов, изготовленное из первого, что попалось под руку. Ненадежно, но просто в создании.
   name: Большое самодельное ядро шаттла.
@@ -90,7 +87,6 @@
     damage:
       types:
         Heat: 0.25
-    requested: Gray
     timeOfLife: 400
     secPerMoles: 3
     baseSupply: 200000
@@ -98,5 +94,3 @@
     supplyRate: 200000
   - type: Sprite
     sprite: Adventure/Structures/Machines/EnergyCores/sphere/sphere_big.rsi
-  - type: HeatFreezingCore
-    absorbGas: Plasma

@@ -6,25 +6,7 @@
     "x": 96,
     "y": 96
   },
-  "states": [
-    {
-      "name": "corpus"
-    },
-    {
-      "name": "corpus_metal"
-    },
-    {
-      "name": "corpus_wires-1"
-    },
-    {
-      "name": "corpus_wires-2"
-    },
-    {
-      "name": "corpus_wires-3"
-    },
-    {
-      "name": "corpus_wires-4"
-    },
+  "states": [ 
     {
       "name": "disabling",
       "delays": [

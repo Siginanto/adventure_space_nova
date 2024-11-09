@@ -57,6 +57,8 @@ public sealed partial class EnergyCoreSystem : EntitySystem
         SubscribeLocalEvent<EnergyCoreConsoleComponent, NewLinkEvent>(OnNewLink);
         SubscribeLocalEvent<EnergyCoreConsoleComponent, UserOpenActivatableUIAttemptEvent>(OnTryOpenUI);
         SubscribeLocalEvent<EnergyCoreConsoleComponent, EnergyCoreConsoleIsOnMessage>(OnPowerToggled);
+        SubscribeLocalEvent<EntInsertedIntoContainerMessage>(OnEntInsertedIntoContainer);
+        SubscribeLocalEvent<EntRemovedFromContainerMessage>(OnEntRemovedFromContainer);
     }
     private void OnMapInit(EntityUid uid, EnergyCoreComponent component, MapInitEvent args)
     {
@@ -66,6 +68,32 @@ public sealed partial class EnergyCoreSystem : EntitySystem
             TogglePower(uid);
         }
     }
+
+    private void OnEntInsertedIntoContainer(EntInsertedIntoContainerMessage msg)
+    {
+        if (!_e.TryGetComponent(msg.Entity, out MetaDataComponent? component)) return;
+        var entity = msg.Container.Owner;
+        if (!_e.TryGetComponent(entity, out EnergyCoreComponent? core)) return;
+        core.Key = component.Key;
+        if (core.Key != core.Requested && core.Working)
+        {
+            core.ForceDisabled = true;
+            TogglePower(entity);
+        }
+    }
+    private void OnEntRemovedFromContainer(EntRemovedFromContainerMessage msg)
+    {
+        if (!_e.TryGetComponent(msg.Entity, out EnergyCoreKeyComponent? component)) return;
+        var entity = msg.Container.Owner;
+        if (!_e.TryGetComponent(entity, out EnergyCoreComponent? core)) return;
+        core.Key = EnergyCoreKeyState.None;
+        if (core.Key != core.Requested && core.Working)
+        {
+            core.ForceDisabled = true;
+            TogglePower(entity);
+        }
+    }
+
     private void OnDeviceUpdated(EntityUid uid, HeatFreezingCoreComponent component, ref AtmosDeviceUpdateEvent args)
     {
         var timeDelta = args.dt;

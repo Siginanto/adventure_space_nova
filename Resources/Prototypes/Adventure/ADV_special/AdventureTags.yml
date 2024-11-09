@@ -24,3 +24,13 @@
 # Plasma weapons
 - type: Tag
   id: PlasmaMag
+
+# Cores
+- type: Tag
+  id: RnDCore
+- type: Tag
+  id: NTCore
+- type: Tag
+  id: SynCore
+- type: Tag
+  id: HMCore

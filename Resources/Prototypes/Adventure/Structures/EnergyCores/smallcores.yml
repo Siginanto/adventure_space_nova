@@ -1,6 +1,7 @@
 - type: entity
   parent: BaseShuttleCore
   id: BaseSmallCore
+  abstract: true
   components:
   - type: Fixtures
     fixtures:
@@ -15,7 +16,7 @@
           - FullTileLayer
 
 - type: entity
-  parent: BaseSmallCore
+  parent: [BaseSmallCore, BaseRNDCore]
   id: RnDSmallCore
   description: Ядро для малых шаттлов, которое могжет изготовить каждая космическая станция типа "14", при имении ресурсов.
   name: Малое ядро шаттла РнД.
@@ -24,7 +25,6 @@
     damage:
       types:
         Heat: 0.05
-    requested: RnD
     timeOfLife: 480
     secPerMoles: 7.5
     enablingLenght: 2.6
@@ -33,11 +33,9 @@
     supplyRate: 50000
   - type: Sprite
     sprite: Adventure/Structures/Machines/EnergyCores/sprnd/sprnd_mini.rsi
-  - type: HeatFreezingCore
-    absorbGas: NitrousOxide
 
 - type: entity
-  parent: BaseSmallCore
+  parent: [BaseSmallCore, BaseNTCore]
   id: NTSmallCore
   description: Ядро для малых шаттлов, создающиеся на передовых производствах НаноТрейзен. Сложнее в исполнении, чем ядра РнД, используют при работе БС энергию.
   name: Малое ядро шаттла НаноТрейзен.
@@ -46,7 +44,6 @@
     damage:
       types:
         Heat: 0.01
-    requested: Gold
     timeOfLife: 600
     secPerMoles: 10
     enablingLenght: 7.7
@@ -55,11 +52,9 @@
     supplyRate: 60000
   - type: Sprite
     sprite: Adventure/Structures/Machines/EnergyCores/spblue/spblue_mini.rsi
-  - type: HeatFreezingCore
-    absorbGas: Frezon
 
 - type: entity
-  parent: BaseSmallCore
+  parent: [BaseSmallCore, BaseSYNCore]
   id: SyndicateSmallCore
   description: Ядро для малых шаттлов, изготвливаемое на теневых производствах корпораций Синдиката. Используют в работе редспейс.
   name: Малое ядро шаттла Синдиката.
@@ -68,7 +63,6 @@
     damage:
       types:
         Heat: 0.05
-    requested: Sindi
     timeOfLife: 500
     secPerMoles: 5
     enablingLenght: 1.0
@@ -77,11 +71,9 @@
     supplyRate: 85000
   - type: Sprite
     sprite: Adventure/Structures/Machines/EnergyCores/spred/spred_mini.rsi
-  - type: HeatFreezingCore
-    absorbGas: Ammonia
 
 - type: entity
-  parent: BaseSmallCore
+  parent: [BaseSmallCore, BaseHMCore]
   id: HandMadeSmallCore
   description: Ядро для малых шаттлов, изготовленное из первого, что попалось под руку. Ненадежно, но просто в создании.
   name: Малое самодельное ядро шаттла.
@@ -90,7 +82,6 @@
     damage:
       types:
         Heat: 0.1
-    requested: Gray
     timeOfLife: 400
     secPerMoles: 3
     baseSupply: 45000
@@ -98,5 +89,3 @@
     supplyRate: 45000
   - type: Sprite
     sprite: Adventure/Structures/Machines/EnergyCores/sphere/sphere_mini.rsi
-  - type: HeatFreezingCore
-    absorbGas: Plasma

@@ -1,6 +1,7 @@
 - type: entity
   parent: BaseShuttleCore
   id: BaseMediumCore
+  abstract: true
   components:
   - type: Fixtures
     fixtures:
@@ -15,7 +16,7 @@
           - FullTileLayer
 
 - type: entity
-  parent: BaseMediumCore
+  parent: [BaseMediumCore, BaseRNDCore]
   id: RnDMediumCore
   description: Ядро для средних шаттлов, которое могжет изготовить каждая космическая станция типа "14", при имении ресурсов.
   name: Среднее ядро шаттла РнД.
@@ -24,7 +25,6 @@
     damage:
       types:
         Heat: 0.07
-    requested: RnD
     timeOfLife: 480
     secPerMoles: 7.5
     enablingLenght: 2.6
@@ -33,11 +33,9 @@
     supplyRate: 120000
   - type: Sprite
     sprite: Adventure/Structures/Machines/EnergyCores/sprnd/sprnd.rsi
-  - type: HeatFreezingCore
-    absorbGas: NitrousOxide
 
 - type: entity
-  parent: BaseMediumCore
+  parent: [BaseMediumCore, BaseNTCore]
   id: NTMediumCore
   description: Ядро для средних шаттлов, создающиеся на передовых производствах НаноТрейзен. Сложнее в исполнении, чем ядра РнД, используют при работе БС энергию.
   name: Среднее ядро шаттла НаноТрейзен.
@@ -46,7 +44,6 @@
     damage:
       types:
         Heat: 0.03
-    requested: Gold
     timeOfLife: 600
     secPerMoles: 10
     enablingLenght: 7.7
@@ -55,11 +52,9 @@
     supplyRate: 150000
   - type: Sprite
     sprite: Adventure/Structures/Machines/EnergyCores/spblue/spblue.rsi
-  - type: HeatFreezingCore
-    absorbGas: Frezon
 
 - type: entity
-  parent: BaseMediumCore
+  parent: [BaseMediumCore, BaseSYNCore]
   id: SyndicateMediumCore
   description: Ядро для средних шаттлов, изготвливаемое на теневых производствах корпораций Синдиката. Используют в работе редспейс.
   name: Среднее ядро шаттла Синдиката.
@@ -68,7 +63,6 @@
     damage:
       types:
         Heat: 0.07
-    requested: Sindi
     timeOfLife: 500
     secPerMoles: 5
     enablingLenght: 1.0
@@ -77,11 +71,9 @@
     supplyRate: 180000
   - type: Sprite
     sprite: Adventure/Structures/Machines/EnergyCores/spred/spred.rsi
-  - type: HeatFreezingCore
-    absorbGas: Ammonia
 
 - type: entity
-  parent: BaseMediumCore
+  parent: [BaseMediumCore, BaseHMCore]
   id: HandMadeMediumCore
   description: Ядро для средних шаттлов, изготовленное из первого, что попалось под руку. Ненадежно, но просто в создании.
   name: Среднее самодельное ядро шаттла.
@@ -90,7 +82,6 @@
     damage:
       types:
         Heat: 0.125
-    requested: Gray
     timeOfLife: 400
     secPerMoles: 3
     baseSupply: 100000
@@ -98,6 +89,5 @@
     supplyRate: 100000
   - type: Sprite
     sprite: Adventure/Structures/Machines/EnergyCores/sphere/sphere.rsi
-  - type: HeatFreezingCore
-    absorbGas: Plasma
+
 

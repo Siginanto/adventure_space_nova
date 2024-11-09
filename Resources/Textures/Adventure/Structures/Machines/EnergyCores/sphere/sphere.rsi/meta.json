@@ -8,24 +8,6 @@
     },
     "states": [
         {
-            "name": "corpus"
-        },
-        {
-            "name": "corpus_metal"
-        },
-        {
-            "name": "corpus_wires-1"
-        },
-        {
-            "name": "corpus_wires-2"
-        },
-        {
-            "name": "corpus_wires-3"
-        },
-        {
-            "name": "corpus_wires-4"
-        },
-        {
             "name": "fly",
             "delays": [
                 [

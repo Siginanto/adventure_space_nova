@@ -3,6 +3,7 @@
   id: BaseShuttleCore
   description: Базовый прототип ядра шаттла
   name: Базовое ядро шаттла
+  abstract: true
   placement:
     mode: SnapgridCenter
   components:
@@ -50,18 +51,14 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 200
-      behaviors:
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-    - trigger:
-        !type:DamageTrigger
-        damage: 100
+        damage: 500
       behaviors:
       - !type:PlaySoundBehavior
         sound:
           collection: MetalBreak
       - !type:ExplodeBehavior
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
   - type: Explosive
     explosionType: Default
     maxIntensity: 100
@@ -135,3 +132,63 @@
   - type: DeviceLinkSink
     ports:
       - EnergyCoreReceiver
+
+- type: entity
+  parent: BaseShuttleCore
+  id: BaseRNDCore
+  abstract: true
+  name: Base core
+  components:
+  - type: ContainerContainer
+    containers:
+      core_core: !type:Container
+        ents: [RNDECCPU]
+  - type: HeatFreezingCore
+    absorbGas: NitrousOxide
+  - type: Tag
+    tag: RnDCore
+
+- type: entity
+  parent: BaseShuttleCore
+  id: BaseNTCore
+  abstract: true
+  name: Base core
+  components:
+  - type: ContainerContainer
+    containers:
+      core_core: !type:Container
+        ents: [NTECCPU]
+  - type: HeatFreezingCore
+    absorbGas: Frezon
+  - type: Tag
+    tag: NTCore
+
+- type: entity
+  parent: BaseShuttleCore
+  id: BaseSYNCore
+  abstract: true
+  name: Base core
+  components:
+  - type: ContainerContainer
+    containers:
+      core_core: !type:Container
+        ents: [SYNECCPU]
+  - type: HeatFreezingCore
+    absorbGas: Ammonia
+  - type: Tag
+    tag: SynCore
+
+- type: entity
+  parent: BaseShuttleCore
+  id: BaseHMCore
+  abstract: true
+  name: Base core
+  components:
+  - type: ContainerContainer
+    containers:
+      core_core: !type:Container
+        ents: [HMECCPU]
+  - type: HeatFreezingCore
+    absorbGas: Plasma
+  - type: Tag
+    tag: HMCore
