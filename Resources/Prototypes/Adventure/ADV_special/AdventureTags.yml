@@ -28,13 +28,3 @@
 - type: Tag
   id: LinenBoll
 
-# Cores
-- type: Tag
-  id: RnDCore
-- type: Tag
-  id: NTCore
-- type: Tag
-  id: SynCore
-- type: Tag
-  id: HMCore
-

@@ -1,6 +1,6 @@
 using Content.Shared.Atmos;
 
-namespace Content.Server._Adventure.EnergyCores;
+namespace Content.Server._EnergyCores;
 
 [RegisterComponent]
 

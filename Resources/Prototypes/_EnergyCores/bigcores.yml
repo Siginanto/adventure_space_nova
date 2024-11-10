@@ -14,11 +14,6 @@
           - FullTileMask
         layer:
           - FullTileLayer
-  - type: Construction
-    graph: EnergyCoreBig
-    node: end
-    containers:
-    - core_core
 
 - type: entity
   parent: [BaseBigCore, BaseRNDCore]
@@ -37,7 +32,7 @@
   - type: PowerSupplier
     supplyRate: 220000
   - type: Sprite
-    sprite: Adventure/Structures/Machines/EnergyCores/sprnd/sprnd_big.rsi
+    sprite: _EnergyCores/sprnd/sprnd_big.rsi
 
 - type: entity
   parent: [BaseBigCore, BaseNTCore]
@@ -56,7 +51,10 @@
   - type: PowerSupplier
     supplyRate: 240000
   - type: Sprite
-    sprite: Adventure/Structures/Machines/EnergyCores/spblue/spblue_big.rsi
+    sprite: _EnergyCores/spblue/spblue_big.rsi
+  - type: Construction
+    graph: EnergyCoreBigNT
+    node: EnergyCore
 
 - type: entity
   parent: [BaseBigCore, BaseSYNCore]
@@ -75,7 +73,10 @@
   - type: PowerSupplier
     supplyRate: 260000
   - type: Sprite
-    sprite: Adventure/Structures/Machines/EnergyCores/spred/spred_big.rsi
+    sprite: _EnergyCores/spred/spred_big.rsi
+  - type: Construction
+    graph: EnergyCoreBigSyn
+    node: EnergyCore
 
 - type: entity
   parent: [BaseBigCore, BaseHMCore]
@@ -93,4 +94,7 @@
   - type: PowerSupplier
     supplyRate: 200000
   - type: Sprite
-    sprite: Adventure/Structures/Machines/EnergyCores/sphere/sphere_big.rsi
+    sprite: _EnergyCores/sphere/sphere_big.rsi
+  - type: Construction
+    graph: EnergyCoreBigHM
+    node: EnergyCore

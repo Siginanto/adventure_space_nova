@@ -32,7 +32,10 @@
   - type: PowerSupplier
     supplyRate: 50000
   - type: Sprite
-    sprite: Adventure/Structures/Machines/EnergyCores/sprnd/sprnd_mini.rsi
+    sprite: _EnergyCores/sprnd/sprnd_mini.rsi
+  - type: Construction
+    graph: EnergyCoreMiniRnD
+    node: EnergyCore
 
 - type: entity
   parent: [BaseSmallCore, BaseNTCore]
@@ -51,7 +54,10 @@
   - type: PowerSupplier
     supplyRate: 60000
   - type: Sprite
-    sprite: Adventure/Structures/Machines/EnergyCores/spblue/spblue_mini.rsi
+    sprite: _EnergyCores/spblue/spblue_mini.rsi
+  - type: Construction
+    graph: EnergyCoreMiniNT
+    node: EnergyCore
 
 - type: entity
   parent: [BaseSmallCore, BaseSYNCore]
@@ -70,7 +76,10 @@
   - type: PowerSupplier
     supplyRate: 85000
   - type: Sprite
-    sprite: Adventure/Structures/Machines/EnergyCores/spred/spred_mini.rsi
+    sprite: _EnergyCores/spred/spred_mini.rsi
+  - type: Construction
+    graph: EnergyCoreMiniSyn
+    node: EnergyCore
 
 - type: entity
   parent: [BaseSmallCore, BaseHMCore]
@@ -88,4 +97,7 @@
   - type: PowerSupplier
     supplyRate: 45000
   - type: Sprite
-    sprite: Adventure/Structures/Machines/EnergyCores/sphere/sphere_mini.rsi
+    sprite: _EnergyCores/sphere/sphere_mini.rsi
+  - type: Construction
+    graph: EnergyCoreMiniHM
+    node: EnergyCore

@@ -9,7 +9,7 @@ using Content.Shared.DeviceLinking;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 using Robust.Shared.GameObjects;
 
-namespace Content.Shared._Adventure.EnergyCores;
+namespace Content.Shared._EnergyCores;
 
 [RegisterComponent]
 [AutoGenerateComponentPause]

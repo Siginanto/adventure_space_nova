@@ -1,11 +1,11 @@
 // Данный код целиком и полностью является интеллектуальной собственностью Аристофана и Тёмного Воина. Все права защищены.
 // Копирование и использование данного кода запрещено без разрешения правообладателя. Слава яйцам!
 
-using Content.Shared._Adventure.EnergyCores;
+using Content.Shared._EnergyCores;
 using Robust.Client.GameObjects;
 using Content.Client.Power;
 
-namespace Content.Client._Adventure.EnergyCores;
+namespace Content.Client._EnergyCores;
 
 public sealed partial class EnergyCoreSystem : VisualizerSystem<EnergyCoreVisualsComponent>
 {

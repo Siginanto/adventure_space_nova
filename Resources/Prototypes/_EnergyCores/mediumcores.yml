@@ -32,7 +32,10 @@
   - type: PowerSupplier
     supplyRate: 120000
   - type: Sprite
-    sprite: Adventure/Structures/Machines/EnergyCores/sprnd/sprnd.rsi
+    sprite: _EnergyCores/sprnd/sprnd.rsi
+  - type: Construction
+    graph: EnergyCoreMediumRnD
+    node: EnergyCore
 
 - type: entity
   parent: [BaseMediumCore, BaseNTCore]
@@ -51,7 +54,10 @@
   - type: PowerSupplier
     supplyRate: 150000
   - type: Sprite
-    sprite: Adventure/Structures/Machines/EnergyCores/spblue/spblue.rsi
+    sprite: _EnergyCores/spblue/spblue.rsi
+  - type: Construction
+    graph: EnergyCoreMediumNT
+    node: EnergyCore
 
 - type: entity
   parent: [BaseMediumCore, BaseSYNCore]
@@ -70,7 +76,10 @@
   - type: PowerSupplier
     supplyRate: 180000
   - type: Sprite
-    sprite: Adventure/Structures/Machines/EnergyCores/spred/spred.rsi
+    sprite: _EnergyCores/spred/spred.rsi
+  - type: Construction
+    graph: EnergyCoreMediumSyn
+    node: EnergyCore
 
 - type: entity
   parent: [BaseMediumCore, BaseHMCore]
@@ -88,6 +97,9 @@
   - type: PowerSupplier
     supplyRate: 100000
   - type: Sprite
-    sprite: Adventure/Structures/Machines/EnergyCores/sphere/sphere.rsi
+    sprite: _EnergyCores/sphere/sphere.rsi
+  - type: Construction
+    graph: EnergyCoreMediumHM
+    node: EnergyCore
 
 

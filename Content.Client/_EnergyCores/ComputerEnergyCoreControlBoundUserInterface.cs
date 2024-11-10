@@ -3,11 +3,11 @@
 using Robust.Client.GameObjects;
 using Robust.Client.UserInterface;
 using Content.Shared.DeviceLinking;
-using Content.Shared._Adventure.EnergyCores;
+using Content.Shared._EnergyCores;
 using Content.Shared.Damage;
 using Robust.Shared.GameObjects;
 
-namespace Content.Client._Adventure.EnergyCores
+namespace Content.Client._EnergyCores
 {
     public sealed class ComputerEnergyCoreControlBoundUserInterface : BoundUserInterface
     {

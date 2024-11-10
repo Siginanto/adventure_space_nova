@@ -6,7 +6,7 @@
   abstract: true
   components:
     - type: Sprite
-      sprite: Adventure/Objects/EnergyCores/mini_core-RnD.rsi
+      sprite: _EnergyCores/mini_core-RnD.rsi
       state: icon
     - type: Item
       size: Large
@@ -19,12 +19,13 @@
 
 
 - type: entity
+  abstract: true
   parent: BaseEnergyBuildComp
   id: RnDEnergyCoreCPU
   name: Центральный процессор ядра РнД
   components:
     - type: Sprite
-      sprite: Adventure/Objects/EnergyCores/mini_core-RnD.rsi
+      sprite: _EnergyCores/mini_core-RnD.rsi
       state: icon
 
 - type: entity
@@ -39,12 +40,13 @@
     count: 1
 
 - type: entity
+  abstract: true
   id: SyndicateEnergyCoreCPU
   parent: BaseEnergyBuildComp
   name: Центральный процессор ядра Синдиката
   components:
     - type: Sprite
-      sprite: Adventure/Objects/EnergyCores/mini_core-redspace.rsi
+      sprite: _EnergyCores/mini_core-redspace.rsi
       state: icon
 
 - type: entity
@@ -59,12 +61,13 @@
     count: 1
 
 - type: entity
+  abstract: true
   id: NanoTrasenEnergyCoreCPU
   parent: BaseEnergyBuildComp
   name: Центральный процессор ядра НаноТрейзен
   components:
     - type: Sprite
-      sprite: Adventure/Objects/EnergyCores/mini_core-blue.rsi
+      sprite: _EnergyCores/mini_core-blue.rsi
       state: icon
 
 - type: entity
@@ -79,12 +82,13 @@
     count: 1
 
 - type: entity
+  abstract: true
   id: HandMadeEnergyCoreCPU
   parent: BaseEnergyBuildComp
   name: Центральный процессор самодельного ядра
   components:
     - type: Sprite
-      sprite: Adventure/Objects/EnergyCores/mini_core-yellow.rsi
+      sprite: _EnergyCores/mini_core-yellow.rsi
       state: icon
 
 - type: entity
@@ -101,28 +105,28 @@
 - type: stack
   id: HMECCPU
   name: самодельное ЦПУ
-  icon: { sprite: Adventure/Objects/EnergyCores/mini_core-yellow.rsi, state: icon }
+  icon: { sprite: _EnergyCores/mini_core-yellow.rsi, state: icon }
   spawn: HMECCPU1
   maxCount: 1
 
 - type: stack
   id: SYNECCPU
   name: ЦПУ Синдиката
-  icon: { sprite: Adventure/Objects/EnergyCores/mini_core-redspace.rsi, state: icon }
+  icon: { sprite: _EnergyCores/mini_core-redspace.rsi, state: icon }
   spawn: SYNECCPU1
   maxCount: 1
 
 - type: stack
   id: NTECCPU
   name: ЦПУ НаноТрейзен
-  icon: { sprite: Adventure/Objects/EnergyCores/mini_core-blue.rsi, state: icon }
+  icon: { sprite: _EnergyCores/mini_core-blue.rsi, state: icon }
   spawn: NTECCPU1
   maxCount: 1
 
 - type: stack
   id: RNDECCPU
   name: рнд ЦПУ
-  icon: { sprite: Adventure/Objects/EnergyCores/mini_core-RnD.rsi, state: icon }
+  icon: { sprite: _EnergyCores/mini_core-RnD.rsi, state: icon }
   spawn: RNDECCPU1
   maxCount: 1
 
@@ -131,7 +135,7 @@
   stackEntity: HMECCPU1
   name: самодельное ЦПУ
   unit: ядра
-  icon: { sprite: Adventure/Objects/EnergyCores/mini_core-yellow.rsi, state: icon }
+  icon: { sprite: _EnergyCores/mini_core-yellow.rsi, state: icon }
   color: "#C0C0C0"
   price: 5
 
@@ -140,7 +144,7 @@
   stackEntity: RNDECCPU1
   name: рнд ЦПУ
   unit: ядра
-  icon: { sprite: Adventure/Objects/EnergyCores/mini_core-RnD.rsi, state: icon }
+  icon: { sprite: _EnergyCores/mini_core-RnD.rsi, state: icon }
   color: "#C0C0C0"
   price: 5
 
@@ -149,7 +153,7 @@
   stackEntity: NTECCPU1
   name: ЦПУ НаноТрейзен
   unit: ядра
-  icon: { sprite: Adventure/Objects/EnergyCores/mini_core-blue.rsi, state: icon }
+  icon: { sprite: _EnergyCores/mini_core-blue.rsi, state: icon }
   color: "#C0C0C0"
   price: 5
 
@@ -158,7 +162,7 @@
   stackEntity: SYNECCPU1
   name: ЦПУ Синдиката
   unit: ядра
-  icon: { sprite: Adventure/Objects/EnergyCores/mini_core-redspace.rsi, state: icon }
+  icon: { sprite: _EnergyCores/mini_core-redspace.rsi, state: icon }
   color: "#C0C0C0"
   price: 5
 
@@ -185,7 +189,7 @@
           frame5nt: { state: corpus_wires-3 }
           frame6nt: { state: corpus_wires-4 }
   - type: Sprite
-    sprite: Adventure\Structures\Machines\EnergyCores\ec_const_big.rsi
+    sprite: _EnergyCores\ec_const_big.rsi
     layers:
     - state: corpus
     snapCardinals: false
@@ -221,22 +225,16 @@
           - FullTileLayer
   - type: Transform
     noRot: true
-  - type: Construction
-    containers:
-      - core_core
-  - type: Con
 
 - type: entity
   id: EnergyCoreBigFrame
   parent: EnergyCoreFrame
+  name: Большой каркас энергоядра
   components:
   - type: Sprite
-    sprite: Adventure\Structures\Machines\EnergyCores\ec_const_big.rsi
+    sprite: _EnergyCores\ec_const_big.rsi
     layers:
     - state: corpus
-  - type: Construction
-    graph: EnergyCoreBig
-    node: frame1
   - type: Fixtures
     fixtures:
       fix1:
@@ -250,16 +248,46 @@
           - FullTileLayer
 
 - type: entity
-  id: EnergyCoreSmallFrame
+  id: ECBigFrameNT
+  parent: EnergyCoreBigFrame
+  components:
+  - type: Construction
+    graph: EnergyCoreBigNT
+    node: frame1
+
+- type: entity
+  id: ECBigFrameRND
+  parent: EnergyCoreBigFrame
+  components:
+  - type: Construction
+    graph: EnergyCoreBigRnD
+    node: frame1
+
+- type: entity
+  id: ECBigFrameHM
+  parent: EnergyCoreBigFrame
+  components:
+  - type: Construction
+    graph: EnergyCoreBigHM
+    node: frame1
+
+- type: entity
+  id: ECBigFrameSYN
+  parent: EnergyCoreBigFrame
+  components:
+  - type: Construction
+    graph: EnergyCoreBigSyn
+    node: frame1
+
+- type: entity
+  id: EnergyCoreMiniFrame
   parent: EnergyCoreFrame
+  name: Малый каркас энергоядра
   components:
   - type: Sprite
-    sprite: Adventure\Structures\Machines\EnergyCores\ec_const_small.rsi
+    sprite: _EnergyCores\ec_const_small.rsi
     layers:
     - state: corpus
-  - type: Construction
-    graph: EnergyCoreSmall
-    node: frame1
   - type: Fixtures
     fixtures:
       fix1:
@@ -273,16 +301,46 @@
           - FullTileLayer
 
 - type: entity
+  id: ECMiniFrameNT
+  parent: EnergyCoreMiniFrame
+  components:
+  - type: Construction
+    graph: EnergyCoreMiniNT
+    node: frame1
+
+- type: entity
+  id: ECMiniFrameRND
+  parent: EnergyCoreMiniFrame
+  components:
+  - type: Construction
+    graph: EnergyCoreMiniRnD
+    node: frame1
+
+- type: entity
+  id: ECMiniFrameHM
+  parent: EnergyCoreMiniFrame
+  components:
+  - type: Construction
+    graph: EnergyCoreMiniHM
+    node: frame1
+
+- type: entity
+  id: ECMiniFrameSYN
+  parent: EnergyCoreMiniFrame
+  components:
+  - type: Construction
+    graph: EnergyCoreMiniSyn
+    node: frame1
+
+- type: entity
   id: EnergyCoreMediumFrame
   parent: EnergyCoreFrame
+  name: Средний каркас энергоядра
   components:
   - type: Sprite
-    sprite: Adventure\Structures\Machines\EnergyCores\ec_const_medium.rsi
+    sprite: _EnergyCores\ec_const_medium.rsi
     layers:
     - state: corpus
-  - type: Construction
-    graph: EnergyCoreMedium
-    node: frame1
   - type: Fixtures
     fixtures:
       fix1:
@@ -294,3 +352,57 @@
           - FullTileMask
         layer:
           - FullTileLayer
+
+- type: entity
+  id: ECMediumFrameNT
+  parent: EnergyCoreMediumFrame
+  components:
+  - type: Construction
+    graph: EnergyCoreMediumNT
+    node: frame1
+
+- type: entity
+  id: ECMediumFrameRND
+  parent: EnergyCoreMediumFrame
+  components:
+  - type: Construction
+    graph: EnergyCoreMediumRnD
+    node: frame1
+
+- type: entity
+  id: ECMediumFrameHM
+  parent: EnergyCoreMediumFrame
+  components:
+  - type: Construction
+    graph: EnergyCoreMediumHM
+    node: frame1
+
+- type: entity
+  id: ECMediumFrameSYN
+  parent: EnergyCoreMediumFrame
+  components:
+  - type: Construction
+    graph: EnergyCoreMediumSyn
+    node: frame1
+
+- type: latheRecipe
+  id: EnergyCoreRnD
+  result: RNDECCPU
+  completetime: 4
+  materials:
+    Steel: 10000
+    Glass: 5000
+    Plasma: 7500
+    Gold: 5500
+    Silver: 5500
+
+- type: latheRecipe
+  id: EnergyCoreHM
+  result: HMECCPU
+  completetime: 4
+  materials:
+    Steel: 5000
+    Glass: 3000
+    Plasma: 6500
+    Gold: 4000
+    Silver: 3000

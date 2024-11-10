@@ -5,10 +5,10 @@ using Robust.Shared.Map.Components;
 using Robust.Shared.Physics;
 using Robust.Shared.Prototypes;
 using System.Linq;
-using Content.Shared._Adventure.EnergyCores;
+using Content.Shared._EnergyCores;
 
 
-namespace Content.Client._Adventure.EnergyCores;
+namespace Content.Client._EnergyCores;
 
 public sealed partial class EnergyCoreConstructionFixSystem : EntitySystem
 {
@@ -34,6 +34,12 @@ public sealed partial class EnergyCoreConstructionFixSystem : EntitySystem
         {
             return;
         }
+        var targetcoord = targetXform.MapPosition;
+        var entitycoord = Transform(args.User).MapPosition;
+        var dir = targetcoord.Position - entitycoord.Position;
+        var length = dir.Length();
+        if (length > 20)
+            return;
         var query = _prototypeManager.EnumeratePrototypes<ConstructionPrototype>().ToList();
         var query2 = _prototypeManager.EnumeratePrototypes<EntityPrototype>().ToList();
         foreach (var proto in query)

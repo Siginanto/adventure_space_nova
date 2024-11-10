@@ -316,6 +316,8 @@
       - SignallerAdvanced
       - SignalTrigger
       - VoiceTrigger
+      - EnergyCoreRnD
+      - EnergyCoreHM
       - Igniter
       - HandHeldMassScanner
       - PowerCellMicroreactor

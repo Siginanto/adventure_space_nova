@@ -5,7 +5,7 @@ using Content.Shared.DeviceLinking;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 using Robust.Shared.Serialization;
 
-namespace Content.Shared._Adventure.EnergyCores;
+namespace Content.Shared._EnergyCores;
 
 [RegisterComponent]
 public sealed partial class EnergyCoreConsoleComponent : Component

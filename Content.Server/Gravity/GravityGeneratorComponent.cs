@@ -1,7 +1,7 @@
 using Content.Shared.Gravity;
 using Content.Shared.Construction.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
-using Content.Server._Adventure.EnergyCores;
+using Content.Server._EnergyCores;
 
 namespace Content.Server.Gravity
 {

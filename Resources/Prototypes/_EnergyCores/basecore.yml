@@ -8,7 +8,7 @@
     mode: SnapgridCenter
   components:
   - type: Sprite
-    sprite: Adventure/Structures/Machines/EnergyCores/sphere/sphere_big.rsi
+    sprite: _EnergyCores/sphere/sphere_big.rsi
     layers:
       - state: crutch
         map: ["enum.GravityGeneratorVisualLayers.Base"]
@@ -139,14 +139,8 @@
   abstract: true
   name: Base core
   components:
-  - type: ContainerContainer
-    containers:
-      core_core: !type:Container
-        ents: [RNDECCPU]
   - type: HeatFreezingCore
     absorbGas: NitrousOxide
-  - type: Tag
-    tag: RnDCore
 
 - type: entity
   parent: BaseShuttleCore
@@ -154,14 +148,8 @@
   abstract: true
   name: Base core
   components:
-  - type: ContainerContainer
-    containers:
-      core_core: !type:Container
-        ents: [NTECCPU]
   - type: HeatFreezingCore
     absorbGas: Frezon
-  - type: Tag
-    tag: NTCore
 
 - type: entity
   parent: BaseShuttleCore
@@ -169,14 +157,8 @@
   abstract: true
   name: Base core
   components:
-  - type: ContainerContainer
-    containers:
-      core_core: !type:Container
-        ents: [SYNECCPU]
   - type: HeatFreezingCore
     absorbGas: Ammonia
-  - type: Tag
-    tag: SynCore
 
 - type: entity
   parent: BaseShuttleCore
@@ -184,11 +166,5 @@
   abstract: true
   name: Base core
   components:
-  - type: ContainerContainer
-    containers:
-      core_core: !type:Container
-        ents: [HMECCPU]
   - type: HeatFreezingCore
     absorbGas: Plasma
-  - type: Tag
-    tag: HMCore
