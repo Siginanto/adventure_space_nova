@@ -12,9 +12,9 @@ namespace Content.Client._EnergyCores;
 
 public sealed partial class EnergyCoreConstructionFixSystem : EntitySystem
 {
+    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     private EntityQuery<BroadphaseComponent> _broadphaseQuery;
     private EntityQuery<MapGridComponent> _gridQuery;
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     private List<ProtoId<ConstructionPrototype>> _protoIds = new();
     private List<ProtoId<EntityPrototype>> _protoIds1 = new();
 
