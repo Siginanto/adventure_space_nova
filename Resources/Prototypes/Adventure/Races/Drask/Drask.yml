@@ -4,9 +4,10 @@
     Heat: 1.50
     Shock: 1.50
     Cold: 0.0
+    Asphyxiation: 2.0
 
 - type: reagent
-  id: CryoxadoneDrask # слабый криоксадон, не лечит урон от баратравмы.
+  id: CryoxadoneDrask # слабый криоксадон
   name: reagent-name-cryoxadone
   group: Toxins
   desc: reagent-desc-cryoxadone
@@ -19,16 +20,14 @@
         - !type:HealthChange
           conditions:
           - !type:Temperature
-            max: 233.15
+            max: 213.15
           damage:
             groups:
               Burn: -2
-              Toxin: -2
             types:
               Slash: -2
               Piercing: -2
               Bloodloss: -2
-              Cellular: -2
 
 - type: entity
   save: false
@@ -43,6 +42,13 @@
   id: BaseMobDrask
   name: Урист макТентакль
   components:
+  - type: Respirator
+    damage:
+      types:
+        Asphyxiation: 2
+    damageRecovery:
+      types:
+        Asphyxiation: -1.0
   - type: UrUAccent # Adventure-Accent
   - type: Sprite
     noRot: true
