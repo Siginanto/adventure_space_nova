@@ -156,7 +156,7 @@ public sealed partial class EnergyCoreSystem : EntitySystem
             {
                 ForceTurnOff(component);
             }
-            if (!_e.TryGetComponent(component.Owner, out GravityGeneratorComponent? gravityGen)) return;
+          //  if (!_e.TryGetComponent(component.Owner, out GravityGeneratorComponent? gravityGen)) return;
         }
     }
     private void EnergyCoreTick()
@@ -212,7 +212,6 @@ public sealed partial class EnergyCoreSystem : EntitySystem
         if (core == null) return true;
         if (!_e.TryGetComponent(uid, out PowerSupplierComponent? supplier)) return true;
         if (!_e.TryGetComponent(uid, out ApcPowerReceiverComponent? receiver)) return true;
-        if (!_e.TryGetComponent(uid, out GravityGeneratorComponent? gravityGen)) return true;
 
         supplier.Enabled = !supplier.Enabled;
 
@@ -239,13 +238,11 @@ public sealed partial class EnergyCoreSystem : EntitySystem
         var dataForSet = !receiver.PowerDisabled ? EnergyCoreState.Enabled : EnergyCoreState.Disabled;
         _appearance.SetData(uid, EnergyCoreVisualLayers.IsOn, dataForSet);
         core.Working = !receiver.PowerDisabled;
-        gravityGen.GravityActive = core.Working;
 
         if (TryComp(uid, out TransformComponent? xform) &&
             TryComp<GravityComponent>(xform.ParentUid, out var gravity))
         {
-            // Force it on in the faster path.
-            if (gravityGen.GravityActive)
+            if (core.Working)
             {
                 _gravitySystem.EnableGravity(xform.ParentUid, gravity);
             }
