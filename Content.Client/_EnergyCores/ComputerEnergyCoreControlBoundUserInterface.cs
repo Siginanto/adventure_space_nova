@@ -13,7 +13,6 @@ namespace Content.Client._EnergyCores
     {
         private EntityQuery<DeviceLinkSourceComponent> _recQuery;
         private ComputerEnergyCoreControlWindow? _window;
-        [Dependency] private readonly IEntityManager _e = default!;
 
         public ComputerEnergyCoreControlBoundUserInterface(EntityUid owner, Enum uiKey) : base(owner, uiKey)
         {
