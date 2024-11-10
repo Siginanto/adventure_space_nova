@@ -13,7 +13,6 @@ namespace Content.Client._EnergyCores
     {
         private EntityQuery<DeviceLinkSourceComponent> _recQuery;
         private ComputerEnergyCoreControlWindow? _window;
-        [Dependency] private readonly IEntityManager _e = default!;
 
         public ComputerEnergyCoreControlBoundUserInterface(EntityUid owner, Enum uiKey) : base(owner, uiKey)
         {
@@ -23,13 +22,7 @@ namespace Content.Client._EnergyCores
             base.Open();
 
             _window = this.CreateWindow<ComputerEnergyCoreControlWindow>();
-            _window.OnPowerToggleButton += value =>
-            {
-                if (value == true)
-                    SendMessage(new EnergyCoreConsoleIsOnMessage(true));
-                else
-                    SendMessage(new EnergyCoreConsoleIsOnMessage(false));
-            };
+            _window.OnPowerToggleButton += value => SendMessage(new EnergyCoreConsoleIsOnMessage(value));
         }
         protected override void UpdateState(BoundUserInterfaceState state)
         {

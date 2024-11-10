@@ -9,7 +9,7 @@ public sealed partial class HeatFreezingCoreComponent : Component
     [DataField("port"), ViewVariables(VVAccess.ReadWrite)]
     public string PortName { get; set; } = "pipe";
 
-    [DataField("filterGases")]
+    [DataField]
     public HashSet<Gas> FilterGases = new()
         {
             Gas.Frezon,
