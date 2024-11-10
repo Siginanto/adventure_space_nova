@@ -1,6 +1,3 @@
-// Данный код целиком и полностью является интеллектуальной собственностью Аристофана и Тёмного Воина. Все права защищены.
-// Копирование и использование данного кода запрещено без разрешения правообладателя. Слава яйцам!
-
 using Robust.Shared.Serialization;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 using Content.Shared.Damage;

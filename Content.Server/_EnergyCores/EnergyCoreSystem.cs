@@ -1,6 +1,3 @@
-// Данный код целиком и полностью является интеллектуальной собственностью Аристофана и Тёмного Воина. Все права защищены.
-// Копирование и использование данного кода запрещено без разрешения правообладателя. Слава яйцам!
-
 using Content.Server.Atmos.Piping.Unary.EntitySystems;
 using Content.Shared._EnergyCores;
 using Robust.Shared.Timing;
@@ -25,8 +22,6 @@ using Content.Server.Shuttles.Systems;
 using Content.Server.Shuttles.Components;
 using Content.Shared.DeviceLinking.Events;
 using Content.Shared.UserInterface;
-using Robust.Shared.Containers;
-using System.Linq;
 
 
 namespace Content.Server._EnergyCores;
@@ -78,7 +73,7 @@ public sealed partial class EnergyCoreSystem : EntitySystem
             return;
         if (args.Grid is not { } grid)
             return;
-        if (!_e.TryGetComponent(uid, out EnergyCoreComponent? core)) return;
+        if (!TryComp(uid, out EnergyCoreComponent? core)) return;
         var position = _transformSystem.GetGridTilePositionOrDefault(uid);
         var environment = _atmosphereSystem.GetTileMixture(grid, args.Map, position, true);
         // widenet
@@ -126,7 +121,7 @@ public sealed partial class EnergyCoreSystem : EntitySystem
     }
     private void Absorb(EnergyCoreComponent component, PipeNode air)
     {
-        if (!_e.TryGetComponent(component.Owner, out HeatFreezingCoreComponent? heatfreeze)) return;
+        if (!TryComp(component.Owner, out HeatFreezingCoreComponent? heatfreeze)) return;
         if (component.Overheat && component.TimeOfLife > 0)
         {
             ForceTurnOff(component);
@@ -156,7 +151,6 @@ public sealed partial class EnergyCoreSystem : EntitySystem
             {
                 ForceTurnOff(component);
             }
-          //  if (!_e.TryGetComponent(component.Owner, out GravityGeneratorComponent? gravityGen)) return;
         }
     }
     private void EnergyCoreTick()
@@ -164,7 +158,7 @@ public sealed partial class EnergyCoreSystem : EntitySystem
         var query = EntityQueryEnumerator<EnergyCoreComponent>();
         while (query.MoveNext(out var ent, out var target))
         {
-            if (!_e.TryGetComponent(target.Owner, out DamageableComponent? damage)) return;
+            if (!TryComp(target.Owner, out DamageableComponent? damage)) return;
             var energyCore = target.Owner;
             var timeOfLife = target.TimeOfLife;
             var isOn = target.Working;
@@ -189,10 +183,10 @@ public sealed partial class EnergyCoreSystem : EntitySystem
 
     public void TogglePower(EntityUid uid, bool playSwitchSound = true, EnergyCoreComponent? core = null, EntityUid? user = null)
     {
-        if (core == null) if (!_e.TryGetComponent(uid, out core)) return;
+        if (core == null) if (!TryComp(uid, out core)) return;
         core.ForceDisabled = !core.ForceDisabled;
         if (core.Trantransitional) return;
-        if (!_e.TryGetComponent(uid, out ApcPowerReceiverComponent? receiver)) return;
+        if (!TryComp(uid, out ApcPowerReceiverComponent? receiver)) return;
         EnergyCoreState dataForSet;
         if (receiver.PowerDisabled)
             dataForSet = EnergyCoreState.Enabling;
@@ -210,8 +204,8 @@ public sealed partial class EnergyCoreSystem : EntitySystem
     private bool TogglePowerDiscrete(EntityUid uid, bool playSwitchSound = true, EnergyCoreComponent? core = null, EntityUid? user = null)
     {
         if (core == null) return true;
-        if (!_e.TryGetComponent(uid, out PowerSupplierComponent? supplier)) return true;
-        if (!_e.TryGetComponent(uid, out ApcPowerReceiverComponent? receiver)) return true;
+        if (!TryComp(uid, out PowerSupplierComponent? supplier)) return true;
+        if (!TryComp(uid, out ApcPowerReceiverComponent? receiver)) return true;
 
         supplier.Enabled = !supplier.Enabled;
 
@@ -251,8 +245,8 @@ public sealed partial class EnergyCoreSystem : EntitySystem
                 _gravitySystem.RefreshGravity(xform.ParentUid, gravity);
             }
         }
-        if (!_e.TryGetComponent(uid, out ThrusterComponent? thruster)) return true;
-        if (!_e.TryGetComponent(uid, out TransformComponent? xForm)) return true;
+        if (!TryComp(uid, out ThrusterComponent? thruster)) return true;
+        if (!TryComp(uid, out TransformComponent? xForm)) return true;
         if (core.Working)
             _thrusterSystem.EnableThruster(uid, thruster, xForm);
         else
@@ -280,7 +274,7 @@ public sealed partial class EnergyCoreSystem : EntitySystem
     }
     private void OnPowerToggled(EntityUid uid, EnergyCoreConsoleComponent component, EnergyCoreConsoleIsOnMessage args)
     {
-        if (!_e.TryGetComponent(component.EnergyCoreEntity, out EnergyCoreComponent? core)) return;
+        if (!TryComp(component.EnergyCoreEntity, out EnergyCoreComponent? core)) return;
         core.ForceDisabled = !core.ForceDisabled;
         TogglePower(core.Owner);
     }
