@@ -23,13 +23,7 @@ namespace Content.Client._EnergyCores
             base.Open();
 
             _window = this.CreateWindow<ComputerEnergyCoreControlWindow>();
-            _window.OnPowerToggleButton += value =>
-            {
-                if (value == true)
-                    SendMessage(new EnergyCoreConsoleIsOnMessage(true));
-                else
-                    SendMessage(new EnergyCoreConsoleIsOnMessage(false));
-            };
+            _window.OnPowerToggleButton += value => SendMessage(new EnergyCoreConsoleIsOnMessage(value));
         }
         protected override void UpdateState(BoundUserInterfaceState state)
         {
