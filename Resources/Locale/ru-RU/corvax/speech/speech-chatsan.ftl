@@ -248,3 +248,7 @@ corvax-chatsan-word-124 = лкм
 corvax-chatsan-replacement-124 = левая рука
 corvax-chatsan-word-125 = пкм
 corvax-chatsan-replacement-125 = правая рука
+corvax-chatsan-word-126 = скаф
+corvax-chatsan-replacement-126 = скафандр
+corvax-chatsan-word-127 = скафа
+corvax-chatsan-replacement-127 = скафандра
