@@ -1,5 +1,5 @@
 using Content.Server.Atmos.Piping.Unary.EntitySystems;
-using Content.Shared._EnergyCores;
+using Content.Shared._Adventure.EnergyCores;
 using Robust.Shared.Timing;
 using Content.Server.Atmos.EntitySystems;
 using Content.Shared.Atmos.Piping.Unary.Components;
@@ -23,8 +23,7 @@ using Content.Server.Shuttles.Components;
 using Content.Shared.DeviceLinking.Events;
 using Content.Shared.UserInterface;
 
-
-namespace Content.Server._EnergyCores;
+namespace Content.Server._Adventure.EnergyCores;
 
 public sealed partial class EnergyCoreSystem : EntitySystem
 {

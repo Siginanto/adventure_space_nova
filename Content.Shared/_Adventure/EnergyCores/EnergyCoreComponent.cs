@@ -6,23 +6,22 @@ using Content.Shared.DeviceLinking;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 using Robust.Shared.GameObjects;
 
-namespace Content.Shared._EnergyCores;
+namespace Content.Shared._Adventure.EnergyCores;
 
 [RegisterComponent]
 [AutoGenerateComponentPause]
 public sealed partial class EnergyCoreComponent : Component
 {
-
     [ViewVariables(VVAccess.ReadOnly)]
     public EntityUid? EnergyCoreConsoleEntity = null;
 
-    [DataField("linkingPort", customTypeSerializer: typeof(PrototypeIdSerializer<SourcePortPrototype>))]
+    [DataField(customTypeSerializer: typeof(PrototypeIdSerializer<SourcePortPrototype>))]
     public string LinkingPort = "EnergyCoreReciever";
 
     [ViewVariables(VVAccess.ReadWrite)]
     public bool Working = true;
 
-    [DataField("onState")]
+    [DataField]
     public string? OnState = "core_on";
 
     [DataField, ViewVariables(VVAccess.ReadWrite)]

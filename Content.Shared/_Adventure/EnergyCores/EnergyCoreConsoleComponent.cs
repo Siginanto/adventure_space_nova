@@ -2,7 +2,7 @@ using Content.Shared.DeviceLinking;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 using Robust.Shared.Serialization;
 
-namespace Content.Shared._EnergyCores;
+namespace Content.Shared._Adventure.EnergyCores;
 
 [RegisterComponent]
 public sealed partial class EnergyCoreConsoleComponent : Component
@@ -10,7 +10,7 @@ public sealed partial class EnergyCoreConsoleComponent : Component
     [ViewVariables(VVAccess.ReadOnly)]
     public EntityUid? EnergyCoreEntity = null;
 
-    [DataField("linkingPort", customTypeSerializer: typeof(PrototypeIdSerializer<SourcePortPrototype>))]
+    [DataField(customTypeSerializer: typeof(PrototypeIdSerializer<SourcePortPrototype>))]
     public string LinkingPort = "EnergyCoreSender";
 
     [ViewVariables]

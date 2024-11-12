@@ -5,10 +5,10 @@ using Robust.Shared.Map.Components;
 using Robust.Shared.Physics;
 using Robust.Shared.Prototypes;
 using System.Linq;
-using Content.Shared._EnergyCores;
+using Content.Shared._Adventure.EnergyCores;
 
 
-namespace Content.Client._EnergyCores;
+namespace Content.Client._Adventure.EnergyCores;
 
 public sealed partial class EnergyCoreConstructionFixSystem : EntitySystem
 {
@@ -59,4 +59,3 @@ public sealed partial class EnergyCoreConstructionFixSystem : EntitySystem
         args.InRange = true;
     }
 }
-

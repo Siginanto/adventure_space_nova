@@ -189,7 +189,7 @@
           frame5nt: { state: corpus_wires-3 }
           frame6nt: { state: corpus_wires-4 }
   - type: Sprite
-    sprite: _EnergyCores\ec_const_big.rsi
+    sprite: _EnergyCores/ec_const_big.rsi
     layers:
     - state: corpus
     snapCardinals: false
@@ -232,7 +232,7 @@
   name: Большой каркас энергоядра
   components:
   - type: Sprite
-    sprite: _EnergyCores\ec_const_big.rsi
+    sprite: _EnergyCores/ec_const_big.rsi
     layers:
     - state: corpus
   - type: Fixtures
@@ -285,7 +285,7 @@
   name: Малый каркас энергоядра
   components:
   - type: Sprite
-    sprite: _EnergyCores\ec_const_small.rsi
+    sprite: _EnergyCores/ec_const_small.rsi
     layers:
     - state: corpus
   - type: Fixtures
@@ -338,7 +338,7 @@
   name: Средний каркас энергоядра
   components:
   - type: Sprite
-    sprite: _EnergyCores\ec_const_medium.rsi
+    sprite: _EnergyCores/ec_const_medium.rsi
     layers:
     - state: corpus
   - type: Fixtures
