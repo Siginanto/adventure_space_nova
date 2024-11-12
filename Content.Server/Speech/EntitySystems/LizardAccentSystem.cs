@@ -111,6 +111,18 @@ public sealed class LizardAccentSystem : EntitySystem
             "Щ+",
             _random.Pick(new List<string>() { "ЩЩ", "ЩЩЩ", "ШШ", "ШШШ" })
         );
+        // ц => ссс 
+        message = Regex.Replace(
+            message,
+            "ц+",
+            _random.Pick(new List<string> { "сс", "ссс" })
+        );
+        // Ц => ССС 
+        message = Regex.Replace(
+            message,
+            "Ц+",
+            _random.Pick(new List<string> { "СС", "ССС" })
+        );
         // Adventure-Localization-End
         
         args.Message = message;

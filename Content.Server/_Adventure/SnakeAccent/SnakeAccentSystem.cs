@@ -30,6 +30,18 @@ public sealed class SnakeAccentSystem : EntitySystem
             "А+",
             _random.Pick(new List<string> { "АА", "ААА" })
         );
+        // ц => ссс 
+        message = Regex.Replace(
+            message,
+            "ц+",
+            _random.Pick(new List<string> { "сс", "ссс" })
+        );
+        // Ц => ССС 
+        message = Regex.Replace(
+            message,
+            "Ц+",
+            _random.Pick(new List<string> { "СС", "ССС" })
+        );
         // г => ххх 
         message = Regex.Replace(
             message,
