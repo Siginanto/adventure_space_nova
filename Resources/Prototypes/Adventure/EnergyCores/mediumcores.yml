@@ -32,7 +32,7 @@
   - type: PowerSupplier
     supplyRate: 120000
   - type: Sprite
-    sprite: _EnergyCores/sprnd/sprnd.rsi
+    sprite: Adventure/EnergyCores/sprnd/sprnd.rsi
   - type: Construction
     graph: EnergyCoreMediumRnD
     node: EnergyCore
@@ -54,7 +54,7 @@
   - type: PowerSupplier
     supplyRate: 150000
   - type: Sprite
-    sprite: _EnergyCores/spblue/spblue.rsi
+    sprite: Adventure/EnergyCores/spblue/spblue.rsi
   - type: Construction
     graph: EnergyCoreMediumNT
     node: EnergyCore
@@ -76,7 +76,7 @@
   - type: PowerSupplier
     supplyRate: 180000
   - type: Sprite
-    sprite: _EnergyCores/spred/spred.rsi
+    sprite: Adventure/EnergyCores/spred/spred.rsi
   - type: Construction
     graph: EnergyCoreMediumSyn
     node: EnergyCore
@@ -97,9 +97,7 @@
   - type: PowerSupplier
     supplyRate: 100000
   - type: Sprite
-    sprite: _EnergyCores/sphere/sphere.rsi
+    sprite: Adventure/EnergyCores/sphere/sphere.rsi
   - type: Construction
     graph: EnergyCoreMediumHM
     node: EnergyCore
-
-

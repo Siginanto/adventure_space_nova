@@ -6,7 +6,7 @@
   abstract: true
   components:
     - type: Sprite
-      sprite: _EnergyCores/mini_core-RnD.rsi
+      sprite: Adventure/EnergyCores/mini_core-RnD.rsi
       state: icon
     - type: Item
       size: Large
@@ -25,7 +25,7 @@
   name: Центральный процессор ядра РнД
   components:
     - type: Sprite
-      sprite: _EnergyCores/mini_core-RnD.rsi
+      sprite: Adventure/EnergyCores/mini_core-RnD.rsi
       state: icon
 
 - type: entity
@@ -46,7 +46,7 @@
   name: Центральный процессор ядра Синдиката
   components:
     - type: Sprite
-      sprite: _EnergyCores/mini_core-redspace.rsi
+      sprite: Adventure/EnergyCores/mini_core-redspace.rsi
       state: icon
 
 - type: entity
@@ -67,7 +67,7 @@
   name: Центральный процессор ядра НаноТрейзен
   components:
     - type: Sprite
-      sprite: _EnergyCores/mini_core-blue.rsi
+      sprite: Adventure/EnergyCores/mini_core-blue.rsi
       state: icon
 
 - type: entity
@@ -88,7 +88,7 @@
   name: Центральный процессор самодельного ядра
   components:
     - type: Sprite
-      sprite: _EnergyCores/mini_core-yellow.rsi
+      sprite: Adventure/EnergyCores/mini_core-yellow.rsi
       state: icon
 
 - type: entity
@@ -105,28 +105,28 @@
 - type: stack
   id: HMECCPU
   name: самодельное ЦПУ
-  icon: { sprite: _EnergyCores/mini_core-yellow.rsi, state: icon }
+  icon: { sprite: Adventure/EnergyCores/mini_core-yellow.rsi, state: icon }
   spawn: HMECCPU1
   maxCount: 1
 
 - type: stack
   id: SYNECCPU
   name: ЦПУ Синдиката
-  icon: { sprite: _EnergyCores/mini_core-redspace.rsi, state: icon }
+  icon: { sprite: Adventure/EnergyCores/mini_core-redspace.rsi, state: icon }
   spawn: SYNECCPU1
   maxCount: 1
 
 - type: stack
   id: NTECCPU
   name: ЦПУ НаноТрейзен
-  icon: { sprite: _EnergyCores/mini_core-blue.rsi, state: icon }
+  icon: { sprite: Adventure/EnergyCores/mini_core-blue.rsi, state: icon }
   spawn: NTECCPU1
   maxCount: 1
 
 - type: stack
   id: RNDECCPU
   name: рнд ЦПУ
-  icon: { sprite: _EnergyCores/mini_core-RnD.rsi, state: icon }
+  icon: { sprite: Adventure/EnergyCores/mini_core-RnD.rsi, state: icon }
   spawn: RNDECCPU1
   maxCount: 1
 
@@ -135,7 +135,7 @@
   stackEntity: HMECCPU1
   name: самодельное ЦПУ
   unit: ядра
-  icon: { sprite: _EnergyCores/mini_core-yellow.rsi, state: icon }
+  icon: { sprite: Adventure/EnergyCores/mini_core-yellow.rsi, state: icon }
   color: "#C0C0C0"
   price: 5
 
@@ -144,7 +144,7 @@
   stackEntity: RNDECCPU1
   name: рнд ЦПУ
   unit: ядра
-  icon: { sprite: _EnergyCores/mini_core-RnD.rsi, state: icon }
+  icon: { sprite: Adventure/EnergyCores/mini_core-RnD.rsi, state: icon }
   color: "#C0C0C0"
   price: 5
 
@@ -153,7 +153,7 @@
   stackEntity: NTECCPU1
   name: ЦПУ НаноТрейзен
   unit: ядра
-  icon: { sprite: _EnergyCores/mini_core-blue.rsi, state: icon }
+  icon: { sprite: Adventure/EnergyCores/mini_core-blue.rsi, state: icon }
   color: "#C0C0C0"
   price: 5
 
@@ -162,7 +162,7 @@
   stackEntity: SYNECCPU1
   name: ЦПУ Синдиката
   unit: ядра
-  icon: { sprite: _EnergyCores/mini_core-redspace.rsi, state: icon }
+  icon: { sprite: Adventure/EnergyCores/mini_core-redspace.rsi, state: icon }
   color: "#C0C0C0"
   price: 5
 
@@ -189,7 +189,7 @@
           frame5nt: { state: corpus_wires-3 }
           frame6nt: { state: corpus_wires-4 }
   - type: Sprite
-    sprite: _EnergyCores/ec_const_big.rsi
+    sprite: Adventure/EnergyCores/ec_const_big.rsi
     layers:
     - state: corpus
     snapCardinals: false
@@ -232,7 +232,7 @@
   name: Большой каркас энергоядра
   components:
   - type: Sprite
-    sprite: _EnergyCores/ec_const_big.rsi
+    sprite: Adventure/EnergyCores/ec_const_big.rsi
     layers:
     - state: corpus
   - type: Fixtures
@@ -285,7 +285,7 @@
   name: Малый каркас энергоядра
   components:
   - type: Sprite
-    sprite: _EnergyCores/ec_const_small.rsi
+    sprite: Adventure/EnergyCores/ec_const_small.rsi
     layers:
     - state: corpus
   - type: Fixtures
@@ -338,7 +338,7 @@
   name: Средний каркас энергоядра
   components:
   - type: Sprite
-    sprite: _EnergyCores/ec_const_medium.rsi
+    sprite: Adventure/EnergyCores/ec_const_medium.rsi
     layers:
     - state: corpus
   - type: Fixtures

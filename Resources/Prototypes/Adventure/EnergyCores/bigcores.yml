@@ -32,7 +32,7 @@
   - type: PowerSupplier
     supplyRate: 220000
   - type: Sprite
-    sprite: _EnergyCores/sprnd/sprnd_big.rsi
+    sprite: Adventure/EnergyCores/sprnd/sprnd_big.rsi
 
 - type: entity
   parent: [BaseBigCore, BaseNTCore]
@@ -51,7 +51,7 @@
   - type: PowerSupplier
     supplyRate: 240000
   - type: Sprite
-    sprite: _EnergyCores/spblue/spblue_big.rsi
+    sprite: Adventure/EnergyCores/spblue/spblue_big.rsi
   - type: Construction
     graph: EnergyCoreBigNT
     node: EnergyCore
@@ -73,7 +73,7 @@
   - type: PowerSupplier
     supplyRate: 260000
   - type: Sprite
-    sprite: _EnergyCores/spred/spred_big.rsi
+    sprite: Adventure/EnergyCores/spred/spred_big.rsi
   - type: Construction
     graph: EnergyCoreBigSyn
     node: EnergyCore
@@ -94,7 +94,7 @@
   - type: PowerSupplier
     supplyRate: 200000
   - type: Sprite
-    sprite: _EnergyCores/sphere/sphere_big.rsi
+    sprite: Adventure/EnergyCores/sphere/sphere_big.rsi
   - type: Construction
     graph: EnergyCoreBigHM
     node: EnergyCore

@@ -72,7 +72,7 @@
   id: EnergyCores
   name: Энергетические ядра
   icon:
-    sprite: _EnergyCores/sphere/sphere_big.rsi
+    sprite: Adventure/EnergyCores/sphere/sphere_big.rsi
     state: display
   discipline: Experimental
   tier: 3
