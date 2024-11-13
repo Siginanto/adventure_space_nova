@@ -317,6 +317,8 @@
       - SignallerAdvanced
       - SignalTrigger
       - VoiceTrigger
+      - EnergyCoreRnD
+      - EnergyCoreHM
       - Igniter
       - HandHeldMassScanner
       - PowerCellMicroreactor
@@ -509,6 +511,7 @@
       - GasRecyclerMachineCircuitboard
       - SeedExtractorMachineCircuitboard
       - AnalysisComputerCircuitboard
+      - EnergyCoreCircuitboard
       - ExosuitFabricatorMachineCircuitboard
       - AnomalyVesselCircuitboard
       - AnomalyVesselExperimentalCircuitboard
