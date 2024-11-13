@@ -42,4 +42,4 @@
   id: CentCommCrystal
   name: Блюспейс Кристаллы
   icon: Adventure/Roles/SpecialForces/Uplinks/telecrystal.rsi
-  spawn: telecrystal1
+  spawn: CentCommCrystal1
