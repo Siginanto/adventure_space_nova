@@ -624,7 +624,7 @@
     sprite: Adventure/EnergyCores/spblue/spblue_mini.rsi
     state: fly
   layers:
-  - sprite: Adventure/EnergyCores/ec_const_mini.rsi
+  - sprite: Adventure/EnergyCores/ec_const_small.rsi
     state: corpus
   objectType: Structure
   placementMode: SnapgridCenter
@@ -644,7 +644,7 @@
     sprite: Adventure/EnergyCores/spred/spred_mini.rsi
     state: fly
   layers:
-  - sprite: Adventure/EnergyCores/ec_const_mini.rsi
+  - sprite: Adventure/EnergyCores/ec_const_small.rsi
     state: corpus
   objectType: Structure
   placementMode: SnapgridCenter
@@ -664,7 +664,7 @@
     sprite: Adventure/EnergyCores/sprnd/sprnd_mini.rsi
     state: fly
   layers:
-  - sprite: Adventure/EnergyCores/ec_const_mini.rsi
+  - sprite: Adventure/EnergyCores/ec_const_small.rsi
     state: corpus
   objectType: Structure
   placementMode: SnapgridCenter
@@ -684,7 +684,7 @@
     sprite: Adventure/EnergyCores/sphere/sphere_mini.rsi
     state: fly
   layers:
-  - sprite: Adventure/EnergyCores/ec_const_mini.rsi
+  - sprite: Adventure/EnergyCores/ec_const_small.rsi
     state: corpus
   objectType: Structure
   placementMode: SnapgridCenter
