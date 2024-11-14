@@ -277,4 +277,11 @@ public sealed partial class EnergyCoreSystem : EntitySystem
         core.ForceDisabled = !core.ForceDisabled;
         TogglePower(core.Owner);
     }
+    private void OnParentChanged(EntityUid uid, EnergyCoreComponent component, ref EntParentChangedMessage args)
+    {
+        if (component.Working && TryComp(args.OldParent, out GravityComponent? gravity))
+        {
+            _gravitySystem.RefreshGravity(args.OldParent.Value, gravity);
+        }
+    }
 }
