@@ -65,7 +65,7 @@ public sealed partial class EnergyCoreComponent : Component
     public float BaseSupply = 100000;
 
     [DataField]
-    public bool IsSmall = false;
+    public int Size = 1;
 }
 
 [Serializable, NetSerializable]

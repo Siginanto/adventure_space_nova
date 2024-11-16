@@ -82,8 +82,10 @@ public sealed partial class EnergyCoreSystem : EntitySystem
         {
             Scrub(timeDelta, portableNode, adjacent, component);
             core.TimeOfLife += portableNode.Air.GetMoles(component.AbsorbGas) * core.SecPerMoles;
-            if (environment != null && core.Working && !core.IsSmall)
+            if (environment != null && core.Working && core.Size == 2)
                 _atmosphereSystem.AddHeat(environment, 5000);
+            else if (environment != null && core.Working && core.Size == 3)
+                _atmosphereSystem.AddHeat(environment, 10000);
             //Pump(environment, portableNode, component); // попросили убрать для хардкорности ситуации
         }
     }
