@@ -53,6 +53,7 @@ public sealed partial class EnergyCoreSystem : EntitySystem
         SubscribeLocalEvent<EnergyCoreConsoleComponent, NewLinkEvent>(OnNewLink);
         SubscribeLocalEvent<EnergyCoreConsoleComponent, UserOpenActivatableUIAttemptEvent>(OnTryOpenUI);
         SubscribeLocalEvent<EnergyCoreConsoleComponent, EnergyCoreConsoleIsOnMessage>(OnPowerToggled);
+        SubscribeLocalEvent<EnergyCoreComponent, EntParentChangedMessage>(OnParentChanged);
     }
     private void OnMapInit(EntityUid uid, EnergyCoreComponent component, MapInitEvent args)
     {
@@ -81,8 +82,10 @@ public sealed partial class EnergyCoreSystem : EntitySystem
         {
             Scrub(timeDelta, portableNode, adjacent, component);
             core.TimeOfLife += portableNode.Air.GetMoles(component.AbsorbGas) * core.SecPerMoles;
-            if (environment != null && core.Working && !core.IsSmall)
+            if (environment != null && core.Working && core.Size == 2)
                 _atmosphereSystem.AddHeat(environment, 5000);
+            else if (environment != null && core.Working && core.Size == 3)
+                _atmosphereSystem.AddHeat(environment, 10000);
             //Pump(environment, portableNode, component); // попросили убрать для хардкорности ситуации
         }
     }
@@ -276,5 +279,12 @@ public sealed partial class EnergyCoreSystem : EntitySystem
         if (!TryComp(component.EnergyCoreEntity, out EnergyCoreComponent? core)) return;
         core.ForceDisabled = !core.ForceDisabled;
         TogglePower(core.Owner);
+    }
+    private void OnParentChanged(EntityUid uid, EnergyCoreComponent component, ref EntParentChangedMessage args)
+    {
+        if (TryComp(args.OldParent, out GravityComponent? gravity))
+        {
+            _gravitySystem.RefreshGravity(args.OldParent.Value, gravity);
+        }
     }
 }

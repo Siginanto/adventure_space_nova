@@ -32,13 +32,14 @@
   description: Консоль для контроля и мониторинга работы энергоядра
   components:
   - type: Sprite
+    sprite: Adventure/EnergyCores/computers.rsi
     layers:
     - map: ["computerLayerBody"]
       state: computer
     - map: ["computerLayerKeyboard"]
       state: generic_keyboard
     - map: ["computerLayerScreen"]
-      state: solar_screen
+      state: core-screen
     - map: ["computerLayerKeys"]
       state: generic_keys
     - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
@@ -73,7 +74,7 @@
   name: Энергетические ядра
   icon:
     sprite: Adventure/EnergyCores/sphere/sphere_big.rsi
-    state: display
+    state: fly
   discipline: Experimental
   tier: 3
   cost: 25000

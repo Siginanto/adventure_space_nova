@@ -14,7 +14,9 @@
           - FullTileMask
         layer:
           - FullTileLayer
-
+  - type: EnergyCore
+    size: 2
+  
 - type: entity
   parent: [BaseMediumCore, BaseRNDCore]
   id: RnDMediumCore
