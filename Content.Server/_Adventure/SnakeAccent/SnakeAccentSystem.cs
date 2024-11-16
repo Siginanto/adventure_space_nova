@@ -18,6 +18,18 @@ public sealed class SnakeAccentSystem : EntitySystem
     {
         var message = args.Message;
 
+        // к => кххх 
+        message = Regex.Replace(
+            message,
+            "к+",
+            _random.Pick(new List<string> { "кхх", "кххх" })
+        );
+        // К => КХХХ 
+        message = Regex.Replace(
+            message,
+            "К+",
+            _random.Pick(new List<string> { "КХХ", "КХХХ" })
+        );
         // ф => ффф 
         message = Regex.Replace(
             message,
@@ -42,17 +54,17 @@ public sealed class SnakeAccentSystem : EntitySystem
             "Ц+",
             _random.Pick(new List<string> { "СС", "ССС" })
         );
-        // г => ххх 
+        // г => гххх 
         message = Regex.Replace(
             message,
             "г+",
-            _random.Pick(new List<string> { "хх", "ххх" })
+            _random.Pick(new List<string> { "гхх", "гххх" })
         );
-        // Г => ХХХ 
+        // Г => ГХХХ 
         message = Regex.Replace(
             message,
             "Г+",
-            _random.Pick(new List<string> { "ХХ", "ХХХ" })
+            _random.Pick(new List<string> { "ГХХ", "ГХХХ" })
         );
         // х => ххх 
         message = Regex.Replace(
@@ -82,61 +94,61 @@ public sealed class SnakeAccentSystem : EntitySystem
         message = Regex.Replace(
             message,
             "я+",
-            _random.Pick(new List<string> { "ййаа", "ййааа", "йййаа", "йййааа" })
+            _random.Pick(new List<string> { "ййа", "йййа" })
         );
         // Я => ЙА 
         message = Regex.Replace(
             message,
             "Я+",
-            _random.Pick(new List<string> { "ЙЙАА", "ЙЙААА", "ЙЙЙАА", "ЙЙЙААА" })
+            _random.Pick(new List<string> { "ЙЙА", "ЙЙЙА" })
         );
         // ё => йо
         message = Regex.Replace(
             message,
             "ё+",
-            _random.Pick(new List<string> { "ййоо", "ййооо", "йййоо", "йййооо" })
+            _random.Pick(new List<string> { "ййо", "йййо" })
         );
         // Ё => ЙО 
         message = Regex.Replace(
             message,
             "Ё+",
-            _random.Pick(new List<string> { "ЙЙОО", "ЙЙООО", "ЙЙЙОО", "ЙЙЙООО" })
+            _random.Pick(new List<string> { "ЙЙО", "ЙЙЙО" })
         );
         // ю => йу
         message = Regex.Replace(
             message,
             "ю+",
-            _random.Pick(new List<string> { "ййуу", "ййууу", "йййуу", "йййууу" })
+            _random.Pick(new List<string> { "ййу", "йййу" })
         );
         // Ю => ЙУ 
         message = Regex.Replace(
             message,
             "Ю+",
-            _random.Pick(new List<string> { "ЙЙУУ", "ЙЙУУУ", "ЙЙЙУУ", "ЙЙЙУУУ" })
+            _random.Pick(new List<string> { "ЙЙУ", "ЙЙЙУ" })
         );
         // е => йэ
         message = Regex.Replace(
             message,
             "е+",
-            _random.Pick(new List<string> { "ййээ", "ййэээ", "йййээ", "йййэээ" })
+            _random.Pick(new List<string> { "ййэ", "йййэ" })
         );
         // Е => ЙЭ 
         message = Regex.Replace(
             message,
             "Е+",
-            _random.Pick(new List<string> { "ЙЙЭЭ", "ЙЙЭЭЭ", "ЙЙЙЭЭ", "ЙЙЙЭЭЭ" })
+            _random.Pick(new List<string> { "ЙЙЭ", "ЙЙЙЭ" })
         );
         // и => йи
         message = Regex.Replace(
             message,
             "и+",
-            _random.Pick(new List<string> { "ййии", "ййиии", "йййии", "йййиии" })
+            _random.Pick(new List<string> { "ййи", "йййи" })
         );
         // И => ЙИ
         message = Regex.Replace(
             message,
             "И+",
-            _random.Pick(new List<string> { "ЙЙИИ", "ЙЙИИИ", "ЙЙЙИИ", "ЙЙЙИИИ" })
+            _random.Pick(new List<string> { "ЙЙИ", "ЙЙЙИ" })
         );
         // c => ссс
         message = Regex.Replace(
