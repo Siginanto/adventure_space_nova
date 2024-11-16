@@ -53,6 +53,7 @@ public sealed partial class EnergyCoreSystem : EntitySystem
         SubscribeLocalEvent<EnergyCoreConsoleComponent, NewLinkEvent>(OnNewLink);
         SubscribeLocalEvent<EnergyCoreConsoleComponent, UserOpenActivatableUIAttemptEvent>(OnTryOpenUI);
         SubscribeLocalEvent<EnergyCoreConsoleComponent, EnergyCoreConsoleIsOnMessage>(OnPowerToggled);
+        SubscribeLocalEvent<EnergyCoreComponent, EntParentChangedMessage>(OnParentChanged);
     }
     private void OnMapInit(EntityUid uid, EnergyCoreComponent component, MapInitEvent args)
     {
@@ -279,7 +280,7 @@ public sealed partial class EnergyCoreSystem : EntitySystem
     }
     private void OnParentChanged(EntityUid uid, EnergyCoreComponent component, ref EntParentChangedMessage args)
     {
-        if (component.Working && TryComp(args.OldParent, out GravityComponent? gravity))
+        if (TryComp(args.OldParent, out GravityComponent? gravity))
         {
             _gravitySystem.RefreshGravity(args.OldParent.Value, gravity);
         }
