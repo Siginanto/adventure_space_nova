@@ -16,6 +16,13 @@
           - FullTileLayer
   - type: EnergyCore
     size: 1
+  - type: Explosive
+    explosionType: Default
+    maxIntensity: 10
+    intensitySlope: 2
+    maxTileBreak: 2147483647
+    tileBreakScale: 1
+    totalIntensity: 2500
 
 - type: entity
   parent: [BaseSmallCore, BaseRNDCore]
@@ -28,7 +35,6 @@
       types:
         Heat: 0.05
     timeOfLife: 480
-    secPerMoles: 7.5
     enablingLenght: 2.6
     baseSupply: 50000
   - type: PowerSupplier
@@ -50,7 +56,6 @@
       types:
         Heat: 0.01
     timeOfLife: 600
-    secPerMoles: 10
     enablingLenght: 7.7
     baseSupply: 60000
   - type: PowerSupplier
@@ -72,7 +77,6 @@
       types:
         Heat: 0.05
     timeOfLife: 500
-    secPerMoles: 5
     enablingLenght: 1.0
     baseSupply: 85000
   - type: PowerSupplier
@@ -94,7 +98,6 @@
       types:
         Heat: 0.1
     timeOfLife: 400
-    secPerMoles: 3
     baseSupply: 45000
   - type: PowerSupplier
     supplyRate: 45000
