@@ -141,13 +141,6 @@
       role: JobWarden
       time: 36000 #10 hrs
 
-- type: loadoutGroup
-  id: WardenNeck
-  name: Смотритель, шея
-  minLimit: 0
-  loadouts:
-  - NeckWarden
-
 #накидка службы безопасности
 - type: entity
   parent: ClothingNeckBase
@@ -177,10 +170,3 @@
       !type:RoleTimeRequirement
       role: JobSecurityOfficer
       time: 72000 #20 hrs
-
-- type: loadoutGroup
-  id: SecurityNeck
-  name: Офицер СБ, шея
-  minLimit: 0
-  loadouts:
-  - NeckSecurityOfficer
