@@ -10,7 +10,7 @@
   objectType: Item
 
 - type: construction
-  name: скафандр мима
+  name: скафандр мима # Adventure
   id: MimeHardsuit
   graph: MimeHardsuit
   startNode: start
