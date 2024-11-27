@@ -125,7 +125,7 @@
     state: rag
 
 - type: construction
-  name: самодельный дробовик
+  name: самодельный дробовик # Adventure
   id: improvisedshotgun
   graph: ImprovisedShotgunGraph
   startNode: start
