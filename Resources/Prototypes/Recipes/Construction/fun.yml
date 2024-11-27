@@ -4,7 +4,7 @@
   graph: BananiumHorn
   startNode: start
   targetNode: bananiumHorn
-  category: construction-category-misc
+  category: construction-category-misc # Adventure
   description: Клаксон, сделанный из бананиума. # Adventure
   icon: { sprite: Objects/Fun/bananiumhorn.rsi, state: icon }
   objectType: Item
