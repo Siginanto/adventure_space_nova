@@ -1254,6 +1254,8 @@
   - RegularLabCoat
   - ChemistLabCoat
   - ChemistWintercoat
+  - CoatLabNitrileChemist # Adventure
+  - ApronChemist # Adventure
 
 - type: loadoutGroup
   id: ChemistBackpack

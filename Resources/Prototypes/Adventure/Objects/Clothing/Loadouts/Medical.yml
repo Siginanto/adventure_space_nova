@@ -259,3 +259,134 @@
       !type:RoleTimeRequirement
       role: JobMedicalDoctor
       time: 36000 #10 hrs
+
+#нитриловая шапочка химика
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadChemistCapNitrile
+  name: нитриловая шапочка химика
+  description: Нитриловая шапочка защитит ваши волосы от опасных веществ.
+  suffix: BORK, AdvClothing
+  components:
+  - type: Sprite
+    sprite: Adventure/Objects/Clothing/medical/chem_cap_Nitrile.rsi
+  - type: Clothing
+    sprite: Adventure/Objects/Clothing/medical/chem_cap_Nitrile.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Caustic: 0.70
+
+- type: loadout
+  id: MedicalChemistCapNitrile
+  equipment:
+    head: ClothingHeadChemistCapNitrile
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: MasterChemistHeadCapNitrile
+
+- type: loadoutEffectGroup
+  id: MasterChemistHeadCapNitrile
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobChemist
+      time: 36000 #10 hrs
+
+#берет химика
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadChemistBeret
+  name: берет химика
+  description: Надейтесь, что он не сгорит.
+  components:
+  - type: Sprite
+    sprite: Adventure/Objects/Clothing/medical/chem_beret.rsi
+  - type: Clothing
+    sprite: Adventure/Objects/Clothing/medical/chem_beret.rsi
+
+- type: loadout
+  id: MedicalChemistBeret
+  equipment:
+    head: ClothingHeadChemistBeret
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: MasterChemistHeadBeret
+
+- type: loadoutEffectGroup
+  id: MasterChemistHeadBeret
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobChemist
+      time: 18000 #5 hrs
+
+#нитриловый халат химика
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ClothingOuterCoatLabNitrileChemist
+  name: нитриловый халат химика
+  description: Халат из тонкого нитрила, абсолютно не горит.
+  suffix: BORK, AdvClothing
+  components:
+  - type: Sprite
+    sprite: Adventure/Objects/Clothing/medical/Chemical_NitrileCoats.rsi
+  - type: Clothing
+    sprite: Adventure/Objects/Clothing/medical/Chemical_NitrileCoats.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Caustic: 0.70
+
+- type: loadout
+  id: CoatLabNitrileChemist
+  equipment:
+    outerClothing: ClothingOuterCoatLabNitrileChemist
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: MasterChemistCoatLabNitrile
+
+- type: loadoutEffectGroup
+  id: MasterChemistCoatLabNitrile
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobChemist
+      time: 18000 #5 hrs
+
+#химический фартук с рукавами
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ClothingOuterChemistApron
+  name: химический фартук с рукавами
+  description: Плотный фарук, для работы с опасними веществами самое то.
+  suffix: BORK, AdvClothing
+  components:
+  - type: Sprite
+    sprite: Adventure/Objects/Clothing/medical/Chemical_protection.rsi
+  - type: Clothing
+    sprite: Adventure/Objects/Clothing/medical/Chemical_protection.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Caustic: 0.70
+
+- type: loadout
+  id: ApronChemist
+  equipment:
+    outerClothing: ClothingOuterChemistApron
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: MasterChemistApron
+
+- type: loadoutEffectGroup
+  id: MasterChemistApron
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobChemist
+      time: 36000 #10 hrs
