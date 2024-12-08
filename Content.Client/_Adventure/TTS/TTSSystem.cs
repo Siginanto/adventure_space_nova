@@ -38,6 +38,7 @@ public sealed class TTSSystem : EntitySystem
     {
         _sawmill = Logger.GetSawmill("tts");
         _cfg.OnValueChanged(ACVars.TTSVolume, OnTtsVolumeChanged, true);
+        _cfg.OnValueChanged(ACVars.TTSClientEnabled, OnTtsClientOptionChanged, true);
         SubscribeNetworkEvent<PlayTTSEvent>(OnPlayTTS);
     }
 
@@ -45,11 +46,17 @@ public sealed class TTSSystem : EntitySystem
     {
         base.Shutdown();
         _cfg.UnsubValueChanged(ACVars.TTSVolume, OnTtsVolumeChanged);
+        _cfg.UnsubValueChanged(ACVars.TTSClientEnabled, OnTtsClientOptionChanged);
     }
 
     public void RequestPreviewTTS(string voiceId)
     {
         RaiseNetworkEvent(new RequestPreviewTTSEvent(voiceId));
+    }
+
+    private void OnTtsClientOptionChanged(bool option)
+    {
+        RaiseNetworkEvent(new ClientOptionTTSEvent(option));
     }
 
     private void OnTtsVolumeChanged(float volume)
