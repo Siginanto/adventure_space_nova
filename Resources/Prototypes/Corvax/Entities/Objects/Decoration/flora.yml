@@ -56,7 +56,7 @@
     energy: 2.5
   - type: LimitedItemGiver
     spawnEntries:
-      - id: PresentRandom
+      - id: PresentAdventureSafe # Adventure
         orGroup: present
       - id: PresentRandomCash
         prob: 0.20
