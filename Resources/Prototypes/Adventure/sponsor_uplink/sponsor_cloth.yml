@@ -159,8 +159,8 @@
 
 - type: entity
   id: PresentBasedd
-  name: present
-  description: Все любят подарки , получайте!
+  name: подарок
+  description: Все любят подарки, получайте!
   abstract: true
   components:
   - type: Sprite
