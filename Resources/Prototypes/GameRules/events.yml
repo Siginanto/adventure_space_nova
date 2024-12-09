@@ -193,7 +193,7 @@
   - type: StationEvent
     weight: 6
     duration: null
-    earliestStart: 30
+    earliestStart: 60 # Adventure
     reoccurrenceDelay: 20
     minimumPlayers: 30
   - type: SpaceSpawnRule
@@ -462,8 +462,8 @@
   id: LoneOpsSpawn
   components:
   - type: StationEvent
-    earliestStart: 35
-    weight: 5.5
+    earliestStart: 60 # Adventure
+    weight: 3.5 # Adventure
     minimumPlayers: 20
     duration: 1
   - type: RuleGrids
