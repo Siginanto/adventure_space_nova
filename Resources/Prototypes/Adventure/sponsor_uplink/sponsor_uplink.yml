@@ -270,7 +270,7 @@
 - type: listing
   name: сюрприз Адвенчурлинка
   id: UplinkSponsorCloth26
-  productEntity: PresentAdventure
+  productEntity: PresentAdventureSafe
   cost:
     DonateCrystal: 15
   categories:
