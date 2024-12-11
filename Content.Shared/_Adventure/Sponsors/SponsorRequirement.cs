@@ -45,7 +45,7 @@ public sealed partial class SponsorRequirement : JobRequirement
         if (sponsor != null && sponsor.Level >= MinimumLevel)
             return true;
 
-        reason = FormattedMessage.FromMarkupPermissive($"Для использования этого прототипа надо быть спонсором {MinimumLevel} уровня.");
+        reason = FormattedMessage.FromMarkupPermissive($"Для использования этого лодаута надо быть спонсором {MinimumLevel} уровня.");
         return false;
     }
 }
