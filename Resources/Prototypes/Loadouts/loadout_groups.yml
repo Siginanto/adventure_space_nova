@@ -45,6 +45,7 @@
   - TowelColorSilver
   - TowelColorWhite
   - TowelColorYellow
+  - DonateUplink
 
 - type: loadoutGroup
   id: Glasses

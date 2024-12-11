@@ -1,3 +1,4 @@
+using Robust.Shared.Player;
 using System.Diagnostics.CodeAnalysis;
 using System.Text;
 using Content.Shared.Humanoid.Prototypes;
@@ -24,6 +25,7 @@ public sealed partial class TraitsRequirement : JobRequirement
         IPrototypeManager protoManager,
         HumanoidCharacterProfile? profile,
         IReadOnlyDictionary<string, TimeSpan> playTimes,
+        ICommonSession? session, // Adventure
         [NotNullWhen(false)] out FormattedMessage? reason)
     {
         reason = new FormattedMessage();

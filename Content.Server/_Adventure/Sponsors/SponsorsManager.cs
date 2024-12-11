@@ -18,11 +18,12 @@ using Content.Shared._Adventure.Sponsors;
 
 namespace Content.Server._Adventure.Sponsors;
 
-public sealed class SponsorsManager
+public sealed class SponsorsManager : ISponsorsManager
 {
-    [Dependency] private readonly IServerNetManager _netMgr = default!;
+    [Dependency] private readonly IServerNetManager _net = default!;
     [Dependency] private readonly IConfigurationManager _cfg = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
+    [Dependency] private readonly IEntityManager _ent = default!;
 
     private ISawmill _sawmill = default!;
     private readonly HttpClient _httpClient = new()
@@ -33,6 +34,8 @@ public sealed class SponsorsManager
 
     public readonly Dictionary<NetUserId, SponsorTierPrototype> Sponsors = new();
 
+    public Action<INetChannel, ProtoId<SponsorTierPrototype>>? OnSponsorConnected = null;
+
     public void Initialize()
     {
         _sawmill = Logger.GetSawmill("sponsors");
@@ -41,7 +44,8 @@ public sealed class SponsorsManager
         {
             _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", v);
         }, true);
-        _netMgr.Connecting += OnConnecting;
+        _net.Connecting += OnConnecting;
+        _net.Connected += OnConnected;
     }
 
     private async Task OnConnecting(NetConnectingArgs e)
@@ -53,9 +57,18 @@ public sealed class SponsorsManager
         tier = await GetSponsorTier(userId);
         if (tier is null)
             return;
+        _sawmill.Debug($"Found sponsor {userId}");
         if (!_proto.TryIndex<SponsorTierPrototype>(tier, out var proto))
             return;
         Sponsors[userId] = proto;
+    }
+
+    private void OnConnected(object? sender, NetChannelArgs e)
+    {
+        if (!Sponsors.TryGetValue(e.Channel.UserId, out var sponsor))
+            return;
+        _sawmill.Debug($"Sponsor connected, invoking connection action");
+        OnSponsorConnected?.Invoke(e.Channel, sponsor.ID);
     }
 
     private async Task<ProtoId<SponsorTierPrototype>?> GetSponsorTier(NetUserId userId)
@@ -93,6 +106,12 @@ public sealed class SponsorsManager
         if (!Sponsors.TryGetValue(userId, out var tier))
             return 0;
         return tier.AdditionalCharacterSlots;
+    }
+
+    public SponsorTierPrototype? GetSponsor(NetUserId userId)
+    {
+        Sponsors.TryGetValue(userId, out var sponsor);
+        return sponsor;
     }
 }
 

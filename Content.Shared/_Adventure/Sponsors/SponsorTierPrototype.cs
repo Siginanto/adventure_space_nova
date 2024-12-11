@@ -16,4 +16,7 @@ public sealed partial class SponsorTierPrototype : IPrototype
 
     [DataField]
     public int AdditionalCharacterSlots { get; private set; } = 0;
+
+    [DataField]
+    public int Level { get; private set; } = 0;
 }

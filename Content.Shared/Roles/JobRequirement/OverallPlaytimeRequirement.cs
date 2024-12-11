@@ -1,3 +1,4 @@
+using Robust.Shared.Player;
 using System.Diagnostics.CodeAnalysis;
 using Content.Shared.Localizations;
 using Content.Shared.Players.PlayTimeTracking;
@@ -21,6 +22,7 @@ public sealed partial class OverallPlaytimeRequirement : JobRequirement
         IPrototypeManager protoManager,
         HumanoidCharacterProfile? profile,
         IReadOnlyDictionary<string, TimeSpan> playTimes,
+        ICommonSession? session, // Adventure
         [NotNullWhen(false)] out FormattedMessage? reason)
     {
         reason = new FormattedMessage();

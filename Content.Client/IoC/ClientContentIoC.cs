@@ -1,3 +1,5 @@
+using Content.Shared._Adventure.Sponsors; // c4llv07e sponsors
+using Content.Client._Adventure.Sponsors; // c4llv07e sponsors
 using Content.Client.Administration.Managers;
 using Content.Client.Changelog;
 using Content.Client.Chat.Managers;
@@ -33,6 +35,8 @@ namespace Content.Client.IoC
         {
             var collection = IoCManager.Instance!;
 
+            collection.Register<ISponsorsManager, SponsorsManager>(); // Adventure sponsor
+            collection.Register<SponsorsManager>(); // Adventure sponsor
             collection.Register<IParallaxManager, ParallaxManager>();
             collection.Register<IChatManager, ChatManager>();
             collection.Register<ISharedChatManager, ChatManager>();

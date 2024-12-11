@@ -1,3 +1,4 @@
+using Robust.Shared.Player;
 using System.Diagnostics.CodeAnalysis;
 using Content.Shared.Preferences;
 using Robust.Shared.Prototypes;
@@ -14,7 +15,8 @@ public static class JobRequirements
         [NotNullWhen(false)] out FormattedMessage? reason,
         IEntityManager entManager,
         IPrototypeManager protoManager,
-        HumanoidCharacterProfile? profile)
+        HumanoidCharacterProfile? profile,
+        ICommonSession session) // Adventure
     {
         var sys = entManager.System<SharedRoleSystem>();
         var requirements = sys.GetJobRequirement(job);
@@ -24,7 +26,7 @@ public static class JobRequirements
 
         foreach (var requirement in requirements)
         {
-            if (!requirement.Check(entManager, protoManager, profile, playTimes, out reason))
+            if (!requirement.Check(entManager, protoManager, profile, playTimes, session, out reason)) // Adventure
                 return false;
         }
 
@@ -47,5 +49,6 @@ public abstract partial class JobRequirement
         IPrototypeManager protoManager,
         HumanoidCharacterProfile? profile,
         IReadOnlyDictionary<string, TimeSpan> playTimes,
+        ICommonSession? session, // Adventure
         [NotNullWhen(false)] out FormattedMessage? reason);
 }

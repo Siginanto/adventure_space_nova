@@ -1,0 +1,10 @@
+- type: loadout
+  id: DonateUplink
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:SponsorRequirement
+      minimumLevel: 1
+  storage:
+    back:
+    - DonateUplink

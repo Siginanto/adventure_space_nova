@@ -126,7 +126,7 @@ public sealed class JobRequirementsManager : ISharedPlaytimeManager
         var reasons = new List<string>();
         foreach (var requirement in requirements)
         {
-            if (requirement.Check(_entManager, _prototypes, profile, _roles, out var jobReason))
+            if (requirement.Check(_entManager, _prototypes, profile, _roles, _playerManager.LocalSession, out var jobReason))
                 continue;
 
             reasons.Add(jobReason.ToMarkup());

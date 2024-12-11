@@ -259,7 +259,8 @@ internal sealed partial class ChatManager : IChatManager
 
         // c4llv07e sponsors begin
         var formated_message = FormattedMessage.EscapeText(message);
-        if (_sponsors.Sponsors.TryGetValue(player.UserId, out var sponsor))
+        var sponsor = _sponsors.GetSponsor(player.UserId);
+        if (sponsor != null)
         {
             string oocName = sponsor.OocName ?? "спонсор";
             string oocColor = sponsor.OocColor?.ToHex() ?? string.Empty;

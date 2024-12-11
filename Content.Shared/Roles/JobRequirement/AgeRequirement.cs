@@ -1,3 +1,4 @@
+using Robust.Shared.Player;
 using System.Diagnostics.CodeAnalysis;
 using Content.Shared.Preferences;
 using JetBrains.Annotations;
@@ -21,6 +22,7 @@ public sealed partial class AgeRequirement : JobRequirement
         IPrototypeManager protoManager,
         HumanoidCharacterProfile? profile,
         IReadOnlyDictionary<string, TimeSpan> playTimes,
+        ICommonSession? session, // Adventure
         [NotNullWhen(false)] out FormattedMessage? reason)
     {
         reason = new FormattedMessage();

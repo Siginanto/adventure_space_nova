@@ -29,6 +29,7 @@ public sealed partial class JobRequirementLoadoutEffect : LoadoutEffect
             collection.Resolve<IPrototypeManager>(),
             profile,
             playtimes,
+            session, // Adventure sponsors
             out reason);
     }
 }
