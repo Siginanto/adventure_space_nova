@@ -4,7 +4,7 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Shared.Ghost;
 
-[RegisterComponent, NetworkedComponent, Access(typeof(SharedGhostSystem))]
+[RegisterComponent, NetworkedComponent] // Adventure sponsors
 [AutoGenerateComponentState(true)]
 public sealed partial class GhostComponent : Component
 {
