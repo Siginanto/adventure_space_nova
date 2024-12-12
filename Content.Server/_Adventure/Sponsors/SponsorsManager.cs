@@ -32,6 +32,7 @@ public sealed class SponsorsManager : ISponsorsManager
     };
     private string _apiUrl = string.Empty;
 
+    [ViewVariables(VVAccess.ReadWrite)]
     public readonly Dictionary<NetUserId, SponsorTierPrototype> Sponsors = new();
 
     public Action<INetChannel, ProtoId<SponsorTierPrototype>>? OnSponsorConnected = null;
