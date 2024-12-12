@@ -18,12 +18,8 @@ public sealed class GhostColorsSystem : EntitySystem
 
     private void OnPlayerAttached(Entity<GhostComponent> ent, ref PlayerAttachedEvent args)
     {
-        Log.Fatal($"====================================== We are in");
         var sponsor = _sponsors.GetSponsor(args.Player.UserId);
         if (sponsor != null && sponsor.GhostColor is Color color)
-        {
-            Log.Fatal($"====================================== Settin up");
             ent.Comp.color = color;
-        }
     }
 }
