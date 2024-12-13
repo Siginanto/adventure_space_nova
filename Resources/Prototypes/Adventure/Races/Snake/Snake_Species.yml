@@ -65,6 +65,9 @@
       points: 1
       required: true
       defaultMarkings: [ SnakeTailBase ]
+    Snout:
+      points: 1
+      required: false
 
 - type: speciesBaseSprites
   id: MobZerahSprites
@@ -79,6 +82,7 @@
     LHand: MobSnakeLHand
     RHand: MobSnakeRHand
     Eyes: MobSnakeEyes
+    Snout: MobHumanoidAnyMarking
 
 - type: humanoidBaseSprite
   id: MobSnakeEyes

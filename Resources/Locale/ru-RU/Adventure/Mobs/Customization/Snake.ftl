@@ -20,6 +20,8 @@ marking-SnakeTailBase-Tail_base = Зерах, хвост (Свёрнутый)
 marking-SnakeTailBase = Зерах, хвост (Свёрнутый)
 marking-SnakeTailsTwisty-Snake_tail_twisty = Зерах, хвост (Извилистый)
 marking-SnakeTailsTwisty = Зерах, хвост (Извилистый)
+marking-SnakeChin-chin = Зерах, морда (Подбородок от брюха)
+marking-SnakeChin = Зерах, морда (Подбородок от брюха)
 
  
  
