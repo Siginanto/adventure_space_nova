@@ -41,6 +41,14 @@ public sealed partial class IdCardComponent : Component
     [AutoNetworkedField]
     public List<ProtoId<DepartmentPrototype>> JobDepartments = new();
 
+    [DataField("jobColor")]
+    [AutoNetworkedField]
+    public string? JobColor;
+
+    [DataField("radioBold")]
+    [AutoNetworkedField]
+    public bool? RadioBold;
+
     /// <summary>
     /// Determines if accesses from this card should be logged by <see cref="AccessReaderComponent"/>
     /// </summary>

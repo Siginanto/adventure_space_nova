@@ -24,14 +24,13 @@ public sealed class IdCardSystem : SharedIdCardSystem
     public override void Initialize()
     {
         base.Initialize();
-
         SubscribeLocalEvent<IdCardComponent, BeingMicrowavedEvent>(OnMicrowaved);
     }
 
     private void OnMicrowaved(EntityUid uid, IdCardComponent component, BeingMicrowavedEvent args)
     {
         if (!component.CanMicrowave || !TryComp<MicrowaveComponent>(args.Microwave, out var micro) || micro.Broken)
-            return;   
+            return;
 
         if (TryComp<AccessComponent>(uid, out var access))
         {
