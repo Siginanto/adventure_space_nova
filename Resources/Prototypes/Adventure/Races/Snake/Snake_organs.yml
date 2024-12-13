@@ -29,7 +29,6 @@
   parent: BaseAnimalOrgan
   name: Сердце зераха
   description: Тук тук.
-  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     sprite: Adventure/Races/Snake/organs.rsi
@@ -84,7 +83,6 @@
   name: желудок зераха
   parent: OrganAnimalStomach
   description: Отвратительно! Кто там сидит?!
-  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     sprite: Adventure/Races/Snake/organs.rsi

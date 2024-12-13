@@ -93,4 +93,13 @@
   - sprite: Adventure/Races/Snake/Customization/body.rsi
     state: body_m
 
+- type: marking
+  id: SnakeChin
+  bodyPart: Snout
+  markingCategory: Snout
+  speciesRestriction: [Zerah]
+  sprites:
+  - sprite: Adventure/Races/Snake/Customization/body.rsi
+    state: chin
+
 

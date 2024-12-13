@@ -14,6 +14,10 @@
     {
       "name": "body_m",
       "directions": 4
+    },
+    {
+      "name": "chin",
+      "directions": 4
     }
   ]
 }
