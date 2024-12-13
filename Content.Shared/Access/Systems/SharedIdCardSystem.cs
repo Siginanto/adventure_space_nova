@@ -256,6 +256,7 @@ public abstract class SharedIdCardSystem : EntitySystem
         return true;
     }
 
+    /// <summary>
     /// Changes the name of the id's owner.
     /// </summary>
     /// <remarks>

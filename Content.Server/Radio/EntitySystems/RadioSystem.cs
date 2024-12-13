@@ -73,6 +73,34 @@ public sealed class RadioSystem : EntitySystem
         SendRadioMessage(messageSource, message, _prototype.Index(channel), radioSource, escapeMarkup: escapeMarkup);
     }
 
+    // Adventure radio begin
+    private string GetIdCardName(EntityUid senderUid)
+    {
+        var idCardTitle = Loc.GetString("chat-radio-no-id");
+        idCardTitle = GetIdCard(senderUid)?.LocalizedJobTitle ?? idCardTitle;
+
+        if (TryComp<RadioNameComponent>(senderUid, out var radioName) &&
+            radioName.Name != string.Empty)
+            idCardTitle = radioName.Name;
+
+        var textInfo = CultureInfo.CurrentCulture.TextInfo;
+        idCardTitle = textInfo.ToTitleCase(idCardTitle);
+
+        return $"\\[{idCardTitle}\\] ";
+    }
+
+    private string GetIdCardColor(EntityUid senderUid)
+    {
+        var color = GetIdCard(senderUid)?.JobColor;
+        return (!string.IsNullOrEmpty(color)) ? color : "#9FED58";
+    }
+
+    private bool GetIdCardIsBold(EntityUid senderUid)
+    {
+        return GetIdCard(senderUid)?.RadioBold ?? false;
+    }
+    // Adventure raido end
+
     /// <summary>
     /// Send radio message to all active radio listeners
     /// </summary>
@@ -90,8 +118,7 @@ public sealed class RadioSystem : EntitySystem
         var name = evt.VoiceName;
         name = FormattedMessage.EscapeText(name);
 
-        // SS220 department-radio-color
-        var formattedName = $"[color={GetIdCardColor(messageSource)}]{GetIdCardName(messageSource)}{name}[/color]";
+        var formattedName = $"[color={GetIdCardColor(messageSource)}]{GetIdCardName(messageSource)}{name}[/color]"; // Adventure radio
 
         SpeechVerbPrototype speech;
         if (evt.SpeechVerb != null && _prototype.TryIndex(evt.SpeechVerb, out var evntProto))
@@ -193,36 +220,6 @@ public sealed class RadioSystem : EntitySystem
 
         return null;
     }
-
-    // SS220 radio-department-tag begin
-    private string GetIdCardName(EntityUid senderUid)
-    {
-        var idCardTitle = Loc.GetString("chat-radio-no-id");
-        idCardTitle = GetIdCard(senderUid)?.LocalizedJobTitle ?? idCardTitle;
-
-        if (TryComp<RadioNameComponent>(senderUid, out var radioName) &&
-            radioName.Name != string.Empty)
-            idCardTitle = radioName.Name;
-
-        var textInfo = CultureInfo.CurrentCulture.TextInfo;
-        idCardTitle = textInfo.ToTitleCase(idCardTitle);
-
-        return $"\\[{idCardTitle}\\] ";
-    }
-    // S220 radio-department-tag end
-
-    // SS220 department-radio-color begin
-    private string GetIdCardColor(EntityUid senderUid)
-    {
-        var color = GetIdCard(senderUid)?.JobColor;
-        return (!string.IsNullOrEmpty(color)) ? color : "#9FED58";
-    }
-
-    private bool GetIdCardIsBold(EntityUid senderUid)
-    {
-        return GetIdCard(senderUid)?.RadioBold ?? false;
-    }
-    // SS220 department-radio-color end
 
     /// <inheritdoc cref="TelecomServerComponent"/>
     private bool HasActiveServer(MapId mapId, string channelId)
