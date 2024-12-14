@@ -21,5 +21,6 @@ public sealed class GhostColorsSystem : EntitySystem
         var sponsor = _sponsors.GetSponsor(args.Player.UserId);
         if (sponsor != null && sponsor.GhostColor is Color color)
             ent.Comp.color = color;
+        Dirty(ent);
     }
 }
