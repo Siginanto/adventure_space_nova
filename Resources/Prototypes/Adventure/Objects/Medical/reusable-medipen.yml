@@ -9,7 +9,6 @@
     sprite: Adventure/Objects/Specific/Medical/reusable-medipen.rsi
     state: icon
   - type: Item
-    sprite: Adventure/Objects/Specific/Medical/reusable-medipen.rsi
   - type: SolutionContainerManager
     solutions:
       hypospray:
