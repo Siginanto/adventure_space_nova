@@ -23871,7 +23871,7 @@ entities:
   - uid: 92
     components:
     - type: Transform
-      pos: -24.652786,13.510746
+      pos: -27.46459,13.496123
       parent: 2
   - uid: 7451
     components:
@@ -65636,7 +65636,7 @@ entities:
       pos: -16.5,-17.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -32699.014
+      secondsUntilStateChange: -32745.021
       state: Closing
     - type: DeviceNetwork
       deviceLists:
@@ -100618,11 +100618,6 @@ entities:
       rot: 3.141592653589793 rad
       pos: -35.5,-0.5
       parent: 2
-  - uid: 469
-    components:
-    - type: Transform
-      pos: -24.5,13.5
-      parent: 2
   - uid: 824
     components:
     - type: Transform
@@ -115203,7 +115198,7 @@ entities:
   - uid: 13143
     components:
     - type: Transform
-      pos: -24.423504,13.677528
+      pos: -26.422922,13.801679
       parent: 2
 - proto: ToolboxGoldFilled
   entities:
@@ -115956,6 +115951,13 @@ entities:
     components:
     - type: Transform
       pos: -42.5,-21.5
+      parent: 2
+- proto: VendingMachineMedicalBrig
+  entities:
+  - uid: 469
+    components:
+    - type: Transform
+      pos: -24.5,13.5
       parent: 2
 - proto: VendingMachineMediDrobe
   entities:
