@@ -34,7 +34,6 @@
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]
-  - !type:AddComponentSpecial
 
 - type: playTimeTracker
   id: JobBrigmedic
@@ -45,7 +44,7 @@
   equipment:
     gloves: ClothingHandsGlovesNitrile
     eyes: ClothingEyesHudMedical
-    id: BrigmedicPDA
+    id: BrigmedicPDAADV
     ears: ClothingHeadsetBrigmedic
     belt: ClothingBeltMedicalFilled
   storage:
