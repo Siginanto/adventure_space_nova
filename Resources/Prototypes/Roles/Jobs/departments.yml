@@ -37,7 +37,7 @@
   id: CentralCommand
   name: department-CentralCommand
   description: department-CentralCommand-description
-  color: "#0c344d"
+  color: "#3b7cc7" # Adventure
   roles:
   - CentralCommandOfficial
   - CBURN
@@ -135,19 +135,3 @@
   roles:  
   - Borg
   - StationAi
-
-- type: department
-  id: Specific
-  name: department-Specific
-  description: department-Specific-description
-  color: "#9FED58"
-  weight: 10
-  roles:
-  - Boxer
-  - Reporter
-  - Zookeeper
-  - Psychologist
-  - Pilot # Corvax-Pilot
-  - Blueshield #Adventure
-  - Brigmedic #Adventure  
-  primary: false
