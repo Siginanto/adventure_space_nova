@@ -5,7 +5,7 @@
     state: radio
   product: CrateMusicPlayer
   cost: 1560
-  category: Service
+  category: cargoproduct-category-name-service
   group: market
 
 - type: cargoProduct
@@ -15,7 +15,7 @@
     state: tape23
   product: CrateMusicClassic
   cost: 1950
-  category: Service
+  category: cargoproduct-category-name-service
   group: market
 
 - type: cargoProduct
@@ -25,7 +25,7 @@
     state: tape26
   product: CrateMusicRock
   cost: 2250
-  category: Service
+  category: cargoproduct-category-name-service
   group: market
 
 - type: cargoProduct
@@ -35,7 +35,7 @@
     state: tape11
   product: CrateMusicCyber
   cost: 1230
-  category: Service
+  category: cargoproduct-category-name-service
   group: market
 
 - type: cargoProduct
@@ -45,5 +45,5 @@
     state: tape19
   product: CrateMusicPop
   cost: 280
-  category: Service
+  category: cargoproduct-category-name-service
   group: market

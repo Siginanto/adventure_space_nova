@@ -872,7 +872,7 @@
     state: close
   product: SweetBox
   cost: 450
-  category: Food
+  category: cargoproduct-category-name-food
   group: market
 
 - type: cargoProduct
@@ -882,6 +882,6 @@
     state: close
   product: TerSweetBox
   cost: 450
-  category: Food
+  category: cargoproduct-category-name-food
   group: market
 
