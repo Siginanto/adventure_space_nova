@@ -38,6 +38,7 @@
     - id: ZombieOutbreak
     - id: LoneOpsSpawn
     - id: DerelictCyborgSpawn
+    - id: HoboSpawn # Adventure
 
 - type: entity
   id: BaseStationEvent
