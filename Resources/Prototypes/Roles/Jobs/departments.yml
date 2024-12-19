@@ -12,7 +12,7 @@
   id: Civilian
   name: department-Civilian
   description: department-Civilian-description
-  color: "#61A161"
+  color: "#539C00"
   weight: -10
   roles:
   - Bartender
