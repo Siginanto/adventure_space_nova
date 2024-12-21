@@ -183,16 +183,16 @@
   categories:
   - SponsorThin
 
-- type: listing
-  id: UplinkSponsorCloth17
-  productEntity: SingularityToy
-  cost:
-    DonateCrystal: 15
-  categories:
-  - SponsorThin
-  conditions:
-  - !type:ListingLimitedStockCondition
-   stock: 1
+#- type: listing
+#  id: UplinkSponsorCloth17
+#  productEntity: SingularityToy
+#  cost:
+#    DonateCrystal: 15
+#  categories:
+#  - SponsorThin
+#  conditions:
+#  - !type:ListingLimitedStockCondition
+#   stock: 1
 
 - type: listing
   id: UplinkSponsorCloth18
