@@ -79,6 +79,7 @@
 
 - type: entity
   name: бумага
+  suffix: Бригомед плюс
   parent: Paper
   id: Brigomedpaper
   components:
