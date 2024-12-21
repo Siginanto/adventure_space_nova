@@ -167,6 +167,7 @@
     - id: RCD
     - id: RCDAmmo
     - id: RubberStampCE
+    - id: NTECCPU1
 
 # Hardsuit table, used for suit storage as well
 - type: entityTable
@@ -178,6 +179,7 @@
     - id: ClothingShoesBootsMagAdv
     - id: JetpackVoidFilled
     - id: OxygenTankFilled
+    - id: NTECCPU1
 
 # No hardsuit locker
 - type: entity

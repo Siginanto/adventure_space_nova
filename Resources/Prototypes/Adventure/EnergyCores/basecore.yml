@@ -1,8 +1,8 @@
 - type: entity
   parent: BaseMachinePowered
   id: BaseShuttleCore
-  description: Базовый прототип ядра шаттла
-  name: Базовое ядро шаттла
+  description: Базовый прототип ядра
+  name: Базовое ядро
   categories: [ HideSpawnMenu ]
   suffix: Energy cores
   placement:
@@ -144,7 +144,7 @@
   components:
   - type: HeatFreezingCore
     absorbGas: NitrousOxide
-    
+
 
 - type: entity
   parent: BaseShuttleCore
@@ -154,7 +154,7 @@
   components:
   - type: HeatFreezingCore
     absorbGas: Frezon
-    
+
 
 - type: entity
   parent: BaseShuttleCore
@@ -164,7 +164,7 @@
   components:
   - type: HeatFreezingCore
     absorbGas: Ammonia
-    
+
 
 - type: entity
   parent: BaseShuttleCore
