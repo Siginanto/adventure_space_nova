@@ -455,7 +455,7 @@
   - type: ContainerFill
     containers:
       borg_brain:
-        - MMIFilled
+        - PositronicBrain # Adventure
   - type: ItemSlots
     slots:
       cell_slot:
