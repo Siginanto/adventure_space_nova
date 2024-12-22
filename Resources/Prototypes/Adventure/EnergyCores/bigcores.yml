@@ -92,7 +92,7 @@
   parent: [BaseBigCore, BaseHMCore]
   id: HandMadeBigCore
   description: Ядро, изготовленное из первого, что попалось под руку. Ненадежно, но просто в создании.
-  name: Большое ядро шаттла.
+  name: Большое самодельное ядро.
   components:
   - type: EnergyCore
     damage:
