@@ -608,8 +608,7 @@
       - DonateCrystal
     balance:
       DonateCrystal: 30
-  - type: TimedDespawn
-    lifetime: 600
+
 
 
 
