@@ -102,7 +102,7 @@
 - type: entity
   parent: BasePlushie
   id: Plushieromakatz
-  name: Плюшевый Роман Кац
+  name: Плюшевый Химик
   description: Не давайте этому плюшевому засранцу калий и воду!!!
   suffix: AdvPlushie
   components:
@@ -118,7 +118,7 @@
 - type: entity
   parent: BasePlushie
   id: PlushieMravka
-  name: Плюшевая Дилярам
+  name: Плюшевая ГП
   description: Мяу!
   suffix: AdvPlushie
   components:
@@ -307,7 +307,7 @@
   parent: ClothingNeckBase
   id: ClothingNeckCloakSyndiTrasenv1
   name: плащ синдитрейзен
-  description: Подарок Куинку от .... агента?
+  description: Выглядит странно.
   suffix: Sponsor
   components:
   - type: Sprite
