@@ -3,7 +3,7 @@
   abstract: true
   priority: 3
   offset: 0 # Adventure-Resprite
-  locationPreference: Left # Corvax-TypingIndicator
+  locationPreference: Right
   isShaded: true
 
 - type: securityIcon
@@ -44,7 +44,7 @@
 - type: securityIcon
   id: MindShieldIcon
   priority: 2
-  locationPreference: Left # Corvax-TypingIndicator
+  locationPreference: Right
   layer: Mod
   isShaded: true
   icon:
