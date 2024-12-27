@@ -59,7 +59,7 @@ namespace Content.Server.RoundEnd
         public TimeSpan? ShuttleTimeLeft => ExpectedCountdownEnd - _gameTiming.CurTime;
 
         public TimeSpan AutoCallStartTime;
-        private bool _autoCalledBefore = false;
+        public bool _autoCalledBefore = false;
 
         public override void Initialize()
         {
@@ -126,7 +126,7 @@ namespace Content.Server.RoundEnd
             return _countdownTokenSource != null;
         }
 
-        public void RequestRoundEnd(EntityUid? requester = null, bool checkCooldown = true, string text = "round-end-system-shuttle-called-announcement", string name = "round-end-system-shuttle-sender-announcement")
+        public void RequestRoundEnd(EntityUid? requester = null, bool checkCooldown = true, string text = "round-end-system-shuttle-called-announcement", string name = "Station")
         {
             var duration = DefaultCountdownDuration;
 
@@ -144,7 +144,7 @@ namespace Content.Server.RoundEnd
             RequestRoundEnd(duration, requester, checkCooldown, text, name);
         }
 
-        public void RequestRoundEnd(TimeSpan countdownTime, EntityUid? requester = null, bool checkCooldown = true, string text = "round-end-system-shuttle-called-announcement", string name = "round-end-system-shuttle-sender-announcement")
+        public void RequestRoundEnd(TimeSpan countdownTime, EntityUid? requester = null, bool checkCooldown = true, string text = "round-end-system-shuttle-called-announcement", string name = "Station")
         {
             if (_gameTicker.RunLevel != GameRunLevel.InRound)
                 return;
@@ -184,7 +184,7 @@ namespace Content.Server.RoundEnd
             _chatSystem.DispatchGlobalAnnouncement(Loc.GetString(text,
                 ("time", time),
                 ("units", Loc.GetString(units))),
-                Loc.GetString(name),
+                 Loc.GetString(name),
                 false,
                 null,
                 Color.Gold);
@@ -362,7 +362,6 @@ namespace Content.Server.RoundEnd
                 {
                     _autoCalledBefore = true; // Corvax-Announcements: Move before call RequestRoundEnd to play correct announcement sound type
                     RequestRoundEnd(null, false, "round-end-system-shuttle-auto-called-announcement");
-			
                 }
 
                 // Always reset auto-call in case of a recall.
