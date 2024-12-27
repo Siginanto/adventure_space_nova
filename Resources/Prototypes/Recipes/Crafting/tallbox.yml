@@ -33,12 +33,12 @@
 
 - type: construction
   id: GunSafe
-  name: gun safe
+  name: оружейный сейф # Adventure
   graph: GunSafe
   startNode: start
   targetNode: done
   category: construction-category-storage
-  description: A durable gun safe that can be locked.
+  description: Прочный оружейный сейф, который может быть заперт. # Adventure
   icon: { sprite: Structures/Storage/closet.rsi, state: shotguncase }
   objectType: Structure
 
