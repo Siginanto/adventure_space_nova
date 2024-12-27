@@ -31,6 +31,7 @@
       path: /Audio/Weapons/click.ogg
       params:
         maxDistance: 1
+  - type: UseDelay
   - type: MiningScanner
 
 - type: entity
