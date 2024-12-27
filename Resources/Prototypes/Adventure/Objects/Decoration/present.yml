@@ -1,4 +1,15 @@
 - type: entity
+  id: PresentBasedd
+  name: подарок
+  description: Все любят подарки, получайте!
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: Adventure/sponsor_uplink/23.rsi
+    layers:
+      - state: present
+
+- type: entity
   id: PresentAdventureSafe
   parent: [PresentBasedd, BaseItem]
   suffix: AdvFun
@@ -331,7 +342,7 @@
       - id: RGBStaff
         orGroup: GiftPool
       - id: SpaceCash1000000
-        prob: .0001
+        prob: .001
         orGroup: GiftPool
       - id: ClothingNeckCloakAnarchyCap
         orGroup: GiftPool
