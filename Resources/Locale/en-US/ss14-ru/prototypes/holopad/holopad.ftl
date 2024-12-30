@@ -3,6 +3,17 @@ holopad-window-title = {CAPITALIZE($title)}
 holopad-window-subtitle = [color=white][bold]Holographic communication system[/bold][/color]
 holopad-window-options = [color=darkgray][font size=10][italic]Please select an option from the list below[/italic][/font][/color]
 
+# Device
+ent-Holopad = holopad
+    .desc = A floor-mounted device for projecting holographic images.
+ent-HolopadLongRange = long-range holopad
+    .desc = A floor-mounted device for projecting holographic images to similar devices that are far away.
+ent-HolopadUnlimitedRange = quantum entangling holopad
+    .desc = An floor-mounted device for projecting holographic images to similar devices at extreme distances.
+ent-HolopadBluespace = bluespace holopad
+    .desc = An experimental floor-mounted device for projecting holographic images via bluespace.
+    .suffix = Unrestricted range
+
 # Call status
 holopad-window-no-calls-in-progress = No holo-calls in progress
 holopad-window-incoming-call = Incoming holo-call from:
