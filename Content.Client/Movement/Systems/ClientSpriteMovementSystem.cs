@@ -1,5 +1,4 @@
 using Content.Shared.Movement.Components;
-using Content.Shared.Movement.Events;
 using Content.Shared.Movement.Systems;
 using Robust.Client.GameObjects;
 using Robust.Shared.Timing;
@@ -7,9 +6,9 @@ using Robust.Shared.Timing;
 namespace Content.Client.Movement.Systems;
 
 /// <summary>
-/// Handles setting sprite states based on whether an entity has movement input.
+/// Controls the switching of motion and standing still animation
 /// </summary>
-public sealed class SpriteMovementSystem : EntitySystem
+public sealed class ClientSpriteMovementSystem : SharedSpriteMovementSystem
 {
     [Dependency] private readonly IGameTiming _timing = default!;
 
@@ -18,31 +17,27 @@ public sealed class SpriteMovementSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeLocalEvent<SpriteMovementComponent, MoveInputEvent>(OnSpriteMoveInput);
+
         _spriteQuery = GetEntityQuery<SpriteComponent>();
+
+        SubscribeLocalEvent<SpriteMovementComponent, AfterAutoHandleStateEvent>(OnAfterAutoHandleState);
     }
 
-    private void OnSpriteMoveInput(EntityUid uid, SpriteMovementComponent component, ref MoveInputEvent args)
+    private void OnAfterAutoHandleState(Entity<SpriteMovementComponent> ent, ref AfterAutoHandleStateEvent args)
     {
-        if (!_timing.IsFirstTimePredicted)
+        if (!_spriteQuery.TryGetComponent(ent, out var sprite))
             return;
 
-        var oldMoving = (SharedMoverController.GetNormalizedMovement(args.OldMovement) & MoveButtons.AnyDirection) != MoveButtons.None;
-        var moving = (SharedMoverController.GetNormalizedMovement(args.Entity.Comp.HeldMoveButtons) & MoveButtons.AnyDirection) != MoveButtons.None;
-
-        if (oldMoving == moving || !_spriteQuery.TryGetComponent(uid, out var sprite))
-            return;
-
-        if (moving)
+        if (ent.Comp.IsMoving)
         {
-            foreach (var (layer, state) in component.MovementLayers)
+            foreach (var (layer, state) in ent.Comp.MovementLayers)
             {
                 sprite.LayerSetData(layer, state);
             }
         }
         else
         {
-            foreach (var (layer, state) in component.NoMovementLayers)
+            foreach (var (layer, state) in ent.Comp.NoMovementLayers)
             {
                 sprite.LayerSetData(layer, state);
             }
