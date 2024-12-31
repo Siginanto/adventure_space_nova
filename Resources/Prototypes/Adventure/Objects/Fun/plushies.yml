@@ -1,5 +1,5 @@
 - type: entity
-  parent: BaseItem
+  parent: [BaseItem, BasePlushie]
   id: PlushieWiki
   name: Blabla
   suffix: AdvPlushie
