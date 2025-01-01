@@ -754,6 +754,11 @@ namespace Content.Server.Database.Migrations.Postgres
                         .HasColumnType("text")
                         .HasColumnName("last_seen_user_name");
 
+                    b.Property<string>("SponsorTier")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("sponsor_tier");
+
                     b.Property<Guid>("UserId")
                         .HasColumnType("uuid")
                         .HasColumnName("user_id");
