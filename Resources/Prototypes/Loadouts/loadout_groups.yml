@@ -170,6 +170,7 @@
   minLimit: 0
   loadouts:
   - HoPWintercoat
+  - HoPCoat
 
 # Civilian
 - type: loadoutGroup
