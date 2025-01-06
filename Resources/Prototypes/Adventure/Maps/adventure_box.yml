@@ -1,5 +1,5 @@
 - type: gameMap
-  id: AdventureBox
+  id: AdventureBoxNew
   mapName: 'Box Station'
   mapPath: /Maps/Adventure/Adventurebox.yml
   minPlayers: 25
