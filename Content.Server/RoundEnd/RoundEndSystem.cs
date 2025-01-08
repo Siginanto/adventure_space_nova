@@ -126,7 +126,7 @@ namespace Content.Server.RoundEnd
             return _countdownTokenSource != null;
         }
 
-        public void RequestRoundEnd(EntityUid? requester = null, bool checkCooldown = true, string text = "round-end-system-shuttle-called-announcement", string name = "Station")
+        public void RequestRoundEnd(EntityUid? requester = null, bool checkCooldown = true, string text = "round-end-system-shuttle-called-announcement", string name = "round-end-system-shuttle-sender-announcement")
         {
             var duration = DefaultCountdownDuration;
 
@@ -144,7 +144,7 @@ namespace Content.Server.RoundEnd
             RequestRoundEnd(duration, requester, checkCooldown, text, name);
         }
 
-        public void RequestRoundEnd(TimeSpan countdownTime, EntityUid? requester = null, bool checkCooldown = true, string text = "round-end-system-shuttle-called-announcement", string name = "Station")
+        public void RequestRoundEnd(TimeSpan countdownTime, EntityUid? requester = null, bool checkCooldown = true, string text = "round-end-system-shuttle-called-announcement", string name = "round-end-system-shuttle-sender-announcement")
         {
             if (_gameTicker.RunLevel != GameRunLevel.InRound)
                 return;
@@ -362,6 +362,7 @@ namespace Content.Server.RoundEnd
                 {
                     _autoCalledBefore = true; // Corvax-Announcements: Move before call RequestRoundEnd to play correct announcement sound type
                     RequestRoundEnd(null, false, "round-end-system-shuttle-auto-called-announcement");
+      
                 }
 
                 // Always reset auto-call in case of a recall.
