@@ -46,6 +46,16 @@
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Snipers/bolt_gun_wood.rsi
+  - type: Gun # /. Эта часть прототипа(включительно эту строчку и ниже, по конец комента) отвечает за то, чтобы мосинка могла бить.
+    useKey: false
+  - type: MeleeWeapon
+    attackRate: 0.75
+    wideAnimationRotation: -135
+    damage:
+     types:
+       Piercing: 5
+       Slash: 10
+  - type: GunRequiresWield # \ Конец комента, чтобы не ебаться с апстримом, <3
 
 - type: entity
   name: Hristov
