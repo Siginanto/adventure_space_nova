@@ -184,10 +184,12 @@ public sealed class DeviceListSystem : SharedDeviceListSystem
         if (merge)
             newDevices.UnionWith(deviceList.Devices);
 
+        /* Adventure space disable device list limit begin
         if (newDevices.Count > deviceList.DeviceLimit)
         {
             return DeviceListUpdateResult.TooManyDevices;
         }
+        Adventure space disable device list limit end */
 
         var query = GetEntityQuery<DeviceNetworkComponent>();
         var oldDevices = deviceList.Devices.ToList();
