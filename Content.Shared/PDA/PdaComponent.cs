@@ -14,12 +14,6 @@ namespace Content.Shared.PDA
         public const string PdaPaiSlotId = "PDA-pai";
         public const string PdaPaperSlotId = "PDA-paper"; // Adventure Event PDA paper
 
-        /// <summary>
-        /// The base PDA sprite state, eg. "pda", "pda-clown"
-        /// </summary>
-        [DataField("state")]
-        public string? State;
-
         [DataField("idSlot")]
         public ItemSlot IdSlot = new();
 

@@ -223,7 +223,7 @@
     - id: WeaponShotgunEnforcer
       amount: 2
     - id: BoxLethalshot
-      amount: 2
+      amount: 4
 
 - type: entity
   parent: [GunSafeBaseSecure, BaseRestrictedContraband]
@@ -251,7 +251,7 @@
       amount: 4
 
 - type: entity
-  parent: GunSafeBaseSecure
+  parent: [GunSafeBaseSecure, BaseRestrictedContraband]
   id: GunSafeLaserCarbine
   name: laser safe
   components:
