@@ -43,6 +43,8 @@ namespace Content.Server.IoC
             IoCManager.Register<TTSManager>(); // c4llv07e tts
             IoCManager.Register<ISponsorsManager, SponsorsManager>(); // c4llv07e sponsors
             IoCManager.Register<SponsorsManager>(); // c4llv07e sponsors
+            IoCManager.Register<AdventureConfigManager>(); // AdvSpace Config
+            IoCManager.Register<AdventurePresetManager>(); // AdvSpace Preset
             IoCManager.Register<IChatManager, ChatManager>();
             IoCManager.Register<ISharedChatManager, ChatManager>();
             IoCManager.Register<IChatSanitizationManager, ChatSanitizationManager>();
@@ -80,8 +82,7 @@ namespace Content.Server.IoC
             IoCManager.Register<PlayerRateLimitManager>();
             IoCManager.Register<SharedPlayerRateLimitManager, PlayerRateLimitManager>();
             IoCManager.Register<MappingManager>();
-            IoCManager.Register<AdventureConfigManager>(); // AdvSpace Config
-            IoCManager.Register<AdventurePresetManager>(); // AdvSpace Preset
+            IoCManager.Register<ConnectionManager>();
         }
     }
 }
