@@ -19,3 +19,10 @@
   loadouts:
   - ChemistHatNitrile
   - ChemistBeret
+
+- type: loadoutGroup
+  id: AtmosHead
+  name: Атмосферный техник, голова
+  minLimit: 0
+  loadouts:
+  - HeadAtmosBeret

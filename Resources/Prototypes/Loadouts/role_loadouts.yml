@@ -275,6 +275,7 @@
 - type: roleLoadout
   id: JobAtmosphericTechnician
   groups:
+  - AtmosHead #Adventure
   - GroupTankHarness
   - AtmosphericTechnicianJumpsuit
   - AtmosphericTechnicianBackpack
