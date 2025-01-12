@@ -66,6 +66,7 @@ holiday-name-monkey-day = Дня обезьян
 holiday-name-mayan-doomsday = дня годовщины Конца света по календарю майя
 holiday-name-christmas = католического Рождества
 holiday-name-festive-season = наступающего Нового года
+holiday-name-adventure-season = Сезона подарков
 holiday-name-boxing-day = Дня подарков
 holiday-name-friday-thirteenth = Дня неприятностей
 holiday-name-national-coming-out-day = Национального дня каминг-аута

@@ -66,6 +66,7 @@ holiday-name-monkey-day = Monkey Day
 holiday-name-mayan-doomsday = Mayan Doomsday Anniversary
 holiday-name-christmas = Christmas
 holiday-name-festive-season = Festive Season
+holiday-name-adventure-season = Boxing Season
 holiday-name-boxing-day = Boxing Day
 holiday-name-friday-thirteenth = Friday the 13th
 holiday-name-national-coming-out-day = National Coming Out Day
