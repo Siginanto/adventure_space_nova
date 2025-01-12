@@ -113,6 +113,7 @@ namespace Content.Server.Entry
                 IoCManager.Resolve<TTSManager>().Initialize(); // c4llv07e tts
                 IoCManager.Resolve<SponsorsManager>().Initialize(); // c4llv07e sponsors
                 IoCManager.Resolve<AdventureConfigManager>().Initialize(); // AdvSpace Config
+                IoCManager.Resolve<AdventurePresetManager>().Initialize(); // AdvSpace Preset
 
                 _voteManager.Initialize();
                 _updateManager.Initialize();

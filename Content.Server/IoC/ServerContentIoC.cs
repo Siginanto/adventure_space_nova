@@ -81,6 +81,7 @@ namespace Content.Server.IoC
             IoCManager.Register<SharedPlayerRateLimitManager, PlayerRateLimitManager>();
             IoCManager.Register<MappingManager>();
             IoCManager.Register<AdventureConfigManager>(); // AdvSpace Config
+            IoCManager.Register<AdventurePresetManager>(); // AdvSpace Preset
         }
     }
 }
