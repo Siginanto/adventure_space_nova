@@ -755,7 +755,6 @@ namespace Content.Server.Database.Migrations.Postgres
                         .HasColumnName("last_seen_user_name");
 
                     b.Property<string>("SponsorTier")
-                        .IsRequired()
                         .HasColumnType("text")
                         .HasColumnName("sponsor_tier");
 
