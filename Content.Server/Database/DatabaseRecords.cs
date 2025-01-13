@@ -121,7 +121,7 @@ public sealed record PlayerRecord(
     DateTimeOffset LastSeenTime,
     IPAddress LastSeenAddress,
     ImmutableTypedHwid? HWId,
-    string? SponsorTier); // Adventure sponsor api
+    string SponsorTier); // Adventure sponsor api
 
 public sealed record RoundRecord(int Id, DateTimeOffset? StartDate, ServerRecord Server);
 

@@ -714,6 +714,7 @@ namespace Content.Server.Database.Migrations.Sqlite
                         .HasColumnName("last_seen_user_name");
 
                     b.Property<string>("SponsorTier")
+                        .IsRequired()
                         .HasColumnType("TEXT")
                         .HasColumnName("sponsor_tier");
 
