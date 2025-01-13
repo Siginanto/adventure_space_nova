@@ -713,11 +713,6 @@ namespace Content.Server.Database.Migrations.Sqlite
                         .HasColumnType("TEXT")
                         .HasColumnName("last_seen_user_name");
 
-                    b.Property<string>("SponsorTier")
-                        .IsRequired()
-                        .HasColumnType("TEXT")
-                        .HasColumnName("sponsor_tier");
-
                     b.Property<Guid>("UserId")
                         .HasColumnType("TEXT")
                         .HasColumnName("user_id");
