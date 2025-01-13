@@ -10,7 +10,6 @@ jobs:
     if: github.event.pull_request.draft == false
     runs-on: ubuntu-latest
     steps:
-    # I'm not sure if we need to checkout there
-    # - uses: actions/checkout@v3.6.0
+    - uses: actions/checkout@v3.6.0
     - name: Check for cyrillic names in the files
       run: Tools/_Adventure/check_cyrillic.sh
