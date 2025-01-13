@@ -193,7 +193,7 @@
   startNode: start
   targetNode: chairFolding
   category: construction-category-furniture
-  description: Если вы унесёте шесть за раз - вы cтанете самым крутым парнем в актовом зале. # Adventure
+  description: Если вы унесёте шесть за раз - вы станете самым крутым парнем в актовом зале. # Adventure
   icon:
     sprite: Structures/Furniture/folding_chair.rsi
     state: folding

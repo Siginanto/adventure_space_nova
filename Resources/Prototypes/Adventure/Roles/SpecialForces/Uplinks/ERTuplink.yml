@@ -150,7 +150,7 @@
 # Аплинк уборщика
 - type: entity
   parent: BaseItem
-  id: ERTuplinkоjanitor
+  id: ERTuplinkojanitor
   name: Терминал ОБР уборщика
   suffix: Adventure
   description: Терминал который используют ОБР уборщики в специальных операциях.
@@ -229,31 +229,31 @@
 - type: listing
   id: WeaponPistolMk58ERT
   productEntity: WeaponPistolMk58
-  cost: 
-    CentCommCrystal: 2 
+  cost:
+    CentCommCrystal: 2
   categories:
   - ERTweapons
 
 - type: listing
   id: WeaponDisablerERTs
   productEntity: WeaponDisabler
-  cost: 
-    CentCommCrystal: 3 
+  cost:
+    CentCommCrystal: 3
   categories:
   - ERTweapons
 
 - type: listing
   id: WeaponPulsePistolERT
   productEntity: WeaponPulsePistol
-  cost: 
-    CentCommCrystal: 7 
+  cost:
+    CentCommCrystal: 7
   categories:
   - ERTweapons
 
 - type: listing
   id: WeaponPistolN1984ERT
   productEntity: WeaponPistolN1984
-  cost: 
+  cost:
     CentCommCrystal: 7
   categories:
   - ERTweapons
@@ -261,39 +261,39 @@
 - type: listing
   id: WeaponSubMachineGunWt550ERTs
   productEntity: WeaponSubMachineGunWt550
-  cost: 
-    CentCommCrystal: 15 
+  cost:
+    CentCommCrystal: 15
   categories:
   - ERTweapons
 
 - type: listing
   id: WeaponRifleLecterERT
   productEntity: WeaponRifleLecter
-  cost: 
-    CentCommCrystal: 15 
+  cost:
+    CentCommCrystal: 15
   categories:
   - ERTweapons
 
 - type: listing
   id: WeaponRifleM90GrenadeLauncherERT
   productEntity: WeaponRifleM90GrenadeLauncher
-  cost: 
-    CentCommCrystal: 15 
+  cost:
+    CentCommCrystal: 15
   categories:
   - ERTweapons
 
 - type: listing
   id: WeaponShotgunEnforcerERT
   productEntity: WeaponShotgunEnforcer
-  cost: 
-    CentCommCrystal: 15 
+  cost:
+    CentCommCrystal: 15
   categories:
   - ERTweapons
 
 - type: listing
   id: WeaponPulseCarbineERT
   productEntity: WeaponPulseCarbine
-  cost: 
+  cost:
     CentCommCrystal: 20
   categories:
   - ERTweapons
@@ -301,8 +301,8 @@
 - type: listing
   id: WeaponTaserERT
   productEntity: WeaponTaser
-  cost: 
-    CentCommCrystal: 20 
+  cost:
+    CentCommCrystal: 20
   categories:
   - ERTweapons
 
@@ -555,7 +555,7 @@
     CentCommCrystal: 1
   categories:
   - ERTmedicine
-  
+
 - type: listing
   id: HandheldHealthAnalyzerERT
   productEntity: HandheldHealthAnalyzer
@@ -651,7 +651,7 @@
   conditions:
     - !type:ListingLimitedStockCondition
      stock: 1
-    
+
 - type: listing
   id: InjectorMediumNanitsERT
   productEntity: InjectorMediumNanits

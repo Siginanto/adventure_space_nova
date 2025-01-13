@@ -1,4 +1,4 @@
-﻿- type: entity
+- type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitSuperstarCop
   name: superstar cop uniform
@@ -79,7 +79,7 @@
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitRDClassical
   name: research director's classical suit
-  description: It's Research Director's сlassical suit.
+  description: It's Research Director's classical suit.
   components:
     - type: Sprite
       sprite: Corvax/Clothing/Uniforms/Jumpsuit/rd_classical.rsi

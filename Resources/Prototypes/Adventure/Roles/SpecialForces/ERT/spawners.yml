@@ -132,7 +132,7 @@
     outerClothing: ClothingOuterHardsuitERTJanitor
     id: ERTJanitorPDA
     belt: ClothingBeltJanitorFilled
-    pocket1: ERTuplinkоjanitor
+    pocket1: ERTuplinkojanitor
     suitstorage: DoubleEmergencyOxygenTankFilled
     ears: ClothingHeadsetAltCentCom
     back: ClothingBackpackERTJanitor

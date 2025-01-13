@@ -13,4 +13,4 @@ ent-ClothingUniformJumpsuitHoPTurtleneck = head of personal's turtleneck
 ent-ClothingUniformJumpsuitHoSBlack = head of security's black suit
     .desc = It's Head of Security's black suit.
 ent-ClothingUniformJumpsuitRDClassical = research director's classical suit
-    .desc = It's Research Director's сlassical suit.
+    .desc = It's Research Director's classical suit.

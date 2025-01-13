@@ -16,7 +16,7 @@
   parent: BasePDA
   id: PilotPDA
   name: pilot PDA
-  description: Нas protection from cosmic radiation.
+  description: Has protection from cosmic radiation.
   components:
     - type: Pda
       id: PilotIDCard
