@@ -671,7 +671,8 @@ namespace Content.Server.Database
                 player.LastSeenUserName,
                 new DateTimeOffset(NormalizeDatabaseTime(player.LastSeenTime)),
                 player.LastSeenAddress,
-                player.LastSeenHWId);
+                player.LastSeenHWId,
+                player.SponsorTier); // Adventure sponsor api
         }
 
         #endregion

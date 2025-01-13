@@ -1,29 +1,31 @@
-using Robust.Shared.Prototypes;
-using System.Text.Json.Serialization;
-using Robust.Shared.Serialization;
-using System.Threading.Tasks;
+using Content.Server.Database;
 using Content.Shared.CCVar;
 using Content.Shared._Adventure.ACVar;
+using Content.Shared._Adventure.Sponsors;
 using Robust.Shared.Configuration;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
+using Robust.Shared.Serialization;
 using Robust.Shared.Utility;
 using Robust.Shared;
 using System.Net.Http.Headers;
 using System.Net.Http.Json;
 using System.Net.Http;
 using System.Net;
-using Content.Shared._Adventure.Sponsors;
+using System.Text.Json.Serialization;
+using System.Threading.Tasks;
 
 namespace Content.Server._Adventure.Sponsors;
 
 public sealed class SponsorsManager : ISponsorsManager
 {
-    [Dependency] private readonly IServerNetManager _net = default!;
     [Dependency] private readonly IConfigurationManager _cfg = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly IEntityManager _ent = default!;
+    [Dependency] private readonly IPrototypeManager _proto = default!;
+    [Dependency] private readonly IServerDbManager _db = default!;
+    [Dependency] private readonly IServerNetManager _net = default!;
 
     private ISawmill _sawmill = default!;
     private readonly HttpClient _httpClient = new()
@@ -74,6 +76,9 @@ public sealed class SponsorsManager : ISponsorsManager
 
     private async Task<ProtoId<SponsorTierPrototype>?> GetSponsorTier(NetUserId userId)
     {
+        var player = await _db.GetPlayerRecordByUserId(userId);
+        if (player != null && !string.IsNullOrEmpty(player.SponsorTier))
+            return player.SponsorTier;
         if (string.IsNullOrEmpty(_apiUrl))
             return null;
 
