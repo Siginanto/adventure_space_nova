@@ -630,6 +630,18 @@ namespace Content.Server.Database
             await db.DbContext.SaveChangesAsync();
         }
 
+        // Adventure sponsor api begin
+        public async Task SetPlayerRecordSponsor(NetUserId userId, string? sponsorTier)
+        {
+            await using var db = await GetDb();
+            var record = await db.DbContext.Player.SingleOrDefaultAsync(p => p.UserId == userId.UserId);
+            if (record == null)
+                return;
+            record.SponsorTier = sponsorTier;
+            await db.DbContext.SaveChangesAsync();
+        }
+        // Adventure sponsor api end
+
         public async Task<PlayerRecord?> GetPlayerRecordByUserName(string userName, CancellationToken cancel)
         {
             await using var db = await GetDb();

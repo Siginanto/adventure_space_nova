@@ -50,7 +50,6 @@ public sealed class SponsorChangeEui : BaseEui
             _window.SetMenuEnabled(false);
             return;
         }
-        player.SponsorTier = tier;
-        _db.UpdatePlayerRecord(player.)
+        _db.SetPlayerRecordSponsor(player.UserId, tier);
     }
 }
