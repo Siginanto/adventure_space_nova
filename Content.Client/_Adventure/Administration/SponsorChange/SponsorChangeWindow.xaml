@@ -1,12 +1,9 @@
 <controls:FancyWindow xmlns="https://spacestation14.io"
                       xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
                       xmlns:cc="clr-namespace:Content.Client.Administration.UI.CustomControls"
-                      MinSize="600 600">
-    <BoxContainer Orientation="Horizontal" Margin="4">
-        <OptionButton Name="TypeOption" />
-        <Control MinWidth="30" />
-        <Label Text="{Loc ban-panel-severity}" />
-        <OptionButton Name="SeverityOption" />
+                      MinSize="400 0">
+    <BoxContainer Orientation="Vertical">
+        <LineEdit Name="PlayerNameLine" HorizontalExpand="True" PlaceHolder="Username" />
+        <OptionButton Name="SponsorTierOption" Enabled="false" />
     </BoxContainer>
-    <cc:PlayerListControl Name="PlayerList" VerticalExpand="True" />
 </controls:FancyWindow>

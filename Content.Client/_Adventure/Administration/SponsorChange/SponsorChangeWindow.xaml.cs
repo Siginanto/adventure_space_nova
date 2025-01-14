@@ -15,8 +15,55 @@ namespace Content.Client._Adventure.Administration.SponsorChange;
 [GenerateTypedNameReferences]
 public sealed partial class SponsorChangeWindow : FancyWindow
 {
-    public SponsorChangeWindow()
+    public event Action<string>? OnUsernameEntered;
+    public event Action<string?>? OnTierSelected;
+    public List<ProtoId<SponsorTierPrototype>> _protos;
+    public SponsorChangeWindow(List<ProtoId<SponsorTierPrototype>> protos)
     {
         RobustXamlLoader.Load(this);
+        _protos = protos;
+        PlayerNameLine.OnTextEntered += e => OnUsernameEntered?.Invoke(e.Text);
+        PlayerNameLine.OnFocusExit += e => OnUsernameEntered?.Invoke(e.Text);
+        for (int i = 0; i < _protos.Length; i++)
+        {
+            var proto = protos[i];
+            SponsorTierOption.AddItem(proto.ID, i);
+        }
+        SponsorTierOption.AddItem("По умолчанию", -1);
+        // SponsorTierOption.OnItemSelected += args => SponsorTierOption.SelectId(args.Id);
+        SponsorTierOption.OnItemSelected += OnTierSelected;
+    }
+
+    private void OnTierSelected(ItemSelectedEventArgs args)
+    {
+        if (args.Id == -1)
+        {
+            OnTierSelected?.Invoke(null);
+            return;
+        }
+        OnTierSelected?.Invoke(_protos[args.Id]);
+    }
+
+    // I don't care if it can silently fail, validate your shit yourself!
+    public void SelectSponsorTier(ProtoId<SponsorTierPrototype>? proto)
+    {
+        if (proto == null)
+        {
+            SponsorTierOption.SelectId(-1);
+            return;
+        }
+        var ind = _protos.IndexOf(proto);
+        if (ind == -1) return;
+        SponsorTierOption.SelectId(ind);
+    }
+
+    public void SetMenuEnabled(bool enabled)
+    {
+        SponsorTierOption.Enabled = enabled;
+    }
+
+    public string GetUsername()
+    {
+        return PlayerNameLine.Text;
     }
 }
