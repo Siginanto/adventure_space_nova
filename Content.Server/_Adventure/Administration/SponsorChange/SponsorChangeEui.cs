@@ -2,6 +2,7 @@ using Content.Server.EUI;
 using Content.Shared.Cloning;
 using Content.Shared.Eui;
 using Content.Shared.Mind;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server._Adventure.Administration.SponsorChange;
 
@@ -15,6 +16,11 @@ public sealed class SponsorChangeEui : BaseEui
     {
         IoCManager.InjectDependencies(this);
         _sawmill = _log.GetSawmill("sponsor.changes");
+    }
+
+    public override EuiStateBase GetNewState()
+    {
+        return new SponsorChangeEuiState(username);
     }
 
     public override void HandleMessage(EuiMessageBase msg)
@@ -33,6 +39,7 @@ public sealed class SponsorChangeEui : BaseEui
 
     public void SetSponsor(string username, ProtoId<SponsorTierPrototype>? tier)
     {
+        StateDirty();
     }
 
     public void GetSponsorInfo(string username)

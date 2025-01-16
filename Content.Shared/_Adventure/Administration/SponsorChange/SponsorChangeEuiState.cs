@@ -40,7 +40,7 @@ public static class SponsorChangeEuiStateMsg
     {
         public string Username { get; set; }
 
-        public GetPlayerInfoRequest(string username)
+        public GetPlayerSponsorInfoRequest(string username)
         {
             Username = username;
         }
