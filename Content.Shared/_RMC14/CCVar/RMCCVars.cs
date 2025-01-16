@@ -14,4 +14,7 @@ public sealed class RMCCVars : CVars
 
     public static readonly CVarDef<string> RMCMentorHelpSound =
         CVarDef.Create("rmc.mentor_help_sound", "/Audio/_RMC14/Effects/Admin/mhelp.ogg", CVar.ARCHIVE | CVar.CLIENTONLY);
+
+    public static readonly CVarDef<string> DiscordMentorWebhook =
+        CVarDef.Create("discord.montor_webhook", string.Empty, CVar.SERVERONLY | CVar.CONFIDENTIAL);
 }

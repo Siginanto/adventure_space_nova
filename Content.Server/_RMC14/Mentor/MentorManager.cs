@@ -1,4 +1,6 @@
-﻿using System.Linq;
+using Content.Server.Discord;
+using Robust.Shared.Configuration;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Content.Server.Database;
@@ -23,6 +25,15 @@ public sealed class MentorManager : IPostInjectInit
     [Dependency] private readonly IPlayerManager _player = default!;
     [Dependency] private readonly PlayerRateLimitManager _rateLimit = default!;
     [Dependency] private readonly UserDbDataManager _userDb = default!;
+    [Dependency] private readonly IConfigurationManager _cfg = default!;
+
+    private string _webhookUrl = string.Empty;
+    private WebhookData? _webhookData;
+    private ISawmill _sawmill = default!;
+    private readonly HttpClient _httpClient = new();
+
+    [GeneratedRegex(@"^https://discord\.com/api/webhooks/(\d+)/((?!.*/).*)$")]
+    private static partial Regex DiscordRegex();
 
     private const string RateLimitKey = "MentorHelp";
     private static readonly ProtoId<JobPrototype> MentorJob = "CMSeniorEnlistedAdvisor";
@@ -172,9 +183,74 @@ public sealed class MentorManager : IPostInjectInit
             }
             catch (Exception e)
             {
-                _log.RootSawmill.Error($"Error sending mentor help message:\n{e}");
+                _sawmill.Error($"Error sending mentor help message:\n{e}");
             }
         }
+    }
+
+    private async void OnWebhookChanged(string url)
+    {
+        _webhookUrl = url;
+        if (url == string.Empty)
+            return;
+
+        // Basic sanity check and capturing webhook ID and token
+        var match = DiscordRegex().Match(url);
+
+        if (!match.Success)
+        {
+            // TODO: Ideally, CVar validation during setting should be better integrated
+            Log.Warning("Webhook URL does not appear to be valid. Using anyways...");
+            return;
+        }
+
+        if (match.Groups.Count <= 2)
+        {
+            Log.Error("Could not get webhook ID or token.");
+            return;
+        }
+
+        var webhookId = match.Groups[1].Value;
+        var webhookToken = match.Groups[2].Value;
+
+        // Fire and forget
+        _webhookData = await GetWebhookData(webhookId, webhookToken);
+    }
+
+    private async Task<WebhookData?> GetWebhookData(string id, string token)
+    {
+        var response = await _httpClient.GetAsync($"https://discord.com/api/v10/webhooks/{id}/{token}");
+
+        var content = await response.Content.ReadAsStringAsync();
+        if (!response.IsSuccessStatusCode)
+        {
+            _sawmill.Log(LogLevel.Error,
+                         $"Discord returned bad status code when trying to get webhook data (perhaps the webhook URL is invalid?): {response.StatusCode}\nResponse: {content}");
+            return null;
+        }
+
+        return JsonSerializer.Deserialize<WebhookData>(content);
+    }
+
+    private static DiscordRelayedData GenerateAHelpMessage(MentorMessageParams parameters)
+    {
+        var stringbuilder = new StringBuilder();
+
+        if (parameters.NoReceivers)
+            stringbuilder.Append(":sos:");
+        else
+            stringbuilder.Append(":inbox_tray:");
+
+        if (parameters.RoundTime != string.Empty && parameters.RoundState == GameRunLevel.InRound)
+            stringbuilder.Append($" **{parameters.RoundTime}**");
+        stringbuilder.Append($" **{parameters.Username}** ");
+        stringbuilder.Append(parameters.Message);
+
+        return new DiscordRelayedData()
+        {
+            Receivers = !parameters.NoReceivers,
+            Message = stringbuilder.ToString(),
+        };
     }
 
     void IPostInjectInit.PostInject()
@@ -188,6 +264,7 @@ public sealed class MentorManager : IPostInjectInit
         _userDb.AddOnLoadPlayer(LoadData);
         _userDb.AddOnFinishLoad(FinishLoad);
         _userDb.AddOnPlayerDisconnect(ClientDisconnected);
+        _cfg.OnValueChanged(CCVars.DiscordMentorWebhook, OnWebhookChanged, true);
         _rateLimit.Register(
             RateLimitKey,
             new RateLimitRegistration(
@@ -196,5 +273,40 @@ public sealed class MentorManager : IPostInjectInit
                 _ => { }
             )
         );
+        _sawmill = _log.GetSawmill("mentor_help");
+
+        var defaultParams = new MentorMessageParams(
+            string.Empty,
+            string.Empty,
+            true,
+            _gameTicker.RoundDuration().ToString("hh\\:mm\\:ss"),
+            _gameTicker.RunLevel,
+            playedSound: false
+        );
+        _maxAdditionalChars = GenerateAHelpMessage(defaultParams).Message.Length;
+    }
+
+    public sealed class MentorMessageParams
+    {
+        public string Username { get; set; }
+        public string Message { get; set; }
+        public string RoundTime { get; set; }
+        public GameRunLevel RoundState { get; set; }
+        public bool NoReceivers { get; set; }
+
+        public MentorMessageParams(
+            string username,
+            string message,
+            string roundTime,
+            GameRunLevel roundState,
+            bool noReceivers = false)
+        {
+            Username = username;
+            Message = message;
+            IsAdmin = isAdmin;
+            RoundTime = roundTime;
+            RoundState = roundState;
+            NoReceivers = noReceivers;
+        }
     }
 }
