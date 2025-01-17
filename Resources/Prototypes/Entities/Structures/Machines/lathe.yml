@@ -922,6 +922,7 @@
       - SyringeBluespace
       - SyringeCryostasis
       - ReusableMedipen #Adventure
+      - DefibrillatorCompactADV #Adventure
   - type: Machine
     board: MedicalTechFabCircuitboard
   - type: StealTarget
