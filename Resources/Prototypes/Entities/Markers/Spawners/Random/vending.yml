@@ -43,8 +43,10 @@
       weight: 40
     - id: VendingMachineWinter
       weight: 40
-    - id: VendingMachinePride
-      weight: 10
+    # Adventure АК РФ 6.21 begin
+    # - id: VendingMachinePride
+    #   weight: 10
+    # Adventure АК РФ 6.21 end
     - id: VendingMachineTheater
       weight: 10
 
