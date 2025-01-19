@@ -58,9 +58,9 @@
     zapHeal:
       types:
         Asphyxiation: -40
-    doAfterDuration: 3
+    doAfterDuration: 2
   - type: StunDefib
-    energyPerUse: 90
+    energyPerUse: 120
   - type: DoAfter
   - type: UseDelay
   - type: MeleeWeapon
@@ -80,8 +80,9 @@
     activatedDamage:
       types:
         Blunt: 2
-        Shock: 8
+        Shock: 5
   - type: StaminaDamageOnHit
+    damage: 20
   - type: Battery
     maxCharge: 720
     startingCharge: 720
@@ -127,7 +128,7 @@
     zapHeal:
       types:
         Asphyxiation: -40
-    doAfterDuration: 2
+    doAfterDuration: 5
 
 # Рецепт
 - type: latheRecipe
