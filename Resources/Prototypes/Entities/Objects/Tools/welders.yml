@@ -204,6 +204,6 @@
     enabled: false
     radius: 1.0
     color: orange
-  - type: Tag
+  - type: Tag # Adventure
     tags:
     - WelderMini
