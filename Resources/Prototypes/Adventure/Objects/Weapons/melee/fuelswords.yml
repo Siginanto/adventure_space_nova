@@ -118,7 +118,7 @@
   - type: IgnitionSource
     temperature: 700
   - type: Reflect
-    reflectProb: 0.3
+    reflectProb: 0.15
     reflects:
     - NonEnergy
   - type: Construction
@@ -206,7 +206,7 @@
           Quantity: 150
         maxVol: 150
   - type: Reflect
-    reflectProb: 0.5
+    reflectProb: 0.25
     reflects:
     - NonEnergy
   - type: Construction
