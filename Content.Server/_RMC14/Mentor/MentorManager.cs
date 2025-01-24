@@ -14,10 +14,11 @@ using Robust.Server.Player;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
+using System.Text.RegularExpressions;
 
 namespace Content.Server._RMC14.Mentor;
 
-public sealed class MentorManager : IPostInjectInit
+public sealed partial class MentorManager : IPostInjectInit
 {
     [Dependency] private readonly IServerDbManager _db = default!;
     [Dependency] private readonly ILogManager _log = default!;
@@ -188,6 +189,154 @@ public sealed class MentorManager : IPostInjectInit
         }
     }
 
+    private async void ProcessQueue(NetUserId userId, Queue<DiscordRelayedData> messages)
+    {
+        // Whether an embed already exists for this player
+        var exists = _relayMessages.TryGetValue(userId, out var existingEmbed);
+
+        // Whether the message will become too long after adding these new messages
+        var tooLong = exists && messages.Sum(msg => Math.Min(msg.Message.Length, MessageLengthCap) + "\n".Length)
+            + existingEmbed?.Description.Length > DescriptionMax;
+
+        // If there is no existing embed, or it is getting too long, we create a new embed
+        if (!exists || tooLong)
+        {
+            var lookup = await _playerLocator.LookupIdAsync(userId);
+
+            if (lookup == null)
+            {
+                _sawmill.Log(LogLevel.Error,
+                             $"Unable to find player for NetUserId {userId} when sending discord webhook.");
+                _relayMessages.Remove(userId);
+                return;
+            }
+
+            var linkToPrevious = string.Empty;
+
+            // If we have all the data required, we can link to the embed of the previous round or embed that was too long
+            if (_webhookData is { GuildId: { } guildId, ChannelId: { } channelId })
+            {
+                if (tooLong && existingEmbed?.Id != null)
+                {
+                    linkToPrevious =
+                        $"**[Go to previous embed of this round](https://discord.com/channels/{guildId}/{channelId}/{existingEmbed.Id})**\n";
+                }
+                else if (_oldMessageIds.TryGetValue(userId, out var id) && !string.IsNullOrEmpty(id))
+                {
+                    linkToPrevious =
+                        $"**[Go to last round's conversation with this player](https://discord.com/channels/{guildId}/{channelId}/{id})**\n";
+                }
+            }
+
+            var characterName = _minds.GetCharacterName(userId);
+            existingEmbed = new DiscordRelayInteraction()
+            {
+                Id = null,
+                CharacterName = characterName,
+                Description = linkToPrevious,
+                Username = lookup.Username,
+                LastRunLevel = _gameTicker.RunLevel,
+            };
+
+            _relayMessages[userId] = existingEmbed;
+        }
+
+        // Previous message was in another RunLevel, so show that in the embed
+        if (existingEmbed!.LastRunLevel != _gameTicker.RunLevel)
+        {
+            existingEmbed.Description += _gameTicker.RunLevel switch
+            {
+                GameRunLevel.PreRoundLobby => "\n\n:arrow_forward: _**Pre-round lobby started**_\n",
+                    GameRunLevel.InRound => "\n\n:arrow_forward: _**Round started**_\n",
+                    GameRunLevel.PostRound => "\n\n:stop_button: _**Post-round started**_\n",
+                    _ => throw new ArgumentOutOfRangeException(nameof(_gameTicker.RunLevel),
+                                                               $"{_gameTicker.RunLevel} was not matched."),
+                    };
+
+            existingEmbed.LastRunLevel = _gameTicker.RunLevel;
+        }
+
+        // If last message of the new batch is SOS then relay it to on-call.
+        // ... as long as it hasn't been relayed already.
+        var discordMention = messages.Last();
+        var onCallRelay = !discordMention.Receivers && !existingEmbed.OnCall;
+
+        // Add available messages to the embed description
+        while (messages.TryDequeue(out var message))
+        {
+            string text;
+
+            // In case someone thinks they're funny
+            if (message.Message.Length > MessageLengthCap)
+                text = message.Message[..(MessageLengthCap - TooLongText.Length)] + TooLongText;
+            else
+                text = message.Message;
+
+            existingEmbed.Description += $"\n{text}";
+        }
+
+        var payload = GeneratePayload(existingEmbed.Description,
+                                      existingEmbed.Username,
+                                      existingEmbed.CharacterName);
+
+        // If there is no existing embed, create a new one
+        // Otherwise patch (edit) it
+        if (existingEmbed.Id == null)
+        {
+            var request = await _httpClient.PostAsync($"{_webhookUrl}?wait=true",
+                                                      new StringContent(JsonSerializer.Serialize(payload), Encoding.UTF8, "application/json"));
+
+            var content = await request.Content.ReadAsStringAsync();
+            if (!request.IsSuccessStatusCode)
+            {
+                _sawmill.Log(LogLevel.Error,
+                             $"Discord returned bad status code when posting message (perhaps the message is too long?): {request.StatusCode}\nResponse: {content}");
+                _relayMessages.Remove(userId);
+                return;
+            }
+
+            var id = JsonNode.Parse(content)?["id"];
+            if (id == null)
+            {
+                _sawmill.Log(LogLevel.Error,
+                             $"Could not find id in json-content returned from discord webhook: {content}");
+                _relayMessages.Remove(userId);
+                return;
+            }
+
+            existingEmbed.Id = id.ToString();
+        }
+        else
+        {
+            var request = await _httpClient.PatchAsync($"{_webhookUrl}/messages/{existingEmbed.Id}",
+                                                       new StringContent(JsonSerializer.Serialize(payload), Encoding.UTF8, "application/json"));
+
+            if (!request.IsSuccessStatusCode)
+            {
+                var content = await request.Content.ReadAsStringAsync();
+                _sawmill.Log(LogLevel.Error,
+                             $"Discord returned bad status code when patching message (perhaps the message is too long?): {request.StatusCode}\nResponse: {content}");
+                _relayMessages.Remove(userId);
+                return;
+            }
+        }
+
+        _relayMessages[userId] = existingEmbed;
+
+        // Actually do the on call relay last, we just need to grab it before we dequeue every message above.
+        if (onCallRelay &&
+            _onCallData != null)
+        {
+            existingEmbed.OnCall = true;
+        }
+        else
+        {
+            existingEmbed.OnCall = false;
+        }
+
+        _processingChannels.Remove(userId);
+    }
+
     private async void OnWebhookChanged(string url)
     {
         _webhookUrl = url;
@@ -232,7 +381,7 @@ public sealed class MentorManager : IPostInjectInit
         return JsonSerializer.Deserialize<WebhookData>(content);
     }
 
-    private static DiscordRelayedData GenerateAHelpMessage(MentorMessageParams parameters)
+    private static DiscordRelayedData GenerateMentorMessage(MentorMessageParams parameters)
     {
         var stringbuilder = new StringBuilder();
 
@@ -283,7 +432,20 @@ public sealed class MentorManager : IPostInjectInit
             _gameTicker.RunLevel,
             playedSound: false
         );
-        _maxAdditionalChars = GenerateAHelpMessage(defaultParams).Message.Length;
+        _maxAdditionalChars = GenerateMentorMessage(defaultParams).Message.Length;
+    }
+
+    private record struct DiscordRelayedData
+    {
+        /// <summary>
+        /// Was anyone online to receive it.
+        /// </summary>
+        public bool Receivers;
+
+        /// <summary>
+        /// What's the payload to send to discord.
+        /// </summary>
+        public string Message;
     }
 
     public sealed class MentorMessageParams
