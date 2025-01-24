@@ -117,6 +117,10 @@
     price: 40
   - type: IgnitionSource
     temperature: 700
+  - type: Reflect
+    reflectProb: 0.3
+    reflects:
+    - NonEnergy
   - type: Construction
     graph: fuelsword
     node: fuelsword
@@ -201,6 +205,10 @@
         - ReagentId: WeldingFuel
           Quantity: 150
         maxVol: 150
+  - type: Reflect
+    reflectProb: 0.5
+    reflects:
+    - NonEnergy
   - type: Construction
     graph: fuelsworddouble
     node: fuelsworddouble
