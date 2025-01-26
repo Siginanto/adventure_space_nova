@@ -41,7 +41,7 @@ entities:
       name: grid
     - type: Transform
       pos: 5.375742,-1.5783513
-      parent: invalid
+      parent: 13915
     - type: MapGrid
       chunks:
         0,0:
@@ -4362,6 +4362,18 @@ entities:
     - type: NavMap
     - type: BecomesStation
       id: advLoop
+  - uid: 13915
+    components:
+    - type: MetaData
+      name: Map Entity
+    - type: Transform
+    - type: Map
+      mapPaused: True
+    - type: PhysicsMap
+    - type: GridTree
+    - type: MovedGrids
+    - type: Broadphase
+    - type: OccluderTree
 - proto: AcousticGuitarInstrument
   entities:
   - uid: 2659
@@ -40645,7 +40657,7 @@ entities:
       pos: -9.5,51.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -234886.7
+      secondsUntilStateChange: -234935.27
       state: Opening
   - uid: 6747
     components:
@@ -40653,7 +40665,7 @@ entities:
       pos: -8.5,51.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -234887.4
+      secondsUntilStateChange: -234935.97
       state: Opening
   - uid: 6749
     components:
@@ -40661,7 +40673,7 @@ entities:
       pos: -6.5,51.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -234885.97
+      secondsUntilStateChange: -234934.53
       state: Opening
   - uid: 6750
     components:
@@ -40669,7 +40681,7 @@ entities:
       pos: -5.5,51.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -234885.34
+      secondsUntilStateChange: -234933.9
       state: Opening
 - proto: CyberPen
   entities:
@@ -86569,6 +86581,13 @@ entities:
     components:
     - type: Transform
       pos: -62.5,48.5
+      parent: 2
+- proto: SpawnMobMouseRemy
+  entities:
+  - uid: 13916
+    components:
+    - type: Transform
+      pos: -49.5,48.5
       parent: 2
 - proto: SpawnMobParrot
   entities:
