@@ -36,6 +36,9 @@
     sprite: Adventure\Roles\remy.rsi
     equippedPrefix: 0
     quickEquip: false
+  - type: NpcFactionMember
+    factions:
+      - PetsNT
   - type: MobThresholds
     thresholds:
       0: Alive

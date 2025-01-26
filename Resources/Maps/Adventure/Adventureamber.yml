@@ -11669,18 +11669,6 @@ entities:
     - type: GasTileOverlay
     - type: RadiationGridResistance
     - type: NavMap
-  - uid: 20475
-    components:
-    - type: MetaData
-      name: Map Entity
-    - type: Transform
-    - type: Map
-      mapPaused: True
-    - type: PhysicsMap
-    - type: GridTree
-    - type: MovedGrids
-    - type: Broadphase
-    - type: OccluderTree
 - proto: ActionToggleInternals
   entities:
   - uid: 3027
@@ -65628,7 +65616,7 @@ entities:
       pos: -16.5,-17.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -33734.582
+      secondsUntilStateChange: -33671.855
       state: Closing
     - type: DeviceNetwork
       deviceLists:
