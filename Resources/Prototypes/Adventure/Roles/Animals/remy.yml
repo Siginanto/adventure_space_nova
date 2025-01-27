@@ -54,16 +54,10 @@
         Base: splat
 
 - type: entity
-  name: спавнер мышь Реми
-  id: SpawnMobMouseRemy
-  parent: MarkerBase
+  id: HatChefNPCMouseRemy
+  parent: ClothingHeadHatChef
+  suffix: Remy
   components:
-  - type: Sprite
-    layers:
-      - state: green
-      - state: icon
-        sprite: Adventure\Roles\remy.rsi
-      - state: ai
-  - type: ConditionalSpawner
-    prototypes:
-      - MobMouseRemy
+    - type: StorageFill
+      contents:
+        - id: MobMouseRemy
