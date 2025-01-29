@@ -1,6 +1,9 @@
+using Content.Server.GameTicking;
 using Content.Server.Discord;
 using Robust.Shared.Configuration;
 using System.Linq;
+using System.Net.Http;
+using System.Net.Http.Json;
 using System.Threading;
 using System.Threading.Tasks;
 using Content.Server.Database;
@@ -27,11 +30,14 @@ public sealed partial class MentorManager : IPostInjectInit
     [Dependency] private readonly PlayerRateLimitManager _rateLimit = default!;
     [Dependency] private readonly UserDbDataManager _userDb = default!;
     [Dependency] private readonly IConfigurationManager _cfg = default!;
+    [Dependency] private readonly IPlayerLocator _playerLocator = default!;
 
     private string _webhookUrl = string.Empty;
     private WebhookData? _webhookData;
     private ISawmill _sawmill = default!;
     private readonly HttpClient _httpClient = new();
+
+    private readonly Dictionary<NetUserId, DiscordRelayInteraction> _relayMessages = new();
 
     [GeneratedRegex(@"^https://discord\.com/api/webhooks/(\d+)/((?!.*/).*)$")]
     private static partial Regex DiscordRegex();
@@ -41,6 +47,14 @@ public sealed partial class MentorManager : IPostInjectInit
 
     private readonly List<ICommonSession> _activeMentors = new();
     private readonly Dictionary<NetUserId, bool> _mentors = new();
+
+    // Max embed description length is 4096, according to https://discord.com/developers/docs/resources/channel#embed-object-embed-limits
+    // Keep small margin, just to be safe
+    private const ushort DescriptionMax = 4000;
+
+    // Maximum length a message can be before it is cut off
+    // Should be shorter than DescriptionMax
+    private const ushort MessageLengthCap = 3000;
 
     private async Task LoadData(ICommonSession player, CancellationToken cancel)
     {
@@ -447,6 +461,31 @@ public sealed partial class MentorManager : IPostInjectInit
         /// </summary>
         public string Message;
     }
+
+    private sealed class DiscordRelayInteraction
+    {
+        public string? Id;
+
+        public string Username = String.Empty;
+
+        public string? CharacterName;
+
+        /// <summary>
+        /// Contents for the discord message.
+        /// </summary>
+        public string Description = string.Empty;
+
+        /// <summary>
+        /// Run level of the last interaction. If different we'll link to the last Id.
+        /// </summary>
+        public GameRunLevel LastRunLevel;
+
+        /// <summary>
+        /// Did we relay this interaction to OnCall previously.
+        /// </summary>
+        public bool OnCall;
+    }
+
 
     public sealed class MentorMessageParams
     {
