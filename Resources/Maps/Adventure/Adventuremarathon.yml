@@ -70,7 +70,7 @@ entities:
     - type: MetaData
     - type: Transform
       pos: 2.2710133,-2.4148211
-      parent: invalid
+      parent: 22632
     - type: MapGrid
       chunks:
         -1,0:
@@ -10836,7 +10836,7 @@ entities:
       pos: -14.5,24.5
       parent: 30
     - type: Door
-      secondsUntilStateChange: -2201.6243
+      secondsUntilStateChange: -2290.9458
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -96643,6 +96643,13 @@ entities:
     components:
     - type: Transform
       pos: -43.530403,66.65333
+      parent: 30
+- proto: HatChefNPCMouseRemy
+  entities:
+  - uid: 22633
+    components:
+    - type: Transform
+      pos: -14.433979,9.226749
       parent: 30
 - proto: HeatExchanger
   entities:

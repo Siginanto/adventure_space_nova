@@ -41,7 +41,7 @@ entities:
       name: grid
     - type: Transform
       pos: 5.375742,-1.5783513
-      parent: invalid
+      parent: 13915
     - type: MapGrid
       chunks:
         0,0:
@@ -40645,7 +40645,7 @@ entities:
       pos: -9.5,51.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -234886.7
+      secondsUntilStateChange: -234998.8
       state: Opening
   - uid: 6747
     components:
@@ -40653,7 +40653,7 @@ entities:
       pos: -8.5,51.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -234887.4
+      secondsUntilStateChange: -234999.5
       state: Opening
   - uid: 6749
     components:
@@ -40661,7 +40661,7 @@ entities:
       pos: -6.5,51.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -234885.97
+      secondsUntilStateChange: -234998.06
       state: Opening
   - uid: 6750
     components:
@@ -40669,7 +40669,7 @@ entities:
       pos: -5.5,51.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -234885.34
+      secondsUntilStateChange: -234997.44
       state: Opening
 - proto: CyberPen
   entities:
@@ -71407,6 +71407,13 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -1.4779639,50.30927
+      parent: 2
+- proto: HatChefNPCMouseRemy
+  entities:
+  - uid: 13916
+    components:
+    - type: Transform
+      pos: -49.472656,47.221836
       parent: 2
 - proto: HighSecArmoryLocked
   entities:
