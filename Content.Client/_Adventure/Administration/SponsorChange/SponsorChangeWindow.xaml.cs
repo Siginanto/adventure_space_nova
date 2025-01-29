@@ -18,14 +18,14 @@ public sealed partial class SponsorChangeWindow : FancyWindow
 {
     public event Action<string>? OnUsernameEntered;
     public event Action<string?>? OnTierSelected;
-    public List<ProtoId<SponsorTierPrototype>> _protos;
-    public SponsorChangeWindow(List<ProtoId<SponsorTierPrototype>> protos)
+    public List<SponsorTierPrototype> _protos;
+    public SponsorChangeWindow(List<SponsorTierPrototype> protos)
     {
         RobustXamlLoader.Load(this);
         _protos = protos;
         PlayerNameLine.OnTextEntered += e => OnUsernameEntered?.Invoke(e.Text);
         PlayerNameLine.OnFocusExit += e => OnUsernameEntered?.Invoke(e.Text);
-        for (int i = 0; i < _protos.Length; i++)
+        for (int i = 0; i < _protos.Count; i++)
         {
             var proto = protos[i];
             SponsorTierOption.AddItem(proto.ID, i);
@@ -42,25 +42,25 @@ public sealed partial class SponsorChangeWindow : FancyWindow
             OnTierSelected?.Invoke(null);
             return;
         }
-        OnTierSelected?.Invoke(_protos[args.Id]);
+        OnTierSelected?.Invoke(_protos[args.Id].ID);
     }
 
     // I don't care if it can silently fail, validate your shit yourself!
-    public void SelectSponsorTier(ProtoId<SponsorTierPrototype>? proto)
+    public void SelectSponsorTier(SponsorTierPrototype? proto)
     {
         if (proto == null)
         {
             SponsorTierOption.SelectId(-1);
             return;
         }
-        var ind = _protos.IndexOf(proto);
+        var ind = _protos.IndexOf(proto.Value);
         if (ind == -1) return;
         SponsorTierOption.SelectId(ind);
     }
 
     public void SetMenuEnabled(bool enabled)
     {
-        SponsorTierOption.Enabled = enabled;
+        SponsorTierOption.Disabled = !enabled;
     }
 
     public string GetUsername()

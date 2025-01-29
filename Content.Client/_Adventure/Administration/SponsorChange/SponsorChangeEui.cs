@@ -1,18 +1,26 @@
+using System.Linq;
 using Content.Client.Eui;
 using Content.Shared.Cloning;
 using Content.Shared.Eui;
+using Content.Shared._Adventure.Sponsors;
 using JetBrains.Annotations;
 using Robust.Client.Graphics;
+using Robust.Shared.Prototypes;
 
 namespace Content.Client._Adventure.Administration.SponsorChange;
+
 [UsedImplicitly]
 public sealed class SponsorChangeEui : BaseEui
 {
+    [Dependency] private readonly IPrototypeManager _proto = default!;
+
     private readonly SponsorChangeWindow _window;
 
     public SponsorChangeEui()
     {
-        _window = new SponsorChangeWindow();
+        IoCManager.InjectDependencies(this);
+        var protos = _proto.EnumeratePrototypes<SponsorTierPrototype>().ToList();
+        _window = new SponsorChangeWindow(protos);
         _window.OnUsernameEntered += (username) => SendMessage(GetPlayerSponsorInfoRequest(username));
         _window.OnTierSelected += (tier) => SetSponsorTierRequest(_window.GetUsername(), tier);
         _window.OnClose += () => SendMessage(new CloseEuiMessage());
@@ -58,9 +66,11 @@ public sealed class SponsorChangeEui : BaseEui
         if (state is not SponsorChangeEuiState s)
             return;
 
-        _window.PlayerNameLine.Text = s.Username;
+        if (_proto.Index<>(s.Tier, out var proto))
+
+        _window.SetPlayerName(s.Username);
         _window.SetMenuEnabled(s.IsValid);
         if (s.IsValid)
-            _window.SelectSponsorTier(s.Tier ?? null);
+            _window.SelectSponsorTier(proto ?? null);
     }
 }

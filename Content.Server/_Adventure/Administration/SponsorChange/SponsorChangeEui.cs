@@ -1,7 +1,10 @@
+using Content.Server.Administration.Managers;
+using Content.Server.Database;
 using Content.Server.EUI;
 using Content.Shared.Cloning;
 using Content.Shared.Eui;
 using Content.Shared.Mind;
+using Content.Shared._Adventure.Sponsors;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server._Adventure.Administration.SponsorChange;
