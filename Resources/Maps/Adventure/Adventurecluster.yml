@@ -50,7 +50,7 @@ entities:
     - type: MetaData
     - type: Transform
       pos: -0.484375,-0.5
-      parent: invalid
+      parent: 12679
     - type: MapGrid
       chunks:
         0,0:
@@ -55142,6 +55142,13 @@ entities:
     components:
     - type: Transform
       pos: -18.5,-50.5
+      parent: 1
+- proto: HatChefNPCMouseRemy
+  entities:
+  - uid: 12680
+    components:
+    - type: Transform
+      pos: 2.5185199,2.5625
       parent: 1
 - proto: HeadSkeleton
   entities:

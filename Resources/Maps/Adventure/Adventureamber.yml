@@ -53,7 +53,7 @@ entities:
       name: grid
     - type: Transform
       pos: 0.53697205,0.547603
-      parent: invalid
+      parent: 20475
     - type: BecomesStation
       id: AdvAmber
     - type: MapGrid
@@ -55314,6 +55314,13 @@ entities:
     - type: Transform
       pos: -17.5,-57.5
       parent: 2
+- proto: HatChefNPCMouseRemy
+  entities:
+  - uid: 20476
+    components:
+    - type: Transform
+      pos: -8.760822,-30.469727
+      parent: 2
 - proto: CrateSecurityTrackingMindshieldImplants
   entities:
   - uid: 4184
@@ -65616,7 +65623,7 @@ entities:
       pos: -16.5,-17.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -33671.855
+      secondsUntilStateChange: -33846.67
       state: Closing
     - type: DeviceNetwork
       deviceLists:
