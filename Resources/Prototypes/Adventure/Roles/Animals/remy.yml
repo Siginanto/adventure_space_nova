@@ -7,7 +7,7 @@
   components:
   - type: Sprite
     drawdepth: SmallMobs
-    sprite: Adventure\Roles\remy.rsi
+    sprite: Adventure/Roles/remy.rsi
     layers:
     - map: ["enum.DamageStateVisualLayers.Base", "movement"]
       state: mouse
@@ -33,7 +33,7 @@
       head:
       - state: equipped-HELMET
         offset: "0, 0.03"
-    sprite: Adventure\Roles\remy.rsi
+    sprite: Adventure/Roles/remy.rsi
     equippedPrefix: 0
     quickEquip: false
   - type: NpcFactionMember
