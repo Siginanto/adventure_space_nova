@@ -124,6 +124,13 @@
         /// </summary>
         NameColor = 1 << 21,
 
+        // Adventure sponsor api begin
+        /// <summary>
+        ///     Lets you edit sponsors' tiers.
+        /// </summary>
+        SponsorEdit = 1 << 27,
+        // Adventure sponsor api end
+
         /// <summary>
         ///     Dangerous host permissions like scsi.
         /// </summary>

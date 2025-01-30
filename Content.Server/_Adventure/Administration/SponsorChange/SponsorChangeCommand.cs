@@ -5,7 +5,7 @@ using Robust.Shared.Console;
 
 namespace Content.Server._Adventure.Administration.SponsorChange;
 
-[AdminCommand(AdminFlags.Host)]
+[AdminCommand(AdminFlags.SponsorEdit)]
 public sealed class SponsorChangeCommand : IConsoleCommand
 {
     public string Command => "sponsorchange";
