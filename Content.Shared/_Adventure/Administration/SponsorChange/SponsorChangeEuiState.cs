@@ -9,13 +9,13 @@ namespace Content.Shared._Adventure.Administration.SponsorChange;
 public sealed class SponsorChangeEuiState : EuiStateBase
 {
     public string Username { get; }
-    public bool IsValid { get; }
+    public bool IsValidUser { get; }
     public ProtoId<SponsorTierPrototype>? Tier { get; }
 
-    public SponsorChangeEuiState(string username, bool isValid, ProtoId<SponsorTierPrototype> tier)
+    public SponsorChangeEuiState(string username, bool isValidUser, ProtoId<SponsorTierPrototype>? tier)
     {
         Username = username;
-        IsValid = isValid;
+        IsValidUser = isValidUser;
         Tier = tier;
     }
 }

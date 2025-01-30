@@ -18,8 +18,9 @@ public sealed partial class SponsorChangeWindow : FancyWindow
 {
     public event Action<string>? OnUsernameEntered;
     public event Action<string?>? OnTierSelected;
-    public List<SponsorTierPrototype> _protos;
-    public SponsorChangeWindow(List<SponsorTierPrototype> protos)
+    // List of all possible sponsor tiers, "not a sponsor" is not a tier, so not nullable.
+    public List<ProtoId<SponsorTierPrototype>> _protos;
+    public SponsorChangeWindow(List<ProtoId<SponsorTierPrototype>> protos)
     {
         RobustXamlLoader.Load(this);
         _protos = protos;
@@ -28,7 +29,7 @@ public sealed partial class SponsorChangeWindow : FancyWindow
         for (int i = 0; i < _protos.Count; i++)
         {
             var proto = protos[i];
-            SponsorTierOption.AddItem(proto.ID, i);
+            SponsorTierOption.AddItem(proto.Id, i);
         }
         SponsorTierOption.AddItem("По умолчанию", -1);
         // SponsorTierOption.OnItemSelected += args => SponsorTierOption.SelectId(args.Id);
@@ -42,11 +43,11 @@ public sealed partial class SponsorChangeWindow : FancyWindow
             OnTierSelected?.Invoke(null);
             return;
         }
-        OnTierSelected?.Invoke(_protos[args.Id].ID);
+        OnTierSelected?.Invoke(_protos[args.Id].Id);
     }
 
     // I don't care if it can silently fail, validate your shit yourself!
-    public void SelectSponsorTier(SponsorTierPrototype? proto)
+    public void SelectSponsorTier(ProtoId<SponsorTierPrototype>? proto)
     {
         if (proto == null)
         {
@@ -61,6 +62,11 @@ public sealed partial class SponsorChangeWindow : FancyWindow
     public void SetMenuEnabled(bool enabled)
     {
         SponsorTierOption.Disabled = !enabled;
+    }
+
+    public void SetPlayerName(string name)
+    {
+        PlayerNameLine.Text = name;
     }
 
     public string GetUsername()

@@ -4,6 +4,6 @@
                       MinSize="400 0">
     <BoxContainer Orientation="Vertical">
         <LineEdit Name="PlayerNameLine" HorizontalExpand="True" PlaceHolder="Username" />
-        <OptionButton Name="SponsorTierOption" Enabled="false" />
+        <OptionButton Name="SponsorTierOption" Disabled="True" />
     </BoxContainer>
 </controls:FancyWindow>

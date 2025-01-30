@@ -35,7 +35,7 @@ public sealed class SponsorsManager : ISponsorsManager
     private string _apiUrl = string.Empty;
 
     [ViewVariables(VVAccess.ReadWrite)]
-    public readonly Dictionary<NetUserId, SponsorTierPrototype> Sponsors = new();
+    public readonly Dictionary<NetUserId, SponsorTierPrototype?> Sponsors = new();
 
     public Action<INetChannel, ProtoId<SponsorTierPrototype>>? OnSponsorConnected = null;
 
@@ -68,7 +68,7 @@ public sealed class SponsorsManager : ISponsorsManager
 
     private void OnConnected(object? sender, NetChannelArgs e)
     {
-        if (!Sponsors.TryGetValue(e.Channel.UserId, out var sponsor))
+        if (!Sponsors.TryGetValue(e.Channel.UserId, out var sponsor) || sponsor is null)
             return;
         _sawmill.Debug($"Sponsor connected, invoking connection action");
         OnSponsorConnected?.Invoke(e.Channel, sponsor.ID);
@@ -109,7 +109,7 @@ public sealed class SponsorsManager : ISponsorsManager
 
     public int GetAdditionalCharacterSlots(NetUserId userId)
     {
-        if (!Sponsors.TryGetValue(userId, out var tier))
+        if (!Sponsors.TryGetValue(userId, out var tier) || tier is null)
             return 0;
         return tier.AdditionalCharacterSlots;
     }
