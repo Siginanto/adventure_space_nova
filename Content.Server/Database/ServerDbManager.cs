@@ -26,6 +26,8 @@ namespace Content.Server.Database
 {
     public interface IServerDbManager
     {
+        Task SetPlayerRecordSponsor(NetUserId userId, string? sponsorTier); // Adventure sponsor api
+
         void Init();
 
         void Shutdown();
@@ -389,6 +391,15 @@ namespace Content.Server.Database
 
     public sealed class ServerDbManager : IServerDbManager
     {
+
+        // Adventure sponsor api begin
+        public Task SetPlayerRecordSponsor(NetUserId userId, string? sponsorTier)
+        {
+            DbReadOpsMetric.Inc();
+            return RunDbCommand(() => _db.SetPlayerRecordSponsor(userId, sponsorTier));
+        }
+        // Adventure sponsor api end
+
         public static readonly Counter DbReadOpsMetric = Metrics.CreateCounter(
             "db_read_ops",
             "Amount of read operations processed by the database manager.");
