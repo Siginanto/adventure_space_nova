@@ -1,39 +1,53 @@
-using Content.Server.GameTicking;
-using Content.Server.Discord;
-using Robust.Shared.Configuration;
-using System.Linq;
-using System.Net.Http;
-using System.Net.Http.Json;
-using System.Threading;
-using System.Threading.Tasks;
+using Content.Server.Administration.Managers;
+using Content.Server.Administration;
+using Content.Server.Afk;
 using Content.Server.Database;
+using Content.Server.Discord;
+using Content.Server.GameTicking;
 using Content.Server.Players.RateLimiting;
-using Content.Shared._RMC14.CCVar;
-using Content.Shared._RMC14.Mentor;
 using Content.Shared.Administration;
+using Content.Shared.GameTicking;
+using Content.Shared.Mind;
 using Content.Shared.Players.RateLimiting;
 using Content.Shared.Roles;
+using Content.Shared._RMC14.CCVar;
+using Content.Shared._RMC14.Mentor;
 using Robust.Server.Player;
+using Robust.Shared.Configuration;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
+using System.Linq;
+using System.Net.Http.Json;
+using System.Net.Http;
+using System.Text.Json.Nodes;
+using System.Text.Json;
 using System.Text.RegularExpressions;
+using System.Text;
+using System.Threading.Tasks;
+using System.Threading;
 
 namespace Content.Server._RMC14.Mentor;
 
 public sealed partial class MentorManager : IPostInjectInit
 {
-    [Dependency] private readonly IServerDbManager _db = default!;
+    [Dependency] private readonly IAdminManager _admin = default!;
+    [Dependency] private readonly IAfkManager _afk = default!;
+    [Dependency] private readonly IConfigurationManager _cfg = default!;
+    [Dependency] private readonly IEntitySystemManager _systems = default!;
     [Dependency] private readonly ILogManager _log = default!;
     [Dependency] private readonly INetManager _net = default!;
+    [Dependency] private readonly IPlayerLocator _playerLocator = default!;
     [Dependency] private readonly IPlayerManager _player = default!;
+    [Dependency] private readonly IServerDbManager _db = default!;
     [Dependency] private readonly PlayerRateLimitManager _rateLimit = default!;
     [Dependency] private readonly UserDbDataManager _userDb = default!;
-    [Dependency] private readonly IConfigurationManager _cfg = default!;
-    [Dependency] private readonly IPlayerLocator _playerLocator = default!;
 
     private string _webhookUrl = string.Empty;
     private WebhookData? _webhookData;
+
+    private WebhookData? _onCallData;
+
     private ISawmill _sawmill = default!;
     private readonly HttpClient _httpClient = new();
 
@@ -45,8 +59,11 @@ public sealed partial class MentorManager : IPostInjectInit
     private const string RateLimitKey = "MentorHelp";
     private static readonly ProtoId<JobPrototype> MentorJob = "CMSeniorEnlistedAdvisor";
 
+    private Dictionary<NetUserId, string> _oldMessageIds = new();
+    private readonly HashSet<NetUserId> _processingChannels = new();
     private readonly List<ICommonSession> _activeMentors = new();
     private readonly Dictionary<NetUserId, bool> _mentors = new();
+    private string _serverName = "Adventure Space";
 
     // Max embed description length is 4096, according to https://discord.com/developers/docs/resources/channel#embed-object-embed-limits
     // Keep small margin, just to be safe
@@ -55,6 +72,20 @@ public sealed partial class MentorManager : IPostInjectInit
     // Maximum length a message can be before it is cut off
     // Should be shorter than DescriptionMax
     private const ushort MessageLengthCap = 3000;
+
+    // Text to be used to cut off messages that are too long. Should be shorter than MessageLengthCap
+    private const string TooLongText = "... **(too long)**";
+
+    private int _maxAdditionalChars;
+
+    private GameTicker? _gameTicker = null;
+    private SharedMindSystem? _minds = null;
+
+    public void PostInit()
+    {
+        _gameTicker = _systems.GetEntitySystem<GameTicker>();
+        _minds = _systems.GetEntitySystem<SharedMindSystem>();
+    }
 
     private async Task LoadData(ICommonSession player, CancellationToken cancel)
     {
@@ -242,32 +273,30 @@ public sealed partial class MentorManager : IPostInjectInit
                 }
             }
 
-            var characterName = _minds.GetCharacterName(userId);
+            var characterName = _minds?.GetCharacterName(userId) ?? "Unknown";
             existingEmbed = new DiscordRelayInteraction()
             {
                 Id = null,
                 CharacterName = characterName,
                 Description = linkToPrevious,
                 Username = lookup.Username,
-                LastRunLevel = _gameTicker.RunLevel,
+                LastRunLevel = _gameTicker?.RunLevel ?? GameRunLevel.InRound,
             };
 
             _relayMessages[userId] = existingEmbed;
         }
 
         // Previous message was in another RunLevel, so show that in the embed
-        if (existingEmbed!.LastRunLevel != _gameTicker.RunLevel)
+        if (existingEmbed!.LastRunLevel != _gameTicker?.RunLevel)
         {
-            existingEmbed.Description += _gameTicker.RunLevel switch
+            existingEmbed.Description += (_gameTicker?.RunLevel ?? GameRunLevel.InRound) switch
             {
                 GameRunLevel.PreRoundLobby => "\n\n:arrow_forward: _**Pre-round lobby started**_\n",
                     GameRunLevel.InRound => "\n\n:arrow_forward: _**Round started**_\n",
-                    GameRunLevel.PostRound => "\n\n:stop_button: _**Post-round started**_\n",
-                    _ => throw new ArgumentOutOfRangeException(nameof(_gameTicker.RunLevel),
-                                                               $"{_gameTicker.RunLevel} was not matched."),
+                    GameRunLevel.PostRound => "\n\n:stop_button: _**Post-round started**_\n"
                     };
 
-            existingEmbed.LastRunLevel = _gameTicker.RunLevel;
+            existingEmbed.LastRunLevel = _gameTicker?.RunLevel ?? GameRunLevel.InRound;
         }
 
         // If last message of the new batch is SOS then relay it to on-call.
@@ -351,6 +380,54 @@ public sealed partial class MentorManager : IPostInjectInit
         _processingChannels.Remove(userId);
     }
 
+    private WebhookPayload GeneratePayload(string messages, string username, string? characterName = null)
+    {
+        // Add character name
+        if (characterName != null)
+            username += $" ({characterName})";
+
+        // If no admins are online, set embed color to red. Otherwise green
+        var color = GetNonAfkAdmins().Count > 0 ? 0x41F097 : 0xFF0000;
+
+        // Limit server name to 1500 characters, in case someone tries to be a little funny
+        var serverName = _serverName[..Math.Min(_serverName.Length, 1500)];
+
+        var round = (_gameTicker?.RunLevel ?? GameRunLevel.InRound) switch
+            {
+                GameRunLevel.PreRoundLobby => (_gameTicker?.RoundId ?? 0) == 0
+                ? "pre-round lobby after server restart" // first round after server restart has ID == 0
+                : $"pre-round lobby for round {(_gameTicker?.RoundId ?? 0) + 1}",
+                GameRunLevel.InRound => $"round {(_gameTicker?.RoundId ?? 0)}",
+                GameRunLevel.PostRound => $"post-round {(_gameTicker?.RoundId ?? 0)}"
+            };
+
+        return new WebhookPayload
+        {
+            Username = username,
+            Embeds = new List<WebhookEmbed>
+            {
+                new()
+                {
+                    Description = messages,
+                    Color = color,
+                    Footer = new WebhookEmbedFooter
+                    {
+                        Text = $"{serverName} ({round})"
+                    },
+                },
+            },
+        };
+    }
+
+    private IList<INetChannel> GetNonAfkAdmins()
+    {
+        return _admin.ActiveAdmins
+            .Where(p => (_admin.GetAdminData(p)?.HasFlag(AdminFlags.Adminhelp) ?? false) &&
+                   !_afk.IsAfk(p))
+            .Select(p => p.Channel)
+            .ToList();
+    }
+
     private async void OnWebhookChanged(string url)
     {
         _webhookUrl = url;
@@ -363,13 +440,13 @@ public sealed partial class MentorManager : IPostInjectInit
         if (!match.Success)
         {
             // TODO: Ideally, CVar validation during setting should be better integrated
-            Log.Warning("Webhook URL does not appear to be valid. Using anyways...");
+            _sawmill.Warning("Webhook URL does not appear to be valid. Using anyways...");
             return;
         }
 
         if (match.Groups.Count <= 2)
         {
-            Log.Error("Could not get webhook ID or token.");
+            _sawmill.Error("Could not get webhook ID or token.");
             return;
         }
 
@@ -427,7 +504,7 @@ public sealed partial class MentorManager : IPostInjectInit
         _userDb.AddOnLoadPlayer(LoadData);
         _userDb.AddOnFinishLoad(FinishLoad);
         _userDb.AddOnPlayerDisconnect(ClientDisconnected);
-        _cfg.OnValueChanged(CCVars.DiscordMentorWebhook, OnWebhookChanged, true);
+        _cfg.OnValueChanged(RMCCVars.DiscordMentorWebhook, OnWebhookChanged, true);
         _rateLimit.Register(
             RateLimitKey,
             new RateLimitRegistration(
@@ -441,10 +518,8 @@ public sealed partial class MentorManager : IPostInjectInit
         var defaultParams = new MentorMessageParams(
             string.Empty,
             string.Empty,
-            true,
-            _gameTicker.RoundDuration().ToString("hh\\:mm\\:ss"),
-            _gameTicker.RunLevel,
-            playedSound: false
+            _gameTicker?.RoundDuration().ToString("hh\\:mm\\:ss") ?? "Unknown",
+            _gameTicker?.RunLevel ?? GameRunLevel.InRound
         );
         _maxAdditionalChars = GenerateMentorMessage(defaultParams).Message.Length;
     }
@@ -504,7 +579,6 @@ public sealed partial class MentorManager : IPostInjectInit
         {
             Username = username;
             Message = message;
-            IsAdmin = isAdmin;
             RoundTime = roundTime;
             RoundState = roundState;
             NoReceivers = noReceivers;
