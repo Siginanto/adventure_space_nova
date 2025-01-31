@@ -60,6 +60,7 @@ public sealed partial class MentorManager : IPostInjectInit
     private static readonly ProtoId<JobPrototype> MentorJob = "CMSeniorEnlistedAdvisor";
 
     private Dictionary<NetUserId, string> _oldMessageIds = new();
+    private readonly Dictionary<NetUserId, Queue<DiscordRelayedData>> _messageQueues = new();
     private readonly HashSet<NetUserId> _processingChannels = new();
     private readonly List<ICommonSession> _activeMentors = new();
     private readonly Dictionary<NetUserId, bool> _mentors = new();
@@ -232,6 +233,31 @@ public sealed partial class MentorManager : IPostInjectInit
                 _sawmill.Error($"Error sending mentor help message:\n{e}");
             }
         }
+
+        var sendsWebhook = _webhookUrl != string.Empty;
+        if (sendsWebhook)
+        {
+            if (!_messageQueues.ContainsKey(author))
+                _messageQueues[author] = new Queue<DiscordRelayedData>();
+
+            var str = message;
+            var unameLength = destinationName.Length;
+
+            if (unameLength + str.Length + _maxAdditionalChars > DescriptionMax)
+            {
+                str = str[..(DescriptionMax - _maxAdditionalChars - unameLength)];
+            }
+
+            var nonAfkAdmins = GetNonAfkAdmins();
+            var messageParams = new MentorMessageParams(
+                destinationName,
+                str,
+                _gameTicker?.RoundDuration().ToString("hh\\:mm\\:ss") ?? "Unknown",
+                _gameTicker?.RunLevel ?? GameRunLevel.InRound,
+                noReceivers: nonAfkAdmins.Count == 0
+            );
+            _messageQueues[author].Enqueue(GenerateMentorMessage(messageParams));
+        }
     }
 
     private async void ProcessQueue(NetUserId userId, Queue<DiscordRelayedData> messages)
@@ -378,6 +404,24 @@ public sealed partial class MentorManager : IPostInjectInit
         }
 
         _processingChannels.Remove(userId);
+    }
+
+    public void Update()
+    {
+        foreach (var userId in _messageQueues.Keys.ToArray())
+        {
+            if (_processingChannels.Contains(userId))
+                continue;
+
+            var queue = _messageQueues[userId];
+            _messageQueues.Remove(userId);
+            if (queue.Count == 0)
+                continue;
+
+            _processingChannels.Add(userId);
+
+            ProcessQueue(userId, queue);
+        }
     }
 
     private WebhookPayload GeneratePayload(string messages, string username, string? characterName = null)
