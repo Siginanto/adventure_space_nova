@@ -1,4 +1,5 @@
-﻿using System.Diagnostics.CodeAnalysis;
+﻿using System.Linq;
+using System.Diagnostics.CodeAnalysis;
 using Content.Client.Administration.Systems;
 using Content.Client.Stylesheets;
 using Content.Client.UserInterface.Systems.Bwoink;
@@ -163,7 +164,9 @@ public sealed class StaffHelpUIController : UIController, IOnSystemChanged<Bwoin
             {
                 if (OpenWindow(ref _mentorWindow, CreateMentorWindow, () => _mentorWindow = null))
                 {
-                    foreach (var destination in _messages.Keys)
+                    var loginedUsers = _player.SessionsDict.Keys;
+                    var usersList = _messages.Keys.Concat(loginedUsers);
+                    foreach (var destination in usersList)
                     {
                         MentorAddPlayerButton(destination);
                     }
