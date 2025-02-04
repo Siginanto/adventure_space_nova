@@ -1,5 +1,6 @@
 using Content.Server._Adventure.TTS; // c4llv07e tts
 using Content.Server._Adventure.Sponsors; // c4llv07e sponsors
+using Content.Server._RMC14.Mentor; // c4llv07e sponsors
 using Content.Server.Acz;
 using Content.Server.Administration;
 using Content.Server.Administration.Logs;
@@ -150,6 +151,7 @@ namespace Content.Server.Entry
             }
             else
             {
+                IoCManager.Resolve<MentorManager>().PostInit(); // Adventure Mentor
                 IoCManager.Resolve<RecipeManager>().Initialize();
                 IoCManager.Resolve<IAdminManager>().Initialize();
                 IoCManager.Resolve<IAfkManager>().Initialize();

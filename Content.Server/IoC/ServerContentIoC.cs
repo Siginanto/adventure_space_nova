@@ -1,6 +1,7 @@
 using Content.Server._Adventure.TTS; // c4llv07e tts
 using Content.Server._Adventure.Sponsors; // c4llv07e sponsors
 using Content.Shared._Adventure.Sponsors; // c4llv07e sponsors
+using Content.Server._RMC14.Mentor; // taken from RMC-14
 using Content.Server.Administration;
 using Content.Server.Administration.Logs;
 using Content.Server.Administration.Managers;
@@ -87,6 +88,7 @@ namespace Content.Server.IoC
             IoCManager.Register<IWatchlistWebhookManager, WatchlistWebhookManager>();
             IoCManager.Register<ConnectionManager>();
             IoCManager.Register<MultiServerKickManager>();
+            IoCManager.Register<MentorManager>();
         }
     }
 }
