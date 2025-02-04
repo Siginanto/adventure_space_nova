@@ -42,7 +42,7 @@ public sealed class SponsorChangeEui : BaseEui
 
     public override EuiStateBase GetNewState()
     {
-        if (!_admin.HasAdminFlag(Player, AdminFlags.SponsorEdit))
+        if (!_admin.HasAdminFlag(Player, AdminFlags.Host))
         {
             _sawmill.Warning($"{AdminUnique} is tring to use sponsor change pannel without admin rights");
             Close();
@@ -54,7 +54,7 @@ public sealed class SponsorChangeEui : BaseEui
     public override void HandleMessage(EuiMessageBase msg)
     {
         base.HandleMessage(msg);
-        if (!_admin.HasAdminFlag(Player, AdminFlags.SponsorEdit))
+        if (!_admin.HasAdminFlag(Player, AdminFlags.Host))
         {
             _sawmill.Warning($"{AdminUnique} is tring to use sponsor change pannel without admin rights");
             Close();
