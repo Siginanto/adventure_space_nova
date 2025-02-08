@@ -31,7 +31,6 @@ public sealed class StaffHelpUIController : UIController, IOnSystemChanged<Bwoin
     [UISystemDependency] private readonly AudioSystem? _audio = default!;
 
     private readonly Dictionary<NetUserId, List<MentorMessage>> _messages = new();
-    private readonly Dictionary<NetUserId, string> _destinationNames = new();
 
     private bool _isMentor;
     private bool _canReMentor;
@@ -78,7 +77,6 @@ public sealed class StaffHelpUIController : UIController, IOnSystemChanged<Bwoin
                 _aHelp.UnreadAHelpReceived();
             }
 
-            _destinationNames.TryAdd(message.Destination, message.DestinationName);
             _messages.GetOrNew(message.Destination).Add(message);
             if (_mentorWindow is { IsOpen: true })
             {
@@ -239,8 +237,8 @@ public sealed class StaffHelpUIController : UIController, IOnSystemChanged<Bwoin
         }
 
         var playerName = player.ToString();
-        if (_destinationNames.TryGetValue(player, out var destinationName))
-            playerName = destinationName;
+        if (_player.SessionsDict.TryGetValue(player, out var session))
+            playerName = session.Name;
 
         var playerButton = new Button
         {
