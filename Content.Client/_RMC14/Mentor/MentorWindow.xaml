@@ -13,8 +13,11 @@
                              HorizontalExpand="True" VerticalExpand="True">
                     <BoxContainer Orientation="Vertical" HorizontalExpand="True"
                                   VerticalExpand="True">
-                        <BoxContainer Name="Players" Access="Public" Orientation="Vertical"
-                                      VerticalExpand="True" />
+                        <ScrollContainer VerticalExpand="True" HorizontalExpand="True"
+                                         HScrollEnabled="False">
+                            <BoxContainer Name="Players" Access="Public" Orientation="Vertical"
+                                          VerticalExpand="True" />
+                        </ScrollContainer>
                         <Button Name="DeMentorButton" Access="Public" Text="De-Mentor"
                                 StyleClasses="OpenBoth" />
                     </BoxContainer>
