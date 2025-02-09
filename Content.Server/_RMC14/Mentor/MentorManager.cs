@@ -252,7 +252,8 @@ public sealed partial class MentorManager : IPostInjectInit
                 authorName,
                 str,
                 _gameTicker?.RoundDuration().ToString("hh\\:mm\\:ss") ?? "Unknown",
-                _gameTicker?.RunLevel ?? GameRunLevel.InRound
+                _gameTicker?.RunLevel ?? GameRunLevel.InRound,
+                destination != author
             );
             _messageQueues[destination].Enqueue(GenerateMentorMessage(messageParams));
         }
@@ -491,7 +492,10 @@ public sealed partial class MentorManager : IPostInjectInit
     {
         var stringbuilder = new StringBuilder();
 
-        stringbuilder.Append(":inbox_tray:");
+        if (parameters.Replies)
+            stringbuilder.Append(":outbox_tray:");
+        else
+            stringbuilder.Append(":inbox_tray:");
 
         if (parameters.RoundTime != string.Empty && parameters.RoundState == GameRunLevel.InRound)
             stringbuilder.Append($" **{parameters.RoundTime}**");
@@ -530,7 +534,8 @@ public sealed partial class MentorManager : IPostInjectInit
             string.Empty,
             string.Empty,
             _gameTicker?.RoundDuration().ToString("hh\\:mm\\:ss") ?? "Unknown",
-            _gameTicker?.RunLevel ?? GameRunLevel.InRound
+            _gameTicker?.RunLevel ?? GameRunLevel.InRound,
+            false
         );
         _maxAdditionalChars = GenerateMentorMessage(defaultParams).Message.Length;
     }
@@ -574,17 +579,20 @@ public sealed partial class MentorManager : IPostInjectInit
         public string Message { get; set; }
         public string RoundTime { get; set; }
         public GameRunLevel RoundState { get; set; }
+        public bool Replies { get; set; }
 
         public MentorMessageParams(
             string username,
             string message,
             string roundTime,
-            GameRunLevel roundState)
+            GameRunLevel roundState,
+            bool replies)
         {
             Username = username;
             Message = message;
             RoundTime = roundTime;
             RoundState = roundState;
+            Replies = replies;
         }
     }
 }
