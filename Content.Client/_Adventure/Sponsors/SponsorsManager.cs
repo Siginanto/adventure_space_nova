@@ -17,8 +17,10 @@ public sealed class SponsorsManager : ISponsorsManager
         CurrentSponsor = sponsor;
     }
 
-    public SponsorTierPrototype? GetSponsor(NetUserId userId)
+    public SponsorTierPrototype? GetSponsor(NetUserId? userId)
     {
+        if (userId is null)
+            return CurrentSponsor;
         if (userId != _player.LocalUser)
             return null;
         return CurrentSponsor;

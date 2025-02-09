@@ -6,5 +6,5 @@ namespace Content.Shared._Adventure.Sponsors;
 
 public interface ISponsorsManager
 {
-    SponsorTierPrototype? GetSponsor(NetUserId userId);
+    SponsorTierPrototype? GetSponsor(NetUserId? userId);
 }

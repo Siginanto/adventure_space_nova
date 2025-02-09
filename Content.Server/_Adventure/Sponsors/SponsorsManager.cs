@@ -114,9 +114,11 @@ public sealed class SponsorsManager : ISponsorsManager
         return tier.AdditionalCharacterSlots;
     }
 
-    public SponsorTierPrototype? GetSponsor(NetUserId userId)
+    public SponsorTierPrototype? GetSponsor(NetUserId? userId)
     {
-        Sponsors.TryGetValue(userId, out var sponsor);
+        if (userId is null)
+            return null;
+        Sponsors.TryGetValue(userId.Value, out var sponsor);
         return sponsor;
     }
 }
