@@ -237,8 +237,8 @@ public sealed partial class MentorManager : IPostInjectInit
         var sendsWebhook = _webhookUrl != string.Empty;
         if (sendsWebhook)
         {
-            if (!_messageQueues.ContainsKey(author))
-                _messageQueues[author] = new Queue<DiscordRelayedData>();
+            if (!_messageQueues.ContainsKey(destination))
+                _messageQueues[destination] = new Queue<DiscordRelayedData>();
 
             var str = message;
             var unameLength = destinationName.Length;
@@ -248,15 +248,13 @@ public sealed partial class MentorManager : IPostInjectInit
                 str = str[..(DescriptionMax - _maxAdditionalChars - unameLength)];
             }
 
-            var nonAfkAdmins = GetNonAfkAdmins();
             var messageParams = new MentorMessageParams(
-                destinationName,
+                authorName,
                 str,
                 _gameTicker?.RoundDuration().ToString("hh\\:mm\\:ss") ?? "Unknown",
-                _gameTicker?.RunLevel ?? GameRunLevel.InRound,
-                noReceivers: nonAfkAdmins.Count == 0
+                _gameTicker?.RunLevel ?? GameRunLevel.InRound
             );
-            _messageQueues[author].Enqueue(GenerateMentorMessage(messageParams));
+            _messageQueues[destination].Enqueue(GenerateMentorMessage(messageParams));
         }
     }
 
@@ -270,7 +268,7 @@ public sealed partial class MentorManager : IPostInjectInit
             + existingEmbed?.Description.Length > DescriptionMax;
 
         // If there is no existing embed, or it is getting too long, we create a new embed
-        if (!exists || tooLong)
+        if (!exists || tooLong || existingEmbed is null)
         {
             var lookup = await _playerLocator.LookupIdAsync(userId);
 
@@ -311,24 +309,8 @@ public sealed partial class MentorManager : IPostInjectInit
 
             _relayMessages[userId] = existingEmbed;
         }
-
-        // Previous message was in another RunLevel, so show that in the embed
-        if (existingEmbed!.LastRunLevel != _gameTicker?.RunLevel)
-        {
-            existingEmbed.Description += (_gameTicker?.RunLevel ?? GameRunLevel.InRound) switch
-            {
-                GameRunLevel.PreRoundLobby => "\n\n:arrow_forward: _**Pre-round lobby started**_\n",
-                    GameRunLevel.InRound => "\n\n:arrow_forward: _**Round started**_\n",
-                    GameRunLevel.PostRound => "\n\n:stop_button: _**Post-round started**_\n"
-                    };
-
-            existingEmbed.LastRunLevel = _gameTicker?.RunLevel ?? GameRunLevel.InRound;
-        }
-
-        // If last message of the new batch is SOS then relay it to on-call.
-        // ... as long as it hasn't been relayed already.
-        var discordMention = messages.Last();
-        var onCallRelay = !discordMention.Receivers && !existingEmbed.OnCall;
+        if (existingEmbed.Description is null)
+            existingEmbed.Description = string.Empty;
 
         // Add available messages to the embed description
         while (messages.TryDequeue(out var message))
@@ -391,17 +373,6 @@ public sealed partial class MentorManager : IPostInjectInit
         }
 
         _relayMessages[userId] = existingEmbed;
-
-        // Actually do the on call relay last, we just need to grab it before we dequeue every message above.
-        if (onCallRelay &&
-            _onCallData != null)
-        {
-            existingEmbed.OnCall = true;
-        }
-        else
-        {
-            existingEmbed.OnCall = false;
-        }
 
         _processingChannels.Remove(userId);
     }
@@ -520,19 +491,15 @@ public sealed partial class MentorManager : IPostInjectInit
     {
         var stringbuilder = new StringBuilder();
 
-        if (parameters.NoReceivers)
-            stringbuilder.Append(":sos:");
-        else
-            stringbuilder.Append(":inbox_tray:");
+        stringbuilder.Append(":inbox_tray:");
 
         if (parameters.RoundTime != string.Empty && parameters.RoundState == GameRunLevel.InRound)
             stringbuilder.Append($" **{parameters.RoundTime}**");
-        stringbuilder.Append($" **{parameters.Username}** ");
+        stringbuilder.Append($" **{parameters.Username}**: ");
         stringbuilder.Append(parameters.Message);
 
         return new DiscordRelayedData()
         {
-            Receivers = !parameters.NoReceivers,
             Message = stringbuilder.ToString(),
         };
     }
@@ -571,11 +538,6 @@ public sealed partial class MentorManager : IPostInjectInit
     private record struct DiscordRelayedData
     {
         /// <summary>
-        /// Was anyone online to receive it.
-        /// </summary>
-        public bool Receivers;
-
-        /// <summary>
         /// What's the payload to send to discord.
         /// </summary>
         public string Message;
@@ -612,20 +574,17 @@ public sealed partial class MentorManager : IPostInjectInit
         public string Message { get; set; }
         public string RoundTime { get; set; }
         public GameRunLevel RoundState { get; set; }
-        public bool NoReceivers { get; set; }
 
         public MentorMessageParams(
             string username,
             string message,
             string roundTime,
-            GameRunLevel roundState,
-            bool noReceivers = false)
+            GameRunLevel roundState)
         {
             Username = username;
             Message = message;
             RoundTime = roundTime;
             RoundState = roundState;
-            NoReceivers = noReceivers;
         }
     }
 }
